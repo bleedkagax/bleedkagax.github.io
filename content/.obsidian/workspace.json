@@ -13,7 +13,7 @@
             "state": {
               "type": "image",
               "state": {
-                "file": "zassets/Pasted image 20240531165320.png"
+                "file": "static/img/Pasted image 20240323194946.png"
               }
             }
           }
@@ -83,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zassets/Pasted image 20240531165320.png",
+                "file": "static/img/Pasted image 20240323194946.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,7 +100,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zassets/Pasted image 20240531165320.png",
+                "file": "static/img/Pasted image 20240323194946.png",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -123,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zassets/Pasted image 20240531165320.png"
+                "file": "static/img/Pasted image 20240323194946.png"
               }
             }
           }
@@ -145,20 +145,22 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "147d964744069d30",
+  "active": "8eff1e6b37d07fc1",
   "lastOpenFiles": [
-    "zassets/Pasted image 20240531170015.png",
-    "zassets/Pasted image 20240531170241.png",
-    "zassets/Pasted image 20240531170449.png",
-    "zassets/Pasted image 20240531171310.png",
-    "zassets/Pasted image 20240531171334.png",
-    "zassets/Pasted image 20240531181708.png",
-    "zassets/Pasted image 20240531181724.png",
-    "zassets/Pasted image 20240531181358.png",
-    "zassets/Pasted image 20240728100945.png",
-    "zassets/Pasted image 20240905051602.png",
-    "zassets/Pasted image 20240413203748.png",
     "IELTS/Reading/reading-skills.md",
+    "Untitled.md",
+    "static/img",
+    "static",
+    "static/img/zassets/Pasted image 20240531165320.png",
+    "static/img/zassets/Pasted image 20240531170015.png",
+    "static/img/zassets/Pasted image 20240531170241.png",
+    "static/img/zassets/Pasted image 20240531170449.png",
+    "static/img/zassets/Pasted image 20240531171310.png",
+    "static/img/zassets/Pasted image 20240531171334.png",
+    "static/img/zassets/Pasted image 20240531181708.png",
+    "static/img/zassets/Pasted image 20240531181724.png",
+    "static/img/zassets/Pasted image 20240531181358.png",
+    "static/img/zassets/Pasted image 20240728100945.png",
     "2023-04-01.md",
     "IELTS/overview.md",
     "IELTS/Writing/Chart Essay.md",
@@ -175,10 +177,9 @@
     "Work/software_theme_unification.md",
     "IELTS/todo/77_collocations.md",
     "Books/词根词缀大全.md",
-    "Untitled.md",
     "iobsidian copy/IELTS/Doc/Charile听力训练营讲义.pdf",
-    "zassets/refactor/media",
-    "zassets/deep_design_patterns/media",
+    "static/img/zassets/refactor/media",
+    "static/img/zassets/deep_design_patterns/media",
     "IELTS/Writing/writing_skills.md",
     "IELTS/Writing/writing_corpus.md",
     "IELTS/Writing/map_essay.md",
@@ -190,8 +191,6 @@
     "iobsidian copy/IELTS/Doc/图表类小作文补充表达.docx",
     "iobsidian copy/IELTS/Doc/图表类小作文补充表达 1.docx",
     "iobsidian copy/IELTS/Doc/何琼雅思听力必考改写.pdf",
-    "iobsidian copy/IELTS/Doc/何琼雅思听力常见复合词和带连字符单词总结.pdf",
-    "iobsidian copy/IELTS/Doc/何琼雅思听力2023年最新版必考词汇（注意方法）.pdf",
-    "iobsidian copy/IELTS/Doc/Charlie阅读训练营讲义.pdf"
+    "iobsidian copy/IELTS/Doc/何琼雅思听力常见复合词和带连字符单词总结.pdf"
   ]
 }
