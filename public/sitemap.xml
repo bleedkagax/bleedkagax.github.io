@@ -2,9 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/obsidian/cs/common/deep-dive-into-design-patterns/</loc>
+  </url><url>
+    <loc>http://localhost:1313/obsidian/cs/common/refactor/</loc>
+  </url><url>
+    <loc>http://localhost:1313/obsidian/cs/python/dive-into-python-3/</loc>
+  </url><url>
+    <loc>http://localhost:1313/obsidian/fitness/correction-of-anterior-humerus/</loc>
+  </url><url>
+    <loc>http://localhost:1313/obsidian/ielts/listening/listening-outline/</loc>
+  </url><url>
+    <loc>http://localhost:1313/obsidian/ielts/listening/listening-skills/</loc>
+  </url><url>
+    <loc>http://localhost:1313/obsidian/ielts/listening/wanglu-807/</loc>
+  </url><url>
+    <loc>http://localhost:1313/obsidian/ielts/overview/</loc>
+  </url><url>
+    <loc>http://localhost:1313/obsidian/ielts/reading/reading-skills/</loc>
+  </url><url>
+    <loc>http://localhost:1313/obsidian/ielts/speaking/common-idioms/</loc>
+  </url><url>
+    <loc>http://localhost:1313/obsidian/ielts/speaking/native-speaker-1000/</loc>
+  </url><url>
+    <loc>http://localhost:1313/obsidian/ielts/speaking/speaking-collocation/</loc>
+  </url><url>
+    <loc>http://localhost:1313/obsidian/ielts/speaking/speaking-skills/</loc>
+  </url><url>
+    <loc>http://localhost:1313/obsidian/ielts/writing/chart-essay/</loc>
+  </url><url>
+    <loc>http://localhost:1313/obsidian/ielts/writing/flowchart_essay/</loc>
+  </url><url>
+    <loc>http://localhost:1313/obsidian/ielts/writing/from_web/</loc>
+  </url><url>
+    <loc>http://localhost:1313/obsidian/ielts/writing/map_essay/</loc>
+  </url><url>
+    <loc>http://localhost:1313/obsidian/ielts/writing/writing_corpus/</loc>
+  </url><url>
+    <loc>http://localhost:1313/obsidian/ielts/writing/writing_corpus_for_dictation/</loc>
+  </url><url>
+    <loc>http://localhost:1313/obsidian/ielts/writing/writing_skills/</loc>
+  </url><url>
+    <loc>http://localhost:1313/obsidian/work/git/</loc>
+  </url><url>
+    <loc>http://localhost:1313/obsidian/work/mac/</loc>
+  </url><url>
+    <loc>http://localhost:1313/obsidian/work/software_theme_unification/</loc>
+  </url><url>
     <loc>http://localhost:1313/categories/</loc>
   </url><url>
     <loc>http://localhost:1313/</loc>
+  </url><url>
+    <loc>http://localhost:1313/obsidian/</loc>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
   </url>
