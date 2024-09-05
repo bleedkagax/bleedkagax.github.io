@@ -11,9 +11,11 @@
             "id": "147d964744069d30",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "static/img/Pasted image 20240323194946.png"
+                "file": "IELTS/Reading/reading-skills.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -83,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "static/img/Pasted image 20240323194946.png",
+                "file": "IELTS/Reading/reading-skills.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "static/img/Pasted image 20240323194946.png",
+                "file": "IELTS/Reading/reading-skills.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -123,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "static/img/Pasted image 20240323194946.png"
+                "file": "IELTS/Reading/reading-skills.md"
               }
             }
           }
@@ -145,9 +147,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "8eff1e6b37d07fc1",
+  "active": "147d964744069d30",
   "lastOpenFiles": [
+    "static/img/Pasted image 20240323194946.png",
     "IELTS/Reading/reading-skills.md",
+    "static/img/zassets/writing/Pasted image 20240322231026.png",
     "Untitled.md",
     "static/img",
     "static",
@@ -159,8 +163,6 @@
     "static/img/zassets/Pasted image 20240531171334.png",
     "static/img/zassets/Pasted image 20240531181708.png",
     "static/img/zassets/Pasted image 20240531181724.png",
-    "static/img/zassets/Pasted image 20240531181358.png",
-    "static/img/zassets/Pasted image 20240728100945.png",
     "2023-04-01.md",
     "IELTS/overview.md",
     "IELTS/Writing/Chart Essay.md",
