@@ -24,7 +24,6 @@ Triple quotes
 ```python
 def approximate_size(size, a_kilobyte_is_1024_bytes=True):
     '''Convert a file size to human-readable form.
-<!--ID: 1720005573526-->
 
 
     Keyword arguments:
@@ -49,7 +48,6 @@ one of the function’s attributes, `__doc__`
 >>> import humansize
 >>> print(humansize.approximate_size.__doc__)
 Convert a file size to human-readable form.
-<!--ID: 1720005573528-->
 
 
     Keyword arguments:
