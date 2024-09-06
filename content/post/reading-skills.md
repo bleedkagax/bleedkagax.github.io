@@ -12,7 +12,7 @@ share: "true"
 词汇 + 语法 + 解题技巧 + 阅读量
 # 语法
 ## 从句
-![reading-skills.png](../../static/img/reading-skills.png)
+![reading-skills.png](/static/img/reading-skills.png)
 ## 非谓语 
 ![reading-skills-28.png](../../static/img/reading-skills-28.png)
 # 核心：同义替换
