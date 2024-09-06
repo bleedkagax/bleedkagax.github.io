@@ -12,9 +12,9 @@ share: "true"
 词汇 + 语法 + 解题技巧 + 阅读量
 # 语法
 ## 从句
-![reading-skills.png](/img/reading-skills.png)
+![img/reading-skills.png](img/reading-skills.png)
 ## 非谓语 
-![reading-skills-46.png](/img/reading-skills-46.png)
+![img/reading-skills-46.png](img/reading-skills-46.png)
 # 核心：同义替换
 - 同义词
 - 同义短语
@@ -39,7 +39,7 @@ share: "true"
 带着问题去读文章定位，文章只读一遍、各题型平行
 做题；
 对比答案句和题目进行解题
- ![reading-skills-47.png](/img/reading-skills-47.png)
+ ![img/reading-skills-47.png](img/reading-skills-47.png)
 # 1. 预读题目圈关键词
 ## 做题顺序
 ### 顺序题 
@@ -193,14 +193,14 @@ the most K = more K than any other .../more K than all other...
 解题：
 同义替换改写
 ### 考察并列关系对应
-![reading-skills-48.png](/img/reading-skills-48.png)
+![img/reading-skills-48.png](img/reading-skills-48.png)
 - 并列中可改顺序
 - 并列中可单独拿出一两个逻辑上没有问题
 - 改写 A and other B = B such as/including A
 ### 考察转折让步关系对应
-![reading-skills-49.png](/img/reading-skills-49.png)
+![img/reading-skills-49.png](img/reading-skills-49.png)
 ### 考察因果让步关系对应
-![reading-skills-50.png](/img/reading-skills-50.png)
+![img/reading-skills-50.png](img/reading-skills-50.png)
 ### 被动改写
 主动被动改写：同时动词可能同义替换。改成被动句后 By + 主体。
 ### 定语从句改写
@@ -212,7 +212,7 @@ the most K = more K than any other .../more K than all other...
 ### 介绍专有名词常用 called/named/known as/引号/破折号/, a... 同位语等来引出名称
 
 ### 注意填空前的否定词对应
-![reading-skills-51.png](/img/reading-skills-51.png)
+![img/reading-skills-51.png](img/reading-skills-51.png)
 ### 选词填空
 当成普通填空来做，选项可能是原词，也可能是同义替换。
 - 注意单复数对应
@@ -257,7 +257,7 @@ what solution?
 	     - example：找具体例子
 	     - reason：找具体原因
 	     - statistics/data：找具体数字数据
-	- 意思相近的同义替换分好类![reading-skills-52.png](/img/reading-skills-52.png)
+	- 意思相近的同义替换分好类![img/reading-skills-52.png](img/reading-skills-52.png)
 
 	- 注意区分题干里的单复数，如 examples 与 an example、animals 与 an animal
 	- 注意题目主干描述对象，人？物？事？
@@ -289,8 +289,8 @@ Heading选段落标题，选段落大意
 5. 段落中有描述实验研究时：重点看实验结论
 6. future/predict等词一般重点关注最后一段或者最后几段
 ### Heading题与段落匹配Contains题对比
-![reading-skills-53.png](/img/reading-skills-53.png)
-![reading-skills-54.png](/img/reading-skills-54.png)
+![img/reading-skills-53.png](img/reading-skills-53.png)
+![img/reading-skills-54.png](img/reading-skills-54.png)
 ## 选择题
 顺序题，预读两道题目
 ### 考察方法
