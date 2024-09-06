@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Kaga Blog</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Kaga Blog</description>
+    <generator>Hugo -- 0.134.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 05 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/hugo-blog-front-matter/</link>
+      <pubDate>Thu, 05 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/hugo-blog-front-matter/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>chart essay</title>
+      <link>http://localhost:1313/post/chart-essay/</link>
+      <pubDate>Thu, 05 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/chart-essay/</guid>
+      <description>&lt;h1 id=&#34;图表类小作文补充表达&#34;&gt;&lt;strong&gt;【图表类小作文补充表达】&lt;/strong&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;表达程度&#34;&gt;&lt;strong&gt;【表达：程度】&lt;/strong&gt;&lt;/h1&gt;
+&lt;h2 id=&#34;程度&#34;&gt;&lt;strong&gt;程度&lt;/strong&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;逐渐的&#34;&gt;&lt;strong&gt;逐渐的&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;slightly
+modestly
+gradually&lt;/p&gt;
+&lt;h3 id=&#34;稳定的&#34;&gt;&lt;strong&gt;稳定的&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;steadily
+sustained&lt;/p&gt;
+&lt;h3 id=&#34;显著的&#34;&gt;&lt;strong&gt;显著的&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;noticeably
+remarkably
+markedly&lt;/p&gt;
+&lt;h3 id=&#34;巨大的&#34;&gt;&lt;strong&gt;巨大的&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;significantly
+remarkably
+dramatically
+rapidly
+sharply&lt;/p&gt;
+&lt;h2 id=&#34;大量的少量的&#34;&gt;&lt;strong&gt;大量的/少量的&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;a great/signifcant/major proportion (of&amp;hellip;)
+(only) a fraction (of&amp;hellip;)&lt;/p&gt;
+&lt;h2 id=&#34;最大量少量&#34;&gt;&lt;strong&gt;最大量/少量&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;greatest/most significant proportion (of&amp;hellip;)
+smallest/least significant proportion (of&amp;hellip;)&lt;/p&gt;
+&lt;h2 id=&#34;以不同的程度&#34;&gt;&lt;strong&gt;以不同的程度&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;to different/varying degrees&lt;/p&gt;
+&lt;h1 id=&#34;表达分别的&#34;&gt;&lt;strong&gt;【表达：分别的】&lt;/strong&gt;&lt;/h1&gt;
+&lt;h2 id=&#34;分别的&#34;&gt;&lt;strong&gt;分别的&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;respectively
+each&lt;/p&gt;
+&lt;h1 id=&#34;表达年龄&#34;&gt;&lt;strong&gt;【表达：年龄】&lt;/strong&gt;&lt;/h1&gt;
+&lt;h2 id=&#34;year-old&#34;&gt;&lt;strong&gt;year old&lt;/strong&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;years-old&#34;&gt;&lt;strong&gt;years old&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;people of 18-24 years old&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>correction of anterior humerus</title>
+      <link>http://localhost:1313/post/correction-of-anterior-humerus/</link>
+      <pubDate>Thu, 05 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/correction-of-anterior-humerus/</guid>
+      <description>&lt;p&gt;拉伸胸大肌、胸小肌
+拉伸肩前束
+肩关节内旋状态下做外旋、外旋状态下做内旋
+辅助肱骨推举和侧平举&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>deep dive into design patterns</title>
+      <link>http://localhost:1313/post/deep-dive-into-design-patterns/</link>
+      <pubDate>Thu, 05 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/deep-dive-into-design-patterns/</guid>
+      <description>&lt;h1 id=&#34;一面向对象-程序设计-简介&#34;&gt;&lt;strong&gt;一、面向对象 程序设计 简介&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;对象之间的关系&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;img/deep-dive-into-design-patterns.png&#34; alt=&#34;&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;依赖&lt;/strong&gt;:对类 B 进行修改会影响到类 A 。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;关联&lt;/strong&gt;:对象 A 知道对象 B。类 A 依赖于类 B。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;聚合&lt;/strong&gt;:对象A知道对象B且由B构成。类A依赖于类B。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;组合&lt;/strong&gt;:对象 A 知道对象 B、由 B 构成而且管理着 B 的生命周 期。类 A
+依赖于类 B。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;实现&lt;/strong&gt;: 类 A 定义的方法由接口 B 声明。 对象 A 可被视为对象 B。类 A
+依赖于类 B。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;继承&lt;/strong&gt;: 类 A 继承类 B 的接口和实现， 但是可以对其进行扩 展。对象 A
+可被视为对象 B。类 A 依赖于类 B。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>dive into python 3</title>
+      <link>http://localhost:1313/post/dive-into-python-3/</link>
+      <pubDate>Thu, 05 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/dive-into-python-3/</guid>
+      <description>&lt;h1 id=&#34;1-your-first-python-program&#34;&gt;1. Your First Python Program&lt;/h1&gt;
+&lt;h2 id=&#34;11-diving-in&#34;&gt;1.1. Diving In&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ python3 humansize.py
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;12-declaring-functions&#34;&gt;1.2. Declaring Functions&lt;/h2&gt;
+&lt;h3 id=&#34;121-optional-and-named-arguments&#34;&gt;1.2.1. Optional and Named Arguments&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;approximate_size&lt;/span&gt;(size, a_kilobyte_is_1024_bytes&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;13-writing-readable-code&#34;&gt;1.3. Writing Readable Code&lt;/h2&gt;
+&lt;h3 id=&#34;131-documentation-strings&#34;&gt;1.3.1. Documentation Strings&lt;/h3&gt;
+&lt;p&gt;Triple quotes&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;approximate_size&lt;/span&gt;(size, a_kilobyte_is_1024_bytes&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&amp;#39;Convert a file size to human-readable form.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    Keyword arguments:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    size -- file size in bytes
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    a_kilobyte_is_1024_bytes -- if True (default), use multiples of 1024
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;                                if False, use multiples of 1000
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    Returns: string
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    &amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+    </item>
+    <item>
+      <title>flowchart essay</title>
+      <link>http://localhost:1313/post/flowchart-essay/</link>
+      <pubDate>Thu, 05 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/flowchart-essay/</guid>
+      <description>&lt;h1 id=&#34;流程图类小作文补充表达&#34;&gt;&lt;strong&gt;【流程图类小作文补充表达】&lt;/strong&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;表达持续时间&#34;&gt;&lt;strong&gt;【表达：持续时间】&lt;/strong&gt;&lt;/h1&gt;
+&lt;h2 id=&#34;持续时间的表达&#34;&gt;&lt;strong&gt;持续时间的表达&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;It takes TIME to
+This stage lasts for TIME
+After a period of TIME
+During a TIME period
+For TIME&lt;/p&gt;
+&lt;h1 id=&#34;表达尺寸&#34;&gt;&lt;strong&gt;【表达：尺寸】&lt;/strong&gt;&lt;/h1&gt;
+&lt;h2 id=&#34;不同形状&#34;&gt;&lt;strong&gt;不同形状&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;square/squared
+rectangle/rectangular
+circle/circular
+triangle/triangular
+trapezoid/trapezoidal&lt;/p&gt;
+&lt;h2 id=&#34;长度宽度深度&#34;&gt;&lt;strong&gt;长度/宽度/深度&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;length (long)
+width (wide)
+depth (deep)&lt;/p&gt;
+&lt;h2 id=&#34;宽窄&#34;&gt;&lt;strong&gt;宽窄&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;wide/broad
+narrow/tight&lt;/p&gt;
+&lt;h2 id=&#34;薄厚&#34;&gt;&lt;strong&gt;薄厚&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;thin
+thick&lt;/p&gt;
+&lt;h1 id=&#34;表达动植物相关词汇&#34;&gt;&lt;strong&gt;【表达：动植物相关词汇】&lt;/strong&gt;&lt;/h1&gt;
+&lt;h2 id=&#34;植物相关词汇&#34;&gt;&lt;strong&gt;植物相关词汇&lt;/strong&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;种子&#34;&gt;&lt;strong&gt;种子&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;seeds&lt;/p&gt;
+&lt;h3 id=&#34;幼苗&#34;&gt;&lt;strong&gt;幼苗&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;seedlings&lt;/p&gt;
+&lt;h3 id=&#34;发芽&#34;&gt;&lt;strong&gt;发芽&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;sprout
+germinate&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>listening skills</title>
+      <link>http://localhost:1313/post/listening-skills/</link>
+      <pubDate>Thu, 05 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/listening-skills/</guid>
+      <description>&lt;h1 id=&#34;基础知识&#34;&gt;基础知识&lt;/h1&gt;
+&lt;p&gt;数字
+连读：double 0 , triple 0
+7-screen cinema
+4-liter engine
+时间、地点、生活常识&lt;/p&gt;
+&lt;h1 id=&#34;圈关键词&#34;&gt;圈关键词&lt;/h1&gt;
+&lt;h3 id=&#34;前二后二-竖向比较&#34;&gt;前二后二 竖向比较&lt;/h3&gt;
+&lt;p&gt;最稳定：
+数字、名词、专有名词&lt;/p&gt;
+&lt;p&gt;不稳定：
+形容词、动词&lt;/p&gt;
+&lt;p&gt;大坑词：
+形容词（比如最高级&amp;hellip;）
+常见反义词（比如 close open&amp;hellip;）
+否定词（比如 no）&lt;/p&gt;
+&lt;h3 id=&#34;找不同看特点&#34;&gt;找不同看特点&lt;/h3&gt;
+&lt;p&gt;较稳定：
+听原词，好定位&lt;/p&gt;
+&lt;p&gt;不稳定：
+找替换词，灵活应对&lt;/p&gt;
+&lt;p&gt;大坑词：
+有陷阱，要小心&lt;/p&gt;
+&lt;h3 id=&#34;三大特征&#34;&gt;三大特征&lt;/h3&gt;
+&lt;p&gt;原词(发音)&lt;/p&gt;
+&lt;p&gt;逻辑表达
+and
+so, because
+one thing, another thing, the other
+but
+particularly
+in fact
+then
+for example&lt;/p&gt;
+&lt;p&gt;替换改写&lt;/p&gt;
+&lt;h1 id=&#34;错题七坑&#34;&gt;错题七坑&lt;/h1&gt;
+&lt;p&gt;词音（连读）
+拼写
+句子
+逻辑
+改写
+格式
+单复数&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>reading skills</title>
+      <link>http://localhost:1313/post/reading-skills/</link>
+      <pubDate>Thu, 05 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/reading-skills/</guid>
+      <description>&lt;h1 id=&#34;雅思阅读&#34;&gt;雅思阅读&lt;/h1&gt;
+&lt;p&gt;词汇 + 语法 + 解题技巧 + 阅读量&lt;/p&gt;
+&lt;h1 id=&#34;语法&#34;&gt;语法&lt;/h1&gt;
+&lt;h2 id=&#34;从句&#34;&gt;从句&lt;/h2&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/img/reading-skills.png&#34; alt=&#34;reading-skills.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;非谓语&#34;&gt;非谓语&lt;/h2&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/img/reading-skills-46.png&#34; alt=&#34;reading-skills-46.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;h1 id=&#34;核心同义替换&#34;&gt;核心：同义替换&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;同义词&lt;/li&gt;
+&lt;li&gt;同义短语&lt;/li&gt;
+&lt;li&gt;同义句子（主动被动）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;题型分类&#34;&gt;题型分类&lt;/h1&gt;
+&lt;h2 id=&#34;1-顺序题&#34;&gt;1. 顺序题&lt;/h2&gt;
+&lt;p&gt;题型内部的出题顺序&lt;br&gt;
+（一般为顺序）
+判断
+填空 图形填空 选词填空 回答问题
+单选
+句子匹配&lt;/p&gt;
+&lt;h2 id=&#34;2-乱序题&#34;&gt;2. 乱序题&lt;/h2&gt;
+&lt;p&gt;段落匹配 Which paragraph contains
+人名/学说/国家/公司等信息匹配
+段落大意 Heading&lt;/p&gt;
+&lt;h2 id=&#34;3-特殊题&#34;&gt;3. 特殊题&lt;/h2&gt;
+&lt;p&gt;选文章标题 Title/副标题 Subtitle
+多选&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>refactor</title>
+      <link>http://localhost:1313/post/refactor/</link>
+      <pubDate>Thu, 05 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/refactor/</guid>
+      <description>&lt;p&gt;本质上说，&lt;strong&gt;重构就是在代码写好之后改进它的设计&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;如果你要给程序添加一个特性，但发现代码因缺乏良好的结构而不易于进行更改，那就先重构那个程序，使其比较容易添加该特性，然后再添加该特性。&lt;/p&gt;
+&lt;p&gt;是&lt;strong&gt;需求的变化&lt;/strong&gt;使重构变得必要。&lt;/p&gt;
+&lt;p&gt;重构技术就是&lt;strong&gt;以微小的步伐修改程序&lt;/strong&gt;。如果你犯下错误，很容易便可发现它。&lt;/p&gt;
+&lt;p&gt;好代码的检验标准就是人们是否能轻而易举地修改它。&lt;/p&gt;
+&lt;p&gt;总结：&lt;/p&gt;
+&lt;p&gt;开展高效有序的重构，关键的心得是：&lt;strong&gt;小的步子可以更快前进&lt;/strong&gt;，请保持代码永远处于可工作状态，小步修改累积起来也能大大改善系统的设计。重构不是一颗&amp;quot;银弹&amp;quot;，却可以算是一把&amp;quot;银钳子&amp;quot;，可以帮你始终良好地控制自己的代码。重构是一个工具。&lt;/p&gt;
+&lt;h1 id=&#34;一-代码的坏味道&#34;&gt;&lt;strong&gt;一. 代码的坏味道&lt;/strong&gt;&lt;/h1&gt;
+&lt;h2 id=&#34;1-神秘命名mysterious-name&#34;&gt;1. &lt;strong&gt;神秘命名（Mysterious Name）&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;There are only two hard things in Computer Science: cache invalidation
+and naming things-- Phil Karlt&lt;/p&gt;
+&lt;p&gt;命名是编程中最难的两件事之一。正因为如此，改名可能是最常用的重构手法，包括改变函数声明（用于给函数改名）、变量改名、字段改名。&lt;/p&gt;
+&lt;h2 id=&#34;2-全局数据global-data&#34;&gt;2. &lt;strong&gt;全局数据（Global Data）&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;封装变量&lt;/strong&gt;。有少量的全局数据或许无妨，但数量越多，处理的难度就会指数上升。&lt;/p&gt;
+&lt;h2 id=&#34;3-可变数据mutable-data&#34;&gt;3. &lt;strong&gt;可变数据（Mutable Data）&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;可以&lt;strong&gt;用封装变量来确保所有数据更新操作都通过很少几个函数来进行&lt;/strong&gt;，使其更容易监控和演进。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;如果一个变量在不同时候被用于存储不同的东西，可以使用拆分变量将其拆分为各自不同用途的变量，从而避免危险的更新操作&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;使用移动语句和提炼函数尽量把逻辑从处理更新操作的代码中搬移出来，将没有副作用的代码与执行数据更新操作的代码分开。&lt;/p&gt;
+&lt;p&gt;设计API时，可以使用&lt;strong&gt;将查询函数和修改函数分离&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;尽早使用&lt;strong&gt;移除设值函数&lt;/strong&gt;，缩小变量作用域。&lt;/p&gt;
+&lt;h2 id=&#34;4-过长函数long-function&#34;&gt;4. &lt;strong&gt;过长函数（Long Function）&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;积极地分解函数.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;原则：&lt;strong&gt;每当感觉需要以注释来说明点什么的时候，我们就把需要说明的东西写进一个独立函数中，并以其用途（而非实现手法）命名&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;什么样的函数才是过长？超过50行？超过70行？关键不在于函数的长度，而在于&lt;strong&gt;函数&amp;quot;做什么&amp;quot;和&amp;quot;如何做&amp;quot;之间的语义距离&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;如何确定该提炼哪一段代码呢？一个很好的技巧是：&lt;strong&gt;寻找注释。它们通常能指出代码用途和实现手法之间的语义距离。&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>speakingskills</title>
+      <link>http://localhost:1313/post/speaking-skills/</link>
+      <pubDate>Thu, 05 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/speaking-skills/</guid>
+      <description>&lt;h1 id=&#34;1-general-intro-to-ielts-speaking-test&#34;&gt;1. General Intro to IELTS Speaking Test&lt;/h1&gt;
+&lt;h2 id=&#34;introductory-frame&#34;&gt;Introductory Frame&lt;/h2&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/img/speaking-skills.png&#34; alt=&#34;speaking-skills.png&#34;  /&gt;
+
+Full Name
+English Name
+Country&lt;/p&gt;
+&lt;h2 id=&#34;the-process&#34;&gt;The Process&lt;/h2&gt;
+&lt;h3 id=&#34;part1-4-5-min-3-topics-9-questions&#34;&gt;Part1 4-5 min, 3 topics, 9 questions&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Questions about yourself&lt;/li&gt;
+&lt;li&gt;Topics to do with daily life&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;Is there anything you don&amp;rsquo;t like about your living area?&lt;/li&gt;
+&lt;li&gt;What do you study?&lt;/li&gt;
+&lt;li&gt;Which do you prefer, Saturday or Sunday?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Examiner can ONLY:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

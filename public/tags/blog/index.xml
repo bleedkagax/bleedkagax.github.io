@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Blog on Kaga Blog</title>
+    <link>http://localhost:1313/tags/blog/</link>
+    <description>Recent content in Blog on Kaga Blog</description>
+    <generator>Hugo -- 0.134.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 05 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>correction of anterior humerus</title>
+      <link>http://localhost:1313/post/correction-of-anterior-humerus/</link>
+      <pubDate>Thu, 05 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/correction-of-anterior-humerus/</guid>
+      <description>&lt;p&gt;拉伸胸大肌、胸小肌
+拉伸肩前束
+肩关节内旋状态下做外旋、外旋状态下做内旋
+辅助肱骨推举和侧平举&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
