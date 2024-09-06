@@ -12,7 +12,7 @@ share: "true"
 
 **对象之间的关系**
 
-![](img/deep-dive-into-design-patterns.png)
+![deep-dive-into-design-patterns.png](/img/deep-dive-into-design-patterns.png)
 
 **依赖**:对类 B 进行修改会影响到类 A 。
 
