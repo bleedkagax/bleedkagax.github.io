@@ -94,7 +94,7 @@ top bottom left right
 4. 留意选项间的并列关系
 5. 注意说话的人的身份与性别
 
-![listening-skills.png](/img/listening-skills.png)
+![img/listening-skills.png](img/listening-skills.png)
 
 # 预读预判题目选项
 ## 画
@@ -102,12 +102,12 @@ top bottom left right
 - 有具体内容的实词
 - 强逻辑内容：
 否定
-![listening-skills-14.png](/img/listening-skills-14.png)
+![img/listening-skills-14.png](img/listening-skills-14.png)
 并列
 A and B = B and A
-![listening-skills-15.png](/img/listening-skills-15.png)
+![img/listening-skills-15.png](img/listening-skills-15.png)
 转折让步
-![listening-skills-16.png](/img/listening-skills-16.png)
+![img/listening-skills-16.png](img/listening-skills-16.png)
  
 
 
@@ -139,25 +139,25 @@ A and B = B and A
 ## 语音现象
 1. 连读/连音  
 - 辅音+元音
-![listening-skills-17.png](/img/listening-skills-17.png)
+![img/listening-skills-17.png](img/listening-skills-17.png)
 - 辅音+辅音
-![listening-skills-18.png](/img/listening-skills-18.png)
+![img/listening-skills-18.png](img/listening-skills-18.png)
 - 元音+元音
 加音连读/j/ /w/
-![listening-skills-19.png](/img/listening-skills-19.png)
+![img/listening-skills-19.png](img/listening-skills-19.png)
  
 2. 弱读
 一般实词重读、虚词弱读
-![listening-skills-20.png](/img/listening-skills-20.png)
+![img/listening-skills-20.png](img/listening-skills-20.png)
 
 
 
 
 3. 异化（浊化）
-![listening-skills-21.png](/img/listening-skills-21.png)
+![img/listening-skills-21.png](img/listening-skills-21.png)
 
 4. 同化
-![listening-skills-22.png](/img/listening-skills-22.png)
+![img/listening-skills-22.png](img/listening-skills-22.png)
 
 5. 语音语调
  慢读、重读表强调；
@@ -166,12 +166,12 @@ A and B = B and A
 # 听义
 ## 意群断句
 意群：thought chunk，独立意思的小区块
-![listening-skills-23.png](/img/listening-skills-23.png)
+![img/listening-skills-23.png](img/listening-skills-23.png)
 
 
 
 
-![listening-skills-24.png](/img/listening-skills-24.png)
+![img/listening-skills-24.png](img/listening-skills-24.png)
 
 ## 顺句驱动
 ### of介词理解
@@ -272,7 +272,7 @@ although/though/while/whereas/despite
 正确选项特点：
 - 同义替换
 - 转折后一般是重点
-![listening-skills-25.png](/img/listening-skills-25.png)
+![img/listening-skills-25.png](img/listening-skills-25.png)
 
 错误选项特点：
 - 信息无提及、关系无中生有
@@ -280,4 +280,4 @@ although/though/while/whereas/despite
 - 提及了，但是反义词排除：expensive/cheap、straightforward/difficult、straightaway/takes a long time
 - 并列错误(排除法)
 - 提及了，但是不符合题目要求：现在做？以后做？
-![listening-skills-26.png](/img/listening-skills-26.png)
+![img/listening-skills-26.png](img/listening-skills-26.png)

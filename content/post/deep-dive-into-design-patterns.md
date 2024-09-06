@@ -12,7 +12,7 @@ share: "true"
 
 **对象之间的关系**
 
-![deep-dive-into-design-patterns.png](/img/deep-dive-into-design-patterns.png)
+![img/deep-dive-into-design-patterns.png](img/deep-dive-into-design-patterns.png)
 
 **依赖**:对类 B 进行修改会影响到类 A 。
 
@@ -76,7 +76,7 @@ share: "true"
 
 **修改前:**税率计算代码和方法的其他代码混杂在一起。
 
-![](img/deep-dive-into-design-patterns-85.png)
+![img/deep-dive-into-design-patterns-85.png](img/deep-dive-into-design-patterns-85.png)
 
 **修改后:**你可通过调用指定方法获取税率。
 
@@ -268,7 +268,7 @@ feed(Animal c)
 
 有些编程语言允许通过反射机制来访问类的私有成员。还有一些语言(Python 和
 JavaScript)没有对私有成员进行任何保护。Go可以通过unsafe.Pointer+偏移地址
-、go:linkname绕过编译器检查等非常规操作访问私有成员。
+、[](go:linkname%E7%BB%95%E8%BF%87%E7%BC%96%E8%AF%91%E5%99%A8%E6%A3%80%E6%9F%A5%E7%AD%89%E9%9D%9E%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C%E8%AE%BF%E9%97%AE%E7%A7%81%E6%9C%89%E6%88%90%E5%91%98%E3%80%82)
 
 **\[该类型的内容暂不支持下载\]**
 
