@@ -10,7 +10,7 @@ share: "true"
 
 # 1. General Intro to IELTS Speaking Test
 ## Introductory Frame
-![Pasted image 20240330185042.png](../../Archive/Static/Pasted%20image%2020240330185042.png)
+![speaking-skills.png](img/speaking-skills.png)
 Full Name
 English Name
 Country
@@ -93,7 +93,7 @@ A: No, I don't, cause it smells, and there are way too many bones.
 *too short!!!*
 
 Acceptable Length:
-![Pasted image 20240401230153.png](../../Archive/Static/Pasted%20image%2020240401230153.png)
+![speaking-skills-178.png](img/speaking-skills-178.png)
 
 #### Fluency and Coherence, Band 7
 - ==speaks at length== effortlessly and coherently
@@ -117,128 +117,128 @@ Acceptable Length:
 大词 难词 偏词
 
 #### Less common words
-![Pasted image 20240401232720.png](../../Archive/Static/Pasted%20image%2020240401232720.png)
+![speaking-skills-179.png](img/speaking-skills-179.png)
 
 #### Idiomatic Vocabulary
-![Pasted image 20240401232946.png](../../Archive/Static/Pasted%20image%2020240401232946.png)
+![speaking-skills-180.png](img/speaking-skills-180.png)
 
 #### Paraphrase
-![Pasted image 20240401233120.png](../../Archive/Static/Pasted%20image%2020240401233120.png)
+![speaking-skills-181.png](img/speaking-skills-181.png)
 
 #### Topic-related vocabulary
-![Pasted image 20240401233238.png](../../Archive/Static/Pasted%20image%2020240401233238.png)
+![speaking-skills-182.png](img/speaking-skills-182.png)
 
 #### Style and Collocation
-![Pasted image 20240401233455.png](../../Archive/Static/Pasted%20image%2020240401233455.png)
+![speaking-skills-183.png](img/speaking-skills-183.png)
 
 #### Precise Meaning
-![Pasted image 20240401233558.png](../../Archive/Static/Pasted%20image%2020240401233558.png)
+![speaking-skills-184.png](img/speaking-skills-184.png)
 
 #### Lexical Resources, Band 7
-![Pasted image 20240401235328.png](../../Archive/Static/Pasted%20image%2020240401235328.png)
+![speaking-skills-185.png](img/speaking-skills-185.png)
 
 ### Grammatical Range and Accuracy
- ![Pasted image 20240401235638.png](../../Archive/Static/Pasted%20image%2020240401235638.png)
+ ![speaking-skills-186.png](img/speaking-skills-186.png)
 
 
-![Pasted image 20240401235710.png](../../Archive/Static/Pasted%20image%2020240401235710.png)
+![speaking-skills-187.png](img/speaking-skills-187.png)
 
 #### Complex Structure
 Which do you prefer, tea or coffee?
 
-![Pasted image 20240402000224.png](../../Archive/Static/Pasted%20image%2020240402000224.png)
+![speaking-skills-188.png](img/speaking-skills-188.png)
 
-![Pasted image 20240402000422.png](../../Archive/Static/Pasted%20image%2020240402000422.png)
+![speaking-skills-189.png](img/speaking-skills-189.png)
 
-![Pasted image 20240402000625.png](../../Archive/Static/Pasted%20image%2020240402000625.png) 
+![speaking-skills-190.png](img/speaking-skills-190.png) 
 
 ### Quick Recap
-![Pasted image 20240402000749.png](../../Archive/Static/Pasted%20image%2020240402000749.png)
+![speaking-skills-191.png](img/speaking-skills-191.png)
 
 # 2. Part1 Intro, Brainstorming, Ideas
 
 ## Part1 Question Styles
 ### Question Types
 #### Yes/No
-![Pasted image 20240410234131.png](../../Archive/Static/Pasted%20image%2020240410234131.png)
+![speaking-skills-192.png](img/speaking-skills-192.png)
 
 #### Wh-
-![Pasted image 20240410234334.png](../../Archive/Static/Pasted%20image%2020240410234334.png)
+![speaking-skills-193.png](img/speaking-skills-193.png)
 
 #### Choice
-![Pasted image 20240410234626.png](../../Archive/Static/Pasted%20image%2020240410234626.png)
+![speaking-skills-194.png](img/speaking-skills-194.png)
 
 #### Hypothetical 
-![Pasted image 20240410234853.png](../../Archive/Static/Pasted%20image%2020240410234853.png) 
+![speaking-skills-195.png](img/speaking-skills-195.png) 
 
 ### 4 Main Topics
 #### People
-![Pasted image 20240410235131.png](../../Archive/Static/Pasted%20image%2020240410235131.png)
+![speaking-skills-196.png](img/speaking-skills-196.png)
 
 #### Places
-![Pasted image 20240410235225.png](../../Archive/Static/Pasted%20image%2020240410235225.png)  
+![speaking-skills-197.png](img/speaking-skills-197.png)  
 
 #### Objects
-![Pasted image 20240410235423.png](../../Archive/Static/Pasted%20image%2020240410235423.png)
+![speaking-skills-198.png](img/speaking-skills-198.png)
 
 #### Events
-![Pasted image 20240410235451.png](../../Archive/Static/Pasted%20image%2020240410235451.png)
+![speaking-skills-199.png](img/speaking-skills-199.png)
 
 ### 3 Mandatory Frames
 #### Where you live now?
-![Pasted image 20240410235802.png](../../Archive/Static/Pasted%20image%2020240410235802.png)
+![speaking-skills-200.png](img/speaking-skills-200.png)
 
 #### Hometown
-![Pasted image 20240410235831.png](../../Archive/Static/Pasted%20image%2020240410235831.png)
+![speaking-skills-201.png](img/speaking-skills-201.png)
 
 #### Work/Study
-![Pasted image 20240410235908.png](../../Archive/Static/Pasted%20image%2020240410235908.png)
+![speaking-skills-202.png](img/speaking-skills-202.png)
 
 ## Basic Answer Structure
 ### The TS + SD Principle
-![Pasted image 20240411000313.png](../../Archive/Static/Pasted%20image%2020240411000313.png)
+![speaking-skills-203.png](img/speaking-skills-203.png)
 
 #### Why use this?
-![Pasted image 20240411000434.png](../../Archive/Static/Pasted%20image%2020240411000434.png)
+![speaking-skills-204.png](img/speaking-skills-204.png)
 
 #### Topic sentence
-![Pasted image 20240411000704.png](../../Archive/Static/Pasted%20image%2020240411000704.png)
+![speaking-skills-205.png](img/speaking-skills-205.png)
 
 #### Suporting Details
-![Pasted image 20240411001012.png](../../Archive/Static/Pasted%20image%2020240411001012.png)
-![Pasted image 20240411001054.png](../../Archive/Static/Pasted%20image%2020240411001054.png)
-![Pasted image 20240411001241.png](../../Archive/Static/Pasted%20image%2020240411001241.png)
+![speaking-skills-206.png](img/speaking-skills-206.png)
+![speaking-skills-207.png](img/speaking-skills-207.png)
+![speaking-skills-208.png](img/speaking-skills-208.png)
 
 ## Brainstorming
 ### How to add details
-![Pasted image 20240421225444.png](../../Archive/Static/Pasted%20image%2020240421225444.png)
+![speaking-skills-209.png](img/speaking-skills-209.png)
 
 ### Templates for reference
-![Pasted image 20240421225843.png](../../Archive/Static/Pasted%20image%2020240421225843.png)
+![speaking-skills-210.png](img/speaking-skills-210.png)
 
 ### Templates in use
-![Pasted image 20240421230056.png](../../Archive/Static/Pasted%20image%2020240421230056.png)
+![speaking-skills-211.png](img/speaking-skills-211.png)
 
-![Pasted image 20240421230421.png](../../Archive/Static/Pasted%20image%2020240421230421.png)
+![speaking-skills-212.png](img/speaking-skills-212.png)
 
-![Pasted image 20240421230811.png](../../Archive/Static/Pasted%20image%2020240421230811.png)
+![speaking-skills-213.png](img/speaking-skills-213.png)
 
-![Pasted image 20240421231604.png](../../Archive/Static/Pasted%20image%2020240421231604.png)
+![speaking-skills-214.png](img/speaking-skills-214.png)
 
 ## Reservoir of ideas
 ### Reservoir
-![Pasted image 20240423170337.png](../../Archive/Static/Pasted%20image%2020240423170337.png)
+![speaking-skills-215.png](img/speaking-skills-215.png)
 
 ### How to use the reservoir
-![Pasted image 20240423170731.png](../../Archive/Static/Pasted%20image%2020240423170731.png)
+![speaking-skills-216.png](img/speaking-skills-216.png)
 
 ### Linking Words
-![Pasted image 20240423213708.png](../../Archive/Static/Pasted%20image%2020240423213708.png)![Pasted image 20240423213753.png](../../Archive/Static/Pasted%20image%2020240423213753.png) 
+![speaking-skills-217.png](img/speaking-skills-217.png)![speaking-skills-218.png](img/speaking-skills-218.png) 
 ### Basic grammar must be correct
-![Pasted image 20240423222135.png](../../Archive/Static/Pasted%20image%2020240423222135.png)
+![speaking-skills-219.png](img/speaking-skills-219.png)
 
 ### Linking Words must be correct
-![Pasted image 20240423221903.png](../../Archive/Static/Pasted%20image%2020240423221903.png)
+![speaking-skills-220.png](img/speaking-skills-220.png)
 Although/But 取其一
 besides => except for
 In fact => Actually
@@ -246,157 +246,157 @@ In fact => Actually
 # Part2 Intro and Reminders
 ## Part2 Question Styles
 #### Format
-![Pasted image 20240423223219.png](../../Archive/Static/Pasted%20image%2020240423223219.png)
+![speaking-skills-221.png](img/speaking-skills-221.png)
 
 #### Instructions
-![Pasted image 20240423223852.png](../../Archive/Static/Pasted%20image%2020240423223852.png)
+![speaking-skills-222.png](img/speaking-skills-222.png)
 
 ## Procedure
-![Pasted image 20240423223919.png](../../Archive/Static/Pasted%20image%2020240423223919.png)
-![Pasted image 20240423223953.png](../../Archive/Static/Pasted%20image%2020240423223953.png)
-![Pasted image 20240423224152.png](../../Archive/Static/Pasted%20image%2020240423224152.png)![Pasted image 20240423224337.png](../../Archive/Static/Pasted%20image%2020240423224337.png)
+![speaking-skills-223.png](img/speaking-skills-223.png)
+![speaking-skills-224.png](img/speaking-skills-224.png)
+![speaking-skills-225.png](img/speaking-skills-225.png)![speaking-skills-226.png](img/speaking-skills-226.png)
 
 ### Basic Requirements
-![Pasted image 20240423230711.png](../../Archive/Static/Pasted%20image%2020240423230711.png)
+![speaking-skills-227.png](img/speaking-skills-227.png)
 
 ## Reminders
-![Pasted image 20240423230853.png](../../Archive/Static/Pasted%20image%2020240423230853.png)
+![speaking-skills-228.png](img/speaking-skills-228.png)
 
 # Part2 Preparing Answers
 ## Understanding the Topic Card
 ### first
-![Pasted image 20240426171105.png](../../Archive/Static/Pasted%20image%2020240426171105.png)
+![speaking-skills-229.png](img/speaking-skills-229.png)
 
 ### second
 key words
 modifiers
 tense
 focus of topic
-![Pasted image 20240426172157.png](../../Archive/Static/Pasted%20image%2020240426172157.png)
-![Pasted image 20240426173516.png](../../Archive/Static/Pasted%20image%2020240426173516.png)
+![speaking-skills-230.png](img/speaking-skills-230.png)
+![speaking-skills-231.png](img/speaking-skills-231.png)
 
-![Pasted image 20240426173649.png](../../Archive/Static/Pasted%20image%2020240426173649.png)
+![speaking-skills-232.png](img/speaking-skills-232.png)
 
 #### A great example
-![Pasted image 20240426173958.png](../../Archive/Static/Pasted%20image%2020240426173958.png)
+![speaking-skills-233.png](img/speaking-skills-233.png)
 
 ## Brainstorming Method 1
 Method1
-![Pasted image 20240426174538.png](../../Archive/Static/Pasted%20image%2020240426174538.png)
-![Pasted image 20240426174633.png](../../Archive/Static/Pasted%20image%2020240426174633.png)
+![speaking-skills-234.png](img/speaking-skills-234.png)
+![speaking-skills-235.png](img/speaking-skills-235.png)
 
 更细的划分
-![Pasted image 20240426174908.png](../../Archive/Static/Pasted%20image%2020240426174908.png)
+![speaking-skills-236.png](img/speaking-skills-236.png)
 
 ### 例子
-![Pasted image 20240426175019.png](../../Archive/Static/Pasted%20image%2020240426175019.png)
-![Pasted image 20240426175101.png](../../Archive/Static/Pasted%20image%2020240426175101.png)
-![Pasted image 20240426175421.png](../../Archive/Static/Pasted%20image%2020240426175421.png)
-![Pasted image 20240426175724.png](../../Archive/Static/Pasted%20image%2020240426175724.png)
-![Pasted image 20240426180103.png](../../Archive/Static/Pasted%20image%2020240426180103.png)
-![Pasted image 20240426180134.png](../../Archive/Static/Pasted%20image%2020240426180134.png)![Pasted image 20240426180219.png](../../Archive/Static/Pasted%20image%2020240426180219.png)![Pasted image 20240426180233.png](../../Archive/Static/Pasted%20image%2020240426180233.png)![Pasted image 20240426180306.png](../../Archive/Static/Pasted%20image%2020240426180306.png)
+![speaking-skills-237.png](img/speaking-skills-237.png)
+![speaking-skills-238.png](img/speaking-skills-238.png)
+![speaking-skills-239.png](img/speaking-skills-239.png)
+![speaking-skills-240.png](img/speaking-skills-240.png)
+![speaking-skills-241.png](img/speaking-skills-241.png)
+![speaking-skills-242.png](img/speaking-skills-242.png)![speaking-skills-243.png](img/speaking-skills-243.png)![speaking-skills-244.png](img/speaking-skills-244.png)![speaking-skills-245.png](img/speaking-skills-245.png)
 
-![Pasted image 20240426180501.png](../../Archive/Static/Pasted%20image%2020240426180501.png)![Pasted image 20240426180538.png](../../Archive/Static/Pasted%20image%2020240426180538.png)![Pasted image 20240426180714.png](../../Archive/Static/Pasted%20image%2020240426180714.png)
+![speaking-skills-246.png](img/speaking-skills-246.png)![speaking-skills-247.png](img/speaking-skills-247.png)![speaking-skills-248.png](img/speaking-skills-248.png)
 
-![Pasted image 20240426180748.png](../../Archive/Static/Pasted%20image%2020240426180748.png)
+![speaking-skills-249.png](img/speaking-skills-249.png)
 
 ## Brainstorming Method 2
 ###  5Ws 1H
-![Pasted image 20240426214444.png](../../Archive/Static/Pasted%20image%2020240426214444.png)
+![speaking-skills-250.png](img/speaking-skills-250.png)
 
 ### Using  5Ws 1H
-![Pasted image 20240426214908.png](../../Archive/Static/Pasted%20image%2020240426214908.png)![Pasted image 20240426215042.png](../../Archive/Static/Pasted%20image%2020240426215042.png)![Pasted image 20240426215205.png](../../Archive/Static/Pasted%20image%2020240426215205.png)![Pasted image 20240426215331.png](../../Archive/Static/Pasted%20image%2020240426215331.png)![Pasted image 20240426215621.png](../../Archive/Static/Pasted%20image%2020240426215621.png)![Pasted image 20240426215937.png](../../Archive/Static/Pasted%20image%2020240426215937.png)![Pasted image 20240426220054.png](../../Archive/Static/Pasted%20image%2020240426220054.png)![Pasted image 20240426220332.png](../../Archive/Static/Pasted%20image%2020240426220332.png)![Pasted image 20240426220542.png](../../Archive/Static/Pasted%20image%2020240426220542.png)![Pasted image 20240426220716.png](../../Archive/Static/Pasted%20image%2020240426220716.png)![Pasted image 20240426220800.png](../../Archive/Static/Pasted%20image%2020240426220800.png)
+![speaking-skills-251.png](img/speaking-skills-251.png)![speaking-skills-252.png](img/speaking-skills-252.png)![speaking-skills-253.png](img/speaking-skills-253.png)![speaking-skills-254.png](img/speaking-skills-254.png)![speaking-skills-255.png](img/speaking-skills-255.png)![speaking-skills-256.png](img/speaking-skills-256.png)![speaking-skills-257.png](img/speaking-skills-257.png)![speaking-skills-258.png](img/speaking-skills-258.png)![speaking-skills-259.png](img/speaking-skills-259.png)![speaking-skills-260.png](img/speaking-skills-260.png)![speaking-skills-261.png](img/speaking-skills-261.png)
 
 ### Steps for brainstorming
-![Pasted image 20240426220857.png](../../Archive/Static/Pasted%20image%2020240426220857.png) 
+![speaking-skills-262.png](img/speaking-skills-262.png) 
 
 ## Useful Frameworks
-![Pasted image 20240426221150.png](../../Archive/Static/Pasted%20image%2020240426221150.png)![Pasted image 20240426221702.png](../../Archive/Static/Pasted%20image%2020240426221702.png)
+![speaking-skills-263.png](img/speaking-skills-263.png)![speaking-skills-264.png](img/speaking-skills-264.png)
 
-![Pasted image 20240426222156.png](../../Archive/Static/Pasted%20image%2020240426222156.png)![Pasted image 20240426222302.png](../../Archive/Static/Pasted%20image%2020240426222302.png)![Pasted image 20240426222434.png](../../Archive/Static/Pasted%20image%2020240426222434.png)
+![speaking-skills-265.png](img/speaking-skills-265.png)![speaking-skills-266.png](img/speaking-skills-266.png)![speaking-skills-267.png](img/speaking-skills-267.png)
 
 ## Taking notes
- ![Pasted image 20240426222626.png](../../Archive/Static/Pasted%20image%2020240426222626.png)![Pasted image 20240426222912.png](../../Archive/Static/Pasted%20image%2020240426222912.png)![Pasted image 20240426223449.png](../../Archive/Static/Pasted%20image%2020240426223449.png) 
+ ![speaking-skills-268.png](img/speaking-skills-268.png)![speaking-skills-269.png](img/speaking-skills-269.png)![speaking-skills-270.png](img/speaking-skills-270.png) 
 # Giving Answers
 ## Introducing Topic
-![Pasted image 20240427205345.png](../../Archive/Static/Pasted%20image%2020240427205345.png) ![Pasted image 20240427205440.png](../../Archive/Static/Pasted%20image%2020240427205440.png)![Pasted image 20240427205452.png](../../Archive/Static/Pasted%20image%2020240427205452.png)
+![speaking-skills-271.png](img/speaking-skills-271.png) ![speaking-skills-272.png](img/speaking-skills-272.png)![speaking-skills-273.png](img/speaking-skills-273.png)
 
 ## Introducing New Points
 
-![Pasted image 20240427205938.png](../../Archive/Static/Pasted%20image%2020240427205938.png)![Pasted image 20240427210305.png](../../Archive/Static/Pasted%20image%2020240427210305.png)![Pasted image 20240427210336.png](../../Archive/Static/Pasted%20image%2020240427210336.png) 
+![speaking-skills-274.png](img/speaking-skills-274.png)![speaking-skills-275.png](img/speaking-skills-275.png)![speaking-skills-276.png](img/speaking-skills-276.png) 
 ## Recycling Material
-![Pasted image 20240429185755.png](../../Archive/Static/Pasted%20image%2020240429185755.png)![Pasted image 20240429185809.png](../../Archive/Static/Pasted%20image%2020240429185809.png)
+![speaking-skills-277.png](img/speaking-skills-277.png)![speaking-skills-278.png](img/speaking-skills-278.png)
 
-![Pasted image 20240429190421.png](../../Archive/Static/Pasted%20image%2020240429190421.png)![Pasted image 20240429190437.png](../../Archive/Static/Pasted%20image%2020240429190437.png)![Pasted image 20240429190453.png](../../Archive/Static/Pasted%20image%2020240429190453.png) 
-![Pasted image 20240429190703.png](../../Archive/Static/Pasted%20image%2020240429190703.png)![Pasted image 20240429190652.png](../../Archive/Static/Pasted%20image%2020240429190652.png)![Pasted image 20240429190720.png](../../Archive/Static/Pasted%20image%2020240429190720.png)
+![speaking-skills-279.png](img/speaking-skills-279.png)![speaking-skills-280.png](img/speaking-skills-280.png)![speaking-skills-281.png](img/speaking-skills-281.png) 
+![speaking-skills-282.png](img/speaking-skills-282.png)![speaking-skills-283.png](img/speaking-skills-283.png)![speaking-skills-284.png](img/speaking-skills-284.png)
 
-![Pasted image 20240429191248.png](../../Archive/Static/Pasted%20image%2020240429191248.png)![Pasted image 20240429191236.png](../../Archive/Static/Pasted%20image%2020240429191236.png)![Pasted image 20240429191303.png](../../Archive/Static/Pasted%20image%2020240429191303.png)
+![speaking-skills-285.png](img/speaking-skills-285.png)![speaking-skills-286.png](img/speaking-skills-286.png)![speaking-skills-287.png](img/speaking-skills-287.png)
 
-![Pasted image 20240429191617.png](../../Archive/Static/Pasted%20image%2020240429191617.png)![Pasted image 20240429191629.png](../../Archive/Static/Pasted%20image%2020240429191629.png)![Pasted image 20240429191642.png](../../Archive/Static/Pasted%20image%2020240429191642.png)
+![speaking-skills-288.png](img/speaking-skills-288.png)![speaking-skills-289.png](img/speaking-skills-289.png)![speaking-skills-290.png](img/speaking-skills-290.png)
 
-![Pasted image 20240429192812.png](../../Archive/Static/Pasted%20image%2020240429192812.png)![Pasted image 20240429192826.png](../../Archive/Static/Pasted%20image%2020240429192826.png)
+![speaking-skills-291.png](img/speaking-skills-291.png)![speaking-skills-292.png](img/speaking-skills-292.png)
 
-![Pasted image 20240429192841.png](../../Archive/Static/Pasted%20image%2020240429192841.png)![Pasted image 20240429192852.png](../../Archive/Static/Pasted%20image%2020240429192852.png)
+![speaking-skills-293.png](img/speaking-skills-293.png)![speaking-skills-294.png](img/speaking-skills-294.png)
 ## Staying On Topic
-![Pasted image 20240429200419.png](../../Archive/Static/Pasted%20image%2020240429200419.png)![Pasted image 20240429200433.png](../../Archive/Static/Pasted%20image%2020240429200433.png)
+![speaking-skills-295.png](img/speaking-skills-295.png)![speaking-skills-296.png](img/speaking-skills-296.png)
 
-![Pasted image 20240429200448.png](../../Archive/Static/Pasted%20image%2020240429200448.png)![Pasted image 20240429200457.png](../../Archive/Static/Pasted%20image%2020240429200457.png)
+![speaking-skills-297.png](img/speaking-skills-297.png)![speaking-skills-298.png](img/speaking-skills-298.png)
 
-![Pasted image 20240429200700.png](../../Archive/Static/Pasted%20image%2020240429200700.png)
+![speaking-skills-299.png](img/speaking-skills-299.png)
 
-![Pasted image 20240429200724.png](../../Archive/Static/Pasted%20image%2020240429200724.png)![Pasted image 20240429200738.png](../../Archive/Static/Pasted%20image%2020240429200738.png)
+![speaking-skills-300.png](img/speaking-skills-300.png)![speaking-skills-301.png](img/speaking-skills-301.png)
 
-![Pasted image 20240429201106.png](../../Archive/Static/Pasted%20image%2020240429201106.png)![Pasted image 20240429201138.png](../../Archive/Static/Pasted%20image%2020240429201138.png)![Pasted image 20240429201152.png](../../Archive/Static/Pasted%20image%2020240429201152.png)
-![Pasted image 20240429202331.png](../../Archive/Static/Pasted%20image%2020240429202331.png)![Pasted image 20240429202349.png](../../Archive/Static/Pasted%20image%2020240429202349.png)![Pasted image 20240429202531.png](../../Archive/Static/Pasted%20image%2020240429202531.png)![Pasted image 20240429202543.png](../../Archive/Static/Pasted%20image%2020240429202543.png)![Pasted image 20240429202617.png](../../Archive/Static/Pasted%20image%2020240429202617.png)
-![Pasted image 20240429202812.png](../../Archive/Static/Pasted%20image%2020240429202812.png)
-![Pasted image 20240429202834.png](../../Archive/Static/Pasted%20image%2020240429202834.png)![Pasted image 20240429202858.png](../../Archive/Static/Pasted%20image%2020240429202858.png)![Pasted image 20240429202956.png](../../Archive/Static/Pasted%20image%2020240429202956.png)![Pasted image 20240429203441.png](../../Archive/Static/Pasted%20image%2020240429203441.png)
+![speaking-skills-302.png](img/speaking-skills-302.png)![speaking-skills-303.png](img/speaking-skills-303.png)![speaking-skills-304.png](img/speaking-skills-304.png)
+![speaking-skills-305.png](img/speaking-skills-305.png)![speaking-skills-306.png](img/speaking-skills-306.png)![speaking-skills-307.png](img/speaking-skills-307.png)![speaking-skills-308.png](img/speaking-skills-308.png)![speaking-skills-309.png](img/speaking-skills-309.png)
+![speaking-skills-310.png](img/speaking-skills-310.png)
+![speaking-skills-311.png](img/speaking-skills-311.png)![speaking-skills-312.png](img/speaking-skills-312.png)![speaking-skills-313.png](img/speaking-skills-313.png)![speaking-skills-314.png](img/speaking-skills-314.png)
 
-![Pasted image 20240429215651.png](../../Archive/Static/Pasted%20image%2020240429215651.png)![Pasted image 20240429215702.png](../../Archive/Static/Pasted%20image%2020240429215702.png)
-![Pasted image 20240429215615.png](../../Archive/Static/Pasted%20image%2020240429215615.png)![Pasted image 20240429215630.png](../../Archive/Static/Pasted%20image%2020240429215630.png)
-![Pasted image 20240429215911.png](../../Archive/Static/Pasted%20image%2020240429215911.png)![Pasted image 20240429220005.png](../../Archive/Static/Pasted%20image%2020240429220005.png)![Pasted image 20240429220017.png](../../Archive/Static/Pasted%20image%2020240429220017.png)![Pasted image 20240429220247.png](../../Archive/Static/Pasted%20image%2020240429220247.png)![Pasted image 20240429220356.png](../../Archive/Static/Pasted%20image%2020240429220356.png)![Pasted image 20240429220426.png](../../Archive/Static/Pasted%20image%2020240429220426.png)
+![speaking-skills-315.png](img/speaking-skills-315.png)![speaking-skills-316.png](img/speaking-skills-316.png)
+![speaking-skills-317.png](img/speaking-skills-317.png)![speaking-skills-318.png](img/speaking-skills-318.png)
+![speaking-skills-319.png](img/speaking-skills-319.png)![speaking-skills-320.png](img/speaking-skills-320.png)![speaking-skills-321.png](img/speaking-skills-321.png)![speaking-skills-322.png](img/speaking-skills-322.png)![speaking-skills-323.png](img/speaking-skills-323.png)![speaking-skills-324.png](img/speaking-skills-324.png)
 
-![Pasted image 20240429220609.png](../../Archive/Static/Pasted%20image%2020240429220609.png)![Pasted image 20240429220621.png](../../Archive/Static/Pasted%20image%2020240429220621.png)
+![speaking-skills-325.png](img/speaking-skills-325.png)![speaking-skills-326.png](img/speaking-skills-326.png)
 
 ## Filling up Time
-![Pasted image 20240429220713.png](../../Archive/Static/Pasted%20image%2020240429220713.png) 
+![speaking-skills-327.png](img/speaking-skills-327.png) 
 
-![Pasted image 20240429220823.png](../../Archive/Static/Pasted%20image%2020240429220823.png) ![Pasted image 20240429220852.png](../../Archive/Static/Pasted%20image%2020240429220852.png)
+![speaking-skills-328.png](img/speaking-skills-328.png) ![speaking-skills-329.png](img/speaking-skills-329.png)
 
-![Pasted image 20240429221140.png](../../Archive/Static/Pasted%20image%2020240429221140.png)![Pasted image 20240429221155.png](../../Archive/Static/Pasted%20image%2020240429221155.png)![Pasted image 20240429221220.png](../../Archive/Static/Pasted%20image%2020240429221220.png)
+![speaking-skills-330.png](img/speaking-skills-330.png)![speaking-skills-331.png](img/speaking-skills-331.png)![speaking-skills-332.png](img/speaking-skills-332.png)
 
 # Part3 Intro and Reminders
 ## Part3 Question Types
-![Pasted image 20240509113442.png](../../Archive/Static/Pasted%20image%2020240509113442.png)![Pasted image 20240509113518.png](../../Archive/Static/Pasted%20image%2020240509113518.png)
+![speaking-skills-333.png](img/speaking-skills-333.png)![speaking-skills-334.png](img/speaking-skills-334.png)
 
 ## Discourse
-![Pasted image 20240509114229.png](../../Archive/Static/Pasted%20image%2020240509114229.png)
+![speaking-skills-335.png](img/speaking-skills-335.png)
 
-![Pasted image 20240509133236.png](../../Archive/Static/Pasted%20image%2020240509133236.png)![Pasted image 20240509133247.png](../../Archive/Static/Pasted%20image%2020240509133247.png)
+![speaking-skills-336.png](img/speaking-skills-336.png)![speaking-skills-337.png](img/speaking-skills-337.png)
 
 # Reminders
-![Pasted image 20240509133411.png](../../Archive/Static/Pasted%20image%2020240509133411.png)![Pasted image 20240509153552.png](../../Archive/Static/Pasted%20image%2020240509153552.png)
+![speaking-skills-338.png](img/speaking-skills-338.png)![speaking-skills-339.png](img/speaking-skills-339.png)
 
 # Part3 Preparing and Giving Answers
 ## Reservoir of ideas
-![Pasted image 20240515185910.png](../../Archive/Static/Pasted%20image%2020240515185910.png)![Pasted image 20240515190148.png](../../Archive/Static/Pasted%20image%2020240515190148.png)![Pasted image 20240515190640.png](../../Archive/Static/Pasted%20image%2020240515190640.png)
+![speaking-skills-340.png](img/speaking-skills-340.png)![speaking-skills-341.png](img/speaking-skills-341.png)![speaking-skills-342.png](img/speaking-skills-342.png)
 
 ## Important Tools
 ### keep asking yourself why
-![Pasted image 20240515192620.png](../../Archive/Static/Pasted%20image%2020240515192620.png)
+![speaking-skills-343.png](img/speaking-skills-343.png)
 
 例子
-![Pasted image 20240515192852.png](../../Archive/Static/Pasted%20image%2020240515192852.png)![Pasted image 20240515193028.png](../../Archive/Static/Pasted%20image%2020240515193028.png)
-![Pasted image 20240515193107.png](../../Archive/Static/Pasted%20image%2020240515193107.png)![Pasted image 20240515193301.png](../../Archive/Static/Pasted%20image%2020240515193301.png)
+![speaking-skills-344.png](img/speaking-skills-344.png)![speaking-skills-345.png](img/speaking-skills-345.png)
+![speaking-skills-346.png](img/speaking-skills-346.png)![speaking-skills-347.png](img/speaking-skills-347.png)
 
 ### use high-level words
 细节 总结概括 升华
 
 ## Starting Sentence
-![Pasted image 20240527220838.png](../../Archive/Static/Pasted%20image%2020240527220838.png)![Pasted image 20240527221038.png](../../Archive/Static/Pasted%20image%2020240527221038.png)![Pasted image 20240527221218.png](../../Archive/Static/Pasted%20image%2020240527221218.png)
+![speaking-skills-348.png](img/speaking-skills-348.png)![speaking-skills-349.png](img/speaking-skills-349.png)![speaking-skills-350.png](img/speaking-skills-350.png)
 
 ## Template1
 listing question
-![Pasted image 20240527221353.png](../../Archive/Static/Pasted%20image%2020240527221353.png)
+![speaking-skills-351.png](img/speaking-skills-351.png)
 
 ## Temlate2 
 explaining
@@ -404,7 +404,7 @@ comparing
 suggesting
 agree/disagreeing
 predicting question
-![Pasted image 20240527221829.png](../../Archive/Static/Pasted%20image%2020240527221829.png)
+![speaking-skills-352.png](img/speaking-skills-352.png)
 
 ## Discourse
-![Pasted image 20240527233345.png](../../Archive/Static/Pasted%20image%2020240527233345.png)![Pasted image 20240527233353.png](../../Archive/Static/Pasted%20image%2020240527233353.png)
+![speaking-skills-353.png](img/speaking-skills-353.png)![speaking-skills-354.png](img/speaking-skills-354.png)
