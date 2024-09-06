@@ -1,4 +1,4 @@
-baseURL = 'https://bleedkagax.github.io/'
+baseURL = 'https://bleedkagax.github.io/Klog/'
 languageCode = 'en-us'
 title = 'Kaga Blog'
 theme = 'papermod'
