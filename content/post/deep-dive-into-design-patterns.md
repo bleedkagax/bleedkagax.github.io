@@ -12,7 +12,7 @@ share: "true"
 
 **对象之间的关系**
 
-![img/deep-dive-into-design-patterns.png](img/deep-dive-into-design-patterns.png)
+![img/deep-dive-into-design-patterns.png](/img/deep-dive-into-design-patterns.png)
 
 **依赖**:对类 B 进行修改会影响到类 A 。
 
@@ -76,23 +76,23 @@ share: "true"
 
 **修改前:**税率计算代码和方法的其他代码混杂在一起。
 
-![img/deep-dive-into-design-patterns-85.png](img/deep-dive-into-design-patterns-85.png)
+![img/deep-dive-into-design-patterns-85.png](/img/deep-dive-into-design-patterns-85.png)
 
 **修改后:**你可通过调用指定方法获取税率。
 
-![](img/deep-dive-into-design-patterns-86.png)
+![](/img/deep-dive-into-design-patterns-86.png)
 
-![](img/deep-dive-into-design-patterns-87.png)
+![](/img/deep-dive-into-design-patterns-87.png)
 
 **类层面的封装**
 
 **修改前:**在 订单 Order 类中计算税金。
 
-![](img/deep-dive-into-design-patterns-88.png)
+![](/img/deep-dive-into-design-patterns-88.png)
 
 **修改后:**对订单类隐藏税金计算。
 
-![](img/deep-dive-into-design-patterns-89.png)
+![](/img/deep-dive-into-design-patterns-89.png)
 
 # **四、面向接口进行开发，而不是面向实现**
 
@@ -100,7 +100,7 @@ share: "true"
 
 **Eg1**
 
-![](img/deep-dive-into-design-patterns-90.png)
+![](/img/deep-dive-into-design-patterns-90.png)
 
 抽取接口前后的对比：右侧的代码要比左侧更加灵活， 但也 更加复杂。
 
@@ -110,15 +110,15 @@ share: "true"
 
 **修改前:**所有类都紧密耦合。
 
-![](img/deep-dive-into-design-patterns-91.png)
+![](/img/deep-dive-into-design-patterns-91.png)
 
 **优化:**多态机制能帮助我们简化代码，但公司类的其他部分仍然依赖于具体的雇员类。
 
-![](img/deep-dive-into-design-patterns-92.png)
+![](/img/deep-dive-into-design-patterns-92.png)
 
 **修改后:**公司类的主要方法独立于具体的雇员类。雇员对象将在具体公司子类中创建。
 
-![](img/deep-dive-into-design-patterns-93.png)
+![](/img/deep-dive-into-design-patterns-93.png)
 
 这就是工厂方法模式的一个示例。
 
@@ -142,11 +142,11 @@ share: "true"
 **继承:**在多个维度上扩展一个类(汽车类型 × 引擎类型 ×
 驾驶类型)可能会导致子类组合的数量爆炸。
 
-![](img/deep-dive-into-design-patterns-94.png)
+![](/img/deep-dive-into-design-patterns-94.png)
 
 **组合:**将不同"维度"的功能抽取到各自的类层次结构中。
 
-![](img/deep-dive-into-design-patterns-95.png)
+![](/img/deep-dive-into-design-patterns-95.png)
 
 上述类的结构类似于**策略模式。**
 
@@ -158,11 +158,11 @@ share: "true"
 
 修改一个类的原因只能有一个。
 
-![](img/deep-dive-into-design-patterns-96.png)
+![](/img/deep-dive-into-design-patterns-96.png)
 
 **修改前:**类中包含多个不同的行为。
 
-![](img/deep-dive-into-design-patterns-97.png)
+![](/img/deep-dive-into-design-patterns-97.png)
 
 **修改后:**额外行为有了它们自己的类。
 
@@ -180,13 +180,13 @@ share: "true"
 如果这个类是有缺陷的，直接对其进行修复即可，不要为它创建子类。
 子类不应该对其父类的问题负责。
 
-![](img/deep-dive-into-design-patterns-98.png)
+![](/img/deep-dive-into-design-patterns-98.png)
 
 **修改前:**在程序中添加新的运输方式时，你必须对订单类进行修改。
 
 使用**策略模式**：
 
-![](img/deep-dive-into-design-patterns-99.png)
+![](/img/deep-dive-into-design-patterns-99.png)
 
 **修改后:**添加新的运输方式不需要修改已有的类。
 
@@ -274,11 +274,11 @@ JavaScript)没有对私有成员进行任何保护。Go可以通过unsafe.Pointe
 
 一个违反替换原则的文档类层次结构例子
 
-![](img/deep-dive-into-design-patterns-100.png)
+![](/img/deep-dive-into-design-patterns-100.png)
 
 **修改前:**只读文件中的保存行为没有任何意义，因此子类试图在重写后的方法中重置基础行为来解决这个问题。
 
-![](img/deep-dive-into-design-patterns-101.png)
+![](/img/deep-dive-into-design-patterns-101.png)
 
 **修改后:**当把只读文档类作为层次结构中的基类后，这个问题得到了解决。
 
@@ -295,11 +295,11 @@ JavaScript)没有对私有成员进行任何保护。Go可以通过unsafe.Pointe
 尽量缩小接口的范围，
 使得客户端的类不必实现其不需要的行为。根据接口隔离原则，你必须将"臃肿"的方法拆分为多个颗粒度更小的具体方法。
 
-![](img/deep-dive-into-design-patterns-102.png)
+![](/img/deep-dive-into-design-patterns-102.png)
 
 **修改前:**不是所有客户端能满足复杂接口的要求。
 
-![](img/deep-dive-into-design-patterns-103.png)
+![](/img/deep-dive-into-design-patterns-103.png)
 
 **修改后:**一个复杂的接口被拆分为一组颗粒度更小的接口。
 
@@ -338,11 +338,11 @@ JavaScript)没有对私有成员进行任何保护。Go可以通过unsafe.Pointe
 依赖倒置原则通常和开闭原则共同发挥作用:
 你无需修改已有类就能用不同的业务逻辑类扩展低层次的类。
 
-![](img/deep-dive-into-design-patterns-104.png)
+![](/img/deep-dive-into-design-patterns-104.png)
 
 **修改前:**高层次的类依赖于低层次的类。
 
-![](img/deep-dive-into-design-patterns-105.png)
+![](/img/deep-dive-into-design-patterns-105.png)
 
 **修改后:**低层次的类依赖于高层次的抽象。
 
@@ -356,7 +356,7 @@ JavaScript)没有对私有成员进行任何保护。Go可以通过unsafe.Pointe
 
 ### **工厂方法**
 
-![](img/deep-dive-into-design-patterns-106.png)
+![](/img/deep-dive-into-design-patterns-106.png)
 
 **问题**
 
@@ -366,7 +366,7 @@ JavaScript)没有对私有成员进行任何保护。Go可以通过unsafe.Pointe
 现在每天都能收到十几次来自海运公司的请求，
 希望应用能够支持海上物流功能。
 
-![](img/deep-dive-into-design-patterns-107.png)
+![](/img/deep-dive-into-design-patterns-107.png)
 
 如果代码其余部分与现有类已经存在耦合关系，
 那么向程序中添加新类其实并没有那么容易。
@@ -376,22 +376,22 @@ JavaScript)没有对私有成员进行任何保护。Go可以通过unsafe.Pointe
 工厂方法模式建议使用特殊的工厂方法代替对于对象构造函数的直接调用(即使用
 new 运算符)。
 
-![](img/deep-dive-into-design-patterns-108.png)
+![](/img/deep-dive-into-design-patterns-108.png)
 
 子类可以修改工厂方法返回的对象类型。
 
-![](img/deep-dive-into-design-patterns-109.png)
+![](/img/deep-dive-into-design-patterns-109.png)
 
 所有产品都必须使用同一接口。
 
-![](img/deep-dive-into-design-patterns-110.png)
+![](/img/deep-dive-into-design-patterns-110.png)
 
 只要产品类实现一个共同的接口， 你就可以将其对象传递给客户代码，
 而无需提供额外数据。
 
 **结构**
 
-![](img/deep-dive-into-design-patterns-111.png)
+![](/img/deep-dive-into-design-patterns-111.png)
 
 **产品**(Product)将会对接口进行声明。对于所有由创建者及
 其子类构建的对象， 这些接口都是通用的。
@@ -411,7 +411,7 @@ new 运算符)。
 使用**工厂方法**开发跨平台 UI(用户界面)组件，并同时避免客户代码与具体 UI
 类之间的耦合。
 
-![](img/deep-dive-into-design-patterns-112.png)
+![](/img/deep-dive-into-design-patterns-112.png)
 
 **应用场景**
 
@@ -450,7 +450,7 @@ new 运算符)。
 如果应用中的产品类型太多， 那么为每个产品创建子类并无 太大必要，
 这时你也可以在子类中复用基类中的控制参数。
 
-![](img/deep-dive-into-design-patterns.jpeg)
+![](/img/deep-dive-into-design-patterns.jpeg)
 
 陆地邮件同时使用卡车和火车对象：
 
@@ -482,13 +482,13 @@ todo
 
 ### **抽象工厂**
 
-![](img/deep-dive-into-design-patterns-113.png)
+![](/img/deep-dive-into-design-patterns-113.png)
 
 **问题**
 
 假设你正在开发一款家具商店模拟器，系列产品及其不同变体：
 
-![](img/deep-dive-into-design-patterns-114.png)
+![](/img/deep-dive-into-design-patterns-114.png)
 
 你需要设法单独生成每件家具对象，
 确保其风格一致。且家具供应商对于产品目录的更新非常频繁。
@@ -500,17 +500,17 @@ todo
 
 确保所有产品变体都继承这些接口。
 
-![](img/deep-dive-into-design-patterns-115.png)
+![](/img/deep-dive-into-design-patterns-115.png)
 
 需要声明抽象工厂------包含系列中所有产品构造方法的接口，这些方法必须返回**抽象**产品类型。
 
-![](img/deep-dive-into-design-patterns-116.png)
+![](/img/deep-dive-into-design-patterns-116.png)
 
 每个具体工厂类都对应一个特定的产品变体。
 
 **结构**
 
-![](img/deep-dive-into-design-patterns-117.png)
+![](/img/deep-dive-into-design-patterns-117.png)
 
 **抽象产品**(Abstract
 Product)为构成系列产品的一组不同但相关的产品声明接口。
@@ -530,7 +530,7 @@ Factory)实现抽象工厂的构建方法。每个具体工厂都对应特定产
 类耦合，就能创建跨平台的 UI
 元素，同时确保所创建的元素与指定的操作系统匹配。
 
-![](img/deep-dive-into-design-patterns-118.png)
+![](/img/deep-dive-into-design-patterns-118.png)
 
 **适合应用场景**
 
@@ -575,14 +575,14 @@ Factory)实现抽象工厂的构建方法。每个具体工厂都对应特定产
 
 ### **生成器**
 
-![](img/deep-dive-into-design-patterns-119.png)
+![](/img/deep-dive-into-design-patterns-119.png)
 
 **问题**
 
 假设有这样一个复杂对象，
 在对其进行构造时需要对诸多成员变量和嵌套对象进行繁复的初始化工作。
 
-![](img/deep-dive-into-design-patterns-120.png)
+![](/img/deep-dive-into-design-patterns-120.png)
 
 做法1：扩展 房屋 基类，然后创建一系列涵盖所有参数组合的子类。
 但最终你将面对相当数量的子类。
@@ -590,7 +590,7 @@ Factory)实现抽象工厂的构建方法。每个具体工厂都对应特定产
 做法2：无需生成子类。你可以在 房屋
 基类中创建一个包括所有可能参数的超级构造函数， 并用它来控制房屋对 象。
 
-![](img/deep-dive-into-design-patterns-121.png)
+![](/img/deep-dive-into-design-patterns-121.png)
 
 但是这些参数也不是每次都要全部用上的，这使得**对于构造函数的调用十分不简洁**。
 
@@ -599,14 +599,14 @@ Factory)实现抽象工厂的构建方法。每个具体工厂都对应特定产
 生成器模式建议将对象构造代码从产品类中抽取出来，
 并将其放在一个名为生成器的独立对象中。
 
-![](img/deep-dive-into-design-patterns-122.png)
+![](/img/deep-dive-into-design-patterns-122.png)
 
 创建对象时无需调用所有步骤，
 而只需调用创建特定对象配置所需的那些步骤即可。
 
 **结构**
 
-![](img/deep-dive-into-design-patterns-123.png)
+![](/img/deep-dive-into-design-patterns-123.png)
 
 **生成器**(Builder)接口声明在所有类型生成器中通用的产品构造步骤。
 
@@ -621,7 +621,7 @@ Builders)提供构造过程的不同实现。具体生成器也可以构造不�
 
 **示例**
 
-![](img/deep-dive-into-design-patterns-124.png)
+![](/img/deep-dive-into-design-patterns-124.png)
 
 **适合应用场景**
 
@@ -663,7 +663,7 @@ Builders)提供构造过程的不同实现。具体生成器也可以构造不�
 
 ### **原型**
 
-![](img/deep-dive-into-design-patterns-125.png)
+![](/img/deep-dive-into-design-patterns-125.png)
 
 **问题**
 
@@ -691,7 +691,7 @@ Builders)提供构造过程的不同实现。具体生成器也可以构造不�
 
 **基本实现**
 
-![](img/deep-dive-into-design-patterns-126.png)
+![](/img/deep-dive-into-design-patterns-126.png)
 
 **原型**(Prototype)接口将对克隆方法进行声明。在绝大多数情况下，
 其中只会有一个名为 clone 克隆 的方法。
@@ -705,7 +705,7 @@ Prototype)类将实现克隆方法。除了将原始对象的数据复制到克�
 
 **原型注册表实现**
 
-![](img/deep-dive-into-design-patterns-127.png)
+![](/img/deep-dive-into-design-patterns-127.png)
 
 **原型注册表**(Prototype Registry)提供了一种访问常用原型的简单方法，
 其中存储了一系列可供随时复制的预生成对象。 最简单的注册表原型是一个
@@ -716,7 +716,7 @@ Prototype)类将实现克隆方法。除了将原始对象的数据复制到克�
 **原型**模式能让你生成完全相同的几何对象副本，
 同时无需代码与对象所属类耦合。
 
-![](img/deep-dive-into-design-patterns-128.png)
+![](/img/deep-dive-into-design-patterns-128.png)
 
 **适合应用场景**
 
@@ -754,7 +754,7 @@ Prototype)类将实现克隆方法。除了将原始对象的数据复制到克�
 
 ### **单例**
 
-![](img/deep-dive-into-design-patterns-129.png)
+![](/img/deep-dive-into-design-patterns-129.png)
 
 **问题**
 
@@ -766,7 +766,7 @@ Prototype)类将实现克隆方法。除了将原始对象的数据复制到克�
 
 **结构**
 
-![](img/deep-dive-into-design-patterns-130.png)
+![](/img/deep-dive-into-design-patterns-130.png)
 
 **结构型模式**
 
@@ -775,15 +775,15 @@ Prototype)类将实现克隆方法。除了将原始对象的数据复制到克�
 
 ### **适配器**
 
-![](img/deep-dive-into-design-patterns-131.png)
+![](/img/deep-dive-into-design-patterns-131.png)
 
 **问题**
 
-![](img/deep-dive-into-design-patterns-132.png)
+![](/img/deep-dive-into-design-patterns-132.png)
 
 **解决方案**
 
-![](img/deep-dive-into-design-patterns-133.png)
+![](/img/deep-dive-into-design-patterns-133.png)
 
 **结构**
 
@@ -792,17 +792,17 @@ Prototype)类将实现克隆方法。除了将原始对象的数据复制到克�
 实现时使用了构成原则: 适配器实现了其中一个对象的接口，
 并对另一个对象进行封装。
 
-![](img/deep-dive-into-design-patterns-134.png)
+![](/img/deep-dive-into-design-patterns-134.png)
 
 **类适配器**
 
 使用了继承机制: 适配器同时继承两个对象的接口
 
-![](img/deep-dive-into-design-patterns-135.png)
+![](/img/deep-dive-into-design-patterns-135.png)
 
 **示例**
 
-![](img/deep-dive-into-design-patterns-136.png)
+![](/img/deep-dive-into-design-patterns-136.png)
 
 **适合应用场景**
 
@@ -827,25 +827,25 @@ Prototype)类将实现克隆方法。除了将原始对象的数据复制到克�
 
 ### **桥接**
 
-![](img/deep-dive-into-design-patterns-137.png)
+![](/img/deep-dive-into-design-patterns-137.png)
 
 **问题**
 
-![](img/deep-dive-into-design-patterns-138.png)
+![](/img/deep-dive-into-design-patterns-138.png)
 
 **解决方案**
 
 桥接模式通过将继承改为组合的方式来解决这个问题。
 
-![](img/deep-dive-into-design-patterns-139.png)
+![](/img/deep-dive-into-design-patterns-139.png)
 
 **结构**
 
-![](img/deep-dive-into-design-patterns-140.png)
+![](/img/deep-dive-into-design-patterns-140.png)
 
 **示例**
 
-![](img/deep-dive-into-design-patterns-141.png)
+![](/img/deep-dive-into-design-patterns-141.png)
 
 **适合应用场景**
 
@@ -864,7 +864,7 @@ Prototype)类将实现克隆方法。除了将原始对象的数据复制到克�
 
 如果应用的核心模型能用树状结构表示， 在应用中使用组合模式才有价值。
 
-![](img/deep-dive-into-design-patterns-142.png)
+![](/img/deep-dive-into-design-patterns-142.png)
 
 定购系统：并不能简单地使用循环语句来计算订单总价。
 
@@ -875,7 +875,7 @@ Prototype)类将实现克隆方法。除了将原始对象的数据复制到克�
 
 **结构**
 
-![](img/deep-dive-into-design-patterns-143.png)
+![](/img/deep-dive-into-design-patterns-143.png)
 
 **组件**(Component)接口描述了树中简单项目和复杂项目所 共有的操作。
 
@@ -894,7 +894,7 @@ Prototype)类将实现克隆方法。除了将原始对象的数据复制到克�
 
 几何形状编辑器
 
-![](img/deep-dive-into-design-patterns-144.png)
+![](/img/deep-dive-into-design-patterns-144.png)
 
 **适用场景**
 
@@ -926,19 +926,19 @@ Prototype)类将实现克隆方法。除了将原始对象的数据复制到克�
 
 程序可以使用通知器类向预定义的邮箱发送重要事件通知。
 
-![](img/deep-dive-into-design-patterns-145.png)
+![](/img/deep-dive-into-design-patterns-145.png)
 
 后来除了需要支持邮箱，还需要微信、QQ、手机短信。
 
 每种通知类型都将作为通知器的一个子类得以实现。
 
-![](img/deep-dive-into-design-patterns-146.png)
+![](/img/deep-dive-into-design-patterns-146.png)
 
 如果需要同时使用多种通知方式呢？
 
 子类组合数量爆炸。
 
-![](img/deep-dive-into-design-patterns-147.png)
+![](/img/deep-dive-into-design-patterns-147.png)
 
 **解决方案**
 
@@ -955,16 +955,16 @@ Prototype)类将实现克隆方法。除了将原始对象的数据复制到克�
 在消息通知示例中， 我们可以将简单邮件通知行为放在 基类 通知器
 中，但将所有其他通知方法放入装饰中。
 
-![](img/deep-dive-into-design-patterns-148.png)
+![](/img/deep-dive-into-design-patterns-148.png)
 
 客户端代码必须将基础通知器放入一系列自己所需的装饰中。
 因此最后的对象将形成一个栈结构。
 
-![](img/deep-dive-into-design-patterns-149.png)
+![](/img/deep-dive-into-design-patterns-149.png)
 
 **结构**
 
-![](img/deep-dive-into-design-patterns-150.png)
+![](/img/deep-dive-into-design-patterns-150.png)
 
 **部件**(Component)声明封装器和被封装对象的公用接口。
 
@@ -984,7 +984,7 @@ Component)类是被封装对象所属的类。它定义了基础行为，
 装饰模式能够对敏感数据进行压缩和加密，
 从而将数据从使用数据的代码中独立出来。
 
-![](img/deep-dive-into-design-patterns-151.png)
+![](/img/deep-dive-into-design-patterns-151.png)
 
 **适用场景**
 
@@ -1012,7 +1012,7 @@ Component)类是被封装对象所属的类。它定义了基础行为，
 
 ### **结构**
 
-![](img/deep-dive-into-design-patterns-152.png)
+![](/img/deep-dive-into-design-patterns-152.png)
 
 **外观**(Facade)提供了一种访问特定子系统功能的便捷方式。
 
@@ -1028,7 +1028,7 @@ Facade)类可以**避免多种不相关的功能污染单一外观使其变成�
 使用单个外观类隔离多重依赖的示例，在本例中，
 **外观**模式简化了客户端与复杂视频转换框架之间的交互。
 
-![](img/deep-dive-into-design-patterns-153.png)
+![](/img/deep-dive-into-design-patterns-153.png)
 
 **适用场景**
 
@@ -1055,20 +1055,20 @@ Facade)类可以**避免多种不相关的功能污染单一外观使其变成�
 问题在于每个粒子(一颗子弹、 一枚导 弹或一块弹片)
 都由包含完整数据的独立对象来表示
 
-![](img/deep-dive-into-design-patterns-154.png)
+![](/img/deep-dive-into-design-patterns-154.png)
 
 **解决方案**
 
 粒子 Particle 类的颜色(color)
 和精灵图(sprite)这两个成员变量所消耗的内存要比其他变量多得多，对于所有的粒子来说，这两个成员变量所存储的数据几乎完全一样，每个粒子的另一些状态(坐标、移动矢量和速度)则是不同的。
 
-![](img/deep-dive-into-design-patterns-155.png)
+![](/img/deep-dive-into-design-patterns-155.png)
 
 享元模式建议不在对象中存储外在状态，
 而是将其传递给依赖于它的一个特殊方法。 程序只在对象中保存内在状态，
 以方便在不同情景下重用。
 
-![](img/deep-dive-into-design-patterns-156.png)
+![](/img/deep-dive-into-design-patterns-156.png)
 
 假如能从粒子类中抽出外在状态，
 那么我们只需三个不同的对象(子弹、导弹和弹片)就能表示游戏中的所有粒子。
@@ -1082,7 +1082,7 @@ Facade)类可以**避免多种不相关的功能污染单一外观使其变成�
 容器对象就是主要的 游戏 Game 对象， 其会将所有粒子存储在名为 粒子
 particles 的成员变量中。
 
-![](img/deep-dive-into-design-patterns-157.png)
+![](/img/deep-dive-into-design-patterns-157.png)
 
 **享元与不可变性**
 
@@ -1095,7 +1095,7 @@ particles 的成员变量中。
 
 **结构**
 
-![](img/deep-dive-into-design-patterns-158.png)
+![](/img/deep-dive-into-design-patterns-158.png)
 
 享元模式只是一种优化。 在应用该模式之前，
 你要确定程序中存在与大量类似对象同时占用内存相关的内存消耗问题，
@@ -1117,7 +1117,7 @@ particles 的成员变量中。
 
 **享元**模式能有效减少在画布上渲染数百万个树状 对象时所需的内存。
 
-![](img/deep-dive-into-design-patterns-159.png)
+![](/img/deep-dive-into-design-patterns-159.png)
 
 **适用场景**
 
@@ -1156,11 +1156,11 @@ particles 的成员变量中。
 信用卡是银行账户的代理， 银行账户则是一大捆现金的代理。
 信用卡和现金在支付过程中的用处相同。
 
-![](img/deep-dive-into-design-patterns-160.png)
+![](/img/deep-dive-into-design-patterns-160.png)
 
 **结构**
 
-![](img/deep-dive-into-design-patterns-161.png)
+![](/img/deep-dive-into-design-patterns-161.png)
 
 **服务接口**(Service
 Interface)声明了服务接口。代理必须遵循该接口才能伪装成服务对象。
@@ -1178,7 +1178,7 @@ Interface)声明了服务接口。代理必须遵循该接口才能伪装成服�
 
 始化和缓存。
 
-![](img/deep-dive-into-design-patterns-162.png)
+![](/img/deep-dive-into-design-patterns-162.png)
 
 **适用场景**
 
@@ -1213,11 +1213,11 @@ Interface)声明了服务接口。代理必须遵循该接口才能伪装成服�
 **责任链**会将特定行为转换为被称作*处理者*的独立对象。每个检查步骤都可被抽取为仅有单个方法的类，
 并执行检查操作。
 
-![](img/deep-dive-into-design-patterns-163.png)
+![](/img/deep-dive-into-design-patterns-163.png)
 
 **结构**
 
-![](img/deep-dive-into-design-patterns-164.png)
+![](/img/deep-dive-into-design-patterns-164.png)
 
 **处理者**(Handler)声明了所有具体处理者的通用接口。
 
@@ -1250,11 +1250,11 @@ Handler)是一个可选的类，你可以将所有处理者共用的样本代码
 
 通过命令访问业务逻辑层
 
-![](img/deep-dive-into-design-patterns-165.png)
+![](/img/deep-dive-into-design-patterns-165.png)
 
 **结构**
 
-![](img/deep-dive-into-design-patterns-166.png)
+![](/img/deep-dive-into-design-patterns-166.png)
 
 **发 送 者** (Sender)------ 亦 称 "触 发 者 (Invoker)" ：触发命令
 
@@ -1289,7 +1289,7 @@ Handler)是一个可选的类，你可以将所有处理者共用的样本代码
 
 **结构**
 
-![](img/deep-dive-into-design-patterns-167.png)
+![](/img/deep-dive-into-design-patterns-167.png)
 
 **迭代器**(Iterator)接口声明了遍历集合所需的操作
 
@@ -1328,4 +1328,4 @@ Collections)会在客户端请求迭代器时返回一个特定的具体迭代�
 
 **结构**
 
-![](img/deep-dive-into-design-patterns-168.png)
+![](/img/deep-dive-into-design-patterns-168.png)
