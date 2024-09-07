@@ -1,5 +1,5 @@
 ---
-title: speakingskills
+title: speaking skills
 name: speaking-skills
 date: 2024-09-05
 draft: false
