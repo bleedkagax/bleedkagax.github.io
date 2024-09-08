@@ -1,5 +1,5 @@
 ---
-title: dive into python 3
+title: Dive Into Python 3
 name: dive-into-python-3
 date: 2024-09-05
 draft: false

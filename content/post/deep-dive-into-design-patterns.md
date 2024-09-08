@@ -1,5 +1,5 @@
 ---
-title: deep dive into design patterns
+title: Deep Dive Into Design Patterns
 name: deep-dive-into-design-patterns
 date: 2024-09-05
 draft: false
@@ -74,11 +74,11 @@ share: "true"
 
 **方法层面的封装**
 
-**修改前:**税率计算代码和方法的其他代码混杂在一起。
+**修改前**税率计算代码和方法的其他代码混杂在一起。
 
 ![img/deep-dive-into-design-patterns-85.png](/img/deep-dive-into-design-patterns-85.png)
 
-**修改后:**你可通过调用指定方法获取税率。
+**修改后**你可通过调用指定方法获取税率。
 
 ![](/img/deep-dive-into-design-patterns-86.png)
 

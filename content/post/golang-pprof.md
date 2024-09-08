@@ -112,6 +112,7 @@ import (
     "net/http"
     _ "net/http/pprof" // This blank import enables the HTTP endpoints for `pprof`
     "log"
+    "time"
 )
 
 func startProfiler() {
@@ -128,17 +129,22 @@ Create a Go program that uses concurrency features like goroutines and channels.
 
 ```go
 func worker(id int, done chan bool) {
-    for {
-        // Do some work...
-        log.Printf("Worker %d is processing\n", id)
-        done <- true
-    }
+	for {
+		// Simulating work by sleeping for a bit.
+		time.Sleep(time.Millisecond * 10)
+
+		// Log the work being processed.
+		log.Printf("Worker %d is processing\n", id)
+
+		// Signal that the work is done.
+		done <- true
+	}
 }
 
 func main() {
     startProfiler()
 
-    numWorkers := 5
+    numWorkers := 10000
     done := make(chan bool, numWorkers)
 
     for i := 0; i < numWorkers; i++ {
@@ -177,6 +183,25 @@ func main() {
 
 Use the `top` `list` `web` command
 
+```bash
+(pprof) top
+Showing nodes accounting for 77021, 96.14% of 80112 total
+top - 15:25:56 up  1:15,  0 users,  load average: 2.18, 2.84, 2.41
+Tasks:  17 total,   1 running,  15 sleeping,   0 stopped,   1 zombie
+%Cpu(s): 50.1 us, 11.5 sy,  0.0 ni, 37.4 id,  0.0 wa,  0.0 hi,  1.0 si,  0.0 st
+MiB Mem :   7950.9 total,   4956.1 free,   2293.5 used,    701.4 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.   5196.8 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND                                                                              
+    135 user      20   0 1717788 847608  10480 S   4.3  10.4   2:34.51 node                                                                                 
+      6 user      20   0  954168  88244   9608 S   3.0   1.1   1:21.68 node                                                                                                             
+    295 user      20   0  899088  16332   1264 S   0.0   0.2   0:00.99 nodemon                                                                              
+    324 user      20   0  503980  12852      0 S   0.0   0.2   0:00.49 nixd                                                                                 
+    439 user      20   0  684016  73544      0 S   0.0   0.9   0:00.87 nixd-attrset-ev        
+   3949 user      20   0  223960   2840   1952 S   0.0   0.0   0:00.06 bash                                                                                 
+   7542 user      20   0 1524220  75852      0 S   0.0   0.9   0:10.57 gopls                                                                                
+   9074 user      20   0  223960   2560   1668 S   0.0   0.0   0:00.09 bash     
+```
 ### Step 5: Optimize Concurrency
 
 1. **Reduce Lock Contention**: Redesign your code to reduce the need for locking or use finer-grained locks.
