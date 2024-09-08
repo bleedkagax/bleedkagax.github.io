@@ -1,5 +1,5 @@
 ---
-title: refactor
+title: Refactor
 name: refactor
 date: 2024-09-05
 draft: false
@@ -8,252 +8,232 @@ tags:
 share: "true"
 ---
 
-本质上说，**重构就是在代码写好之后改进它的设计**。
+Essentially, **refactoring is improving the design of code after it's been written**.
 
-如果你要给程序添加一个特性，但发现代码因缺乏良好的结构而不易于进行更改，那就先重构那个程序，使其比较容易添加该特性，然后再添加该特性。
+If you want to add a feature to a program, but find that the code isn't easy to change due to a lack of good structure, refactor that program first so that it's easier to add the feature, and then add the feature.
 
-是**需求的变化**使重构变得必要。
+It is the change in **requirements** that makes refactoring necessary.
 
-重构技术就是**以微小的步伐修改程序**。如果你犯下错误，很容易便可发现它。
+The refactoring technique is to **modify the program at a tiny pace**. If you make a mistake, it's easy to spot it.
 
-好代码的检验标准就是人们是否能轻而易举地修改它。
+The test of good code is how easily one can modify it.
 
-总结：
+To summarize:
 
-开展高效有序的重构，关键的心得是：**小的步子可以更快前进**，请保持代码永远处于可工作状态，小步修改累积起来也能大大改善系统的设计。重构不是一颗"银弹"，却可以算是一把"银钳子"，可以帮你始终良好地控制自己的代码。重构是一个工具。
+The key takeaways for efficient and organized refactoring are: **Smaller steps lead to faster progress**, keep your code in a working state forever, and small changes add up to a much better system design. Refactoring is not a “silver bullet”, but it can be considered a “silver tongs”, which can help you always have good control over your code. Refactoring is a tool.
 
-# **一. 代码的坏味道**
+# **1. Bad taste in code **
 
-## 1\. **神秘命名（Mysterious Name）**
+## 1\. **Mysterious Name**
 
   There are only two hard things in Computer Science: cache invalidation
   and naming things\-- Phil Karlt
 
-命名是编程中最难的两件事之一。正因为如此，改名可能是最常用的重构手法，包括改变函数声明（用于给函数改名）、变量改名、字段改名。
+Naming is one of the two hardest things in programming. Because of this, renaming is probably the most commonly used refactoring technique, including changing function declarations (for renaming functions), variable renaming, and field renaming.
 
-## 2\. **全局数据（Global Data）**
+## 2\. **Global Data**
 
-**封装变量**。有少量的全局数据或许无妨，但数量越多，处理的难度就会指数上升。
+**Wrapped Variables**. It may not hurt to have a small amount of global data, but the larger the number, the exponentially more difficult it is to deal with.
 
-## 3\. **可变数据（Mutable Data）**
+## 3\. **Mutable Data**
 
-可以**用封装变量来确保所有数据更新操作都通过很少几个函数来进行**，使其更容易监控和演进。
+Encapsulated variables can be **used to ensure that all data update operations are performed through very few functions**, making them easier to monitor and evolve.
 
-**如果一个变量在不同时候被用于存储不同的东西，可以使用拆分变量将其拆分为各自不同用途的变量，从而避免危险的更新操作**。
+**If a variable is used to store different things at different times, split variables can be used to split it into variables for their own different purposes, thus avoiding dangerous update operations**.
 
-使用移动语句和提炼函数尽量把逻辑从处理更新操作的代码中搬移出来，将没有副作用的代码与执行数据更新操作的代码分开。
+Use move statements and refine functions to try to move logic out of the code that handles update operations, separating code that has no side effects from code that performs data update operations.
 
-设计API时，可以使用**将查询函数和修改函数分离**。
+When designing APIs, you can use ** to separate query functions from modification functions**.
 
-尽早使用**移除设值函数**，缩小变量作用域。
+Use **Remove set-value functions** as early as possible to narrow the variable scope.
 
-## 4\. **过长函数（Long Function）**
+## 4\. **Long Functions**
 
-**积极地分解函数.**
+**Actively Decompose Functions.**
 
-原则：**每当感觉需要以注释来说明点什么的时候，我们就把需要说明的东西写进一个独立函数中，并以其用途（而非实现手法）命名**。
+Principle: **Whenever we feel that we need to explain something in a comment, we write what we need to explain in a separate function and name it after its purpose (not how it was implemented)**.
 
-什么样的函数才是过长？超过50行？超过70行？关键不在于函数的长度，而在于**函数"做什么"和"如何做"之间的语义距离**。
+What kind of function is too long? More than 50 lines? More than 70 lines? It's not the length of the function that matters, it's the semantic distance between the “what” and “how” of the function.
 
-如何确定该提炼哪一段代码呢？一个很好的技巧是：**寻找注释。它们通常能指出代码用途和实现手法之间的语义距离。**
+How do you determine which piece of code to refine? A good tip is to **look for comments. They usually indicate the semantic distance between what the code does and how it does it.**
 
-**条件表达式和循环常常也是提炼的信号**。可以使用分解条件表达式处理条件表达式。
+**Conditional expressions and loops often signal refinement as well**. Conditional expressions can be handled using decomposition conditional expressions.
 
-**对于庞大的switch语句，其中的每个分支都应该通过提炼函数变成独立的函数调用。如果有多个switch语句基于同一个条件进行分支选择，就应该使用以多态取代条件表达式。**
+**For huge switch statements, each branch should be turned into a separate function call by refining the function. If there are multiple switch statements that branch selection based on the same condition, you should use replace conditional expressions with polymorphism.**
 
-**应该将循环和循环内的代码提炼到一个独立的函数中**。如果你发现提炼出的循环很难命名，可能是因为其中做了几件不同的事。如果是这种情况，请勇敢地使用拆分循环将其拆分成各自独立的任务。
+**Loops and code within loops should be refined into a separate function**. If you find the distilled loop hard to name, it may be because it does several different things in it. If this is the case, be brave and use a split loop to break it up into its own separate tasks.
 
-## 5\. **过长参数列表（Long Parameter List）**
+## 5\. **Long Parameter List**
 
-**如果可以向某个参数发起查询而获得另一个参数的值，那么就可以使用以查询取代参数去掉这第二个参数。**
+**If it is possible to launch a query on one parameter to get the value of another parameter, then this second parameter can be removed by replacing the parameter with a query.**
 
-如果你发现自己正在从现有的数据结构中抽出很多数据项，就可以考虑**使用保持对象完整手法，直接传入原来的数据结构**。**如果有几项参数总是同时出现，可以用引入参数对象将其合并成一个对象**。
+If you find yourself pulling a lot of data items out of an existing data structure, consider **Using the Keep Objects Intact technique to pass directly into the original data structure**. **If there are several parameters that always appear at the same time, you can combine them into a single object** by introducing a parameter object.
 
-如果某个参数被用作区分函数行为的标记（flag），可以使用移除标记参数。
+If a parameter is used as a flag to distinguish the behavior of a function, remove the flag parameter.
 
-**使用类可以有效地缩短参数列表**。如果多个函数有同样的几个参数，引入一个类就尤为有意义。你可以使用函数组合成类，将这些共同的参数变成这个类的字段。
+**Using classes can effectively shorten the argument list**. Introducing a class makes particular sense if multiple functions have the same few parameters. You can use functions combined into classes to make these common parameters into fields of this class.
 
-## 6\. **霰弹式修改（Shotgun Surgery）**
+## 6\. **Shotgun Surgery**
 
-**如果每遇到某种变化，你都必须在许多不同的类内做出许多小修改**，你所面临的坏味道就是霰弹式修改。
+**If you have to make many small modifications within many different classes every time you encounter some kind of change**, the bad taste you're facing is Shotgun Surgery.
 
-**搬移函数和搬移字段把所有需要修改的代码放进同一个模块**里。如果**有很多函数都在操作相似的数据，可以使用函数组合成类**。如果有些函数的功能是转化或者充实数据结构，可以使用函数组合成变换。如果一些函数的输出可以组合后提供给一段专门使用这些计算结果的逻辑，这种时候常常用得上**拆分阶段(**如计算一笔订单的价格前解析订单**)**。
+**Moving functions and moving fields puts all the code that needs to be modified into the same module**. If **there are a lot of functions that operate on similar data, you can use a combination of functions into a class**. If some functions function to transform or enrich data structures, you can use functions to combine into transformations. If the output of some functions can be combined and made available to a piece of logic that specializes in using the results of those computations, this is often useful **Split Stage (e.g., parsing an order before calculating the price of an order**)**.
 
-一个常用的策略就是使用与内联（inline）相关的重构------如**内联函数**（或是内联类）------**把本不该分散的逻辑拽回一处**。完成内联之后，你可能会闻到过长函数或者过大的类的味道，再用与提炼相关的重构手法将其拆解成更合理的小块。
+A common strategy is to use refactoring related to inlining ------ such as **inline functions** (or inline classes) ------ to yank logic that shouldn't be scattered back into one place**. After you've finished inlining, you may smell an overly long function or overly large class, and then use refactoring techniques related to refinement to break it up into more sensible chunks.
 
-## 7\. **注释（Comments）**
+## 7\. **Comments**.
 
-**如果你需要注释来解释一块代码做了什么，试试提炼函数**；**如果函数已经提炼出来，但还是需要注释来解释其行为，试试用改变函数声明为它改名**；如果你需要注释说明某些系统的需求规格，试试引入断言。
+**If you need comments to explain what a piece of code does, try refining the function**; **If the function has been refined but still needs comments to explain its behavior, try renaming it with a change to the function declaration**; **If you need comments to explain the specification of some system requirement, try introducing an assertion.
 
-**当你感觉需要撰写注释时，请先尝试重构，试着让所有注释都变得多余。**
+**When you feel the need to write comments, try refactoring first and try making all comments redundant.**
 
-## 8\. **数据泥团（Data Clumps）**
+## 8\. **Data Clumps**.
 
-总是绑在一起出现的数据真应该拥有属于它们自己的对象。
+Data that always appears tied together really should have objects of their own.
 
-## 9\. **重复的switch （Repeated Switches）**
+## 9\. Repeated Switches 
 
-多态。
+Polymorphism.
 
-## 10\. **冗赘的元素（Lazy Element）**
+## 10\. **Lazy Element
 
-随着重构的进行越变越小，类最后只剩了一个函数。及时删除这个类，使用内联函数或是内联类。
+As the refactoring progresses it gets smaller and smaller and the class ends up with only one function. Remove this class in time to use inline functions or inline classes.
 
-## 11\. **被拒绝的遗赠（Refused Bequest）**
+## 11\. **Refused Bequest**.
 
-子类应该继承超类的函数和数据。
+Subclasses should inherit functions and data from the superclass.
 
-不愿意支持超类的接口，就不要虚情假意地糊弄继承体系，应该运用以委托(使用组合而非继承)取代子类或者以委托取代超类彻底划清界限。
+If you do not want to support the interface of the superclass, you should not be false to the inheritance system, and you should use delegates (using combinations instead of inheritance) instead of subclasses or delegates instead of superclasses to draw a line in the sand.
 
-# **二. 第一组重构**
+# **2. First set of reconstructions**
 
-## 1\. **提炼函数（Extract Function）**
+## 1\. **Extract Function**
 
 ![](/img/refactor.png)
 
-![](/img/refactor-131.png)
+![](/img/refactor-1.png)
 
-**将意图与实现分开**：如果你需要花时间浏览一段代码才能弄清它到底在干什么，那么就应该将其提炼到一个函数中，并根据它所做的事为其命名。因为大多数时候根本不需要关心函数如何达成其用途（这是函数体内干的事）
+**Separate Intent from Implementation**: If you need to spend time browsing through a piece of code to figure out what it's actually doing, then you should distill it down to a function and name it according to what it does. Because most of the time you don't need to care about how the function accomplishes its purpose (that's what the function does inside)
 
-好名字：在一个大函数中，一段代码放着一句注释，提炼成函数，注释往往提示一个好名字。
+Good names: in a big function, a piece of code puts a comment that distills it into a function, and the comment often suggests a good name.
 
-**做法**
+**Practice***
 
-**创造一个新函数：以"做什么"而非"怎么做"来命名**。
+**Create a new function: name it after “what it does”, not “how it does it”**.
 
-无局部变量，直接提炼成函数；
+Without local variables, refine directly into a function;
 
-有局部变量但只读，作为参数传递给目标函数
+with local variables but read-only, passed as arguments to the target function
 
-局部变量被赋值：只在提炼函数中被使用则可直接声明在提炼函数中；在提炼函数外也被使用则可作为提炼函数的返回值；多个变量被修改可考虑返回一个对象或者使用其他重构手法（以查询取代临时变量、拆分变量）
+Local variables are assigned values: declared directly in the refining function if they are used only within the refining function; used outside the refining function as the return value of the refining function; multiple variables are modified by considering returning an object or using other refactoring techniques (querying instead of temporary variables, splitting variables)
 
-**示例**
+## 2\. **Inline Function**
 
-before
+![](/img/refactor-2.png)
 
-![](/img/refactor-132.png)
+![](/img/refactor-3.png)
 
-After
+![](/img/refactor-4.png)
 
-![](/img/refactor-133.png)
+**Indirectness may help, but non-essential indirectness is always uncomfortable.**
 
-## 2\. **内联函数（Inline Function）**
+Some functions have their contents and names clear and easy to read
 
-![](/img/refactor-134.png)
+A group of functions is not well organized, inline to one big function first, then refine.
 
-![](/img/refactor-135.png)
+## 3\. **Extract Variable**
 
-![](/img/refactor-136.png)
+![](/img/refactor-5.png)
 
-**间接性可能带来帮助，但非必要的间接性总是让人不舒服。**
+![](/img/refactor-6.png)
 
-某些函数其内容和名称清晰易读
+**Variables provide the right context**: they help us break up expressions into more manageable forms, and also make it easier to understand what a portion of the code is doing.
 
-一群函数的组织不甚合理，先内联到一个大函数，再提炼。
+According to The Tao of Tidy Code, “**Use explanatory variables to break up the computation into a series of well-named intermediate values**”.
 
-## 3\. **提炼变量（Extract Variable）**
+## 4\. **Inline Variable**
 
-![](/img/refactor-137.png)
+![](/img/refactor-7.png)
 
-![](/img/refactor-138.png)
+![](/img/refactor-8.png)
 
-**变量提供了合适的上下文**：帮助我们将表达式分解为比较容易管理的形式，也便于理解一部分代码是干什么的。
+Sometimes, **variable names are no more expressive** than the expression itself. There are also times when variables may get in the way of refactoring nearby code.
 
-按照《代码整洁之道》的说法："**使用解释性变量，将计算过程打散成一系列良好命名的中间值**"。
+## 5\. **Rename Variable**
 
-## 4\. **内联变量（Inline Variable）**
+![](/img/refactor-9.png)
 
-![](/img/refactor-139.png)
-
-![](/img/refactor-140.png)
-
-有时候，**变量名字并不比表达式本身更具表现力**。还有些时候，变量可能会妨碍重构附近的代码。
-
-## 5\. **变量改名（Rename Variable）**
-
-![](/img/refactor-141.png)
-
-解释一段程序在干什么，**对于作用域超出一次函数调用的字段，则需要更用心命名。**
+Explain what a piece of program is doing, **and be more careful naming fields whose scope extends beyond a single function call.**
 
 ## 6\. **改变函数声明（Change Function Declaration）**
 
-![](/img/refactor-142.png)
+![](/img/refactor-10.png)
 
-一个好名字能让人一眼看出**函数的用途**；
+A good name gives an immediate indication of what the **function is used for**;
 
-**函数的参数列表**阐述了函数如何与外部世界共处，修改参数列表不仅能增加函数的应用范围，还能改变连接一个模块所需的条件，从而去除不必要的耦合。
+The argument list of a **function** describes how the function coexists with the outside world, and modifying the argument list not only increases the scope of the function's application, but also removes unnecessary coupling by changing the conditions required to connect a module.
 
-**"一个改进函数名字的好办法：先写一句注释描述这个函数的用途，再把这句注释变成函数的名字。"**
+**"A good way to improve the name of a function: write a comment describing what the function is used for, then turn that comment into the name of the function.”**
 
-## 7\. **引入参数对象（Introduce Parameter Object）**
+## 7\. **Introduce Parameter Object**
 
-开始时间、结束时间
+![](/img/refactor-11.png)
 
-![](/img/refactor-143.png)
+Organize data into structures that make the **relationships** between data items clearer;
 
-将数据组织成结构，使数据项之间的**关系更清晰**；
+**shorter parameter list**;
 
-**缩短参数列表**；
+**Code consistency**: all functions that use this data structure can access elements of it by the same name.
 
-**代码一致性**：所有使用该数据结构的函数都可以通过相同的名字来访问其中元素。
+Changing the conceptual picture of the code elevates these data structures to new abstractions
 
-改变代码的概念图景，将这些数据结构提升为新的抽象概念
+## 8\. **Combine Functions into Class**
 
-## 8\. **函数组合成类（Combine Functions into Class）**
+![](/img/refactor-12.png)
 
-![](/img/refactor-144.png)
+**If you find a group of functions that manipulate the same piece of data (usually by passing that piece of data as a parameter to the function), it's time to form a class**. Classes explicitly provide a common environment for these functions, and calling them from within an object simplifies function calls by passing many fewer arguments.
 
-**如果发现一组函数形影不离地操作同一块数据（通常是将这块数据作为参数传递给函数），是时候组建一个类了**。类能明确地给这些函数提供一个共用的环境，在对象内部调用这些函数可以少传许多参数，从而简化函数调用。
+## 9\. **Split Phase**
 
-## 9\. **拆分阶段（Split Phase）**
+![](/img/refactor-13.png)
 
-解析订单与计算价格分开：
+A piece of code that handles two different things at **simultaneously** can be considered to be **split into its own separate modules**, because then each topic can be handled separately when it comes time to make changes.
 
-![](/img/refactor-145.png)
+# **3. Encapsulate**
 
-一段代码在**同时处理两件不同的事**，可以考虑把它**拆分成各自独立的模块**，因为这样到了需要修改的时候，可以单独处理每个主题。
+## 1\. **Encapsulate Record**
 
-# **三. 封装**
+![](/img/refactor-14.png)
 
-## 1\. **封装记录（Encapsulate Record）**
+Objects can hide details of the structure, **help with renaming of fields**, and are easy to expand to cope with changes.
 
-![](/img/refactor-146.png)
+## 2\. **Encapsulate Variable**
 
-对象可以隐藏结构的细节，**有助于字段的改名**，方便拓展以应对变化。
+![](/img/refactor-15.png)
 
-## 2\. **封装变量（Encapsulate Variable）**
+For all mutable data, as long as its scope extends beyond a single function, I encapsulate it and only allow access through the function. The larger the scope of the data, the more important encapsulation becomes.
 
-![](/img/refactor-147.png)
+## 3\. **Encapsulate Collection**
 
-对于所有可变的数据，只要它的作用域超出单个函数，我就会将其封装起来，只允许通过函数访问。数据的作用域越大，封装就越重要。
+![](/img/refactor-16.png)
 
-**示例**
+One mistake people often make when encapsulating collections is that ** only encapsulates access to the collection variables, but still lets the fetch function return the collection itself. This allows the collection's member variables to be modified directly, while the class encapsulating it is completely unaware and unable to intervene**.
 
-![](/img/refactor-148.png)
+Practice:
 
-![](/img/refactor-149.png)
+Provide methods to modify the collection on the class ------**Usually “add” and “remove” methods to unify the management**.
 
-## 3\. **封装集合（Encapsulate Collection）**
+## 4\. **Substitute Algorithm**
 
-![](/img/refactor-150.png)
+![](/img/refactor-17.png)
 
-封装集合时人们常常犯一个错误：**只对集合变量的访问进行了封装，但依然让取值函数返回集合本身。这使得集合的成员变量可以直接被修改，而封装它的类则全然不知，无法介入**。
+# **3. Move Characteristics**
 
-做法：
-
-在类上提供一些修改集合的方法------**通常是"添加"和"移除"方法，统一管理**。
-
-## 4\. **替换算法（Substitute Algorithm）**
-
-![](/img/refactor-151.png)
-
-# **四. 搬移特性**
-
-另一种类型的重构也很重要，那就是**在不同的上下文之间搬移元素**。
+Another type of refactoring that is also important is **moving elements between contexts**.
 
 ## 1\. **搬移函数（Move Function）**
 
-![](/img/refactor-152.png)
+![](/img/refactor-18.png)
 
 **任何函数都需要具备上下文环境才能存活**。
 
@@ -269,15 +249,15 @@ before：
 
 计算两点之间距离的函数在别处也有调用
 
-![](/img/refactor-153.png)
+![](/img/refactor-19.png)
 
 after：
 
-![](/img/refactor-154.png)
+![](/img/refactor-20.png)
 
-2\. **搬移语句到函数（Move Statements into Function）**
+## 2\. **搬移语句到函数（Move Statements into Function）**
 
-![](/img/refactor-155.png)
+![](/img/refactor-21.png)
 
 **"消除重复"**：如果发现调用某个函数时，总有一些相同的代码也需要每次执行，则考虑将此段代码合并到函数里头。
 
@@ -287,7 +267,7 @@ after：
 
 1\. **拆分变量（Split Variable）**
 
-![](/img/refactor-156.png)
+![](/img/refactor-22.png)
 
 除"循环变量"和"结果收集变量"外，还有很多变量用于保存一段冗长代码的运算结果，以便稍后使用。这种**变量应该只被赋值一次。**如果它们被赋值超过一次，就意味它们在函数中承担了一个以上的责任。如果变量承担多个责任，它就应该被替换（分解）为多个变量，**保持职责单一**。
 
@@ -295,17 +275,17 @@ after：
 
 before：
 
-![](/img/refactor-157.png)
+![](/img/refactor-23.png)
 
 after：
 
-![](/img/refactor-158.png)
+![](/img/refactor-24.png)
 
 **六. 简化条件逻辑**
 
 1\. **分解条件表达式（Decompose Conditional）**
 
-![](/img/refactor-159.png)
+![](/img/refactor-25.png)
 
 程序之中，复杂的条件逻辑是最常导致复杂度上升的因素之一。
 
@@ -315,12 +295,12 @@ after：
 
 2\. **合并条件表达式（Consolidate Conditional Expression）**
 
-![](/img/refactor-160.png)
+![](/img/refactor-26.png)
 
 3\. **以卫语句取代嵌套条件表达式（Replace Nested Conditional with Guard
 Clauses）**
 
-![](/img/refactor-161.png)
+![](/img/refactor-27.png)
 
 如果两条分支都是正常行为，就应该使用形如if\...else\...的条件表达式；如果某个条件极其罕见，就应该单独检查该条件，并在该条件为真时立刻从函数中返回。**这样的单独检查常常被称为"卫语句"（guard
 clauses）**。
@@ -333,39 +313,39 @@ clauses）**。
 
 before
 
-![](/img/refactor-162.png)
+![](/img/refactor-28.png)
 
 after
 
-![](/img/refactor-163.png)
+![](/img/refactor-29.png)
 
 **范例：将条件反转**
 
 初始
 
-![](/img/refactor-164.png)
+![](/img/refactor-30.png)
 
 反转
 
-![](/img/refactor-165.png)
+![](/img/refactor-31.png)
 
 合并条件表达式
 
-![](/img/refactor-166.png)
+![](/img/refactor-32.png)
 
 删除可变变量
 
-![](/img/refactor-167.png)
+![](/img/refactor-33.png)
 
 4\. **以多态取代条件表达式（Replace Conditional with Polymorphism）**
 
-![](/img/refactor-168.png)
+![](/img/refactor-34.png)
 
 **七. 重构API**
 
 **以查询取代参数（Replace Parameter with Query）**
 
-![](/img/refactor-169.png)
+![](/img/refactor-35.png)
 
 **函数的参数列表应该总结该函数的可变性**，标示出函数可能体现出行为差异的主要方式。和任何代码中的语句一样，**参数列表应该尽量避免重复**，并且参数列表越短就越容易理解。
 
@@ -377,7 +357,7 @@ after
 
 **以参数取代查询（Replace Query with Parameter）**
 
-![](/img/refactor-170.png)
+![](/img/refactor-36.png)
 
 好处：**改变依赖关系**，去掉令人不快的引用。
 
@@ -387,7 +367,7 @@ after
 
 **以委托取代超类（Replace Superclass with Delegate）**
 
-![](/img/refactor-171.png)
+![](/img/refactor-37.png)
 
 继承：子类继承父类的特征和行为 （车-交通工具）
 
@@ -435,9 +415,9 @@ Vector 有大量的方法， 不适用于stack。
 
 给一个古城里存放上古卷轴（scroll）的图书馆做了咨询。他们给卷轴的信息编制了一份目录（catalog），每份卷轴都有一个ID号，并记录了卷轴的标题（title）和一系列标签（tag），这些古老的卷轴需要日常清扫，因此代表卷轴的Scroll类继承了代表目录项的CatalogItem类，并扩展出与"需要清扫"相关的数据。
 
-![](/img/refactor-172.png)
+![](/img/refactor-38.png)
 
-![](/img/refactor-173.png)
+![](/img/refactor-39.png)
 
 这就是一个常见的建模错误。真实存在的卷轴和只存在于纸面上的目录项，是完全不同的两种东西。比如说，关于"如何治疗灰鳞病"的卷轴可能有好几卷，但在目录上却只记录一个条目。这样的建模错误很多时候可以置之不理。像"标题"和"标签"这样的数据，可以认为就是目录中数据的副本。如果这些数据从不发生改变，可以接受这样的表现形式。但如果需要更新其中某处数据，就必须非常小心，确保同一个目录项对应的所有数据副本都被正确地更新。
 
@@ -445,11 +425,11 @@ Vector 有大量的方法， 不适用于stack。
 
 首先在Scroll类中创建一个属性，令其指向一个新建的CatalogItem实例。
 
-![](/img/refactor-174.png)
+![](/img/refactor-40.png)
 
 然后对于子类中用到所有属于超类的函数，我要逐一为它们创建转发函数。
 
-![](/img/refactor-175.png)
+![](/img/refactor-41.png)
 
 **详细笔记**
 
@@ -500,7 +480,7 @@ Beck经常形容自己的一句话："我不是一个特别好的程序员，我
 
 **重构提高编程速度**
 
-![](/img/refactor-176.png)
+![](/img/refactor-42.png)
 
 需要添加新功能时，内部质量良好的软件让我可以很容易找到在哪里修改、如何修改。良好的模块划分使我只需要理解代码库的一小部分，就可以做出修改。如果代码很清晰，引入bug的可能性就会变小。
 
@@ -722,7 +702,7 @@ Development）。
 
 ![](/img/refactor.png)
 
-![](/img/refactor-131.png)
+![](/img/refactor-1.png)
 
 **动机**
 
@@ -742,11 +722,11 @@ Development）。
 
 **内联函数（Inline Function）**
 
-![](/img/refactor-134.png)
+![](/img/refactor-2.png)
 
-![](/img/refactor-135.png)
+![](/img/refactor-3.png)
 
-![](/img/refactor-136.png)
+![](/img/refactor-4.png)
 
 **动机**
 
@@ -764,9 +744,9 @@ Development）。
 
 **提炼变量（Extract Variable）**
 
-![](/img/refactor-137.png)
+![](/img/refactor-5.png)
 
-![](/img/refactor-138.png)
+![](/img/refactor-6.png)
 
 **动机**
 
@@ -774,9 +754,9 @@ Development）。
 
 **内联变量（Inline Variable）**
 
-![](/img/refactor-139.png)
+![](/img/refactor-7.png)
 
-![](/img/refactor-140.png)
+![](/img/refactor-8.png)
 
 **动机**
 
@@ -784,7 +764,7 @@ Development）。
 
 **改变函数声明（Change Function Declaration）**
 
-![](/img/refactor-142.png)
+![](/img/refactor-10.png)
 
 **动机**
 
@@ -794,7 +774,7 @@ Development）。
 
 **封装变量（Encapsulate Variable）**
 
-![](/img/refactor-147.png)
+![](/img/refactor-15.png)
 
 **动机**
 
@@ -802,7 +782,7 @@ Development）。
 
 **变量改名（Rename Variable）**
 
-![](/img/refactor-141.png)
+![](/img/refactor-9.png)
 
 **动机**
 
@@ -810,7 +790,7 @@ Development）。
 
 **引入参数对象（Introduce Parameter Object）**
 
-![](/img/refactor-143.png)
+![](/img/refactor-11.png)
 
 **动机**
 
@@ -824,7 +804,7 @@ Development）。
 
 **函数组合成类（Combine Functions into Class）**
 
-![](/img/refactor-144.png)
+![](/img/refactor-12.png)
 
 **动机**
 
@@ -832,7 +812,7 @@ Development）。
 
 **函数组合成变换（Combine Functions into Transform）**
 
-![](/img/refactor-177.png)
+![](/img/refactor-43.png)
 
 **动机**
 
@@ -844,7 +824,7 @@ Development）。
 
 **拆分阶段（Split Phase）**
 
-![](/img/refactor-145.png)
+![](/img/refactor-13.png)
 
 **动机**
 
@@ -854,19 +834,19 @@ Development）。
 
 重构前：
 
-![](/img/refactor-178.png)
+![](/img/refactor-44.png)
 
 重构后：
 
 提炼函数、引入中转数据结构：
 
-![](/img/refactor-179.png)
+![](/img/refactor-45.png)
 
 **第七章 封装**
 
 **封装记录（Encapsulate Record）**
 
-![](/img/refactor-146.png)
+![](/img/refactor-14.png)
 
 **动机**
 
@@ -874,7 +854,7 @@ Development）。
 
 **封装集合（Encapsulate Collection）**
 
-![](/img/refactor-150.png)
+![](/img/refactor-16.png)
 
 **动机**
 
@@ -886,15 +866,15 @@ Development）。
 
 **以对象取代基本类型（Replace Primitive with Object）**
 
-![](/img/refactor-180.png)
+![](/img/refactor-46.png)
 
 **以查询取代临时变量（Replace Temp with Query）**
 
-![](/img/refactor-181.png)
+![](/img/refactor-47.png)
 
 **提炼类（Extract Class）**
 
-![](/img/refactor-182.png)
+![](/img/refactor-48.png)
 
 **动机**
 
@@ -904,21 +884,21 @@ Development）。
 
 **内联类（Inline Class）**
 
-![](/img/refactor-183.png)
+![](/img/refactor-49.png)
 
 **隐藏委托关系（Hide Delegate）**
 
-![](/img/refactor-184.png)
+![](/img/refactor-50.png)
 
 **移除中间人（Remove Middle Man）**
 
-![](/img/refactor-185.png)
+![](/img/refactor-51.png)
 
 "合适的隐藏程度"。
 
 **替换算法（Substitute Algorithm）**
 
-![](/img/refactor-151.png)
+![](/img/refactor-17.png)
 
 **第8章　搬移特性**
 
@@ -926,7 +906,7 @@ Development）。
 
 **搬移函数（Move Function）**
 
-![](/img/refactor-152.png)
+![](/img/refactor-18.png)
 
 **任何函数都需要具备上下文环境才能存活**。
 
@@ -940,53 +920,53 @@ Development）。
 
 before：
 
-![](/img/refactor-153.png)
+![](/img/refactor-19.png)
 
 after：
 
-![](/img/refactor-154.png)
+![](/img/refactor-20.png)
 
 **范例：在类之间搬移函数**
 
 before：
 
-![](/img/refactor-186.png)
+![](/img/refactor-52.png)
 
 after：
 
-![](/img/refactor-187.png)
+![](/img/refactor-53.png)
 
 **搬移字段（Move Field）**
 
-![](/img/refactor-188.png)
+![](/img/refactor-54.png)
 
 **范例**
 
 before：
 
-![](/img/refactor-189.png)
+![](/img/refactor-55.png)
 
 after：
 
-![](/img/refactor-190.png)
+![](/img/refactor-56.png)
 
-![](/img/refactor-191.png)
+![](/img/refactor-57.png)
 
 **范例：搬移字段到共享对象**
 
 before：
 
-![](/img/refactor-192.png)
+![](/img/refactor-58.png)
 
 after：
 
-![](/img/refactor-193.png)
+![](/img/refactor-59.png)
 
-![](/img/refactor-194.png)
+![](/img/refactor-60.png)
 
 **搬移语句到函数（Move Statements into Function）**
 
-![](/img/refactor-155.png)
+![](/img/refactor-21.png)
 
 **"消除重复"**：如果发现调用某个函数时，总有一些相同的代码也需要每次执行，则考虑将此段代码合并到函数里头。
 
@@ -996,15 +976,15 @@ after：
 
 before：
 
-![](/img/refactor-195.png)
+![](/img/refactor-61.png)
 
 after：
 
-![](/img/refactor-196.png)
+![](/img/refactor-62.png)
 
 **搬移语句到调用者（Move Statements to Callers）**
 
-![](/img/refactor-197.png)
+![](/img/refactor-63.png)
 
 随着系统能力发生演进，原先设定的抽象边界总会悄无声息地发生偏移。对于函数来说，这样的边界偏移意味着曾经视为一个整体、一个单元的行为，如今可能已经分化出两个甚至是多个不同的关注点。
 
@@ -1012,19 +992,19 @@ after：
 
 before：
 
-![](/img/refactor-198.png)
+![](/img/refactor-64.png)
 
 after：
 
-![](/img/refactor-199.png)
+![](/img/refactor-65.png)
 
 **以函数调用取代内联代码（Replace Inline Code with Function Call）**
 
-![](/img/refactor-200.png)
+![](/img/refactor-66.png)
 
 **移动语句（Slide Statements）**
 
-![](/img/refactor-201.png)
+![](/img/refactor-67.png)
 
 让存在关联的东西一起出现，可以使代码更容易理解。
 
@@ -1042,7 +1022,7 @@ after：
 
 **范例**
 
-![](/img/refactor-202.png)
+![](/img/refactor-68.png)
 
 思考：哪些语句可以移动？
 
@@ -1050,29 +1030,29 @@ after：
 
 before：
 
-![](/img/refactor-203.png)
+![](/img/refactor-69.png)
 
 after：
 
-![](/img/refactor-204.png)
+![](/img/refactor-70.png)
 
 **拆分循环（Split Loop）**
 
-![](/img/refactor-205.png)
+![](/img/refactor-71.png)
 
 **范例**
 
 before：
 
-![](/img/refactor-206.png)
+![](/img/refactor-72.png)
 
 after：
 
-![](/img/refactor-207.png)
+![](/img/refactor-73.png)
 
 **以管道取代循环（Replace Loop with Pipeline）**
 
-![](/img/refactor-208.png)
+![](/img/refactor-74.png)
 
 map运算是指用一个函数作用于输入集合的每一个元素上，将集合变换成另外一个集合的过程；filter运算是指用一个函数从输入集合中筛选出符合条件的元素子集的过程。运算得到的集合可以供管道的后续流程使用。
 
@@ -1080,23 +1060,23 @@ map运算是指用一个函数作用于输入集合的每一个元素上，将�
 
 before：
 
-![](/img/refactor-209.png)
+![](/img/refactor-75.png)
 
-![](/img/refactor-210.png)
+![](/img/refactor-76.png)
 
 after：
 
-![](/img/refactor-211.png)
+![](/img/refactor-77.png)
 
 **移除死代码（Remove Dead Code）**
 
-![](/img/refactor-212.png)
+![](/img/refactor-78.png)
 
 **第9章　重新组织数据**
 
 **拆分变量（Split Variable）**
 
-![](/img/refactor-156.png)
+![](/img/refactor-22.png)
 
 除"循环变量"和"结果收集变量"外，还有很多变量用于保存一段冗长代码的运算结果，以便稍后使用。这种**变量应该只被赋值一次。**如果它们被赋值超过一次，就意味它们在函数中承担了一个以上的责任。如果变量承担多个责任，它就应该被替换（分解）为多个变量，**保持职责单一**。
 
@@ -1104,29 +1084,29 @@ after：
 
 before：
 
-![](/img/refactor-157.png)
+![](/img/refactor-23.png)
 
 after：
 
-![](/img/refactor-158.png)
+![](/img/refactor-24.png)
 
 **字段改名（Rename Field）**
 
-![](/img/refactor-213.png)
+![](/img/refactor-79.png)
 
 **范例：给字段改名**
 
 before：
 
-![](/img/refactor-214.png)
+![](/img/refactor-80.png)
 
 after：
 
-![](/img/refactor-215.png)
+![](/img/refactor-81.png)
 
 **以查询取代派生变量（Replace Derived Variable with Query）**
 
-![](/img/refactor-216.png)
+![](/img/refactor-82.png)
 
 **范例**
 
@@ -1134,61 +1114,61 @@ after：
 
 before：
 
-![](/img/refactor-217.png)
+![](/img/refactor-83.png)
 
 after：
 
-![](/img/refactor-218.png)
+![](/img/refactor-84.png)
 
-![](/img/refactor-219.png)
+![](/img/refactor-85.png)
 
 **范例：不止一个数据来源**
 
 before：
 
-![](/img/refactor-220.png)
+![](/img/refactor-86.png)
 
 after：
 
-![](/img/refactor-221.png)
+![](/img/refactor-87.png)
 
 引入断言：
 
-![](/img/refactor-222.png)
+![](/img/refactor-88.png)
 
 **将引用对象改为值对象（Change Reference to Value）**
 
 不需要共享一个对象。
 
-![](/img/refactor-223.png)
+![](/img/refactor-89.png)
 
 **范例**
 
 before：
 
-![](/img/refactor-224.png)
+![](/img/refactor-90.png)
 
 after：
 
-![](/img/refactor-225.png)
+![](/img/refactor-91.png)
 
 **将值对象改为引用对象（Change Value to Reference）**
 
 共享一个对象。
 
-![](/img/refactor-226.png)
+![](/img/refactor-92.png)
 
 **范例**
 
 before：
 
-![](/img/refactor-227.png)
+![](/img/refactor-93.png)
 
 after：
 
-![](/img/refactor-228.png)
+![](/img/refactor-94.png)
 
-![](/img/refactor-229.png)
+![](/img/refactor-95.png)
 
 存在的问题：构造函数与一个全局的仓库对象**耦合**。
 
@@ -1198,7 +1178,7 @@ after：
 
 **分解条件表达式（Decompose Conditional）**
 
-![](/img/refactor-159.png)
+![](/img/refactor-25.png)
 
 程序之中，复杂的条件逻辑是最常导致复杂度上升的因素之一。
 
@@ -1210,20 +1190,20 @@ after：
 
 before：
 
-![](/img/refactor-230.png)
+![](/img/refactor-96.png)
 
 after：
 
-![](/img/refactor-231.png)
+![](/img/refactor-97.png)
 
 **合并条件表达式（Consolidate Conditional Expression）**
 
-![](/img/refactor-160.png)
+![](/img/refactor-26.png)
 
 **以卫语句取代嵌套条件表达式（Replace Nested Conditional with Guard
 Clauses）**
 
-![](/img/refactor-161.png)
+![](/img/refactor-27.png)
 
 如果两条分支都是正常行为，就应该使用形如if\...else\...的条件表达式；如果某个条件极其罕见，就应该单独检查该条件，并在该条件为真时立刻从函数中返回。这样的单独检查常常被称为"卫语句"（guard
 clauses）。
@@ -1236,82 +1216,82 @@ clauses）。
 
 before
 
-![](/img/refactor-162.png)
+![](/img/refactor-28.png)
 
 after
 
-![](/img/refactor-163.png)
+![](/img/refactor-29.png)
 
 **范例：将条件反转**
 
 初始
 
-![](/img/refactor-164.png)
+![](/img/refactor-30.png)
 
 反转
 
-![](/img/refactor-165.png)
+![](/img/refactor-31.png)
 
 合并条件表达式
 
-![](/img/refactor-166.png)
+![](/img/refactor-32.png)
 
 删除可变变量
 
-![](/img/refactor-167.png)
+![](/img/refactor-33.png)
 
 **以多态取代条件表达式（Replace Conditional with Polymorphism）**
 
-![](/img/refactor-168.png)
+![](/img/refactor-34.png)
 
 **引入特例（Introduce Special Case）**
 
-![](/img/refactor-232.png)
+![](/img/refactor-98.png)
 
 "特例"（Special
 Case）模式：创建一个特例元素，用以表达对这种特例的共用行为的处理，**从而用一个函数调用取代大部分特例检查逻辑**。
 
 **引入断言（Introduce Assertion）**
 
-![](/img/refactor-233.png)
+![](/img/refactor-99.png)
 
 **第11章 重构API**
 
 **将查询函数和修改函数分离（Separate Query from Modifier）**
 
-![](/img/refactor-234.png)
+![](/img/refactor-100.png)
 
 **范例**
 
 before
 
-![](/img/refactor-235.png)
+![](/img/refactor-101.png)
 
 After
 
-![](/img/refactor-236.png)
+![](/img/refactor-102.png)
 
-![](/img/refactor-237.png)
+![](/img/refactor-103.png)
 
 **函数参数化（Parameterize Function）**
 
-![](/img/refactor-238.png)
+![](/img/refactor-104.png)
 
 范例
 
 before
 
-![](/img/refactor-239.png)
+![](/img/refactor-105.png)
 
 After
 
-![](/img/refactor-240.png)
+![](/img/refactor-106.png)
 
-![](/img/refactor-241.png)
+![](/img/refactor-107.png)
 
 **移除标记参数（Remove Flag Argument）**
 
-![](/img/refactor-242.png)
+![](/img/refactor-108.png)
 
 **"标记参数"是这样的一种参数：调用者用它来指示被调函数应该执行哪一部分逻辑。**
 
@@ -1319,21 +1299,21 @@ After
 
 Before
 
-![](/img/refactor-243.png)
+![](/img/refactor-109.png)
 
 After
 
-![](/img/refactor-244.png)
+![](/img/refactor-110.png)
 
 **保持对象完整（Preserve Whole Object）**
 
-![](/img/refactor-245.png)
+![](/img/refactor-111.png)
 
 减少函数参数长度，方便后续拓展。
 
 **以查询取代参数（Replace Parameter with Query）**
 
-![](/img/refactor-169.png)
+![](/img/refactor-35.png)
 
 **函数的参数列表应该总结该函数的可变性**，标示出函数可能体现出行为差异的主要方式。和任何代码中的语句一样，**参数列表应该尽量避免重复**，并且参数列表越短就越容易理解。
 
@@ -1348,7 +1328,7 @@ transparency，即，不论任何时候，只要传入相同的参数值，该�
 
 **以参数取代查询（Replace Query with Parameter）**
 
-![](/img/refactor-170.png)
+![](/img/refactor-36.png)
 
 好处：改变依赖关系，去掉令人不快的引用。
 
@@ -1356,23 +1336,23 @@ transparency，即，不论任何时候，只要传入相同的参数值，该�
 
 **移除设值函数（Remove Setting Method）**
 
-![](/img/refactor-246.png)
+![](/img/refactor-112.png)
 
 去除不必要的设值函数。
 
 **以工厂函数取代构造函数（Replace Constructor with Factory Function）**
 
-![](/img/refactor-247.png)
+![](/img/refactor-113.png)
 
 工厂函数的实现更为灵活。
 
 **以命令取代函数（Replace Function with Command）**
 
-![](/img/refactor-248.png)
+![](/img/refactor-114.png)
 
 **以函数取代命令（Replace Command with Function）**
 
-![](/img/refactor-249.png)
+![](/img/refactor-115.png)
 
 处理的逻辑不是特别复杂，则命令对象可能显得费而不惠。
 
@@ -1380,37 +1360,37 @@ transparency，即，不论任何时候，只要传入相同的参数值，该�
 
 **函数上移（Pull Up Method）**
 
-![](/img/refactor-250.png)
+![](/img/refactor-116.png)
 
 消除重复代码。
 
 **字段上移（Pull Up Field）**
 
-![](/img/refactor-251.png)
+![](/img/refactor-117.png)
 
 同样也是消除重复代码。
 
 **构造函数本体上移（Pull Up Constructor Body）**
 
-![](/img/refactor-252.png)
+![](/img/refactor-118.png)
 
 提炼各个子类函数中的重复部分至父类中，同样也是消除重复代码。
 
 **函数下移（Push Down Method）**
 
-![](/img/refactor-253.png)
+![](/img/refactor-119.png)
 
 如果超类中的某个函数只与一个（或少数几个）子类有关，那么最好将其从父类中挪走，放到真正关心它的子类中去。
 
 **字段下移（Push Down Field）**
 
-![](/img/refactor-254.png)
+![](/img/refactor-120.png)
 
 如果某个字段只被一个子类（或者一小部分子类）用到，就将其搬移到需要该字段的子类中。
 
 **以子类取代类型码（Replace Type Code with Subclasses）**
 
-![](/img/refactor-255.png)
+![](/img/refactor-121.png)
 
 可以用多态来处理条件逻辑，而不是根据不同的类型码采取不同的行为。
 
@@ -1418,33 +1398,33 @@ transparency，即，不论任何时候，只要传入相同的参数值，该�
 
 **移除子类（Remove Subclass）**
 
-![](/img/refactor-256.png)
+![](/img/refactor-122.png)
 
 如果子类的用处太少，可以移除子类，将替换为父类的一个字段。
 
 **提炼超类（Extract Superclass）**
 
-![](/img/refactor-257.png)
+![](/img/refactor-123.png)
 
 目的在于把重复的行为收拢一处。
 
 **折叠继承体系（Collapse Hierarchy）**
 
-![](/img/refactor-258.png)
+![](/img/refactor-124.png)
 
 随着继承体系的演化，有时会发现一个类与其父类差别不大，此时可以把父类和子类合并起来。
 
 **以委托取代子类（Replace Subclass with Delegate）**
 
-![](/img/refactor-259.png)
+![](/img/refactor-125.png)
 
-![](/img/refactor-260.png)
+![](/img/refactor-126.png)
 
 与继承关系相比，使用委托（即组合）关系时接口更清晰、耦合更少。
 
 **以委托取代超类（Replace Superclass with Delegate）**
 
-![](/img/refactor-171.png)
+![](/img/refactor-37.png)
 
 以组合取代继承。
 
