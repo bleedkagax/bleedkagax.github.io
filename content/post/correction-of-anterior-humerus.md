@@ -8,7 +8,8 @@ tags:
 share: "true"
 ---
 
-拉伸胸大肌、胸小肌
-拉伸肩前束
-肩关节内旋状态下做外旋、外旋状态下做内旋
-辅助肱骨推举和侧平举
+Stretching pectoralis major and pectoralis minor
+Stretching the anterior shoulder girdle
+External rotation with internal rotation of the shoulder joint
+Internal rotation with external rotation of the shoulder joint
+Assisted Humeral Push-Up and Lateral Raise
