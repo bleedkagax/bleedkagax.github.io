@@ -8,7 +8,7 @@ tags:
 share: "true"
 ---
 
-#  Overview of `pprof`
+#  Overview of Pprof
 
 `pprof` is a tool that comes with Go's standard library and is used for collecting and viewing profiling data. It can collect different types of profiles including:
 
@@ -17,11 +17,11 @@ share: "true"
 - **Block Profile**: Measures where the program spends time waiting for synchronization primitives.
 - **Mutex Profile**: Measures contention on mutexes.
 
-# Setting Up `pprof`
+# Setting Up pprof
 
 To use `pprof`, you need to import the `net/http/pprof` package and set up HTTP server to serve the profiling data.
 
-## Step 1: Import the `pprof` Package
+## Step 1: Import the pprof Package
 
 ```go
 import (
@@ -105,7 +105,7 @@ go tool pprof http://localhost:6060/debug/pprof/heap
 
 ## Analyzing concurrency performance
 
-### Step 1: Enable `pprof` HTTP Endpoints
+### Step 1: Enable pprof HTTP Endpoints
 
 ```go
 import (
@@ -179,7 +179,7 @@ func main() {
 
 2. **Analyze Goroutine Counts**: Check for an unusually high number of goroutines, which might indicate a leak.
    
-### Step 4: Use `pprof` to Analyze Data
+### Step 4: Use pprof to Analyze Data
 
 Use the `top` `list` `web` command
 

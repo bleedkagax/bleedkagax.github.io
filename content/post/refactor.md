@@ -22,7 +22,7 @@ To summarize:
 
 The key takeaways for efficient and organized refactoring are: **Smaller steps lead to faster progress**, keep your code in a working state forever, and small changes add up to a much better system design. Refactoring is not a “silver bullet”, but it can be considered a “silver tongs”, which can help you always have good control over your code. Refactoring is a tool.
 
-# **1. Bad taste in code **
+# **1. Bad taste in code**
 
 ## 1\. **Mysterious Name**
 
@@ -165,7 +165,7 @@ Sometimes, **variable names are no more expressive** than the expression itself.
 
 Explain what a piece of program is doing, **and be more careful naming fields whose scope extends beyond a single function call.**
 
-## 6\. **改变函数声明（Change Function Declaration）**
+## 6\. **Change Function Declaration**
 
 ![](/img/refactor-10.png)
 
