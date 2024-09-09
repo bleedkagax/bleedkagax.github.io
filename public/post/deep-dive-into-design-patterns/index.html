@@ -1,0 +1,1111 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Deep Dive Into Design Patterns - </title>
+
+  <meta name="description" content="一、面向对象 程序设计 简介
+对象之间的关系
+
+依赖:对类 B 进行修改会影响到类 A 。
+关联:对象 A 知道对象 B。类 A 依赖于类 B。
+聚合:对象A知道对象B且由B构成。类A依赖于类B。
+组合:对象 A 知道对象 B、由 B 构成而且管理着 B 的生命周 期。类 A
+依赖于类 B。
+实现: 类 A 定义的方法由接口 B 声明。 对象 A 可被视为对象 B。类 A
+依赖于类 B。
+继承: 类 A 继承类 B 的接口和实现， 但是可以对其进行扩 展。对象 A
+可被视为对象 B。类 A 依赖于类 B。
+二、设计模式简介
+设计模式是针对软件设计中常见问题的工具箱， 其中的工具
+就是各种经过实践验证的解决方案。"><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Kaga Blog",
+    
+    "url": "http:\/\/localhost:1313\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "http:\/\/localhost:1313\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "http:\/\/localhost:1313\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "http:\/\/localhost:1313\/post\/deep-dive-into-design-patterns\/",
+          "name": "Deep dive into design patterns"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "Deep Dive Into Design Patterns",
+  "description" : "一、面向对象 程序设计 简介 对象之间的关系\n依赖:对类 B 进行修改会影响到类 A 。\n关联:对象 A 知道对象 B。类 A 依赖于类 B。\n聚合:对象A知道对象B且由B构成。类A依赖于类B。\n组合:对象 A 知道对象 B、由 B 构成而且管理着 B 的生命周 期。类 A 依赖于类 B。\n实现: 类 A 定义的方法由接口 B 声明。 对象 A 可被视为对象 B。类 A 依赖于类 B。\n继承: 类 A 继承类 B 的接口和实现， 但是可以对其进行扩 展。对象 A 可被视为对象 B。类 A 依赖于类 B。\n二、设计模式简介 设计模式是针对软件设计中常见问题的工具箱， 其中的工具 就是各种经过实践验证的解决方案。\n",
+  "inLanguage" : "en",
+  "wordCount":  977 ,
+  "datePublished" : "2024-09-05T00:00:00\u002b00:00",
+  "dateModified" : "2024-09-05T00:00:00\u002b00:00",
+  "image" : "http:\/\/localhost:1313\/",
+  "keywords" : [ "CS" ],
+  "mainEntityOfPage" : "http:\/\/localhost:1313\/post\/deep-dive-into-design-patterns\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "http:\/\/localhost:1313\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "http:\/\/localhost:1313\/",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="Deep Dive Into Design Patterns" />
+<meta property="og:description" content="一、面向对象 程序设计 简介
+对象之间的关系
+
+依赖:对类 B 进行修改会影响到类 A 。
+关联:对象 A 知道对象 B。类 A 依赖于类 B。
+聚合:对象A知道对象B且由B构成。类A依赖于类B。
+组合:对象 A 知道对象 B、由 B 构成而且管理着 B 的生命周 期。类 A
+依赖于类 B。
+实现: 类 A 定义的方法由接口 B 声明。 对象 A 可被视为对象 B。类 A
+依赖于类 B。
+继承: 类 A 继承类 B 的接口和实现， 但是可以对其进行扩 展。对象 A
+可被视为对象 B。类 A 依赖于类 B。
+二、设计模式简介
+设计模式是针对软件设计中常见问题的工具箱， 其中的工具
+就是各种经过实践验证的解决方案。">
+<meta property="og:url" content="http://localhost:1313/post/deep-dive-into-design-patterns/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Kaga Blog" />
+
+  <meta name="twitter:title" content="Deep Dive Into Design Patterns" />
+  <meta name="twitter:description" content="一、面向对象 程序设计 简介
+对象之间的关系
+
+依赖:对类 B 进行修改会影响到类 A 。
+关联:对象 A 知道对象 B。类 A 依赖于类 B。
+聚合:对象A知道对象B且由B构成。类A依赖于类B。
+组合:对象 A 知道对象 B、由 B 构成而且管理着 B 的生命周 期。类 A
+依赖于类 B。
+实现: 类 A 定义的方法由接口 B 声明。 对象 A 可被视为对象 B。类 A
+依赖于类 B。
+继承:  …">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="generator" content="Hugo 0.134.0">
+  <link rel="alternate" href="http://localhost:1313/index.xml" type="application/rss+xml" title="Kaga Blog"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="http://localhost:1313/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="http://localhost:1313/css/syntax.css" /><link rel="stylesheet" href="http://localhost:1313/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://localhost:1313/">Kaga Blog</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Deep Dive Into Design Patterns</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on September 5, 2024
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h1 id="一面向对象-程序设计-简介"><strong>一、面向对象 程序设计 简介</strong></h1>
+<p><strong>对象之间的关系</strong></p>
+<p><img src="/img/deep-dive-into-design-patterns.png" alt="img/deep-dive-into-design-patterns.png"></p>
+<p><strong>依赖</strong>:对类 B 进行修改会影响到类 A 。</p>
+<p><strong>关联</strong>:对象 A 知道对象 B。类 A 依赖于类 B。</p>
+<p><strong>聚合</strong>:对象A知道对象B且由B构成。类A依赖于类B。</p>
+<p><strong>组合</strong>:对象 A 知道对象 B、由 B 构成而且管理着 B 的生命周 期。类 A
+依赖于类 B。</p>
+<p><strong>实现</strong>: 类 A 定义的方法由接口 B 声明。 对象 A 可被视为对象 B。类 A
+依赖于类 B。</p>
+<p><strong>继承</strong>: 类 A 继承类 B 的接口和实现， 但是可以对其进行扩 展。对象 A
+可被视为对象 B。类 A 依赖于类 B。</p>
+<h1 id="二设计模式简介"><strong>二、设计模式简介</strong></h1>
+<p>设计模式是针对软件设计中常见问题的工具箱， 其中的工具
+就是各种<strong>经过实践验证的解决方案。</strong></p>
+<p><strong>创建型模式</strong>提供创建对象的机制， 增加已有代码的灵活性和可复用性。</p>
+<p><strong>结构型模式</strong>介绍如何将对象和类组装成较大的结构，
+并同时保持结构的灵活和高效。</p>
+<p><strong>行为模式</strong>负责对象间的高效沟通和职责委派。</p>
+<h1 id="三软件设计原则"><strong>三、软件设计原则</strong></h1>
+<p><strong>优秀设计的特征</strong></p>
+<p><strong>代码复用</strong></p>
+<p><strong>代码复用</strong>是减少开发成本时最常用的方式之一。</p>
+<p>复用的三个层次：</p>
+<p>在最底层， 复用类: 类库、容器等；</p>
+<p>框架位于最高层；</p>
+<p>还有一个中间层次：设计模式，比框架更小且更抽象。</p>
+<p>中间层次的优点：设计模式比框架的风险小，能独立于具体代码复用设计思想和理念。</p>
+<p><strong>扩展性</strong></p>
+<p><strong>变化</strong>是程序员生命中唯一不变的事情。</p>
+<p>在设计程序架构时，
+所有有经验的开发者会尽量选择支持未来任何可能变更的方式。</p>
+<p><strong>设计原则</strong></p>
+<p><strong>封装变化的内容</strong></p>
+<p>找到程序中的变化内容并将其与不变的内容区分开，将变更造成的影响最小化。</p>
+<p><strong>方法层面的封装</strong></p>
+<p><strong>修改前</strong>税率计算代码和方法的其他代码混杂在一起。</p>
+<p><img src="/img/deep-dive-into-design-patterns-85.png" alt="img/deep-dive-into-design-patterns-85.png"></p>
+<p><strong>修改后</strong>你可通过调用指定方法获取税率。</p>
+<p><img src="/img/deep-dive-into-design-patterns-86.png" alt=""></p>
+<p><img src="/img/deep-dive-into-design-patterns-87.png" alt=""></p>
+<p><strong>类层面的封装</strong></p>
+<p>**修改前:**在 订单 Order 类中计算税金。</p>
+<p><img src="/img/deep-dive-into-design-patterns-88.png" alt=""></p>
+<p>**修改后:**对订单类隐藏税金计算。</p>
+<p><img src="/img/deep-dive-into-design-patterns-89.png" alt=""></p>
+<h1 id="四面向接口进行开发而不是面向实现"><strong>四、面向接口进行开发，而不是面向实现</strong></h1>
+<p>面向接口进行开发，而不是面向实现; 依赖于抽象类 型， 而不是具体类。</p>
+<p><strong>Eg1</strong></p>
+<p><img src="/img/deep-dive-into-design-patterns-90.png" alt=""></p>
+<p>抽取接口前后的对比：右侧的代码要比左侧更加灵活， 但也 更加复杂。</p>
+<p><strong>Eg2</strong></p>
+<p>通过接口与对象交互要比 依赖于其具体类的好处更多。</p>
+<p>**修改前:**所有类都紧密耦合。</p>
+<p><img src="/img/deep-dive-into-design-patterns-91.png" alt=""></p>
+<p>**优化:**多态机制能帮助我们简化代码，但公司类的其他部分仍然依赖于具体的雇员类。</p>
+<p><img src="/img/deep-dive-into-design-patterns-92.png" alt=""></p>
+<p>**修改后:**公司类的主要方法独立于具体的雇员类。雇员对象将在具体公司子类中创建。</p>
+<p><img src="/img/deep-dive-into-design-patterns-93.png" alt=""></p>
+<p>这就是工厂方法模式的一个示例。</p>
+<p><strong>组合优于继承</strong></p>
+<p>继承带来的问题：</p>
+<p><strong>子类不能减少超类的接口</strong></p>
+<p><strong>在重写方法时， 你需要确保新行为与其基类中的版本兼容</strong>。</p>
+<p><strong>继承打破了超类的封装</strong></p>
+<p><strong>子类与超类紧密耦合</strong></p>
+<p>**通过继承复用代码可能导致平行继承体系的产生。**继承通常仅发生在一个维度中。只要出现了两个以上的维度，
+你就必须创建数量巨大的类组合， 从而使类层次结构膨胀到不可思议的程度。</p>
+<p>组合是代替继承的一种方法，这个原则也能应用于聚合。</p>
+<p>**继承:**在多个维度上扩展一个类(汽车类型 × 引擎类型 ×
+驾驶类型)可能会导致子类组合的数量爆炸。</p>
+<p><img src="/img/deep-dive-into-design-patterns-94.png" alt=""></p>
+<p>**组合:**将不同&quot;维度&quot;的功能抽取到各自的类层次结构中。</p>
+<p><img src="/img/deep-dive-into-design-patterns-95.png" alt=""></p>
+<p>上述类的结构类似于<strong>策略模式。</strong></p>
+<h1 id="五solid-原则"><strong>五、SOLID 原则</strong></h1>
+<p><strong>单一职责原则</strong></p>
+<p><strong>Single Responsibility Principle</strong></p>
+<p>修改一个类的原因只能有一个。</p>
+<p><img src="/img/deep-dive-into-design-patterns-96.png" alt=""></p>
+<p>**修改前:**类中包含多个不同的行为。</p>
+<p><img src="/img/deep-dive-into-design-patterns-97.png" alt=""></p>
+<p>**修改后:**额外行为有了它们自己的类。</p>
+<p><strong>开闭原则</strong></p>
+<p><strong>Open/closed Principle</strong></p>
+<p>对于扩展，类应该是&quot;开放&quot;的；对于修改，类则应是&quot;封闭&quot;的。</p>
+<p>本原则的主要理念是<strong>在实现新功能时能保持已有代码不变</strong>。</p>
+<p>如果一个类已经完成开发、测试和审核工作，可以直接使用的话，那么修改是有风险的，可以创建一个子类并重写原始类的部分
+内容以完成不同的行为。</p>
+<p>如果这个类是有缺陷的，直接对其进行修复即可，不要为它创建子类。
+子类不应该对其父类的问题负责。</p>
+<p><img src="/img/deep-dive-into-design-patterns-98.png" alt=""></p>
+<p>**修改前:**在程序中添加新的运输方式时，你必须对订单类进行修改。</p>
+<p>使用<strong>策略模式</strong>：</p>
+<p><img src="/img/deep-dive-into-design-patterns-99.png" alt=""></p>
+<p>**修改后:**添加新的运输方式不需要修改已有的类。</p>
+<p><strong>里氏替换原则</strong></p>
+<p><strong>Liskov Substitution Principle</strong></p>
+<p>当你扩展一个类时，
+记住你应该要能在不修改客户端代码的情况下将子类的对象作为父类对象进行传递。</p>
+<p>这意味着子类必须保持与父类行为的兼容。 在重写一个方法时，
+你要对基类行为进行扩展， 而不是将其完全替换。</p>
+<p>替代原则包含一 组对子类(特别是其方法)的形式要求</p>
+<p>1. <strong>子类方法的参数类型必须与其超类的参数类型相匹配或更加抽象。</strong></p>
+<p>假设某个类有个方法用于给猫咪喂食: feed(Cat c) 。
+客户端代码总是会将&quot;猫(cat)&quot; 对象传递给该方法。</p>
+<p><strong>好的方式</strong></p>
+<p>创建了一个子类并重写了前面的方法，使其能够给任何&quot;动物(animal，即&rsquo;猫&rsquo;的超类)&ldquo;喂食:
+feed(Animal c)
+。将一个子类对象而非超类对象传递给客户端代码，程序仍将正常工作。</p>
+<p><strong>不好的方式</strong></p>
+<p>创建了另一个子类且限制喂食方法仅接受 &ldquo;孟加拉猫 (BengalCat， 一个 &lsquo;猫&rsquo;
+的子类)&quot;:feed(BengalCat c)
+。无法为传递给客户端的普通猫提供服务，从而将破坏所有相关的功能。</p>
+<p>2.
+<strong>子类方法的返回值类型必须与超类方法的返回值类型或是其子类别相匹配。</strong></p>
+<p>对于返回值类型的要求与对于参数类型的要求相反。</p>
+<p>假如你的一个类中有一个方法 buyCat(): Cat 。
+客户端代码执行该方法后的预期返回结果是任意类型的&quot;猫&rdquo;。</p>
+<p><strong>好的方式</strong></p>
+<p>子类将该方法重写为: buyCat(): BengalCat ，孟加拉猫是猫，正常。</p>
+<p><strong>不好的方式</strong></p>
+<p>子类将该方法重写为: buyCat(): Animal 。 现在客户端代码将会出错，
+因为它获得的是自己未知的动物种类(短吻 鳄 ? 熊 ?)， 不适用于为一只 &quot; 猫 &quot;
+而设计的结构。</p>
+<p>编程语言世界中的另一个反例是动态类型: 基础方法返回一 个字符串，
+但重写后的方法则返回一个数字。</p>
+<p>3. <strong>子类中的方法不应抛出基础方法预期之外的异常类型。</strong></p>
+<p>异常类型必须与基础方法能抛出的异常或是其子类别相匹配，防止预期之外的代码穿透客户端的防御代码。对于绝大部分现代编程语言，
+特别是静态类型的编程语言(Java 和 C# 等等)， 这些规则已内置于其中。</p>
+<p>4. <strong>子类不应该加强其前置条件。</strong></p>
+<p>例如，基类的方法有一个 int 类型的参数。 如果子类重写该方法时，
+要求传递给该方法的 参数值必须为正数(如果该值为负则抛出异常)，
+这就是加强了前置条件。</p>
+<p>5. <strong>子类不能削弱其后置条件。</strong></p>
+<p>假如你的某个类中有个方法需要使用数据库，
+该方法应该在接收到返回值后关闭所有活跃的数据库连接。</p>
+<p>你创建了一个子类并对其进行了修改，
+使得数据库保持连接以便重用。但客户端可能对你的意图一无所知。</p>
+<p>6. <strong>超类的不变量必须保留。</strong></p>
+<p>不变量是让对象有意义的条件。例如， 猫的不变量 是有四条腿、
+一条尾巴和能够喵喵叫等。不变量让人疑惑的地方在于它们既可通过接口契约或方法内的一组断言来明确定义，又可暗含在特定的单元测试和客户代码预期中。你可能会误解或没有意识到一个复杂类中的所有不变量。因此，扩展一个类的最安全做法是引入新的成员变量和方法，但实际上并非总是可行。</p>
+<p>7. <strong>子类不能修改超类中私有成员变量的值。</strong></p>
+<p>有些编程语言允许通过反射机制来访问类的私有成员。还有一些语言(Python 和
+JavaScript)没有对私有成员进行任何保护。Go可以通过unsafe.Pointer+偏移地址
+、<a href="go:linkname%E7%BB%95%E8%BF%87%E7%BC%96%E8%AF%91%E5%99%A8%E6%A3%80%E6%9F%A5%E7%AD%89%E9%9D%9E%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C%E8%AE%BF%E9%97%AE%E7%A7%81%E6%9C%89%E6%88%90%E5%91%98%E3%80%82"></a></p>
+<p><strong>[该类型的内容暂不支持下载]</strong></p>
+<p>一个违反替换原则的文档类层次结构例子</p>
+<p><img src="/img/deep-dive-into-design-patterns-100.png" alt=""></p>
+<p>**修改前:**只读文件中的保存行为没有任何意义，因此子类试图在重写后的方法中重置基础行为来解决这个问题。</p>
+<p><img src="/img/deep-dive-into-design-patterns-101.png" alt=""></p>
+<p>**修改后:**当把只读文档类作为层次结构中的基类后，这个问题得到了解决。</p>
+<p>通过重新设计类层次结构来解决这个问题: 一个子类必须扩展其超类的行为，
+因此只读文档变成了层次结构中的基类。 可写文件现在变成了子类，
+对基类进行扩展并添加了保存行为。</p>
+<p><strong>接口隔离原则</strong></p>
+<p><strong>Interface Segregation Principle</strong></p>
+<p>客户端不应被强迫依赖于其不使用的方法。</p>
+<p>尽量缩小接口的范围，
+使得客户端的类不必实现其不需要的行为。根据接口隔离原则，你必须将&quot;臃肿&quot;的方法拆分为多个颗粒度更小的具体方法。</p>
+<p><img src="/img/deep-dive-into-design-patterns-102.png" alt=""></p>
+<p>**修改前:**不是所有客户端能满足复杂接口的要求。</p>
+<p><img src="/img/deep-dive-into-design-patterns-103.png" alt=""></p>
+<p>**修改后:**一个复杂的接口被拆分为一组颗粒度更小的接口。</p>
+<p>与其他原则一样， 你可能会过度使用这条原则。
+<strong>不要进一步划分已经非常具体的接口</strong>。 记住， <strong>创建的接口越多，
+代码就越复杂。 因此要保持平衡。</strong></p>
+<p><strong>依赖倒置原则</strong></p>
+<p><strong>Dependency Inversion Principle</strong></p>
+<p>高层次的类不应该依赖于低层次的类。 两者都应该依赖于抽象接口。
+抽象接口不应依赖于具体实现。 具体实现应该依赖于抽象接口。</p>
+<p><strong>低层次的类</strong>实现基础操作(例如磁盘操作、 传输网络数据和 连接数据库等)。</p>
+<p><strong>高层次类</strong>包含复杂业务逻辑以指导低层次类执行特定操作。</p>
+<p>常见场景：</p>
+<p>在新系统上开发原型产品时，由于低层次的东西还没有实现或不确定，
+你甚至无法确定高层次类能实现哪些功能，业务逻辑类可能会更依赖于低层原语类。</p>
+<p>依赖倒置原则建议改变这种依赖方式。</p>
+<p>使用业务术语来对高层次类依赖的低层次操作接口进行描述。例如，
+业务逻辑应该调用名为 openReport(file) 的方法， 而不是 openFile(x)
+、readBytes(n) 和 closeFile(x) 等一系列方法。这些接口被视为是高层次的。</p>
+<p>现在你可基于这些接口创建高层次类， 而不是基于低层次的具体类。
+这要比原始的依赖关系灵活很多。</p>
+<p>一旦低层次的类实现了这些接口， 它们将依赖于业务逻辑层，
+从而倒置了原始的依赖关系。</p>
+<p>依赖倒置原则通常和开闭原则共同发挥作用:
+你无需修改已有类就能用不同的业务逻辑类扩展低层次的类。</p>
+<p><img src="/img/deep-dive-into-design-patterns-104.png" alt=""></p>
+<p>**修改前:**高层次的类依赖于低层次的类。</p>
+<p><img src="/img/deep-dive-into-design-patterns-105.png" alt=""></p>
+<p>**修改后:**低层次的类依赖于高层次的抽象。</p>
+<p>其结果是原始的依赖关系被倒置。</p>
+<h1 id="六设计模式目录"><strong>六、设计模式目录</strong></h1>
+<h2 id="创建型模式"><strong>创建型模式</strong></h2>
+<p>创建型模式提供了创建对象的机制， 能够提升已有代码的灵活性和可复用性。</p>
+<h3 id="工厂方法"><strong>工厂方法</strong></h3>
+<p><img src="/img/deep-dive-into-design-patterns-106.png" alt=""></p>
+<p><strong>问题</strong></p>
+<p>假设你正在开发一款物流管理应用。
+最初版本只能处理卡车运输，因此大部分代码都在位于名为 卡车 的类中。</p>
+<p>现在每天都能收到十几次来自海运公司的请求，
+希望应用能够支持海上物流功能。</p>
+<p><img src="/img/deep-dive-into-design-patterns-107.png" alt=""></p>
+<p>如果代码其余部分与现有类已经存在耦合关系，
+那么向程序中添加新类其实并没有那么容易。</p>
+<p><strong>解决方案</strong></p>
+<p>工厂方法模式建议使用特殊的工厂方法代替对于对象构造函数的直接调用(即使用
+new 运算符)。</p>
+<p><img src="/img/deep-dive-into-design-patterns-108.png" alt=""></p>
+<p>子类可以修改工厂方法返回的对象类型。</p>
+<p><img src="/img/deep-dive-into-design-patterns-109.png" alt=""></p>
+<p>所有产品都必须使用同一接口。</p>
+<p><img src="/img/deep-dive-into-design-patterns-110.png" alt=""></p>
+<p>只要产品类实现一个共同的接口， 你就可以将其对象传递给客户代码，
+而无需提供额外数据。</p>
+<p><strong>结构</strong></p>
+<p><img src="/img/deep-dive-into-design-patterns-111.png" alt=""></p>
+<p><strong>产品</strong>(Product)将会对接口进行声明。对于所有由创建者及
+其子类构建的对象， 这些接口都是通用的。</p>
+<p><strong>具体产品</strong>(Concrete Products)是产品接口的不同实现。</p>
+<p><strong>创建者</strong>(Creator)类声明返回产品对象的工厂方法。该方法的返回对象类型必须与产品接口相匹配。</p>
+<p><strong>具体创建者</strong>(Concrete Creators) 将会重写基础工厂方法，
+使其返回不同类型的产品。</p>
+<p>注意，并不一定每次调用工厂方法都会<strong>创建</strong>新的实例。 工厂
+方法也可以返回缓存、 对象池或其他来源的已有对象。</p>
+<p><strong>示例</strong></p>
+<p>使用<strong>工厂方法</strong>开发跨平台 UI(用户界面)组件，并同时避免客户代码与具体 UI
+类之间的耦合。</p>
+<p><img src="/img/deep-dive-into-design-patterns-112.png" alt=""></p>
+<p><strong>应用场景</strong></p>
+<p>**当你在编写代码的过程中，如果无法预知对象确切类别及其依赖关系时，可使用工厂方法。**工厂方法将创建产品的代码与实际使用产品的代码分离，
+从而能在不影响其他代码的情况下扩展产品创建部分代码。</p>
+<p>**如果你希望用户能扩展你软件库或框架的内部组件，可使用工厂方法。**继承可能是扩展软件库或框架默认行为的最简单方法。将各框架中构造组件的代码集中到单个工厂方法中，
+并在继承该组件之外允许任何人对该方法进行重写。</p>
+<p>**如果你希望复用现有对象来节省系统资源，而不是每次都重新创建对象，可使用工厂方法。**在处理大型资源密集型对象(比如数据库连接、
+文件系统和 网络资源) 时， 你会经常碰到这种资源需求。</p>
+<p>复用现有对象的方法:</p>
+<p>1）建存储空间来存放所有已经创建的对象。</p>
+<p>2）当他人请求一个对象时， 程序将在对象池中搜索可用对象。</p>
+<p>3）...然后将其返回给客户端代码。</p>
+<p>4）如果没有可用对象， 程序则创建一个新对象(并将其添加到 对象池中)。</p>
+<p><strong>实现方式</strong></p>
+<p>让所有产品都遵循同一接口。 该接口必须声明对所有产品都有意义的方法。</p>
+<p>在创建类中添加一个空的工厂方法。 该方法的返回类型必须
+遵循通用的产品接口。</p>
+<p>在创建者代码中找到对于产品构造函数的所有引用。替换为对于工厂方法的调用，
+同时将创建产品的代码移 入工厂方法。</p>
+<p>为工厂方法中的每种产品编写一个创建者子类， 然后在子类中重写工厂方法，
+并将基本方法中的相关创建代码移动到工厂方法中。</p>
+<p>如果应用中的产品类型太多， 那么为每个产品创建子类并无 太大必要，
+这时你也可以在子类中复用基类中的控制参数。</p>
+<p><img src="/img/deep-dive-into-design-patterns.jpeg" alt=""></p>
+<p>陆地邮件同时使用卡车和火车对象：</p>
+<p>可以编写新的子类&mdash;&mdash;火车邮件，也可以给陆地邮件传递参数用以控制想获得的产品。</p>
+<p>如果代码经过上述移动后， 基础工厂方法中已经没有任何代码，
+你可以将其转变为抽象类。 如果基础工厂方法中还有其他语句，
+你可以将其设置为该方法的默认行为。</p>
+<p><strong>优缺点</strong></p>
+<p>优点</p>
+<p>可以避免创建者和具体产品之间的紧密耦合。</p>
+<p>单一职责原则。可以将产品创建代码放在程序的单一位置，
+从而使得代码更容易维护。</p>
+<p>开闭原则。 无需更改现有代码， 你就可以在程序中引入新的产品类型。</p>
+<p>缺点</p>
+<p>应用工厂方法模式需要引入许多新的子类， 代码可能会因此变得更复杂。
+最好的情况是将该模式引入创建者类的现有层次结构中。</p>
+<p><strong>与其他模式的关系</strong></p>
+<p>todo</p>
+<h3 id="抽象工厂"><strong>抽象工厂</strong></h3>
+<p><img src="/img/deep-dive-into-design-patterns-113.png" alt=""></p>
+<p><strong>问题</strong></p>
+<p>假设你正在开发一款家具商店模拟器，系列产品及其不同变体：</p>
+<p><img src="/img/deep-dive-into-design-patterns-114.png" alt=""></p>
+<p>你需要设法单独生成每件家具对象，
+确保其风格一致。且家具供应商对于产品目录的更新非常频繁。</p>
+<p><strong>解决方案</strong></p>
+<p>抽象工厂模式建议为系列中的每件产品明确声明接口 (例如椅子、
+沙发或咖啡桌)。</p>
+<p>确保所有产品变体都继承这些接口。</p>
+<p><img src="/img/deep-dive-into-design-patterns-115.png" alt=""></p>
+<p>需要声明抽象工厂&mdash;&mdash;包含系列中所有产品构造方法的接口，这些方法必须返回<strong>抽象</strong>产品类型。</p>
+<p><img src="/img/deep-dive-into-design-patterns-116.png" alt=""></p>
+<p>每个具体工厂类都对应一个特定的产品变体。</p>
+<p><strong>结构</strong></p>
+<p><img src="/img/deep-dive-into-design-patterns-117.png" alt=""></p>
+<p><strong>抽象产品</strong>(Abstract
+Product)为构成系列产品的一组不同但相关的产品声明接口。</p>
+<p><strong>具体产品</strong>(Concrete Product)是抽象产品的多种不同类型实
+现。所有变体(维多利亚/现代)都必须实现相应的抽象产品(椅子/沙发)。</p>
+<p><strong>抽象工厂</strong>(Abstract Factory)接口声明了一组创建各种抽象产品的方法。</p>
+<p><strong>具体工厂</strong>(Concrete
+Factory)实现抽象工厂的构建方法。每个具体工厂都对应特定产品变体，
+且仅创建此种产品变体。</p>
+<p><strong>示例</strong></p>
+<p>通过应用<strong>抽象工厂</strong>模式， 使得客户端代码无需与具体 UI
+类耦合，就能创建跨平台的 UI
+元素，同时确保所创建的元素与指定的操作系统匹配。</p>
+<p><img src="/img/deep-dive-into-design-patterns-118.png" alt=""></p>
+<p><strong>适合应用场景</strong></p>
+<p><strong>如果代码需要与多个不同系列的相关产品交互，但是由于无法提前获取相关信息，
+或者出于对未来扩展性的考虑， 你不希望代码基于产品的具体类进行构建，
+在这种情况下， 你可以使用抽象工厂。</strong></p>
+<p><strong>如果你有一个基于一组抽象方法的类，且其主要功能因此变得不明确，那么在这种情况下可以考虑使用抽象工厂模式。</strong></p>
+<p><strong>实现方式</strong></p>
+<p>以不同的产品类型与产品变体为维度绘制矩阵。</p>
+<p>为所有产品声明抽象产品接口。 然后让所有具体产品类实现这些接口。</p>
+<p>声明抽象工厂接口， 并且在接口中为所有抽象产品提供一组构建方法。</p>
+<p>为每种产品变体实现一个具体工厂类。</p>
+<p>在应用程序中开发初始化代码。 该代码根据应用程序配置或当前环境，
+对特定具体工厂类进行初始化。
+然后将该工厂对象传递给所有需要创建产品的类。</p>
+<p>找出代码中所有对产品构造函数的直接调用，
+将其替换为对工厂对象中相应构建方法的调用。</p>
+<p><strong>优缺点</strong></p>
+<p>优点</p>
+<p>你可以确保同一工厂生成的产品相互匹配。</p>
+<p>你可以避免客户端和具体产品代码的耦合。</p>
+<p>单一职责原则。 你可以将产品生成代码抽取到同一位置， 使得代码易于维护。</p>
+<p>开闭原则。 向应用程序中引入新产品变体时， 你无需修改客户端代码。</p>
+<p>缺点</p>
+<p>由于采用该模式需要向应用中引入众多接口和类， 代码可能会比之前更加复杂。</p>
+<h3 id="生成器"><strong>生成器</strong></h3>
+<p><img src="/img/deep-dive-into-design-patterns-119.png" alt=""></p>
+<p><strong>问题</strong></p>
+<p>假设有这样一个复杂对象，
+在对其进行构造时需要对诸多成员变量和嵌套对象进行繁复的初始化工作。</p>
+<p><img src="/img/deep-dive-into-design-patterns-120.png" alt=""></p>
+<p>做法1：扩展 房屋 基类，然后创建一系列涵盖所有参数组合的子类。
+但最终你将面对相当数量的子类。</p>
+<p>做法2：无需生成子类。你可以在 房屋
+基类中创建一个包括所有可能参数的超级构造函数， 并用它来控制房屋对 象。</p>
+<p><img src="/img/deep-dive-into-design-patterns-121.png" alt=""></p>
+<p>但是这些参数也不是每次都要全部用上的，这使得<strong>对于构造函数的调用十分不简洁</strong>。</p>
+<p><strong>解决方案</strong></p>
+<p>生成器模式建议将对象构造代码从产品类中抽取出来，
+并将其放在一个名为生成器的独立对象中。</p>
+<p><img src="/img/deep-dive-into-design-patterns-122.png" alt=""></p>
+<p>创建对象时无需调用所有步骤，
+而只需调用创建特定对象配置所需的那些步骤即可。</p>
+<p><strong>结构</strong></p>
+<p><img src="/img/deep-dive-into-design-patterns-123.png" alt=""></p>
+<p><strong>生成器</strong>(Builder)接口声明在所有类型生成器中通用的产品构造步骤。</p>
+<p><strong>具体生成器</strong>(Concrete
+Builders)提供构造过程的不同实现。具体生成器也可以构造不遵循通用接口的产品。</p>
+<p><strong>产品</strong>(Products)是最终生成的对象。由不同生成器构造的产品无需属于同一类层次结构或接口。</p>
+<p><strong>主管</strong>(Director)类定义调用构造步骤的顺序，这样你就可以创建和复用特定的产品配置。</p>
+<p><strong>客户端</strong>(Client)必须将某个生成器对象与主管类关联。</p>
+<p><strong>示例</strong></p>
+<p><img src="/img/deep-dive-into-design-patterns-124.png" alt=""></p>
+<p><strong>适合应用场景</strong></p>
+<p><strong>使用生成器模式可避免 &ldquo;重叠构造函数 (telescopic constructor)&ldquo;的出现。</strong></p>
+<p><strong>当你希望使用代码创建不同形式的产品(例如石头或木头房屋)时，可使用生成器模式。</strong></p>
+<p><strong>使用生成器构造组合树或其他复杂对象。</strong></p>
+<p><strong>实现方法</strong></p>
+<p>清晰地定义通用步骤， 确保它们可以制造所有形式的产品。
+否则你将无法进一步实施该模式。</p>
+<p>在基本生成器接口中声明这些步骤。</p>
+<p>为每个形式的产品创建具体生成器类， 并实现其构造步骤。</p>
+<p>考虑创建主管类。 它可以使用同一生成器对象来封装多种构造产品的方式。</p>
+<p>客户端代码会同时创建生成器和主管对象。</p>
+<p>只有在所有产品都遵循相同接口的情况下，
+构造结果可以直接通过主管类获取。否则，客户端应当通过生成器获取构造结果。</p>
+<p><strong>优缺点</strong></p>
+<p>优点</p>
+<p>你可以分步创建对象， 暂缓创建步骤或递归运行创建步骤。</p>
+<p>生成不同形式的产品时， 你可以复用相同的制造代码。</p>
+<p>单一职责原则。 你可以将复杂构造代码从产品的业务逻辑中分离出来。</p>
+<p>缺点</p>
+<p>由于该模式需要新增多个类， 因此代码整体复杂程度会有所增加。</p>
+<h3 id="原型"><strong>原型</strong></h3>
+<p><img src="/img/deep-dive-into-design-patterns-125.png" alt=""></p>
+<p><strong>问题</strong></p>
+<p>如果你有一个对象， 并希望生成与其完全相同的一个复制品，</p>
+<p>你必须新建一个属于相同类的对象。</p>
+<p>你必须遍历原始对象的所有成员变量， 并将成员变量值复制到新对象中。</p>
+<p>带来的问题：</p>
+<p>有些对象可能拥有私有成员变量</p>
+<p>必须知道对象所属的类才能创建复制品， 所以代码必须依赖该类。</p>
+<p><strong>解决方案</strong></p>
+<p>原型模式将克隆过程委派给被克隆的实际对象。
+模式为所有支持克隆的对象声明了一个通用接口， 该接口让你能够克隆对象，
+同时又无需将代码和对象所属类耦合。</p>
+<p>支持克隆的对象即为<strong>原型</strong>。</p>
+<p><strong>结构</strong></p>
+<p><strong>基本实现</strong></p>
+<p><img src="/img/deep-dive-into-design-patterns-126.png" alt=""></p>
+<p><strong>原型</strong>(Prototype)接口将对克隆方法进行声明。在绝大多数情况下，
+其中只会有一个名为 clone 克隆 的方法。</p>
+<p><strong>具体原型</strong>(Concrete
+Prototype)类将实现克隆方法。除了将原始对象的数据复制到克隆体中之外，
+该方法有时还需处理克隆过程中的极端情况， 例如克隆关联对象和梳理递归依赖
+等等。</p>
+<p><strong>客户端</strong>(Client)可以复制实现了原型接口的任何对象。</p>
+<p><strong>原型注册表实现</strong></p>
+<p><img src="/img/deep-dive-into-design-patterns-127.png" alt=""></p>
+<p><strong>原型注册表</strong>(Prototype Registry)提供了一种访问常用原型的简单方法，
+其中存储了一系列可供随时复制的预生成对象。 最简单的注册表原型是一个
+<strong>名称→原型</strong> 的哈希表。</p>
+<p><strong>示例</strong></p>
+<p><strong>原型</strong>模式能让你生成完全相同的几何对象副本，
+同时无需代码与对象所属类耦合。</p>
+<p><img src="/img/deep-dive-into-design-patterns-128.png" alt=""></p>
+<p><strong>适合应用场景</strong></p>
+<p><strong>如果你需要复制一些对象，同时又希望代码独立于这些对象所属的具体类，可以使用原型模式。</strong></p>
+<p><strong>如果子类的区别仅在于其对象的初始化方式，那么你可以使用该模式来减少子类的数量。
+别人创建这些子类的目的可能是为了创建特定类型的对象。</strong></p>
+<p><strong>实现方式</strong></p>
+<p>创建原型接口， 并在其中声明 <strong>克隆</strong> 方法</p>
+<p>原型类必须另行定义一个以该类对象为参数的构造函数。
+构造函数必须复制参数对象中的所有成员变量值到新建实体中。</p>
+<p>克隆方法通常只有一行代码: 使用 new 运算符调用原型版本的构造函数。</p>
+<p>你还可以创建一个中心化原型注册表， 用于存储常用原型。</p>
+<p><strong>优缺点</strong></p>
+<p>优点</p>
+<p>你可以克隆对象， 而无需与它们所属的具体类相耦合。</p>
+<p>你可以克隆预生成原型， 避免反复运行初始化代码。</p>
+<p>你可以更方便地生成复杂对象。</p>
+<p>你可以用继承以外的方式来处理复杂对象的不同配置。</p>
+<p>缺点</p>
+<p>克隆包含循环引用的复杂对象可能会非常麻烦。</p>
+<h3 id="单例"><strong>单例</strong></h3>
+<p><img src="/img/deep-dive-into-design-patterns-129.png" alt=""></p>
+<p><strong>问题</strong></p>
+<p>单例模式同时解决了两个问题， 所以违反了_单一职责原则</p>
+<p>保证一个类只有一个实例</p>
+<p>为该实例提供一个全局访问节点。</p>
+<p><strong>结构</strong></p>
+<p><img src="/img/deep-dive-into-design-patterns-130.png" alt=""></p>
+<p><strong>结构型模式</strong></p>
+<p>结构型模式介绍如何将对象和类组装成较大的结构，
+并同时保持结构的灵活和高效。</p>
+<h3 id="适配器"><strong>适配器</strong></h3>
+<p><img src="/img/deep-dive-into-design-patterns-131.png" alt=""></p>
+<p><strong>问题</strong></p>
+<p><img src="/img/deep-dive-into-design-patterns-132.png" alt=""></p>
+<p><strong>解决方案</strong></p>
+<p><img src="/img/deep-dive-into-design-patterns-133.png" alt=""></p>
+<p><strong>结构</strong></p>
+<p><strong>对象适配器</strong></p>
+<p>实现时使用了构成原则: 适配器实现了其中一个对象的接口，
+并对另一个对象进行封装。</p>
+<p><img src="/img/deep-dive-into-design-patterns-134.png" alt=""></p>
+<p><strong>类适配器</strong></p>
+<p>使用了继承机制: 适配器同时继承两个对象的接口</p>
+<p><img src="/img/deep-dive-into-design-patterns-135.png" alt=""></p>
+<p><strong>示例</strong></p>
+<p><img src="/img/deep-dive-into-design-patterns-136.png" alt=""></p>
+<p><strong>适合应用场景</strong></p>
+<p>当你希望使用某个类，但是其接口与其他代码不兼容时，可以使用适配器类。</p>
+<p>如果您需要复用这样一些类，他们处于同一个继承体系，并
+且他们又有了额外的一些共同的方法， 但是这些共同的方法
+不是所有在这一继承体系中的子类所具有的共性。</p>
+<p><strong>优缺点</strong></p>
+<p>优点</p>
+<p>单一职责原则：将接口或数据转换代码从程序主要业务逻辑中分离。</p>
+<p>开闭原则：只要客户端代码通过客户端接口与适配器进行交互，
+你就能在不修改现有客户端代码的情况下在程序中添加新类型的适配器。</p>
+<p>缺点</p>
+<p>代码整体复杂度增加， 因为你需要新增一系列接口和类。</p>
+<h3 id="桥接"><strong>桥接</strong></h3>
+<p><img src="/img/deep-dive-into-design-patterns-137.png" alt=""></p>
+<p><strong>问题</strong></p>
+<p><img src="/img/deep-dive-into-design-patterns-138.png" alt=""></p>
+<p><strong>解决方案</strong></p>
+<p>桥接模式通过将继承改为组合的方式来解决这个问题。</p>
+<p><img src="/img/deep-dive-into-design-patterns-139.png" alt=""></p>
+<p><strong>结构</strong></p>
+<p><img src="/img/deep-dive-into-design-patterns-140.png" alt=""></p>
+<p><strong>示例</strong></p>
+<p><img src="/img/deep-dive-into-design-patterns-141.png" alt=""></p>
+<p><strong>适合应用场景</strong></p>
+<p>如果你想要拆分或重组一个具有多重功能的庞杂类(例如能与多个数据库服务器进行交互的类)，可以使用桥接模式。</p>
+<p>如果你希望在几个独立维度上扩展一个类，可使用该模式。</p>
+<p>如果你需要在运行时切换不同实现方法，可使用桥接模式。</p>
+<h3 id="组合"><strong>组合</strong></h3>
+<p><strong>组合</strong>是一种结构型设计模式，
+你可以使用它将对象组合成树状结构，并且能像使用独立对象一样使用它们。</p>
+<p><strong>问题</strong></p>
+<p>如果应用的核心模型能用树状结构表示， 在应用中使用组合模式才有价值。</p>
+<p><img src="/img/deep-dive-into-design-patterns-142.png" alt=""></p>
+<p>定购系统：并不能简单地使用循环语句来计算订单总价。</p>
+<p><strong>解决方案</strong></p>
+<p>组合模式建议使用一个通用接口来与 产品 和 盒子 进行交互，
+并且在该接口中声明一个计算总价的方法。以递归方式处理对象树中的所有项目。</p>
+<p><strong>结构</strong></p>
+<p><img src="/img/deep-dive-into-design-patterns-143.png" alt=""></p>
+<p><strong>组件</strong>(Component)接口描述了树中简单项目和复杂项目所 共有的操作。</p>
+<p><strong>叶节点</strong>(Leaf)是树的基本结构，它不包含子项目。 一般情况下，
+叶节点最终会完成大部分的实际工作， 因为它</p>
+<p>们无法将工作指派给其他部分。</p>
+<p><strong>容器</strong>(Container)&mdash;&mdash;又名&quot;组合(Composite)&rdquo;&mdash;&mdash;是包含叶
+节点或其他容器等子项目的单位。 容器不知道其子项目所属 的具体类，
+它只通过通用的组件接口与其子项目交互。</p>
+<p><strong>客户端</strong>(Client)通过组件接口与所有项目交互。</p>
+<p><strong>示例</strong></p>
+<p>几何形状编辑器</p>
+<p><img src="/img/deep-dive-into-design-patterns-144.png" alt=""></p>
+<p><strong>适用场景</strong></p>
+<p>需要实现树状对象结构</p>
+<p>希望客户端代码以相同方式处理简单和复杂元素</p>
+<p><strong>优缺点</strong></p>
+<p>优点</p>
+<p>以利用多态和递归机制更方便地使用复杂树结构</p>
+<p>开闭原则</p>
+<p>缺点</p>
+<p>对于功能差异较大的类， 提供公共接口或许会有困难。 在特定情况下，
+你需要过度一般化组件接口， 令人难以理解。</p>
+<h3 id="装饰"><strong>装饰</strong></h3>
+<p><strong>装饰</strong>是一种结构型设计模式，
+允许你通过将对象放入包含行为的特殊封装对象中来为原对象绑定新的行为。</p>
+<p><strong>问题</strong></p>
+<p>开发一个提供通知功能的库：</p>
+<p>程序可以使用通知器类向预定义的邮箱发送重要事件通知。</p>
+<p><img src="/img/deep-dive-into-design-patterns-145.png" alt=""></p>
+<p>后来除了需要支持邮箱，还需要微信、QQ、手机短信。</p>
+<p>每种通知类型都将作为通知器的一个子类得以实现。</p>
+<p><img src="/img/deep-dive-into-design-patterns-146.png" alt=""></p>
+<p>如果需要同时使用多种通知方式呢？</p>
+<p>子类组合数量爆炸。</p>
+<p><img src="/img/deep-dive-into-design-patterns-147.png" alt=""></p>
+<p><strong>解决方案</strong></p>
+<p>当你需要更改一个对象的行为时， 第一个跳入脑海的想法就是扩展它所属的类。
+但继承可能带来一些严重问题：</p>
+<p>继承是静态的。 你无法在运行时更改已有对象的行为， 只能
+使用由不同子类创建的对象来替代当前的整个对象。</p>
+<p>子类只能有一个父类。 大部分编程语言不允许一个类同时继 承多个类的行为。</p>
+<p>聚合(或组合)组合是许多设计模式背后的关键原则(包括 装饰在内)。</p>
+<p>在消息通知示例中， 我们可以将简单邮件通知行为放在 基类 通知器
+中，但将所有其他通知方法放入装饰中。</p>
+<p><img src="/img/deep-dive-into-design-patterns-148.png" alt=""></p>
+<p>客户端代码必须将基础通知器放入一系列自己所需的装饰中。
+因此最后的对象将形成一个栈结构。</p>
+<p><img src="/img/deep-dive-into-design-patterns-149.png" alt=""></p>
+<p><strong>结构</strong></p>
+<p><img src="/img/deep-dive-into-design-patterns-150.png" alt=""></p>
+<p><strong>部件</strong>(Component)声明封装器和被封装对象的公用接口。</p>
+<p><strong>具体部件</strong>(Concrete
+Component)类是被封装对象所属的类。它定义了基础行为，
+但装饰类可以改变这些行为。</p>
+<p><strong>基础装饰</strong>(Base Decorator)类拥有一个指向被封装对象的引 用成员变量。</p>
+<p><strong>具体装饰类</strong>(Concrete Decorators)定义了可动态添加到部件的额外行为。</p>
+<p><strong>客户端</strong>(Client)可以使用多层装饰来封装部件，只要它能
+使用通用接口与所有对象互动即可。</p>
+<p><strong>示例</strong></p>
+<p>装饰模式能够对敏感数据进行压缩和加密，
+从而将数据从使用数据的代码中独立出来。</p>
+<p><img src="/img/deep-dive-into-design-patterns-151.png" alt=""></p>
+<p><strong>适用场景</strong></p>
+<p>希望在无需修改代码的情况下即可使用对象，且希望在运行时为对象新增额外的行为</p>
+<p>如果用继承来扩展对象行为的方案难以实现或者根本不可行，
+你可以使用该模式。</p>
+<p><strong>外观</strong></p>
+<p><strong>外观</strong>是一种结构型设计模式，
+能为程序库、框架或其他复杂类提供一个简单的接口。</p>
+<p><strong>问题</strong></p>
+<p>假设你必须在代码中使用某个复杂的库或框架中的众多对象。 正常情况下，
+你需要负责所有对象的初始化工作、
+管理其依赖关系并按正确的顺序执行方法等。
+最终，程序中类的业务逻辑将与第三方类的实现细节紧密耦合，较难维护。</p>
+<p><strong>解决方案</strong></p>
+<p><strong>外观类为包含许多活动部件的复杂子系统提供一个简单的接口。
+客户端只需要调用提供了真正关心的功能的接口。</strong></p>
+<h3 id="结构"><strong>结构</strong></h3>
+<p><img src="/img/deep-dive-into-design-patterns-152.png" alt=""></p>
+<p><strong>外观</strong>(Facade)提供了一种访问特定子系统功能的便捷方式。</p>
+<p>创建<strong>附加外观</strong>(Additional
+Facade)类可以<strong>避免多种不相关的功能污染单一外观使其变成又一个复杂结构</strong>。</p>
+<p><strong>复杂子系统</strong>(Complex Subsystem)由数十个不同对象构成。</p>
+<p><strong>客户端</strong>(Client)使用外观代替对子系统对象的直接调用。</p>
+<p><strong>示例</strong></p>
+<p>使用单个外观类隔离多重依赖的示例，在本例中，
+<strong>外观</strong>模式简化了客户端与复杂视频转换框架之间的交互。</p>
+<p><img src="/img/deep-dive-into-design-patterns-153.png" alt=""></p>
+<p><strong>适用场景</strong></p>
+<p>如果你需要一个指向复杂子系统的直接接口，且该接口的功能有限，则可以使用外观模式。</p>
+<p>如果需要将子系统组织为多层结构，可以使用外观。回到视频转换框架的例子。
+该框架可以拆分为两个层次: 音频相关和视频相关。
+你可以为每个层次创建一个外观，
+然后要求各层的类必须通过这些外观进行交互。</p>
+<p><strong>享元</strong></p>
+<p><strong>享元</strong>是一种结构型设计模式， 它摒弃了在每个对象中保存
+所有数据的方式，通过共享 多个对象所共有的相同状态，
+让你能在有限的内存容量中载入更多对象。</p>
+<p><strong>问题</strong></p>
+<p>假设开发了一款简单的射击游戏:，实现了真实的粒子系统 ，
+在编译游戏后将其发送给了一个朋友进行测试
+，朋友的设备性能远比不上你的电脑，
+因此游戏运行在他的电脑上时很快就会出现问题。</p>
+<p>问题在于每个粒子(一颗子弹、 一枚导 弹或一块弹片)
+都由包含完整数据的独立对象来表示</p>
+<p><img src="/img/deep-dive-into-design-patterns-154.png" alt=""></p>
+<p><strong>解决方案</strong></p>
+<p>粒子 Particle 类的颜色(color)
+和精灵图(sprite)这两个成员变量所消耗的内存要比其他变量多得多，对于所有的粒子来说，这两个成员变量所存储的数据几乎完全一样，每个粒子的另一些状态(坐标、移动矢量和速度)则是不同的。</p>
+<p><img src="/img/deep-dive-into-design-patterns-155.png" alt=""></p>
+<p>享元模式建议不在对象中存储外在状态，
+而是将其传递给依赖于它的一个特殊方法。 程序只在对象中保存内在状态，
+以方便在不同情景下重用。</p>
+<p><img src="/img/deep-dive-into-design-patterns-156.png" alt=""></p>
+<p>假如能从粒子类中抽出外在状态，
+那么我们只需三个不同的对象(子弹、导弹和弹片)就能表示游戏中的所有粒子。</p>
+<p>将这样一个仅存储内在状态的对象称为<strong>享元</strong>。</p>
+<p><strong>外在状态存储</strong></p>
+<p>在大部分情况中， 它们会被移动到容器对象中，
+也就是我们应用享元模式前的聚合对象中。 在我们的例子中，
+容器对象就是主要的 游戏 Game 对象， 其会将所有粒子存储在名为 粒子
+particles 的成员变量中。</p>
+<p><img src="/img/deep-dive-into-design-patterns-157.png" alt=""></p>
+<p><strong>享元与不可变性</strong></p>
+<p>由于享元对象可在不同的情景中使用， 你必须确保其状态不
+能被修改，只能由构造函数的参数进行一次性初始化 。</p>
+<h3 id="享元工厂"><strong>享元工厂</strong></h3>
+<p>可以创建一个工厂方法来管理已有享元对象的缓存池。</p>
+<p><strong>结构</strong></p>
+<p><img src="/img/deep-dive-into-design-patterns-158.png" alt=""></p>
+<p>享元模式只是一种优化。 在应用该模式之前，
+你要确定程序中存在与大量类似对象同时占用内存相关的内存消耗问题，
+并且确保该问题无法使用其他更好的方式来解决。</p>
+<p><strong>享元</strong>(Flyweight)类包含原始对象中部分能在多个对象中共享的状态。
+同一享元对象可在许多不同情景中使用。 享元中 存储的状态被称为&quot;内在状态&rdquo;。
+传递给享元方法的状态被 称为&quot;外在状态&rdquo;。</p>
+<p><strong>情景</strong>(Context)类包含原始对象中各不相同的外在状态。情景与享元对象组合在一起就能表示原始对象的全部状态。</p>
+<p>通常情况下， 原始对象的行为会保留在享元类中。</p>
+<p><strong>客户端</strong>(Client)负责计算或存储享元的外在状态。</p>
+<p><strong>享元工厂</strong>(Flyweight Factory)会对已有享元的缓存池进行管理。</p>
+<p><strong>示例</strong></p>
+<p><strong>享元</strong>模式能有效减少在画布上渲染数百万个树状 对象时所需的内存。</p>
+<p><img src="/img/deep-dive-into-design-patterns-159.png" alt=""></p>
+<p><strong>适用场景</strong></p>
+<p>仅在程序必须支持大量对象且没有足够的内存容量时使用享元模式。</p>
+<p>应用该模式所获的收益大小取决于使用它的方式和情景。 它
+在下列情况中最有效:</p>
+<p>程序需要生成数量巨大的相似对象</p>
+<p>这将耗尽目标设备的所有内存</p>
+<p>对象中包含可抽取且能在多个对象间共享的重复状态。</p>
+<h3 id="代理"><strong>代理</strong></h3>
+<p><strong>代理</strong>是一种结构型设计模式， 让你能够提供对象的替代品
+或其占位符。代理控制着对于原对象的访问，并允许在
+将请求提交给对象前后进行一些处理。</p>
+<p><strong>问题</strong></p>
+<p>有这样一 个消耗大量系统资源的巨型对象， 你只是偶尔需要使用它
+。可以选择实现延迟初始化:
+在实际有需要时再创建该对象，但很可能会带来很多重复代码。 在理想情况下，
+我们希望将代码直接放入对象的类中， 但这并非总是能实现:
+比如类可能是第三方封闭库的一部分。</p>
+<p><strong>解决方案</strong></p>
+<p>代理模式建议新建一个与原服务对象接口相同的代理类，
+然后更新应用以将代理对象传递给所有原始对象客户端。</p>
+<p><strong>真实世界类比</strong></p>
+<p>信用卡是银行账户的代理， 银行账户则是一大捆现金的代理。
+信用卡和现金在支付过程中的用处相同。</p>
+<p><img src="/img/deep-dive-into-design-patterns-160.png" alt=""></p>
+<p><strong>结构</strong></p>
+<p><img src="/img/deep-dive-into-design-patterns-161.png" alt=""></p>
+<p><strong>服务接口</strong>(Service
+Interface)声明了服务接口。代理必须遵循该接口才能伪装成服务对象。</p>
+<p><strong>服务</strong>(Service)类提供了一些实用的业务逻辑。</p>
+<p><strong>代理</strong>(Proxy)类包含一个指向服务对象的引用成员变量。</p>
+<p><strong>客户端</strong>(Client) 能通过同一接口与服务或代理进行交互</p>
+<p><strong>示例</strong></p>
+<p>本例演示如何使用<strong>代理</strong>模式在第三方腾讯视频 (TencentVideo，
+代码示例中记为 TV) 程序库中添加延迟初</p>
+<p>始化和缓存。</p>
+<p><img src="/img/deep-dive-into-design-patterns-162.png" alt=""></p>
+<p><strong>适用场景</strong></p>
+<p>延迟初始化(虚拟代理)。如果你有一个偶尔使用的重量级服务对象，
+一直保持该对象运行会消耗系统资源时， 可使用代理模式。</p>
+<p>访问控制(保护代理)。如果你只希望特定客户端使用服务对象，
+这里的对象可以是操作系统中非常重要的部分， 而客户
+端则是各种已启动的程序(包括恶意程序)，此时可使用代理模式。</p>
+<p>本地执行远程服务(远程代理)。适用于服务对象位于远程服务器上的情形。</p>
+<p>记录日志请求(日志记录代理)。适用于当你需要保存对于服务对象的请求历史记录时。
+代理可以在向服务传递请求前进行记录。</p>
+<p>智能引用。可在没有客户端使用某个重量级对象时立即销毁该对象。</p>
+<h2 id="行为模式"><strong>行为模式</strong></h2>
+<h3 id="责任链"><strong>责任链</strong></h3>
+<p><strong>责任链模式</strong>是一种行为设计模式， 允许你将请求沿着处理者链进行发送。
+收到请求后， 每个处理者均可对请求进行处理，
+或将其传递给链上的下个处理者。</p>
+<p><strong>问题</strong></p>
+<p>一个在线订购系统需要一系列繁琐的检查。</p>
+<p><strong>解决方案</strong></p>
+<p><strong>责任链</strong>会将特定行为转换为被称作<em>处理者</em>的独立对象。每个检查步骤都可被抽取为仅有单个方法的类，
+并执行检查操作。</p>
+<p><img src="/img/deep-dive-into-design-patterns-163.png" alt=""></p>
+<p><strong>结构</strong></p>
+<p><img src="/img/deep-dive-into-design-patterns-164.png" alt=""></p>
+<p><strong>处理者</strong>(Handler)声明了所有具体处理者的通用接口。</p>
+<p><strong>基础处理者</strong>(Base
+Handler)是一个可选的类，你可以将所有处理者共用的样本代码放置在其中。</p>
+<p><strong>具体处理者</strong>(Concrete Handlers)包含处理请求的实际代码。</p>
+<p><strong>客户端</strong>(Client)可根据程序逻辑一次性或者动态地生成链。</p>
+<p><strong>适用场景</strong></p>
+<p><strong>当程序需要使用不同方式处理不同种类请求，而且请求类型和顺序预先未知时</strong></p>
+<p><strong>当必须按顺序执行多个处理者时</strong></p>
+<p><strong>如果所需处理者及其顺序必须在运行时进行改变</strong></p>
+<h3 id="命令"><strong>命令</strong></h3>
+<p><strong>命令</strong>是一种行为设计模式，
+它可将请求转换为一个包含与请求相关的所有信息的独立对象。该转换让你能根据不同的请求将方法参数化、延迟请求执行或将其放入队列中，且能实现可撤销操作。</p>
+<p><strong>问题</strong></p>
+<p>开发一款新的文字编辑器 ，包含多个按钮的工具栏，
+并让每个按钮对应编辑器的不同操作。</p>
+<p><strong>解决方案</strong></p>
+<p>通过命令访问业务逻辑层</p>
+<p><img src="/img/deep-dive-into-design-patterns-165.png" alt=""></p>
+<p><strong>结构</strong></p>
+<p><img src="/img/deep-dive-into-design-patterns-166.png" alt=""></p>
+<p><strong>发 送 者</strong> (Sender)&mdash;&mdash; 亦 称 &ldquo;触 发 者 (Invoker)&rdquo; ：触发命令</p>
+<p><strong>命令</strong>(Command)接口通常仅声明一个执行命令的方法。</p>
+<p><strong>具体命令</strong>(Concrete Commands) 会实现各种类型的请求。</p>
+<p><strong>接收者</strong>(Receiver)类包含部分业务逻辑。</p>
+<p><strong>客户端</strong>(Client)会创建并配置具体命令对象。</p>
+<p><strong>使用场景</strong></p>
+<p><strong>需要通过操作来参数化对象</strong></p>
+<p><strong>想要将操作放入队列中、操作的执行或者远程执行操作</strong></p>
+<p><strong>想要实现操作回滚功能</strong></p>
+<h3 id="迭代器"><strong>迭代器</strong></h3>
+<p><strong>迭代器模式</strong>是一种行为设计模式， 让你能在不暴露集合底层表现形式
+（列表、 栈和树等） 的情况下遍历集合中所有的元素。</p>
+<p><strong>问题</strong></p>
+<p>如何遍历集合</p>
+<p><strong>解决方案</strong></p>
+<p>迭代器模式的主要思想是将集合的遍历行为抽取为单独的迭代器对象。</p>
+<p><strong>结构</strong></p>
+<p><img src="/img/deep-dive-into-design-patterns-167.png" alt=""></p>
+<p><strong>迭代器</strong>(Iterator)接口声明了遍历集合所需的操作</p>
+<p><strong>具体迭代器</strong>(Concrete Iterators)实现遍历集合的一种特定算法。</p>
+<p><strong>集合</strong>(Collection)接口声明一个或多个方法来获取与集合兼容的迭代器。</p>
+<p><strong>具体集合</strong>(Concrete
+Collections)会在客户端请求迭代器时返回一个特定的具体迭代器类实体。</p>
+<p><strong>客户端</strong>(Client)通过集合和迭代器的接口与两者进行交互。</p>
+<p><strong>使用场景</strong></p>
+<p><strong>当集合背后为复杂的数据结构，且你希望对客户端隐藏其复杂性时</strong></p>
+<p><strong>使用该模式可以减少程序中重复的遍历代码。</strong></p>
+<p><strong>希望代码能够遍历不同的甚至是无法预知的数据结构</strong></p>
+<h3 id="中介者"><strong>中介者</strong></h3>
+<p><strong>中介者模式</strong>是一种行为设计模式，
+能让你减少对象之间混乱无序的依赖关系。 该模式会限制对象之间的直接交互，
+迫使它们通过一个中介者对象进行合作。</p>
+<p><strong>问题</strong></p>
+<p>设计创建和修改客户资料的对话框 ，元素间存在许多关联，如何设计减少耦合。</p>
+<p><strong>解决方案</strong></p>
+<p>中介者模式建议你停止组件之间的直接交流并使其相互独立。
+组件必须调用特殊的中介者对象， 通过中介者对象重定向调用行为，
+以间接的方式进行合作。</p>
+<p><strong>结构</strong></p>
+<p><img src="/img/deep-dive-into-design-patterns-168.png" alt=""></p>
+
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="http://localhost:1313/tags/cs/">CS</a>&nbsp;
+            
+          </div>
+        
+
+        
+
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="http://localhost:1313/post/dive-into-python-3/" data-toggle="tooltip" data-placement="top" title="Dive Into Python 3">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="http://localhost:1313/post/correction-of-anterior-humerus/" data-toggle="tooltip" data-placement="top" title="correction of anterior humerus">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2024
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://localhost:1313/">Kaga Blog</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.134.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="http://localhost:1313/js/main.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="http://localhost:1313/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

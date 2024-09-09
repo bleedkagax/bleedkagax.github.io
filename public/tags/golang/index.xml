@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Golang on Kaga Blog</title>
+    <link>http://localhost:1313/tags/golang/</link>
+    <description>Recent content in Golang on Kaga Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Golang Pprof</title>
+      <link>http://localhost:1313/post/golang-pprof/</link>
+      <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/golang-pprof/</guid>
+      <description>&lt;h1 id=&#34;overview-of-pprof&#34;&gt;Overview of Pprof&lt;/h1&gt;&#xA;&lt;p&gt;&lt;code&gt;pprof&lt;/code&gt; is a tool that comes with Go&amp;rsquo;s standard library and is used for collecting and viewing profiling data. It can collect different types of profiles including:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;CPU Profile&lt;/strong&gt;: Measures where the program spends most of its time.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Memory Profile&lt;/strong&gt;: Measures the amount of memory allocated and retained.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Block Profile&lt;/strong&gt;: Measures where the program spends time waiting for synchronization primitives.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Mutex Profile&lt;/strong&gt;: Measures contention on mutexes.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;setting-up-pprof&#34;&gt;Setting Up pprof&lt;/h1&gt;&#xA;&lt;p&gt;To use &lt;code&gt;pprof&lt;/code&gt;, you need to import the &lt;code&gt;net/http/pprof&lt;/code&gt; package and set up HTTP server to serve the profiling data.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

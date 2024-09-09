@@ -7,3 +7,12 @@
 [submodule "themes/hugoplate"]
 	path = themes/hugoplate
 	url = https://github.com/zeon-studio/hugoplate.git
+[submodule "themes/doks"]
+	path = themes/doks
+	url = https://github.com/thuliteio/doks.git
+[submodule "themes/coder"]
+	path = themes/coder
+	url = https://github.com/luizdepra/hugo-coder.git
+[submodule "themes/beautifulhugo"]
+	path = themes/beautifulhugo
+	url = https://github.com/halogenica/beautifulhugo.git
