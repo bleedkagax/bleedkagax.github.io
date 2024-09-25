@@ -3,7 +3,8 @@ title: Golang Interview Questions and Answers
 name: golang-interview
 date: 2024-09-14
 draft: false
-tags: 
+tags:
+  - Golang
 share: "true"
 ---
 
@@ -761,3 +762,4 @@ if err != nil {
 ### 64. Explain the concept of type assertions in Go.
 
 **Type assertions** are used to extract an interface value's concrete type. They provide a way to safely convert an interface{} value to a specific type. If the conversion is successful, the type assertion returns the value of the specified type; otherwise, it returns the zero value of the specified type and a boolean indicating whether the conversion was successful.
+
