@@ -4,7 +4,7 @@ name: git
 date: 2024-09-08
 draft: false
 tags:
-  - Git
+  - git
 share: "true"
 ---
 
