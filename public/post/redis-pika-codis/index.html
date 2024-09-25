@@ -397,15 +397,17 @@ Replication and High …">
 <p>Redis (Remote Dictionary Server) is an open-source, in-memory data structure store that has become a cornerstone in modern application architectures. Its versatility allows it to function as a database, cache, message broker, and queue.</p>
 <h3 id="redis-core-architecture">Redis Core Architecture</h3>
 <p>Redis follows a single-threaded, event-driven model using an I/O multiplexing technique.</p>
-<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">graph TD
-    A[Client Connections] --&gt; B[Event Loop]
-    B --&gt; C[Command Processing]
-    C --&gt; D[In-Memory Data Structures]
-    D --&gt; E[Persistence Layer]
-    B --&gt; F[Replication]
-    B --&gt; G[Pub/Sub]
-    B --&gt; H[Transactions]
-</code></pre><p>The event loop efficiently handles multiple client connections using mechanisms like <code>epoll</code> (Linux) or <code>kqueue</code> (BSD).</p>
+<pre class="mermaid">
+    graph TD
+	    A[Client Connections] --&gt; B[Event Loop]
+	    B --&gt; C[Command Processing]
+	    C --&gt; D[In-Memory Data Structures]
+	    D --&gt; E[Persistence Layer]
+	    B --&gt; F[Replication]
+	    B --&gt; G[Pub/Sub]
+	    B --&gt; H[Transactions]
+</pre>
+<p>The event loop efficiently handles multiple client connections using mechanisms like <code>epoll</code> (Linux) or <code>kqueue</code> (BSD).</p>
 <p>Key components:</p>
 <ul>
 <li><strong>Event Loop</strong>: Manages I/O events and timers</li>
@@ -528,23 +530,25 @@ auto-aof-rewrite-min-size 64mb
 </ul>
 <h3 id="redis-replication-and-high-availability">Redis Replication and High Availability</h3>
 <p>Redis supports master-slave replication for high availability and read scalability.</p>
-<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">graph TD
-    A[Master] --&gt;|Sync| B[Slave 1]
-    A --&gt;|Sync| C[Slave 2]
-    A --&gt;|Sync| D[Slave 3]
-    E[Sentinel 1] --&gt;|Monitor| A
-    E --&gt;|Monitor| B
-    E --&gt;|Monitor| C
-    E --&gt;|Monitor| D
-    F[Sentinel 2] --&gt;|Monitor| A
-    F --&gt;|Monitor| B
-    F --&gt;|Monitor| C
-    F --&gt;|Monitor| D
-    G[Sentinel 3] --&gt;|Monitor| A
-    G --&gt;|Monitor| B
-    G --&gt;|Monitor| C
-    G --&gt;|Monitor| D
-</code></pre><p>Key features:</p>
+<pre class="mermaid">
+    graph TD
+	    A[Master] --&gt;|Sync| B[Slave 1]
+	    A --&gt;|Sync| C[Slave 2]
+	    A --&gt;|Sync| D[Slave 3]
+	    E[Sentinel 1] --&gt;|Monitor| A
+	    E --&gt;|Monitor| B
+	    E --&gt;|Monitor| C
+	    E --&gt;|Monitor| D
+	    F[Sentinel 2] --&gt;|Monitor| A
+	    F --&gt;|Monitor| B
+	    F --&gt;|Monitor| C
+	    F --&gt;|Monitor| D
+	    G[Sentinel 3] --&gt;|Monitor| A
+	    G --&gt;|Monitor| B
+	    G --&gt;|Monitor| C
+	    G --&gt;|Monitor| D
+</pre>
+<p>Key features:</p>
 <ul>
 <li>Asynchronous replication</li>
 <li>Partial resynchronization for efficiency</li>
@@ -561,18 +565,20 @@ sentinel down-after-milliseconds mymaster 5000
 sentinel failover-timeout mymaster 60000
 </code></pre><h3 id="redis-clustering-and-sharding">Redis Clustering and Sharding</h3>
 <p>Redis Cluster provides a way to run a Redis installation where data is automatically sharded across multiple Redis nodes.</p>
-<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">graph TD
-    A[Client] --&gt; B[Redis Cluster]
-    B --&gt; C[Node 1 &lt;br/&gt; 0-5460]
-    B --&gt; D[Node 2 &lt;br/&gt; 5461-10922]
-    B --&gt; E[Node 3 &lt;br/&gt; 10923-16383]
-    C &lt;--&gt;|Gossip| D
-    D &lt;--&gt;|Gossip| E
-    E &lt;--&gt;|Gossip| C
-    C --&gt; F[Replica 1]
-    D --&gt; G[Replica 2]
-    E --&gt; H[Replica 3]
-</code></pre><p>Key features:</p>
+<pre class="mermaid">
+    graph TD
+	    A[Client] --&gt; B[Redis Cluster]
+	    B --&gt; C[Node 1 &lt;br/&gt; 0-5460]
+	    B --&gt; D[Node 2 &lt;br/&gt; 5461-10922]
+	    B --&gt; E[Node 3 &lt;br/&gt; 10923-16383]
+	    C &lt;--&gt;|Gossip| D
+	    D &lt;--&gt;|Gossip| E
+	    E &lt;--&gt;|Gossip| C
+	    C --&gt; F[Replica 1]
+	    D --&gt; G[Replica 2]
+	    E --&gt; H[Replica 3]
+</pre>
+<p>Key features:</p>
 <ul>
 <li>16384 hash slots distributed across nodes</li>
 <li>Client-side sharding using CRC16</li>
@@ -649,14 +655,16 @@ maxmemory-policy allkeys-lru
 <p>Pika is a persistent huge storage service, compatible with the Redis protocol but designed to handle datasets larger than memory.</p>
 <h3 id="pika-architecture-and-design-principles">Pika Architecture and Design Principles</h3>
 <p>Pika uses a multi-threaded architecture with RocksDB as its storage engine.</p>
-<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">graph TD
-    A[Client Connections] --&gt; B[Network Thread]
-    B --&gt; C[Worker Threads]
-    C --&gt; D[RocksDB Storage Engine]
-    D --&gt; E[Disk Storage]
-    F[Backup Thread] --&gt; D
-    G[Compact Thread] --&gt; D
-</code></pre><p>Key components:</p>
+<pre class="mermaid">
+    graph TD
+	    A[Client Connections] --&gt; B[Network Thread]
+	    B --&gt; C[Worker Threads]
+	    C --&gt; D[RocksDB Storage Engine]
+	    D --&gt; E[Disk Storage]
+	    F[Backup Thread] --&gt; D
+	    G[Compact Thread] --&gt; D
+</pre>
+<p>Key components:</p>
 <ul>
 <li><strong>Network Thread</strong>: Handles client connections and command parsing</li>
 <li><strong>Worker Threads</strong>: Execute commands and interact with RocksDB</li>
@@ -683,15 +691,17 @@ maxmemory-policy allkeys-lru
 </span></span><span style="display:flex;"><span>options.compression <span style="color:#f92672">=</span> rocksdb<span style="color:#f92672">::</span>kSnappyCompression;
 </span></span></code></pre></div><h3 id="pika-thread-model-and-concurrency">Pika Thread Model and Concurrency</h3>
 <p>Pika uses a multi-threaded model to improve performance and concurrency.</p>
-<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">graph TD
-    A[Client Requests] --&gt; B[Dispatch Thread]
-    B --&gt; C[Worker Thread 1]
-    B --&gt; D[Worker Thread 2]
-    B --&gt; E[Worker Thread N]
-    C --&gt; F[RocksDB]
-    D --&gt; F
-    E --&gt; F
-</code></pre><p>Implementation details:</p>
+<pre class="mermaid">
+    graph TD
+	    A[Client Requests] --&gt; B[Dispatch Thread]
+	    B --&gt; C[Worker Thread 1]
+	    B --&gt; D[Worker Thread 2]
+	    B --&gt; E[Worker Thread N]
+	    C --&gt; F[RocksDB]
+	    D --&gt; F
+	    E --&gt; F
+</pre>
+<p>Implementation details:</p>
 <ul>
 <li>Thread pool for handling client requests</li>
 <li>Lock-free data structures for inter-thread communication</li>
@@ -726,11 +736,13 @@ maxmemory-policy allkeys-lru
 </span></span><span style="display:flex;"><span>print(p<span style="color:#f92672">.</span>lrange(<span style="color:#e6db74">&#39;list&#39;</span>, <span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>))
 </span></span></code></pre></div><h3 id="pika-replication-and-consistency">Pika Replication and Consistency</h3>
 <p>Pika supports master-slave replication for high availability and data consistency.</p>
-<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">graph TD
-    A[Master] --&gt;|Binary Log| B[Slave 1]
-    A --&gt;|Binary Log| C[Slave 2]
-    A --&gt;|Binary Log| D[Slave 3]
-</code></pre><p>Replication features:</p>
+<pre class="mermaid">
+    graph TD
+	    A[Master] --&gt;|Binary Log| B[Slave 1]
+	    A --&gt;|Binary Log| C[Slave 2]
+	    A --&gt;|Binary Log| D[Slave 3]
+</pre>
+<p>Replication features:</p>
 <ul>
 <li>Asynchronous replication</li>
 <li>Full and incremental sync support</li>
@@ -779,19 +791,21 @@ slave-read-only yes
 <p>Codis is a proxy-based Redis cluster solution that supports dynamic scaling and provides high availability.</p>
 <h3 id="codis-system-architecture-and-components">Codis System Architecture and Components</h3>
 <p>Codis consists of several key components working together to provide a scalable Redis cluster solution.</p>
-<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">graph TD
-    A[Client] --&gt; B[Codis Proxy]
-    B --&gt; C[Redis 1]
-    B --&gt; D[Redis 2]
-    B --&gt; E[Redis N]
-    F[Codis Dashboard] --&gt; B
-    F --&gt; C
-    F --&gt; D
-    F --&gt; E
-    G[Zookeeper/Etcd] --&gt; F
-    H[Codis FE] --&gt; F
-    I[Codis Admin] --&gt; F
-</code></pre><p>Key components:</p>
+<pre class="mermaid">
+    graph TD
+	    A[Client] --&gt; B[Codis Proxy]
+	    B --&gt; C[Redis 1]
+	    B --&gt; D[Redis 2]
+	    B --&gt; E[Redis N]
+	    F[Codis Dashboard] --&gt; B
+	    F --&gt; C
+	    F --&gt; D
+	    F --&gt; E
+	    G[Zookeeper/Etcd] --&gt; F
+	    H[Codis FE] --&gt; F
+	    I[Codis Admin] --&gt; F
+</pre>
+<p>Key components:</p>
 <ul>
 <li><strong>Codis Proxy</strong>: Stateless proxy that routes requests to the correct Redis instance</li>
 <li><strong>Codis Dashboard</strong>: Manages the cluster topology and handles administrative tasks</li>
@@ -801,13 +815,15 @@ slave-read-only yes
 </ul>
 <h3 id="codis-proxy-design-and-implementation">Codis Proxy Design and Implementation</h3>
 <p>The Codis Proxy is a core component that handles request routing and connection management.</p>
-<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">graph TD
-    A[Client Connections] --&gt; B[Connection Pool]
-    B --&gt; C[Request Parser]
-    C --&gt; D[Router]
-    D --&gt; E[Backend Connection Pool]
-    E --&gt; F[Redis Instances]
-</code></pre><p>Key features:</p>
+<pre class="mermaid">
+    graph TD
+	    A[Client Connections] --&gt; B[Connection Pool]
+	    B --&gt; C[Request Parser]
+	    C --&gt; D[Router]
+	    D --&gt; E[Backend Connection Pool]
+	    E --&gt; F[Redis Instances]
+</pre>
+<p>Key features:</p>
 <ul>
 <li>Supports pipelining and multiplexing</li>
 <li>Implements consistent hashing for request routing</li>
@@ -830,17 +846,19 @@ slave-read-only yes
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">session_break_on_failure</span> = <span style="color:#66d9ef">false</span>
 </span></span></code></pre></div><h3 id="codis-data-sharding-and-rebalancing">Codis Data Sharding and Rebalancing</h3>
 <p>Codis uses pre-sharding and dynamic slot allocation for data distribution.</p>
-<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">graph TD
-    A[1024 Slots] --&gt; B[Group 1]
-    A --&gt; C[Group 2]
-    A --&gt; D[Group N]
-    B --&gt; E[Redis 1]
-    B --&gt; F[Redis 1 Slave]
-    C --&gt; G[Redis 2]
-    C --&gt; H[Redis 2 Slave]
-    D --&gt; I[Redis N]
-    D --&gt; J[Redis N Slave]
-</code></pre><p>Sharding details:</p>
+<pre class="mermaid">
+    graph TD
+	    A[1024 Slots] --&gt; B[Group 1]
+	    A --&gt; C[Group 2]
+	    A --&gt; D[Group N]
+	    B --&gt; E[Redis 1]
+	    B --&gt; F[Redis 1 Slave]
+	    C --&gt; G[Redis 2]
+	    C --&gt; H[Redis 2 Slave]
+	    D --&gt; I[Redis N]
+	    D --&gt; J[Redis N Slave]
+</pre>
+<p>Sharding details:</p>
 <ul>
 <li>1024 slots pre-defined</li>
 <li>Slots can be migrated between groups</li>
@@ -854,18 +872,20 @@ slave-read-only yes
 </ol>
 <h3 id="codis-high-availability-and-fault-tolerance">Codis High Availability and Fault Tolerance</h3>
 <p>Codis provides high availability through redundancy and automatic failover.</p>
-<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">graph TD
-    A[Codis Dashboard] --&gt; B[Group 1]
-    A --&gt; C[Group 2]
-    A --&gt; D[Group N]
-    B --&gt; E[Redis Master]
-    B --&gt; F[Redis Slave]
-    C --&gt; G[Redis Master]
-    C --&gt; H[Redis Slave]
-    D --&gt; I[Redis Master]
-    D --&gt; J[Redis Slave]
-    K[Zookeeper/Etcd] --&gt; A
-</code></pre><p>High availability features:</p>
+<pre class="mermaid">
+    graph TD
+	    A[Codis Dashboard] --&gt; B[Group 1]
+	    A --&gt; C[Group 2]
+	    A --&gt; D[Group N]
+	    B --&gt; E[Redis Master]
+	    B --&gt; F[Redis Slave]
+	    C --&gt; G[Redis Master]
+	    C --&gt; H[Redis Slave]
+	    D --&gt; I[Redis Master]
+	    D --&gt; J[Redis Slave]
+	    K[Zookeeper/Etcd] --&gt; A
+</pre>
+<p>High availability features:</p>
 <ul>
 <li>Automatic failover within groups</li>
 <li>Multiple Codis Proxies for load balancing</li>
@@ -925,14 +945,16 @@ slave-read-only yes
 </span></span></code></pre></div><h2 id="comparative-analysis">Comparative Analysis</h2>
 <h3 id="performance-benchmarks">Performance Benchmarks</h3>
 <p>Benchmark results for 100-byte SET/GET operations (operations per second):</p>
-<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">graph TD
-    A[Redis] --&gt;|150k| B[SET]
-    A --&gt;|200k| C[GET]
-    D[Pika] --&gt;|80k| B
-    D --&gt;|100k| C
-    E[Codis] --&gt;|130k| B
-    E --&gt;|180k| C
-</code></pre><p>Note: These are approximate values and can vary based on hardware and configuration.</p>
+<pre class="mermaid">
+    graph TD
+	    A[Redis] --&gt;|150k| B[SET]
+	    A --&gt;|200k| C[GET]
+	    D[Pika] --&gt;|80k| B
+	    D --&gt;|100k| C
+	    E[Codis] --&gt;|130k| B
+	    E --&gt;|180k| C
+</pre>
+<p>Note: These are approximate values and can vary based on hardware and configuration.</p>
 <h3 id="use-case-scenarios">Use Case Scenarios</h3>
 <ol>
 <li>
@@ -1065,6 +1087,10 @@ slave-read-only yes
               <a href="http://localhost:1313/post/git/" data-toggle="tooltip" data-placement="top" title="Git">&larr; Previous Post</a>
             </li>
           
+          
+            <li class="next">
+              <a href="http://localhost:1313/post/golang-interview/" data-toggle="tooltip" data-placement="top" title="Golang Interview Questions and Answers">Next Post &rarr;</a>
+            </li>
           
         </ul>
       

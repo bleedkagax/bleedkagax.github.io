@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Kaga Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 09 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 14 Sep 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Golang Interview Questions and Answers</title>
+      <link>http://localhost:1313/post/golang-interview/</link>
+      <pubDate>Sat, 14 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/golang-interview/</guid>
+      <description>&lt;h1 id=&#34;golang-interview-questions-and-answers&#34;&gt;Golang Interview Questions and Answers&lt;/h1&gt;&#xA;&lt;h2 id=&#34;basic-concepts&#34;&gt;Basic Concepts&lt;/h2&gt;&#xA;&lt;h3 id=&#34;1-what-is-go-golang&#34;&gt;1. What is Go (Golang)?&lt;/h3&gt;&#xA;&lt;p&gt;Go, also known as Golang, is an open-source programming language developed by Google. It&amp;rsquo;s statically typed, compiled, and designed for simplicity, concurrency, and efficiency.&lt;/p&gt;&#xA;&lt;h3 id=&#34;2-what-are-the-key-features-of-go&#34;&gt;2. What are the key features of Go?&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Simplicity and ease of learning&lt;/li&gt;&#xA;&lt;li&gt;Concurrency support with goroutines and channels&lt;/li&gt;&#xA;&lt;li&gt;Fast compilation and execution&lt;/li&gt;&#xA;&lt;li&gt;Garbage collection&lt;/li&gt;&#xA;&lt;li&gt;Strong standard library&lt;/li&gt;&#xA;&lt;li&gt;Cross-platform support&lt;/li&gt;&#xA;&lt;li&gt;Built-in testing support&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;3-what-are-the-advantages-of-using-go&#34;&gt;3. What are the advantages of using Go?&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Efficient concurrency handling&lt;/li&gt;&#xA;&lt;li&gt;Fast compilation times&lt;/li&gt;&#xA;&lt;li&gt;Simplified syntax&lt;/li&gt;&#xA;&lt;li&gt;Strong standard library&lt;/li&gt;&#xA;&lt;li&gt;Built-in testing and profiling tools&lt;/li&gt;&#xA;&lt;li&gt;Cross-platform compatibility&lt;/li&gt;&#xA;&lt;li&gt;Growing ecosystem and community&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;4-how-does-go-handle-dependencies&#34;&gt;4. How does Go handle dependencies?&lt;/h3&gt;&#xA;&lt;p&gt;Go uses a module system for dependency management. The &lt;code&gt;go.mod&lt;/code&gt; file specifies the module&amp;rsquo;s dependencies and their versions. The &lt;code&gt;go get&lt;/code&gt; command is used to download and install dependencies.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Redis, Pika, and Codis</title>
       <link>http://localhost:1313/post/redis-pika-codis/</link>
