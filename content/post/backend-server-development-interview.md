@@ -10,6 +10,123 @@ share: "true"
 
 # Backend Server Development Interview Questions and Answers
 
+## How to Solve Cache Penetration?
+
+Cache penetration occurs when requests for non-existent data bypass the cache and hit the database repeatedly. Solutions include:
+
+- **Caching Empty Results**: Store empty results for non-existent keys with a short expiration time.
+- **Bloom Filters**: Use a Bloom filter to check if a key exists before querying the database.
+- **Rate Limiting**: Limit requests for certain keys to prevent overwhelming the database with requests for non-existent data[2].
+
+## Common Rate Limiting Algorithms
+
+Common algorithms used for rate limiting include:
+
+- **Token Bucket Algorithm**: Allows bursts of traffic by storing tokens that represent permission to send requests.
+- **Leaky Bucket Algorithm**: Processes requests at a constant rate, smoothing out bursts by queuing excess requests.
+- **Fixed Window Counter**: Counts requests within fixed time intervals and resets after each interval[4].
+
+## Differences Between Token Bucket and Leaky Bucket
+
+| Feature         | Token Bucket                             | Leaky Bucket                              |
+| --------------- | ---------------------------------------- | ----------------------------------------- |
+| Handling Bursts | Allows bursts until tokens are exhausted | Smooths out traffic, constant output rate |
+| Flexibility     | More flexible for bursty traffic         | Less flexible; enforces steady flow       |
+| Implementation  | Tokens added at fixed rates              | Packets released at fixed rates           |
+| Use Cases       | Video streaming                          | Voice over IP (VoIP)                      |
+
+The token bucket is suitable for applications requiring flexibility, while the leaky bucket is ideal for maintaining consistent output rates[4].
+
+## What Are the Communication Methods Between Different Services?
+
+Different services can communicate through various methods:
+
+- **HTTP/REST APIs**: Synchronous communication using standard HTTP methods.
+- **gRPC**: High-performance RPC framework using HTTP/2.
+- **Message Queues**: Asynchronous communication via message brokers like RabbitMQ or Kafka.
+- **WebSockets**: For real-time bidirectional communication between clients and servers[2].
+
+## What Are the Steps Involved in an RPC Call?
+
+An RPC call typically involves these steps:
+
+1. The client sends an RPC request to the server.
+2. The client stub serializes the request into a suitable format (e.g., JSON or Protobuf).
+3. The request is sent over the network to the server.
+4. The server receives and deserializes the request.
+5. The server processes the request and prepares a response.
+6. The response is serialized and sent back to the client.
+7. The client stub deserializes the response for use[2].
+
+## How Can Performance Tuning Be Done in RPC Frameworks?
+
+To optimize performance in RPC frameworks:
+
+- Use efficient serialization formats (e.g., Protobuf).
+- Implement connection pooling to reuse connections.
+- Use asynchronous calls where possible to avoid blocking.
+- Optimize network latency through compression or batching requests[2].
+
+## Which RPC Frameworks Have You Used?
+
+Commonly used RPC frameworks include:
+
+- **gRPC**: A modern high-performance framework developed by Google.
+- **Apache Thrift**: A cross-language framework developed by Facebook.
+- **Dubbo**: A Java-based RPC framework from Alibaba.
+- **JSON-RPC**: A remote procedure call protocol encoded in JSON[2].
+
+## Describe Circuit Breaker, Rate Limiting, Downgrading, and Avalanche Effects
+
+1. **Circuit Breaker**: Prevents repeated calls to failing services by temporarily blocking requests until they recover.
+2. **Rate Limiting**: Controls how often users can access resources within a specified timeframe to prevent abuse or overload.
+3. **Downgrading**: Provides fallback mechanisms when certain features are unavailable or degraded due to failures.
+4. **Avalanche Effect**: Occurs when multiple dependent services fail simultaneously due to cascading failures from one service's downtime.
+
+These patterns help enhance system resilience and maintain service availability under stress[2].
+
+## What Open Source Frameworks Do You Know for Circuit Breaking and Downgrading?
+
+Notable open-source frameworks include:
+
+- **Hystrix**: A circuit breaker library from Netflix designed for fault tolerance in distributed systems.
+- **Resilience4j**: A lightweight alternative for Java applications providing circuit breaking capabilities.
+- **Sentinel**: An open-source project from Alibaba that provides circuit breaking and rate limiting features[2].
+
+## What Are the Differences Between Docker and Virtual Machines?
+
+| Feature                | Docker                                  | Virtual Machine                        |
+|------------------------|-----------------------------------------|---------------------------------------|
+| Operating System       | Shares host OS kernel                   | Requires separate OS per VM           |
+| Performance            | Lightweight with faster startup times   | Heavier due to full OS overhead       |
+| Portability            | Highly portable across environments      | Less portable due to size             |
+| Resource Usage         | More efficient resource utilization      | Consumes more resources                |
+
+Docker containers run applications in isolation but share resources more efficiently than virtual machines, which encapsulate entire operating systems[3].
+
+## What Problems Does Service Mesh Solve?
+
+Service mesh addresses challenges in microservices architectures such as:
+
+- Service discovery
+- Load balancing
+- Traffic management
+- Security (e.g., authentication)
+- Observability (e.g., monitoring and tracing)
+
+By abstracting these concerns away from application code, service mesh allows developers to focus on business logic while ensuring robust inter-service communication[2].
+
+## What Technologies Are Related to DevOps?
+
+Key technologies related to DevOps include:
+
+1. **Version Control Systems**: Git, SVN
+2. **Continuous Integration/Continuous Deployment (CI/CD)**: Jenkins, GitLab CI
+3. **Containerization**: Docker, Kubernetes
+4. **Configuration Management Tools**: Ansible, Puppet
+5. **Monitoring Tools**: Prometheus, Grafana
+6. **Infrastructure as Code (IaC)**: Terraform
+
 ## General Concepts
 
 ### 1. What is a backend server?
