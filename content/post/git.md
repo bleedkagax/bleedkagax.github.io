@@ -8,7 +8,7 @@ tags:
 share: "true"
 ---
 
-![](/img/git-2.png)
+![](/img/git.png)
 
 # GIT CHEAT SHEET
 ## CREATE
