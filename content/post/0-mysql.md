@@ -188,8 +188,8 @@ Improve query performance with these techniques:
    - Use ENUM or SET for columns with a fixed set of values.
 
 10. Optimize GROUP BY and ORDER BY:
-    - Add indexes to support these operations.
-    - Use covering indexes when possible.
+   - Add indexes to support these operations.
+   - Use covering indexes when possible.
 
 ### 2.2 Schema Optimization
 
@@ -230,8 +230,8 @@ Optimize database schema for better performance:
    - Implement computed columns for frequently calculated values.
 
 10. Optimize BLOB and TEXT columns:
-    - Store large objects separately when possible.
-    - Use external file storage for very large objects.
+   - Store large objects separately when possible.
+   - Use external file storage for very large objects.
 
 ### 2.3 Server Configuration Optimization
 
@@ -265,7 +265,7 @@ Optimize MySQL server configuration for better performance:
    - Set tmp_table_size and max_heap_table_size for in-memory temporary tables.
 
 10. Optimize network settings:
-    - Adjust max_allowed_packet for large queries or BLOB data.
+   - Adjust max_allowed_packet for large queries or BLOB data.
 
 ### 2.4 Hardware Optimization
 
@@ -299,7 +299,7 @@ Optimize hardware for MySQL performance:
    - Ensure stable environment for consistent performance.
 
 10. Consider using dedicated database servers:
-    - Separates database workload from application servers.
+   - Separates database workload from application servers.
 
 ## 3. Advanced Concepts
 
@@ -487,7 +487,7 @@ Implement robust security measures:
    - Use MySQL Enterprise Audit for comprehensive auditing.
 
 10. Implement backup encryption:
-    - Encrypt backup files to protect sensitive data.
+   - Encrypt backup files to protect sensitive data.
 
 ### 3.9 MySQL Window Functions
 
@@ -636,7 +636,7 @@ Advanced query optimization strategies:
    - Combine multiple indexes for query resolution.
 
 10. Use EXISTS instead of IN for subqueries:
-    - Often more efficient for large datasets.
+   - Often more efficient for large datasets.
 
 ### 3.14 MySQL Performance Tuning
 
@@ -670,7 +670,7 @@ Advanced performance tuning techniques:
    - Adjust tmp_table_size and max_heap_table_size appropriately.
 
 10. Implement query cache alternatives:
-    - Use ProxySQL or application-level caching for MySQL 8.0+.
+   - Use ProxySQL or application-level caching for MySQL 8.0+.
 
 ### 3.15 MySQL for Big Data
 
@@ -704,4 +704,4 @@ Strategies for using MySQL with big data:
    - Leverage multi-core CPUs for query parallelism.
 
 10. Consider using MySQL Cluster:
-    - For distributed, auto-sharded database environment.
+   - For distributed, auto-sharded database environment.
