@@ -11,7 +11,9 @@ share: "true"
 ![](/img/0-git.png)
 
 # GIT CHEAT SHEET
+
 ## CREATE
+
 - Clone an existing repository:
   ```bash
   $ git clone ssh://user@domain.com/repo.git
@@ -22,6 +24,7 @@ share: "true"
   ```
 
 ## LOCAL CHANGES
+
 - Changed files in your working directory:
   ```bash
   $ git status
@@ -52,6 +55,7 @@ share: "true"
   ```
 
 ## COMMIT HISTORY
+
 - Show all commits, starting with the newest:
   ```bash
   $ git log
@@ -66,6 +70,7 @@ share: "true"
   ```
 
 ## BRANCHES & TAGS
+
 - List all existing branches:
   ```bash
   $ git branch -av
@@ -92,6 +97,7 @@ share: "true"
   ```
 
 ## UPDATE & PUBLISH
+
 - List all currently configured remotes:
   ```bash
   $ git remote -v
@@ -126,6 +132,7 @@ share: "true"
   ```
 
 ## MERGE & REBASE
+
 - Merge `<branch>` into your current HEAD:
   ```bash
   $ git merge <branch>
@@ -153,6 +160,7 @@ share: "true"
   ```
 
 ## UNDO
+
 - Discard all local changes in your working directory:
   ```bash
   $ git reset --hard HEAD
