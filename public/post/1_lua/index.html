@@ -1,0 +1,1613 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=62354&amp;path=livereload" data-no-instant defer></script>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Lua - </title>
+
+  <meta name="description" content="Introduction to Lua
+Lua is a powerful, efficient, lightweight, embeddable scripting language. It is designed to be embedded in other applications, providing flexibility and extensibility. Lua is widely used in game development, embedded systems, web applications, and more due to its simple syntax, fast execution, and ease of integration.
+What is Lua?
+Key Features
+
+Lightweight and Fast: Lua is designed to have a small footprint and execute rapidly, making it ideal for performance-critical applications.
+Embeddable: Easily integrates with C and other programming languages, allowing developers to extend its capabilities.
+Simple Syntax: Clean and straightforward syntax that is easy to learn and use.
+Extensible: Provides powerful metaprogramming capabilities through metatables and metamethods.
+Powerful Data Structures: Uses tables as the primary data structure, enabling the creation of arrays, dictionaries, and more.
+First-Class Functions: Functions are first-class citizens, allowing for functional programming paradigms.
+Coroutines: Supports cooperative multitasking, enabling asynchronous programming.
+
+Use Cases
+
+Game Development: Scripting game logic, AI, and event handling.
+Embedded Systems: Providing scripting capabilities within hardware devices.
+Web Development: Enhancing web servers with dynamic content generation (e.g., OpenResty).
+Configuration: Scriptable configuration files for applications and services.
+Data Processing: Handling data transformations and manipulations.
+
+Prerequisites
+Before diving into Lua, ensure you have the following:"><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Kaga Blog",
+    
+    "url": "http:\/\/localhost:62354\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "http:\/\/localhost:62354\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "http:\/\/localhost:62354\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "http:\/\/localhost:62354\/post\/1_lua\/",
+          "name": "Lua"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "Lua",
+  "description" : "Introduction to Lua Lua is a powerful, efficient, lightweight, embeddable scripting language. It is designed to be embedded in other applications, providing flexibility and extensibility. Lua is widely used in game development, embedded systems, web applications, and more due to its simple syntax, fast execution, and ease of integration.\nWhat is Lua? Key Features Lightweight and Fast: Lua is designed to have a small footprint and execute rapidly, making it ideal for performance-critical applications. Embeddable: Easily integrates with C and other programming languages, allowing developers to extend its capabilities. Simple Syntax: Clean and straightforward syntax that is easy to learn and use. Extensible: Provides powerful metaprogramming capabilities through metatables and metamethods. Powerful Data Structures: Uses tables as the primary data structure, enabling the creation of arrays, dictionaries, and more. First-Class Functions: Functions are first-class citizens, allowing for functional programming paradigms. Coroutines: Supports cooperative multitasking, enabling asynchronous programming. Use Cases Game Development: Scripting game logic, AI, and event handling. Embedded Systems: Providing scripting capabilities within hardware devices. Web Development: Enhancing web servers with dynamic content generation (e.g., OpenResty). Configuration: Scriptable configuration files for applications and services. Data Processing: Handling data transformations and manipulations. Prerequisites Before diving into Lua, ensure you have the following:\n",
+  "inLanguage" : "en",
+  "wordCount":  4255 ,
+  "datePublished" : "2024-10-15T00:00:00\u002b00:00",
+  "dateModified" : "2024-10-15T00:00:00\u002b00:00",
+  "image" : "http:\/\/localhost:62354\/",
+  "keywords" : [ "SystemDesign" ],
+  "mainEntityOfPage" : "http:\/\/localhost:62354\/post\/1_lua\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "http:\/\/localhost:62354\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "http:\/\/localhost:62354\/",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="Lua" />
+<meta property="og:description" content="Introduction to Lua
+Lua is a powerful, efficient, lightweight, embeddable scripting language. It is designed to be embedded in other applications, providing flexibility and extensibility. Lua is widely used in game development, embedded systems, web applications, and more due to its simple syntax, fast execution, and ease of integration.
+What is Lua?
+Key Features
+
+Lightweight and Fast: Lua is designed to have a small footprint and execute rapidly, making it ideal for performance-critical applications.
+Embeddable: Easily integrates with C and other programming languages, allowing developers to extend its capabilities.
+Simple Syntax: Clean and straightforward syntax that is easy to learn and use.
+Extensible: Provides powerful metaprogramming capabilities through metatables and metamethods.
+Powerful Data Structures: Uses tables as the primary data structure, enabling the creation of arrays, dictionaries, and more.
+First-Class Functions: Functions are first-class citizens, allowing for functional programming paradigms.
+Coroutines: Supports cooperative multitasking, enabling asynchronous programming.
+
+Use Cases
+
+Game Development: Scripting game logic, AI, and event handling.
+Embedded Systems: Providing scripting capabilities within hardware devices.
+Web Development: Enhancing web servers with dynamic content generation (e.g., OpenResty).
+Configuration: Scriptable configuration files for applications and services.
+Data Processing: Handling data transformations and manipulations.
+
+Prerequisites
+Before diving into Lua, ensure you have the following:">
+<meta property="og:url" content="http://localhost:62354/post/1_lua/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Kaga Blog" />
+
+  <meta name="twitter:title" content="Lua" />
+  <meta name="twitter:description" content="Introduction to Lua
+Lua is a powerful, efficient, lightweight, embeddable scripting language. It is designed to be embedded in other applications, providing flexibility and extensibility. Lua is …">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="generator" content="Hugo 0.134.0">
+  <link rel="alternate" href="http://localhost:62354/index.xml" type="application/rss+xml" title="Kaga Blog"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="http://localhost:62354/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="http://localhost:62354/css/syntax.css" /><link rel="stylesheet" href="http://localhost:62354/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://localhost:62354/">Kaga Blog</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Lua</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on October 15, 2024
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="introduction-to-lua">Introduction to Lua</h2>
+<p>Lua is a powerful, efficient, lightweight, embeddable scripting language. It is designed to be embedded in other applications, providing flexibility and extensibility. Lua is widely used in game development, embedded systems, web applications, and more due to its simple syntax, fast execution, and ease of integration.</p>
+<h2 id="what-is-lua">What is Lua?</h2>
+<h3 id="key-features">Key Features</h3>
+<ul>
+<li><strong>Lightweight and Fast:</strong> Lua is designed to have a small footprint and execute rapidly, making it ideal for performance-critical applications.</li>
+<li><strong>Embeddable:</strong> Easily integrates with C and other programming languages, allowing developers to extend its capabilities.</li>
+<li><strong>Simple Syntax:</strong> Clean and straightforward syntax that is easy to learn and use.</li>
+<li><strong>Extensible:</strong> Provides powerful metaprogramming capabilities through metatables and metamethods.</li>
+<li><strong>Powerful Data Structures:</strong> Uses tables as the primary data structure, enabling the creation of arrays, dictionaries, and more.</li>
+<li><strong>First-Class Functions:</strong> Functions are first-class citizens, allowing for functional programming paradigms.</li>
+<li><strong>Coroutines:</strong> Supports cooperative multitasking, enabling asynchronous programming.</li>
+</ul>
+<h3 id="use-cases">Use Cases</h3>
+<ul>
+<li><strong>Game Development:</strong> Scripting game logic, AI, and event handling.</li>
+<li><strong>Embedded Systems:</strong> Providing scripting capabilities within hardware devices.</li>
+<li><strong>Web Development:</strong> Enhancing web servers with dynamic content generation (e.g., OpenResty).</li>
+<li><strong>Configuration:</strong> Scriptable configuration files for applications and services.</li>
+<li><strong>Data Processing:</strong> Handling data transformations and manipulations.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before diving into Lua, ensure you have the following:</p>
+<ul>
+<li><strong>Basic Programming Knowledge:</strong> Familiarity with programming concepts such as variables, control structures, and functions.</li>
+<li><strong>Understanding of Scripting Languages:</strong> Experience with other scripting languages (e.g., Python, JavaScript) can be beneficial.</li>
+<li><strong>Development Environment:</strong> Access to a computer with administrative privileges to install Lua and related tools.</li>
+</ul>
+<h2 id="installation">Installation</h2>
+<h3 id="installing-on-windows">Installing on Windows</h3>
+<ol>
+<li>
+<p><strong>Download Lua:</strong></p>
+<ul>
+<li>Visit the <a href="https://www.lua.org/download.html">official Lua website</a>.</li>
+<li>Download the Windows binaries from <a href="https://sourceforge.net/projects/lua-binaries/files/">LuaBinaries</a>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Extract the Files:</strong></p>
+<ul>
+<li>Extract the downloaded ZIP or TAR.GZ file to a directory, e.g., <code>C:\Lua</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configure Environment Variables:</strong></p>
+<ul>
+<li>Open the <strong>System Properties</strong>.</li>
+<li>Navigate to <strong>Advanced System Settings</strong> &gt; <strong>Environment Variables</strong>.</li>
+<li>Under <strong>System Variables</strong>, find and select <code>Path</code>, then click <strong>Edit</strong>.</li>
+<li>Click <strong>New</strong> and add the path to your Lua directory, e.g., <code>C:\Lua</code>.</li>
+<li>Click <strong>OK</strong> to save changes.</li>
+</ul>
+</li>
+<li>
+<p><strong>Verify Installation:</strong></p>
+<ul>
+<li>Open <strong>Command Prompt</strong>.</li>
+<li>Type <code>lua -v</code> and press <strong>Enter</strong>.</li>
+<li>You should see the Lua version information.</li>
+</ul>
+</li>
+</ol>
+<h3 id="installing-on-macos">Installing on macOS</h3>
+<ol>
+<li>
+<p><strong>Using Homebrew:</strong></p>
+<p>Homebrew is a popular package manager for macOS.</p>
+<ul>
+<li>
+<p><strong>Install Homebrew:</strong> If you haven&rsquo;t installed Homebrew, run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>/bin/bash -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Update Homebrew:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew update
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Install Lua:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install lua
+</span></span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p><strong>Verify Installation:</strong></p>
+<ul>
+<li>Open <strong>Terminal</strong>.</li>
+<li>Type <code>lua -v</code> and press <strong>Enter</strong>.</li>
+<li>You should see the Lua version information.</li>
+</ul>
+</li>
+</ol>
+<h3 id="installing-on-linux">Installing on Linux</h3>
+<h4 id="debianubuntu">Debian/Ubuntu</h4>
+<ol>
+<li>
+<p><strong>Update Package List:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Install Lua:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install lua5.3
+</span></span></code></pre></div><p><em>Note:</em> Replace <code>lua5.3</code> with the desired version if necessary.</p>
+</li>
+<li>
+<p><strong>Verify Installation:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lua -v
+</span></span></code></pre></div></li>
+</ol>
+<h4 id="centosrhel">CentOS/RHEL</h4>
+<ol>
+<li>
+<p><strong>Enable EPEL Repository:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo yum install epel-release -y
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Install Lua:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo yum install lua -y
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Verify Installation:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lua -v
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="building-from-source">Building from Source</h3>
+<p>Building Lua from source allows customization and ensures you have the latest version.</p>
+<ol>
+<li>
+<p><strong>Download Source Code:</strong></p>
+<ul>
+<li>Visit the <a href="https://www.lua.org/download.html">official Lua website</a>.</li>
+<li>Download the latest Lua source tarball, e.g., <code>lua-5.4.4.tar.gz</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Extract the Files:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tar -zxvf lua-5.4.4.tar.gz
+</span></span><span style="display:flex;"><span>cd lua-5.4.4
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Build Lua:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>make linux test
+</span></span></code></pre></div><p><em>Note:</em> Replace <code>linux</code> with your operating system if different (e.g., <code>macosx</code>).</p>
+</li>
+<li>
+<p><strong>Install Lua:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo make install
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Verify Installation:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lua -v
+</span></span></code></pre></div></li>
+</ol>
+<h2 id="basic-syntax-and-language-features">Basic Syntax and Language Features</h2>
+<h3 id="data-types">Data Types</h3>
+<p>Lua has a small set of data types:</p>
+<ul>
+<li><strong>Nil:</strong> Represents the absence of a useful value.</li>
+<li><strong>Boolean:</strong> <code>true</code> or <code>false</code>.</li>
+<li><strong>Number:</strong> Typically double-precision floating-point numbers.</li>
+<li><strong>String:</strong> Immutable sequences of characters.</li>
+<li><strong>Function:</strong> First-class values.</li>
+<li><strong>Table:</strong> Associative arrays, the primary data structure.</li>
+<li><strong>Userdata:</strong> C data types.</li>
+<li><strong>Thread:</strong> Represents independent threads of execution (coroutines).</li>
+</ul>
+<h3 id="variables">Variables</h3>
+<p>Variables in Lua are dynamically typed and do not require explicit declaration.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- Assigning values</span>
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>          <span style="color:#75715e">-- Number</span>
+</span></span><span style="display:flex;"><span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Lua&#34;</span>    <span style="color:#75715e">-- String</span>
+</span></span><span style="display:flex;"><span>isValid <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>  <span style="color:#75715e">-- Boolean</span>
+</span></span></code></pre></div><h3 id="operators">Operators</h3>
+<p>Lua supports standard arithmetic, relational, logical, and concatenation operators.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- Arithmetic Operators</span>
+</span></span><span style="display:flex;"><span>sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">3</span>       <span style="color:#75715e">-- 8</span>
+</span></span><span style="display:flex;"><span>difference <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">3</span> <span style="color:#75715e">-- 2</span>
+</span></span><span style="display:flex;"><span>product <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">3</span>    <span style="color:#75715e">-- 15</span>
+</span></span><span style="display:flex;"><span>quotient <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">3</span>   <span style="color:#75715e">-- 1.666...</span>
+</span></span><span style="display:flex;"><span>remainder <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span> <span style="color:#f92672">%</span> <span style="color:#ae81ff">3</span>  <span style="color:#75715e">-- 2</span>
+</span></span><span style="display:flex;"><span>power <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span> <span style="color:#f92672">^</span> <span style="color:#ae81ff">3</span>      <span style="color:#75715e">-- 125</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Relational Operators</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#ae81ff">5</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">3</span>)  <span style="color:#75715e">-- true</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#ae81ff">5</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">5</span>) <span style="color:#75715e">-- true</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#ae81ff">5</span> <span style="color:#f92672">~=</span> <span style="color:#ae81ff">3</span>) <span style="color:#75715e">-- true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Logical Operators</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#66d9ef">true</span> <span style="color:#f92672">and</span> <span style="color:#66d9ef">false</span>) <span style="color:#75715e">-- false</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#66d9ef">true</span> <span style="color:#f92672">or</span> <span style="color:#66d9ef">false</span>)  <span style="color:#75715e">-- true</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#f92672">not</span> <span style="color:#66d9ef">true</span>)       <span style="color:#75715e">-- false</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Concatenation Operator</span>
+</span></span><span style="display:flex;"><span>greeting <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello, &#34;</span> <span style="color:#f92672">..</span> <span style="color:#e6db74">&#34;Lua!&#34;</span> <span style="color:#75715e">-- &#34;Hello, Lua!&#34;</span>
+</span></span></code></pre></div><h3 id="control-structures">Control Structures</h3>
+<p>Lua includes <code>if</code>, <code>while</code>, <code>for</code>, and <code>repeat</code> control structures.</p>
+<h4 id="if-statement">If Statement</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> x <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Positive&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">elseif</span> x <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Negative&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Zero&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><h4 id="while-loop">While Loop</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span>i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> i <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">5</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    print(i)
+</span></span><span style="display:flex;"><span>    i <span style="color:#f92672">=</span> i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><h4 id="for-loop">For Loop</h4>
+<p><strong>Numeric For Loop:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    print(i)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><p><strong>Generic For Loop (Iterating over Tables):</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span>fruits <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;apple&#34;</span>, <span style="color:#e6db74">&#34;banana&#34;</span>, <span style="color:#e6db74">&#34;cherry&#34;</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> index, value <span style="color:#66d9ef">in</span> ipairs(fruits) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    print(index, value)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><h4 id="repeat-until-loop">Repeat Until Loop</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span>i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">repeat</span>
+</span></span><span style="display:flex;"><span>    print(i)
+</span></span><span style="display:flex;"><span>    i <span style="color:#f92672">=</span> i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">until</span> i <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">5</span>
+</span></span></code></pre></div><h3 id="functions">Functions</h3>
+<p>Functions are first-class citizens and can be assigned to variables, passed as arguments, and returned from other functions.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- Defining a function</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">add</span>(a, b)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> a <span style="color:#f92672">+</span> b
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Calling a function</span>
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> add(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">3</span>) <span style="color:#75715e">-- 8</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Anonymous function</span>
+</span></span><span style="display:flex;"><span>multiply <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(a, b)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> a <span style="color:#f92672">*</span> b
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> multiply(<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">2</span>) <span style="color:#75715e">-- 8</span>
+</span></span></code></pre></div><h4 id="variable-arguments">Variable Arguments</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">sum</span>(...)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">local</span> s <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> _, v <span style="color:#66d9ef">in</span> ipairs({...}) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        s <span style="color:#f92672">=</span> s <span style="color:#f92672">+</span> v
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> s
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(sum(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>)) <span style="color:#75715e">-- 10</span>
+</span></span></code></pre></div><h3 id="tables">Tables</h3>
+<p>Tables are the only data structure in Lua and serve as arrays, dictionaries, objects, and more.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- Creating a table</span>
+</span></span><span style="display:flex;"><span>person <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Alice&#34;</span>,
+</span></span><span style="display:flex;"><span>    age <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>,
+</span></span><span style="display:flex;"><span>    hobbies <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;reading&#34;</span>, <span style="color:#e6db74">&#34;coding&#34;</span>, <span style="color:#e6db74">&#34;hiking&#34;</span>}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Accessing table elements</span>
+</span></span><span style="display:flex;"><span>print(person.name)         <span style="color:#75715e">-- Alice</span>
+</span></span><span style="display:flex;"><span>print(person[<span style="color:#e6db74">&#34;age&#34;</span>])       <span style="color:#75715e">-- 30</span>
+</span></span><span style="display:flex;"><span>print(person.hobbies[<span style="color:#ae81ff">2</span>])   <span style="color:#75715e">-- coding</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Modifying table elements</span>
+</span></span><span style="display:flex;"><span>person.age <span style="color:#f92672">=</span> <span style="color:#ae81ff">31</span>
+</span></span><span style="display:flex;"><span>person.hobbies[<span style="color:#ae81ff">3</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;cycling&#34;</span>
+</span></span></code></pre></div><h4 id="metatables-and-metamethods">Metatables and Metamethods</h4>
+<p>Metatables allow you to define custom behavior for tables through metamethods.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- Creating a metatable</span>
+</span></span><span style="display:flex;"><span>mt <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    __add <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(a, b)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> {value <span style="color:#f92672">=</span> a.value <span style="color:#f92672">+</span> b.value}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Creating tables with metatables</span>
+</span></span><span style="display:flex;"><span>a <span style="color:#f92672">=</span> {value <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>}
+</span></span><span style="display:flex;"><span>b <span style="color:#f92672">=</span> {value <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>setmetatable(a, mt)
+</span></span><span style="display:flex;"><span>setmetatable(b, mt)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Using the __add metamethod</span>
+</span></span><span style="display:flex;"><span>c <span style="color:#f92672">=</span> a <span style="color:#f92672">+</span> b
+</span></span><span style="display:flex;"><span>print(c.value) <span style="color:#75715e">-- 30</span>
+</span></span></code></pre></div><h3 id="error-handling">Error Handling</h3>
+<p>Lua uses <code>pcall</code> and <code>xpcall</code> for error handling.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">riskyFunction</span>()
+</span></span><span style="display:flex;"><span>    error(<span style="color:#e6db74">&#34;Something went wrong!&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Using pcall</span>
+</span></span><span style="display:flex;"><span>status, err <span style="color:#f92672">=</span> pcall(riskyFunction)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> status <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Error caught: &#34;</span>, err)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Using xpcall with a custom error handler</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">errorHandler</span>(err)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Custom handler: &#34;</span>, err)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>status, err <span style="color:#f92672">=</span> xpcall(riskyFunction, errorHandler)
+</span></span></code></pre></div><h2 id="advanced-features">Advanced Features</h2>
+<h3 id="coroutines">Coroutines</h3>
+<p>Coroutines enable cooperative multitasking, allowing multiple functions to yield and resume execution.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span>co <span style="color:#f92672">=</span> coroutine.create(<span style="color:#66d9ef">function</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;Coroutine iteration: &#34;</span> <span style="color:#f92672">..</span> i)
+</span></span><span style="display:flex;"><span>        coroutine.yield()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(coroutine.status(co)) <span style="color:#75715e">-- suspended</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>coroutine.resume(co) <span style="color:#75715e">-- Coroutine iteration: 1</span>
+</span></span><span style="display:flex;"><span>coroutine.resume(co) <span style="color:#75715e">-- Coroutine iteration: 2</span>
+</span></span><span style="display:flex;"><span>coroutine.resume(co) <span style="color:#75715e">-- Coroutine iteration: 3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(coroutine.status(co)) <span style="color:#75715e">-- dead</span>
+</span></span></code></pre></div><h3 id="module-system">Module System</h3>
+<p>Modules allow for code organization and reuse. Lua 5.1 used <code>module</code> and <code>package.seeall</code>, but it&rsquo;s recommended to use tables for modules in newer versions.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- mymodule.lua</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> M <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">M</span>.<span style="color:#a6e22e">greet</span>(name)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Hello, &#34;</span> <span style="color:#f92672">..</span> name <span style="color:#f92672">..</span> <span style="color:#e6db74">&#34;!&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> M
+</span></span></code></pre></div><p><strong>Using the Module:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#66d9ef">local</span> mymodule <span style="color:#f92672">=</span> require <span style="color:#e6db74">&#34;mymodule&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(mymodule.greet(<span style="color:#e6db74">&#34;Lua&#34;</span>)) <span style="color:#75715e">-- Hello, Lua!</span>
+</span></span></code></pre></div><h3 id="luajit">LuaJIT</h3>
+<p>LuaJIT is a Just-In-Time Compiler for Lua, offering significant performance improvements.</p>
+<ul>
+<li><strong>Performance:</strong> LuaJIT can execute Lua code much faster than the standard interpreter.</li>
+<li><strong>FFI Library:</strong> Allows calling C functions and using C data structures directly from Lua without writing C code.</li>
+</ul>
+<p><strong>Example Using FFI:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#66d9ef">local</span> ffi <span style="color:#f92672">=</span> require(<span style="color:#e6db74">&#34;ffi&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ffi.cdef<span style="color:#e6db74">[[
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    double sin(double x);
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">]]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(ffi.C.sin(<span style="color:#ae81ff">3.141592653589793</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>)) <span style="color:#75715e">-- 1.0</span>
+</span></span></code></pre></div><h2 id="working-with-lua">Working with Lua</h2>
+<h3 id="input-and-output">Input and Output</h3>
+<h4 id="printing-to-console">Printing to Console</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Hello, Lua!&#34;</span>)
+</span></span></code></pre></div><h4 id="reading-from-console">Reading from Console</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span>io.write(<span style="color:#e6db74">&#34;Enter your name: &#34;</span>)
+</span></span><span style="display:flex;"><span>name <span style="color:#f92672">=</span> io.read()
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Hello, &#34;</span> <span style="color:#f92672">..</span> name <span style="color:#f92672">..</span> <span style="color:#e6db74">&#34;!&#34;</span>)
+</span></span></code></pre></div><h3 id="file-operations">File Operations</h3>
+<h4 id="opening-and-reading-a-file">Opening and Reading a File</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span>file <span style="color:#f92672">=</span> io.open(<span style="color:#e6db74">&#34;example.txt&#34;</span>, <span style="color:#e6db74">&#34;r&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> file <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    content <span style="color:#f92672">=</span> file:read(<span style="color:#e6db74">&#34;*a&#34;</span>)
+</span></span><span style="display:flex;"><span>    print(content)
+</span></span><span style="display:flex;"><span>    file:close()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Failed to open file.&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><h4 id="writing-to-a-file">Writing to a File</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span>file <span style="color:#f92672">=</span> io.open(<span style="color:#e6db74">&#34;output.txt&#34;</span>, <span style="color:#e6db74">&#34;w&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> file <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    file:write(<span style="color:#e6db74">&#34;Hello, Lua File I/O!&#34;</span>)
+</span></span><span style="display:flex;"><span>    file:close()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Failed to open file for writing.&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><h3 id="string-manipulation">String Manipulation</h3>
+<p>Lua provides robust string handling capabilities.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span>str <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello, Lua!&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- String concatenation</span>
+</span></span><span style="display:flex;"><span>greeting <span style="color:#f92672">=</span> str <span style="color:#f92672">..</span> <span style="color:#e6db74">&#34; How are you?&#34;</span>
+</span></span><span style="display:flex;"><span>print(greeting) <span style="color:#75715e">-- Hello, Lua! How are you?</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Substrings</span>
+</span></span><span style="display:flex;"><span>substr <span style="color:#f92672">=</span> string.sub(str, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>print(substr) <span style="color:#75715e">-- Lua</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- String length</span>
+</span></span><span style="display:flex;"><span>length <span style="color:#f92672">=</span> string.len(str)
+</span></span><span style="display:flex;"><span>print(length) <span style="color:#75715e">-- 11</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- String patterns (similar to regex)</span>
+</span></span><span style="display:flex;"><span>matched <span style="color:#f92672">=</span> string.match(str, <span style="color:#e6db74">&#34;Lua&#34;</span>)
+</span></span><span style="display:flex;"><span>print(matched) <span style="color:#75715e">-- Lua</span>
+</span></span></code></pre></div><h3 id="regular-expressions">Regular Expressions</h3>
+<p>Lua uses pattern matching, which is simpler than full regex but powerful enough for many tasks.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span>text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;The quick brown fox jumps over the lazy dog.&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Find all words</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> word <span style="color:#66d9ef">in</span> string.gmatch(text, <span style="color:#e6db74">&#34;%a+&#34;</span>) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    print(word)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Replace &#39;dog&#39; with &#39;cat&#39;</span>
+</span></span><span style="display:flex;"><span>new_text <span style="color:#f92672">=</span> string.gsub(text, <span style="color:#e6db74">&#34;dog&#34;</span>, <span style="color:#e6db74">&#34;cat&#34;</span>)
+</span></span><span style="display:flex;"><span>print(new_text) <span style="color:#75715e">-- The quick brown fox jumps over the lazy cat.</span>
+</span></span></code></pre></div><h3 id="modules-and-libraries">Modules and Libraries</h3>
+<p>Lua&rsquo;s standard libraries provide essential functionalities.</p>
+<ul>
+<li><strong>Basic Libraries:</strong>
+<ul>
+<li><code>math</code> for mathematical operations.</li>
+<li><code>string</code> for string manipulation.</li>
+<li><code>table</code> for table operations.</li>
+<li><code>io</code> for input/output.</li>
+<li><code>os</code> for operating system interactions.</li>
+<li><code>debug</code> for debugging tools.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- Using the math library</span>
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> math.sqrt(<span style="color:#ae81ff">16</span>)
+</span></span><span style="display:flex;"><span>print(x) <span style="color:#75715e">-- 4</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Using the table library</span>
+</span></span><span style="display:flex;"><span>t <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>}
+</span></span><span style="display:flex;"><span>table.insert(t, <span style="color:#ae81ff">4</span>)
+</span></span><span style="display:flex;"><span>print(table.concat(t, <span style="color:#e6db74">&#34;, &#34;</span>)) <span style="color:#75715e">-- 1, 2, 3, 4</span>
+</span></span></code></pre></div><h2 id="interfacing-with-c">Interfacing with C</h2>
+<p>Lua can interface with C, allowing for the extension of Lua with C functions for performance-critical tasks.</p>
+<h3 id="lua-c-api">Lua C API</h3>
+<p>The Lua C API enables embedding Lua in C applications or extending Lua with C functions.</p>
+<p><strong>Example: Embedding Lua in C</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;lua.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;lualib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;lauxlib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
+</span></span><span style="display:flex;"><span>    lua_State <span style="color:#f92672">*</span>L <span style="color:#f92672">=</span> <span style="color:#a6e22e">luaL_newstate</span>();   <span style="color:#75715e">// Create Lua state
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">luaL_openlibs</span>(L);                 <span style="color:#75715e">// Open standard libraries
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Execute a Lua script
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">luaL_dofile</span>(L, <span style="color:#e6db74">&#34;script.lua&#34;</span>) <span style="color:#f92672">!=</span> LUA_OK) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>error <span style="color:#f92672">=</span> <span style="color:#a6e22e">lua_tostring</span>(L, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fprintf</span>(stderr, <span style="color:#e6db74">&#34;Error: %s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, error);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">lua_close</span>(L);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">lua_close</span>(L);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Example: Exposing a C Function to Lua</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;lua.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;lualib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;lauxlib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// C function to be called from Lua
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">add</span>(lua_State <span style="color:#f92672">*</span>L) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">double</span> a <span style="color:#f92672">=</span> <span style="color:#a6e22e">luaL_checknumber</span>(L, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">double</span> b <span style="color:#f92672">=</span> <span style="color:#a6e22e">luaL_checknumber</span>(L, <span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">lua_pushnumber</span>(L, a <span style="color:#f92672">+</span> b);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>; <span style="color:#75715e">// Number of return values
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
+</span></span><span style="display:flex;"><span>    lua_State <span style="color:#f92672">*</span>L <span style="color:#f92672">=</span> <span style="color:#a6e22e">luaL_newstate</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">luaL_openlibs</span>(L);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Register the C function
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">lua_register</span>(L, <span style="color:#e6db74">&#34;add&#34;</span>, add);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Run a Lua script that uses the C function
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">luaL_dofile</span>(L, <span style="color:#e6db74">&#34;use_add.lua&#34;</span>) <span style="color:#f92672">!=</span> LUA_OK) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>error <span style="color:#f92672">=</span> <span style="color:#a6e22e">lua_tostring</span>(L, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fprintf</span>(stderr, <span style="color:#e6db74">&#34;Error: %s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, error);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">lua_close</span>(L);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">lua_close</span>(L);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Lua Script (<code>use_add.lua</code>):</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span>result <span style="color:#f92672">=</span> add(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Result:&#34;</span>, result) <span style="color:#75715e">-- Result: 12</span>
+</span></span></code></pre></div><h3 id="writing-c-extensions">Writing C Extensions</h3>
+<p>You can extend Lua by writing C functions and compiling them as dynamic libraries.</p>
+<p><strong>Example: Creating a C Extension</strong></p>
+<ol>
+<li>
+<p><strong>Write the C Code (<code>mylib.c</code>):</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;lua.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;lualib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;lauxlib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// C function to multiply two numbers
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">multiply</span>(lua_State <span style="color:#f92672">*</span>L) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">double</span> a <span style="color:#f92672">=</span> <span style="color:#a6e22e">luaL_checknumber</span>(L, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">double</span> b <span style="color:#f92672">=</span> <span style="color:#a6e22e">luaL_checknumber</span>(L, <span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">lua_pushnumber</span>(L, a <span style="color:#f92672">*</span> b);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Register functions
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">struct</span> luaL_Reg mylib[] <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">&#34;multiply&#34;</span>, multiply},
+</span></span><span style="display:flex;"><span>    {NULL, NULL}
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Open the library
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">luaopen_mylib</span>(lua_State <span style="color:#f92672">*</span>L) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">luaL_newlib</span>(L, mylib);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Compile the C Code:</strong></p>
+<ul>
+<li>
+<p><strong>On Linux/macOS:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gcc -shared -o mylib.so -fPIC mylib.c -I/usr/include/lua5.3
+</span></span></code></pre></div></li>
+<li>
+<p><strong>On Windows:</strong></p>
+<p>Use a compatible compiler to create a DLL.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Use the Extension in Lua:</strong></p>
+<p><strong>Lua Script (<code>use_mylib.lua</code>):</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#66d9ef">local</span> mylib <span style="color:#f92672">=</span> require(<span style="color:#e6db74">&#34;mylib&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> mylib.multiply(<span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Multiply Result:&#34;</span>, result) <span style="color:#75715e">-- Multiply Result: 42</span>
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Run the Lua Script:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lua use_mylib.lua
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="examples">Examples</h3>
+<h4 id="example-1-simple-calculator">Example 1: Simple Calculator</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- calculator.lua</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">add</span>(a, b)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> a <span style="color:#f92672">+</span> b
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">subtract</span>(a, b)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> a <span style="color:#f92672">-</span> b
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">multiply</span>(a, b)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> a <span style="color:#f92672">*</span> b
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">divide</span>(a, b)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> b <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        error(<span style="color:#e6db74">&#34;Cannot divide by zero!&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> a <span style="color:#f92672">/</span> b
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Sum:&#34;</span>, add(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">5</span>))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Difference:&#34;</span>, subtract(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">5</span>))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Product:&#34;</span>, multiply(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">5</span>))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Quotient:&#34;</span>, divide(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">5</span>))
+</span></span></code></pre></div><p><strong>Output:</strong></p>
+<pre tabindex="0"><code>Sum:    15
+Difference:  5
+Product: 50
+Quotient: 2
+</code></pre><h4 id="example-2-table-sorting">Example 2: Table Sorting</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- sort_table.lua</span>
+</span></span><span style="display:flex;"><span>fruits <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;banana&#34;</span>, <span style="color:#e6db74">&#34;apple&#34;</span>, <span style="color:#e6db74">&#34;cherry&#34;</span>, <span style="color:#e6db74">&#34;date&#34;</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>table.sort(fruits)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i, fruit <span style="color:#66d9ef">in</span> ipairs(fruits) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    print(i, fruit)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><p><strong>Output:</strong></p>
+<pre tabindex="0"><code>1   apple
+2   banana
+3   cherry
+4   date
+</code></pre><h4 id="example-3-metatable-usage">Example 3: Metatable Usage</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- metatable_example.lua</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> obj <span style="color:#f92672">=</span> {value <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> mt <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    __add <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(a, b)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> {value <span style="color:#f92672">=</span> a.value <span style="color:#f92672">+</span> b.value}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>setmetatable(obj, mt)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> obj2 <span style="color:#f92672">=</span> {value <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>}
+</span></span><span style="display:flex;"><span>setmetatable(obj2, mt)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> result <span style="color:#f92672">=</span> obj <span style="color:#f92672">+</span> obj2
+</span></span><span style="display:flex;"><span>print(result.value) <span style="color:#75715e">-- 30</span>
+</span></span></code></pre></div><h2 id="interfacing-with-c-1">Interfacing with C</h2>
+<p>Lua&rsquo;s ability to interface with C allows for the extension of Lua with high-performance C code and the embedding of Lua within C applications.</p>
+<h3 id="lua-c-api-1">Lua C API</h3>
+<p>The Lua C API provides functions to interact with Lua states, load and execute Lua scripts, manipulate Lua variables, and define C functions callable from Lua.</p>
+<h4 id="example-embedding-lua-in-a-c-application">Example: Embedding Lua in a C Application</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;lua.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;lualib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;lauxlib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Create a new Lua state
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    lua_State <span style="color:#f92672">*</span>L <span style="color:#f92672">=</span> <span style="color:#a6e22e">luaL_newstate</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">luaL_openlibs</span>(L); <span style="color:#75715e">// Open standard libraries
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Execute a Lua script
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">luaL_dofile</span>(L, <span style="color:#e6db74">&#34;script.lua&#34;</span>) <span style="color:#f92672">!=</span> LUA_OK) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>error_msg <span style="color:#f92672">=</span> <span style="color:#a6e22e">lua_tostring</span>(L, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Error: %s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, error_msg);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">lua_close</span>(L);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Close the Lua state
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">lua_close</span>(L);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Lua Script (<code>script.lua</code>):</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Hello from Lua!&#34;</span>)
+</span></span></code></pre></div><p><strong>Compile and Run:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gcc -o embed_lua embed_lua.c -llua5.3 -lm -ldl
+</span></span><span style="display:flex;"><span>./embed_lua
+</span></span></code></pre></div><p><strong>Output:</strong></p>
+<pre tabindex="0"><code>Hello from Lua!
+</code></pre><h3 id="writing-c-extensions-1">Writing C Extensions</h3>
+<p>Creating C extensions allows Lua scripts to leverage existing C libraries and high-performance code.</p>
+<h4 id="example-c-extension-for-string-reversal">Example: C Extension for String Reversal</h4>
+<ol>
+<li>
+<p><strong>C Code (<code>strreverse.c</code>):</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;lua.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;lualib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;lauxlib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// C function to reverse a string
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">l_strreverse</span>(lua_State <span style="color:#f92672">*</span>L) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>str <span style="color:#f92672">=</span> <span style="color:#a6e22e">luaL_checkstring</span>(L, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">size_t</span> len <span style="color:#f92672">=</span> <span style="color:#a6e22e">strlen</span>(str);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>rev <span style="color:#f92672">=</span> (<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>)<span style="color:#a6e22e">malloc</span>(len <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>rev) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">luaL_error</span>(L, <span style="color:#e6db74">&#34;Memory allocation failed&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">size_t</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> len; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        rev[i] <span style="color:#f92672">=</span> str[len <span style="color:#f92672">-</span> i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    rev[len] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;\0&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">lua_pushstring</span>(L, rev);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">free</span>(rev);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>; <span style="color:#75715e">// Number of return values
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Register functions
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">struct</span> luaL_Reg mylib [] <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">&#34;reverse&#34;</span>, l_strreverse},
+</span></span><span style="display:flex;"><span>    {NULL, NULL}
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">luaopen_mylib</span>(lua_State <span style="color:#f92672">*</span>L) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">luaL_newlib</span>(L, mylib);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Compile the Extension:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gcc -shared -fPIC -o mylib.so -I/usr/include/lua5.3 strreverse.c
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Lua Script (<code>use_strreverse.lua</code>):</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#66d9ef">local</span> mylib <span style="color:#f92672">=</span> require(<span style="color:#e6db74">&#34;mylib&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> original <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello, Lua!&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> reversed <span style="color:#f92672">=</span> mylib.reverse(original)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Original:&#34;</span>, original)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Reversed:&#34;</span>, reversed)
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Run the Lua Script:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lua use_strreverse.lua
+</span></span></code></pre></div></li>
+</ol>
+<p><strong>Output:</strong></p>
+<pre tabindex="0"><code>Original: Hello, Lua!
+Reversed: !auL ,olleH
+</code></pre><h3 id="examples-1">Examples</h3>
+<h4 id="example-1-simple-echo-server-with-lua">Example 1: Simple Echo Server with Lua</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- echo_server.lua</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> socket <span style="color:#f92672">=</span> require(<span style="color:#e6db74">&#34;socket&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> server <span style="color:#f92672">=</span> assert(socket.bind(<span style="color:#e6db74">&#34;*&#34;</span>, <span style="color:#ae81ff">12345</span>))
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> ip, port <span style="color:#f92672">=</span> server:getsockname()
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Echo server running on &#34;</span> <span style="color:#f92672">..</span> ip <span style="color:#f92672">..</span> <span style="color:#e6db74">&#34;:&#34;</span> <span style="color:#f92672">..</span> port)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#66d9ef">true</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">local</span> client <span style="color:#f92672">=</span> server:accept()
+</span></span><span style="display:flex;"><span>    client:settimeout(<span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">local</span> line, err <span style="color:#f92672">=</span> client:receive()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> err <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        client:send(line <span style="color:#f92672">..</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>    client:close()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><p><strong>Run the Server:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lua echo_server.lua
+</span></span></code></pre></div><p><strong>Connect Using Telnet:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>telnet localhost <span style="color:#ae81ff">12345</span>
+</span></span></code></pre></div><p><strong>Interaction:</strong></p>
+<pre tabindex="0"><code>Trying 127.0.0.1...
+Connected to localhost.
+Escape character is &#39;^]&#39;.
+Hello, Lua!
+Hello, Lua!
+</code></pre><h4 id="example-2-simple-web-server-with-lua-and-socket">Example 2: Simple Web Server with Lua and Socket</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- web_server.lua</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> socket <span style="color:#f92672">=</span> require(<span style="color:#e6db74">&#34;socket&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> server <span style="color:#f92672">=</span> assert(socket.bind(<span style="color:#e6db74">&#34;*&#34;</span>, <span style="color:#ae81ff">8080</span>))
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> ip, port <span style="color:#f92672">=</span> server:getsockname()
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Web server running on &#34;</span> <span style="color:#f92672">..</span> ip <span style="color:#f92672">..</span> <span style="color:#e6db74">&#34;:&#34;</span> <span style="color:#f92672">..</span> port)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#66d9ef">true</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">local</span> client <span style="color:#f92672">=</span> server:accept()
+</span></span><span style="display:flex;"><span>    client:settimeout(<span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">local</span> request, err <span style="color:#f92672">=</span> client:receive()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> err <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">-- Simple HTTP response</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">local</span> response <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;HTTP/1.1 200 OK</span><span style="color:#ae81ff">\r\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">..</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#e6db74">&#34;Content-Type: text/plain</span><span style="color:#ae81ff">\r\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">..</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#e6db74">&#34;Connection: close</span><span style="color:#ae81ff">\r\n\r\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">..</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#e6db74">&#34;Hello, Lua Web Server!&#34;</span>
+</span></span><span style="display:flex;"><span>        client:send(response)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>    client:close()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><p><strong>Run the Server:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lua web_server.lua
+</span></span></code></pre></div><p><strong>Access via Browser:</strong></p>
+<p>Navigate to <code>http://localhost:8080/</code> to see &ldquo;Hello, Lua Web Server!&rdquo;</p>
+<h2 id="scripting-with-lua-in-various-environments">Scripting with Lua in Various Environments</h2>
+<h3 id="embedded-systems">Embedded Systems</h3>
+<p>Lua is lightweight and efficient, making it ideal for embedding in hardware devices like routers, IoT gadgets, and microcontrollers.</p>
+<p><strong>Example: Lua in OpenWrt</strong></p>
+<p>OpenWrt, a popular open-source router firmware, uses Lua for scripting:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- /usr/lib/lua/luci/controller/example.lua</span>
+</span></span><span style="display:flex;"><span>module(<span style="color:#e6db74">&#34;luci.controller.example&#34;</span>, package.seeall)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">index</span>()
+</span></span><span style="display:flex;"><span>    entry({<span style="color:#e6db74">&#34;admin&#34;</span>, <span style="color:#e6db74">&#34;status&#34;</span>, <span style="color:#e6db74">&#34;example&#34;</span>}, template(<span style="color:#e6db74">&#34;status/example&#34;</span>), <span style="color:#e6db74">&#34;Example&#34;</span>, <span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><h3 id="game-development">Game Development</h3>
+<p>Lua is extensively used in game development for scripting game logic, AI behaviors, and event handling.</p>
+<p><strong>Example: Love2D</strong></p>
+<p>Love2D is a popular game framework that uses Lua for scripting.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- main.lua</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">love</span>.<span style="color:#a6e22e">load</span>()
+</span></span><span style="display:flex;"><span>    love.window.setTitle(<span style="color:#e6db74">&#34;Hello, Lua Game!&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">love</span>.<span style="color:#a6e22e">draw</span>()
+</span></span><span style="display:flex;"><span>    love.graphics.print(<span style="color:#e6db74">&#34;Welcome to Love2D!&#34;</span>, <span style="color:#ae81ff">400</span>, <span style="color:#ae81ff">300</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><p><strong>Run the Game:</strong></p>
+<p>Place <code>main.lua</code> in a directory and run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>love path_to_your_game_directory
+</span></span></code></pre></div><h3 id="web-development">Web Development</h3>
+<p>Lua enhances web servers like Nginx through OpenResty, enabling high-performance web applications with dynamic content generation.</p>
+<p><strong>Example: Basic OpenResty Application</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nginx" data-lang="nginx"><span style="display:flex;"><span><span style="color:#75715e"># /usr/local/openresty/nginx/conf/nginx.conf
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">worker_processes</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">events</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">worker_connections</span> <span style="color:#ae81ff">1024</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">http</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">server</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">listen</span> <span style="color:#ae81ff">8080</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">server_name</span> <span style="color:#e6db74">localhost</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">location</span> <span style="color:#e6db74">/</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">default_type</span> <span style="color:#e6db74">&#39;text/plain&#39;</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">content_by_lua_block</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">ngx.say(&#34;Hello</span> <span style="color:#e6db74">from</span> <span style="color:#e6db74">OpenResty</span> <span style="color:#e6db74">and</span> <span style="color:#e6db74">Lua!&#34;)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">}</span>
+</span></span></code></pre></div><p><strong>Run OpenResty:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo openresty -c /usr/local/openresty/nginx/conf/nginx.conf
+</span></span></code></pre></div><p><strong>Access via Browser:</strong></p>
+<p>Navigate to <code>http://localhost:8080/</code> to see &ldquo;Hello from OpenResty and Lua!&rdquo;</p>
+<h2 id="best-practices">Best Practices</h2>
+<p>Adhering to best practices ensures your Lua code is efficient, maintainable, and robust.</p>
+<h3 id="code-organization">Code Organization</h3>
+<ul>
+<li><strong>Modules:</strong> Organize related functions and data into modules to promote reusability and readability.</li>
+<li><strong>Naming Conventions:</strong> Use clear and consistent naming conventions for variables, functions, and modules.</li>
+<li><strong>Documentation:</strong> Comment your code and provide documentation to explain complex logic and functionality.</li>
+</ul>
+<h3 id="error-handling-1">Error Handling</h3>
+<ul>
+<li><strong>Use <code>pcall</code> and <code>xpcall</code>:</strong> Safely handle errors without crashing your program.</li>
+<li><strong>Graceful Degradation:</strong> Ensure your application can continue running or fail gracefully even when encountering errors.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">safeDivide</span>(a, b)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> b <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>, <span style="color:#e6db74">&#34;Cannot divide by zero!&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> a <span style="color:#f92672">/</span> b, <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>result, err <span style="color:#f92672">=</span> safeDivide(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> result <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Error:&#34;</span>, err)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    print(result)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><h3 id="performance-optimization">Performance Optimization</h3>
+<ul>
+<li><strong>Avoid Global Variables:</strong> Use local variables to reduce lookup time and improve performance.</li>
+<li><strong>Efficient Table Usage:</strong> Preallocate tables when possible and use appropriate key types.</li>
+<li><strong>Minimize Garbage Collection:</strong> Reuse tables and avoid creating unnecessary objects to reduce the frequency of garbage collection.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- Using local variables</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">compute</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">local</span> sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1000</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        sum <span style="color:#f92672">=</span> sum <span style="color:#f92672">+</span> i
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> sum
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><h3 id="security-practices">Security Practices</h3>
+<ul>
+<li><strong>Validate Inputs:</strong> Always validate and sanitize user inputs to prevent injection attacks.</li>
+<li><strong>Restrict File Access:</strong> Limit file operations to necessary directories and enforce permission checks.</li>
+<li><strong>Avoid Executing Untrusted Code:</strong> Do not execute Lua code from untrusted sources without proper validation.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- Input validation example</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">processInput</span>(input)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> type(input) <span style="color:#f92672">~=</span> <span style="color:#e6db74">&#34;string&#34;</span> <span style="color:#f92672">or</span> <span style="color:#f92672">#</span>input <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">3</span> <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        error(<span style="color:#e6db74">&#34;Invalid input&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">-- Proceed with processing</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><h2 id="debugging-and-testing">Debugging and Testing</h2>
+<p>Effective debugging and testing are crucial for developing reliable Lua applications.</p>
+<h3 id="debugging-tools">Debugging Tools</h3>
+<ul>
+<li><strong>Print Statements:</strong> Use <code>print()</code> to output variable values and trace execution flow.</li>
+<li><strong>Lua Debug Library:</strong> Provides functions for simple debugging tasks like setting breakpoints.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- Using the debug library</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">faultyFunction</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">local</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">local</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">local</span> c <span style="color:#f92672">=</span> a <span style="color:#f92672">/</span> b <span style="color:#75715e">-- Causes an error</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>    debug.debug() <span style="color:#75715e">-- Enter interactive debug mode</span>
+</span></span><span style="display:flex;"><span>    faultyFunction()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>main()
+</span></span></code></pre></div><ul>
+<li><strong>Integrated Development Environments (IDEs):</strong> Use IDEs like ZeroBrane Studio that offer built-in debugging support.</li>
+</ul>
+<h3 id="testing-techniques">Testing Techniques</h3>
+<ul>
+<li><strong>Unit Testing:</strong> Write tests for individual functions to ensure they work as expected.</li>
+<li><strong>Integration Testing:</strong> Test how different modules interact with each other.</li>
+<li><strong>Automated Testing:</strong> Use testing frameworks like <a href="https://olivinelabs.com/busted/">busted</a> for automated testing.</li>
+</ul>
+<p><strong>Example: Unit Test with Busted</strong></p>
+<ol>
+<li>
+<p><strong>Install Busted:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>luarocks install busted
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Write a Test (<code>test_calculator.lua</code>):</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- test_calculator.lua</span>
+</span></span><span style="display:flex;"><span>describe(<span style="color:#e6db74">&#34;Calculator&#34;</span>, <span style="color:#66d9ef">function</span>()
+</span></span><span style="display:flex;"><span>    it(<span style="color:#e6db74">&#34;adds two numbers&#34;</span>, <span style="color:#66d9ef">function</span>()
+</span></span><span style="display:flex;"><span>        assert.are.equal(<span style="color:#ae81ff">5</span>, add(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>))
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    it(<span style="color:#e6db74">&#34;subtracts two numbers&#34;</span>, <span style="color:#66d9ef">function</span>()
+</span></span><span style="display:flex;"><span>        assert.are.equal(<span style="color:#ae81ff">1</span>, subtract(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>))
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    it(<span style="color:#e6db74">&#34;handles division by zero&#34;</span>, <span style="color:#66d9ef">function</span>()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">local</span> result, err <span style="color:#f92672">=</span> divide(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        assert.is_nil(result)
+</span></span><span style="display:flex;"><span>        assert.are.equal(<span style="color:#e6db74">&#34;Cannot divide by zero!&#34;</span>, err)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>)
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Run the Tests:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>busted test_calculator.lua
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="best-practices-for-debugging">Best Practices for Debugging</h3>
+<ul>
+<li><strong>Isolate Issues:</strong> Narrow down the source of the problem by isolating code segments.</li>
+<li><strong>Use Descriptive Messages:</strong> Provide clear and descriptive error messages to aid in troubleshooting.</li>
+<li><strong>Leverage External Tools:</strong> Utilize IDEs and debugging tools that offer advanced features like step-through execution and variable inspection.</li>
+</ul>
+<h2 id="performance-optimization-1">Performance Optimization</h2>
+<p>Optimizing Lua code ensures efficient execution and resource utilization.</p>
+<h3 id="efficient-coding-practices">Efficient Coding Practices</h3>
+<ul>
+<li>
+<p><strong>Use Local Variables:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- Inefficient</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">sum</span>(nums)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">local</span> total <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#f92672">#</span>nums <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        total <span style="color:#f92672">=</span> total <span style="color:#f92672">+</span> nums[i]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> total
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Efficient</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">sum</span>(nums)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">local</span> total <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#f92672">#</span>nums <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        total <span style="color:#f92672">=</span> total <span style="color:#f92672">+</span> nums[i]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> total
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><p><em>Note:</em> The above example shows identical code; to emphasize, declare frequently accessed global variables as local.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- Inefficient global access</span>
+</span></span><span style="display:flex;"><span>print <span style="color:#f92672">=</span> print
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">greet</span>(name)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Hello, &#34;</span> <span style="color:#f92672">..</span> name)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Efficient local access</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> print <span style="color:#f92672">=</span> print
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">greet</span>(name)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Hello, &#34;</span> <span style="color:#f92672">..</span> name)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Minimize Table Lookups:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- Inefficient</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getName</span>(person)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> person.name
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Efficient</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> nameGetter <span style="color:#f92672">=</span> person.name
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getName</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> nameGetter
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Reuse Tables:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- Avoid creating tables in loops</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> result <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1000</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    table.insert(result, i <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="garbage-collection-optimization">Garbage Collection Optimization</h3>
+<p>Lua&rsquo;s garbage collector can affect performance if not managed properly.</p>
+<ul>
+<li><strong>Avoid Unnecessary Table Creation:</strong> Reuse tables instead of creating new ones.</li>
+<li><strong>Explicitly Manage Garbage Collection:</strong> Tune garbage collector parameters if necessary.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- Adjust garbage collection settings</span>
+</span></span><span style="display:flex;"><span>collectgarbage(<span style="color:#e6db74">&#34;setpause&#34;</span>, <span style="color:#ae81ff">110</span>)
+</span></span><span style="display:flex;"><span>collectgarbage(<span style="color:#e6db74">&#34;setstepmul&#34;</span>, <span style="color:#ae81ff">200</span>)
+</span></span></code></pre></div><h3 id="profiling-and-benchmarking">Profiling and Benchmarking</h3>
+<p>Use profiling tools to identify performance bottlenecks.</p>
+<ul>
+<li>
+<p><strong>Lua Clock Library:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#66d9ef">local</span> clock <span style="color:#f92672">=</span> os.clock
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">benchmark</span>(func)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">local</span> start <span style="color:#f92672">=</span> clock()
+</span></span><span style="display:flex;"><span>    func()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">local</span> finish <span style="color:#f92672">=</span> clock()
+</span></span><span style="display:flex;"><span>    print(string.format(<span style="color:#e6db74">&#34;Time taken: %.6f seconds&#34;</span>, finish <span style="color:#f92672">-</span> start))
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>benchmark(<span style="color:#66d9ef">function</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">local</span> sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1000000</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        sum <span style="color:#f92672">=</span> sum <span style="color:#f92672">+</span> i
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>)
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Profiler Libraries:</strong> Utilize libraries like <a href="https://github.com/daurnimator/LuaProfiler">LuaProfiler</a> for detailed profiling.</p>
+</li>
+</ul>
+<h2 id="security-considerations">Security Considerations</h2>
+<p>Ensuring the security of your Lua applications is paramount.</p>
+<h3 id="input-validation">Input Validation</h3>
+<p>Always validate and sanitize user inputs to prevent injection attacks and unexpected behavior.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">processInput</span>(input)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> type(input) <span style="color:#f92672">~=</span> <span style="color:#e6db74">&#34;string&#34;</span> <span style="color:#f92672">or</span> <span style="color:#f92672">#</span>input <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">3</span> <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        error(<span style="color:#e6db74">&#34;Invalid input&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">-- Proceed with processing</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><h3 id="secure-coding-practices">Secure Coding Practices</h3>
+<ul>
+<li>
+<p><strong>Avoid Using <code>load</code> and <code>loadstring</code> on Untrusted Data:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- Insecure</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> func <span style="color:#f92672">=</span> load(user_input)
+</span></span><span style="display:flex;"><span>func()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Secure alternative</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Parse and validate input before executing</span>
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Restrict File Access:</strong></p>
+<p>Limit file operations to necessary directories and enforce permission checks.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">readFile</span>(filepath)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">-- Ensure the filepath is within allowed directories</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> filepath:match(<span style="color:#e6db74">&#34;^/safe/path/&#34;</span>) <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        error(<span style="color:#e6db74">&#34;Access denied!&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">-- Proceed with reading the file</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="protecting-against-common-vulnerabilities">Protecting Against Common Vulnerabilities</h3>
+<ul>
+<li><strong>Code Injection:</strong> Avoid executing arbitrary code from untrusted sources.</li>
+<li><strong>Buffer Overflows:</strong> Lua handles memory management internally, reducing the risk of buffer overflows.</li>
+<li><strong>Resource Leaks:</strong> Ensure that resources like files and network connections are properly closed.</li>
+</ul>
+<h2 id="common-use-cases-and-examples">Common Use Cases and Examples</h2>
+<h3 id="example-1-simple-http-server-with-luasocket">Example 1: Simple HTTP Server with LuaSocket</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- simple_http_server.lua</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> socket <span style="color:#f92672">=</span> require(<span style="color:#e6db74">&#34;socket&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> server <span style="color:#f92672">=</span> assert(socket.bind(<span style="color:#e6db74">&#34;*&#34;</span>, <span style="color:#ae81ff">8080</span>))
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> ip, port <span style="color:#f92672">=</span> server:getsockname()
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;HTTP server running on &#34;</span> <span style="color:#f92672">..</span> ip <span style="color:#f92672">..</span> <span style="color:#e6db74">&#34;:&#34;</span> <span style="color:#f92672">..</span> port)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#66d9ef">true</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">local</span> client <span style="color:#f92672">=</span> server:accept()
+</span></span><span style="display:flex;"><span>    client:settimeout(<span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">local</span> request, err <span style="color:#f92672">=</span> client:receive()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> err <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">-- Simple HTTP response</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">local</span> response <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;HTTP/1.1 200 OK</span><span style="color:#ae81ff">\r\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">..</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#e6db74">&#34;Content-Type: text/plain</span><span style="color:#ae81ff">\r\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">..</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#e6db74">&#34;Connection: close</span><span style="color:#ae81ff">\r\n\r\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">..</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#e6db74">&#34;Hello, Lua HTTP Server!&#34;</span>
+</span></span><span style="display:flex;"><span>        client:send(response)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>    client:close()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><p><strong>Run the Server:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lua simple_http_server.lua
+</span></span></code></pre></div><p><strong>Access via Browser:</strong></p>
+<p>Navigate to <code>http://localhost:8080/</code> to see &ldquo;Hello, Lua HTTP Server!&rdquo;</p>
+<h3 id="example-2-json-handling-with-lua">Example 2: JSON Handling with Lua</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- json_handling.lua</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> json <span style="color:#f92672">=</span> require(<span style="color:#e6db74">&#34;dkjson&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> data <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Lua&#34;</span>,
+</span></span><span style="display:flex;"><span>    version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;5.4&#34;</span>,
+</span></span><span style="display:flex;"><span>    features <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;lightweight&#34;</span>, <span style="color:#e6db74">&#34;embeddable&#34;</span>, <span style="color:#e6db74">&#34;fast&#34;</span>}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Encode to JSON</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> json_text <span style="color:#f92672">=</span> json.encode(data, { indent <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span> })
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Encoded JSON:&#34;</span>)
+</span></span><span style="display:flex;"><span>print(json_text)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Decode from JSON</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> decoded_data, pos, err <span style="color:#f92672">=</span> json.decode(json_text, <span style="color:#ae81ff">1</span>, <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> err <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Error:&#34;</span>, err)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Decoded Data:&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> key, value <span style="color:#66d9ef">in</span> pairs(decoded_data) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        print(key, value)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><p><strong>Run the Script:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lua json_handling.lua
+</span></span></code></pre></div><p><strong>Output:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">Encoded</span> <span style="color:#960050;background-color:#1e0010">JSON:</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Lua&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;version&#34;</span>: <span style="color:#e6db74">&#34;5.4&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;features&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;lightweight&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;embeddable&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;fast&#34;</span>
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">Decoded</span> <span style="color:#960050;background-color:#1e0010">Data:</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">name</span>    <span style="color:#960050;background-color:#1e0010">Lua</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">version</span> <span style="color:#ae81ff">5.4</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">features</span>    <span style="color:#960050;background-color:#1e0010">table:</span> <span style="color:#ae81ff">0</span><span style="color:#960050;background-color:#1e0010">x</span><span style="color:#ae81ff">55</span><span style="color:#960050;background-color:#1e0010">c</span><span style="color:#ae81ff">7</span><span style="color:#960050;background-color:#1e0010">cdb</span><span style="color:#ae81ff">4e040</span>
+</span></span></code></pre></div><h3 id="example-3-tcp-chat-server">Example 3: TCP Chat Server</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- chat_server.lua</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> socket <span style="color:#f92672">=</span> require(<span style="color:#e6db74">&#34;socket&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> server <span style="color:#f92672">=</span> assert(socket.bind(<span style="color:#e6db74">&#34;*&#34;</span>, <span style="color:#ae81ff">12345</span>))
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> ip, port <span style="color:#f92672">=</span> server:getsockname()
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Chat server running on &#34;</span> <span style="color:#f92672">..</span> ip <span style="color:#f92672">..</span> <span style="color:#e6db74">&#34;:&#34;</span> <span style="color:#f92672">..</span> port)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>clients <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#66d9ef">true</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">local</span> client <span style="color:#f92672">=</span> server:accept()
+</span></span><span style="display:flex;"><span>    client:settimeout(<span style="color:#ae81ff">0</span>) <span style="color:#75715e">-- Non-blocking</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    table.insert(clients, client)
+</span></span><span style="display:flex;"><span>    client:send(<span style="color:#e6db74">&#34;Welcome to the Lua Chat Server!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;New client connected.&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#66d9ef">true</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i, client <span style="color:#66d9ef">in</span> ipairs(clients) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">local</span> msg, err <span style="color:#f92672">=</span> client:receive()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> msg <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>            print(<span style="color:#e6db74">&#34;Received:&#34;</span>, msg)
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">-- Broadcast the message to all clients</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> _, other_client <span style="color:#66d9ef">in</span> ipairs(clients) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>                other_client:send(msg <span style="color:#f92672">..</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">elseif</span> err <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;closed&#34;</span> <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>            table.remove(clients, i)
+</span></span><span style="display:flex;"><span>            print(<span style="color:#e6db74">&#34;Client disconnected.&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>    socket.sleep(<span style="color:#ae81ff">0.1</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><p><strong>Run the Server:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lua chat_server.lua
+</span></span></code></pre></div><p><strong>Connect Using Telnet:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>telnet localhost <span style="color:#ae81ff">12345</span>
+</span></span></code></pre></div><p><strong>Interaction:</strong></p>
+<pre tabindex="0"><code>Trying 127.0.0.1...
+Connected to localhost.
+Escape character is &#39;^]&#39;.
+Welcome to the Lua Chat Server!
+Hello everyone!
+</code></pre><p><em>All connected clients will receive the &ldquo;Hello everyone!&rdquo; message.</em></p>
+<h2 id="resources-and-further-reading">Resources and Further Reading</h2>
+<h3 id="official-documentation">Official Documentation</h3>
+<ul>
+<li><strong>Lua Official Website:</strong> <a href="https://www.lua.org/">https://www.lua.org/</a></li>
+<li><strong>Lua Reference Manual:</strong> <a href="https://www.lua.org/manual/5.4/">https://www.lua.org/manual/5.4/</a></li>
+<li><strong>Lua Users Wiki:</strong> <a href="http://lua-users.org/wiki/">http://lua-users.org/wiki/</a></li>
+<li><strong>LuaRocks (Package Manager):</strong> <a href="https://luarocks.org/">https://luarocks.org/</a></li>
+</ul>
+<h3 id="books-and-articles">Books and Articles</h3>
+<ul>
+<li><strong>&ldquo;Programming in Lua&rdquo;</strong> by Roberto Ierusalimschy
+<ul>
+<li><em>The definitive book on Lua, written by the language&rsquo;s principal architect.</em></li>
+</ul>
+</li>
+<li><strong>&ldquo;Lua 5.3 Reference Manual&rdquo;</strong> by Roberto Ierusalimschy
+<ul>
+<li><em>Comprehensive reference guide covering all aspects of Lua 5.3.</em></li>
+</ul>
+</li>
+<li><strong>&ldquo;Lua Programming Gems&rdquo;</strong> edited by Luiz Henrique de Figueiredo, Waldemar Celes, and Rogerio Viana
+<ul>
+<li><em>A collection of articles and tutorials on advanced Lua programming topics.</em></li>
+</ul>
+</li>
+</ul>
+<h3 id="online-tutorials-and-courses">Online Tutorials and Courses</h3>
+<ul>
+<li><strong>Lua Tutorial by TutorialsPoint:</strong> <a href="https://www.tutorialspoint.com/lua/">https://www.tutorialspoint.com/lua/</a></li>
+<li><strong>Learn Lua in Y Minutes:</strong> <a href="https://learnxinyminutes.com/docs/lua/">https://learnxinyminutes.com/docs/lua/</a></li>
+<li><strong>Codecademy Lua Course:</strong> <a href="https://www.codecademy.com/learn/learn-lua">https://www.codecademy.com/learn/learn-lua</a></li>
+<li><strong>Coursera Lua Courses:</strong> Search for Lua-related courses on <a href="https://www.coursera.org/">Coursera</a>.</li>
+</ul>
+<h3 id="community-and-support">Community and Support</h3>
+<ul>
+<li><strong>Stack Overflow:</strong> <a href="https://stackoverflow.com/questions/tagged/lua">https://stackoverflow.com/questions/tagged/lua</a></li>
+<li><strong>Reddit r/lua:</strong> <a href="https://www.reddit.com/r/lua/">https://www.reddit.com/r/lua/</a></li>
+<li><strong>Lua Mailing Lists:</strong> <a href="https://www.lua.org/community.html">https://www.lua.org/community.html</a></li>
+<li><strong>Lua Users Forum:</strong> <a href="http://lua-users.org/forum/">http://lua-users.org/forum/</a></li>
+<li><strong>GitHub Lua Repositories:</strong> Explore and contribute to Lua projects on <a href="https://github.com/search?q=lua">GitHub</a>.</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Lua is a versatile and efficient scripting language that excels in embedding within applications, game development, web applications, and more. Its simple syntax, powerful features, and ease of integration make it a valuable tool for developers across various domains.</p>
+<p>This comprehensive tutorial has covered everything from installation and basic syntax to advanced features and practical use cases. By mastering Lua, you can enhance your applications&rsquo; flexibility, performance, and maintainability.</p>
+<h3 id="key-takeaways">Key Takeaways</h3>
+<ol>
+<li><strong>Lightweight and Fast:</strong> Lua&rsquo;s minimalistic design ensures high performance and low resource consumption.</li>
+<li><strong>Embeddable:</strong> Easily integrate Lua into C applications or extend Lua with C modules for enhanced functionality.</li>
+<li><strong>Powerful Data Structures:</strong> Utilize tables for versatile data representation and manipulation.</li>
+<li><strong>First-Class Functions and Metaprogramming:</strong> Leverage Lua&rsquo;s functional programming capabilities and metatables for advanced programming paradigms.</li>
+<li><strong>Robust Community and Resources:</strong> Benefit from a wealth of community support, libraries, and learning materials to continuously improve your Lua skills.</li>
+</ol>
+<h3 id="next-steps">Next Steps</h3>
+<ul>
+<li><strong>Practice Coding:</strong> Continuously write Lua scripts to reinforce your understanding and discover new features.</li>
+<li><strong>Contribute to Open Source:</strong> Engage with the Lua community by contributing to open-source projects, enhancing your skills and building your portfolio.</li>
+<li><strong>Explore Advanced Topics:</strong> Dive deeper into metatables, coroutines, and LuaJIT to unlock Lua&rsquo;s full potential.</li>
+<li><strong>Integrate with Applications:</strong> Embed Lua into your projects or use it to script configurations and automate tasks.</li>
+</ul>
+<p><em>Happy Lua Coding!</em></p>
+
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="http://localhost:62354/tags/systemdesign/">SystemDesign</a>&nbsp;
+            
+          </div>
+        
+
+        
+
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="http://localhost:62354/post/0_nginx/" data-toggle="tooltip" data-placement="top" title="Nginx">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="http://localhost:62354/post/5_k8s/" data-toggle="tooltip" data-placement="top" title="Kubernetes">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2024
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://localhost:62354/">Kaga Blog</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.134.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="http://localhost:62354/js/main.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="http://localhost:62354/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

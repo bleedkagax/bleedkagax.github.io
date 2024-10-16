@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Network on Kaga Blog</title>
+    <link>http://localhost:62354/tags/network/</link>
+    <description>Recent content in Network on Kaga Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 04 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:62354/tags/network/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Network Interview</title>
+      <link>http://localhost:62354/post/0_network_interview/</link>
+      <pubDate>Fri, 04 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:62354/post/0_network_interview/</guid>
+      <description>&lt;h2 id=&#34;what-is-the-osi-model&#34;&gt;What is the OSI model?&lt;/h2&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:62354/img/0_network_interview.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Physical Layer&lt;/li&gt;&#xA;&lt;li&gt;Data Link Layer&lt;/li&gt;&#xA;&lt;li&gt;Network Layer&lt;/li&gt;&#xA;&lt;li&gt;Transport Layer&lt;/li&gt;&#xA;&lt;li&gt;Session Layer&lt;/li&gt;&#xA;&lt;li&gt;Presentation Layer&lt;/li&gt;&#xA;&lt;li&gt;Application Layer&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;explain-the-difference-between-tcp-and-udp&#34;&gt;Explain the difference between TCP and UDP.&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;TCP (Transmission Control Protocol):&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Connection-oriented&lt;/li&gt;&#xA;&lt;li&gt;Reliable, ensures all data is received&lt;/li&gt;&#xA;&lt;li&gt;Flow control and congestion control&lt;/li&gt;&#xA;&lt;li&gt;Slower than UDP&lt;/li&gt;&#xA;&lt;li&gt;Used for applications requiring high reliability (e.g., file transfer, email)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;UDP (User Datagram Protocol):&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Network Protocols</title>
+      <link>http://localhost:62354/post/1_network_protocols/</link>
+      <pubDate>Fri, 04 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:62354/post/1_network_protocols/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:62354/img/1_network_protocols.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;transmission-control-protocol-tcp&#34;&gt;Transmission Control Protocol (TCP)&lt;/h2&gt;&#xA;&lt;h3 id=&#34;tcp-principles-and-mechanisms&#34;&gt;TCP Principles and Mechanisms&lt;/h3&gt;&#xA;&lt;p&gt;Key features:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Connection Establishment&lt;/strong&gt;: Three-way handshake (SYN, SYN-ACK, ACK)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Reliable Delivery&lt;/strong&gt;: Acknowledgment and retransmission&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Flow Control&lt;/strong&gt;: Sliding window mechanism&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Congestion Control&lt;/strong&gt;: Slow start, congestion avoidance, fast retransmit, and fast recovery&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Ordered Data Transfer&lt;/strong&gt;: Sequence numbers&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Error Detection&lt;/strong&gt;: Checksum&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Example of TCP header:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt; 0                   1                   2                   3&#xA; 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1&#xA;+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+&#xA;|          Source Port          |       Destination Port        |&#xA;+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+&#xA;|                        Sequence Number                        |&#xA;+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+&#xA;|                    Acknowledgment Number                      |&#xA;+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+&#xA;|  Data |           |U|A|P|R|S|F|                               |&#xA;| Offset| Reserved  |R|C|S|S|Y|I|            Window             |&#xA;|       |           |G|K|H|T|N|N|                               |&#xA;+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+&#xA;|           Checksum            |         Urgent Pointer        |&#xA;+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+&#xA;|                    Options                    |    Padding    |&#xA;+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+&#xA;|                             data                              |&#xA;+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+&#xA;&lt;/code&gt;&lt;/pr</description>
+    </item>
+    <item>
+      <title>Subnet and Subnet</title>
+      <link>http://localhost:62354/post/2_subnet/</link>
+      <pubDate>Fri, 04 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:62354/post/2_subnet/</guid>
+      <description>&lt;h2 id=&#34;what-is-a-subnet&#34;&gt;What is a Subnet?&lt;/h2&gt;&#xA;&lt;p&gt;A &lt;strong&gt;subnet&lt;/strong&gt; is a way to divide a large network into smaller, more manageable pieces. Think of it like dividing a big city into neighborhoods. Each subnet (neighborhood) has its own group of devices (houses), but all are still part of the same overall network (city).&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-a-subnet-mask&#34;&gt;What is a Subnet Mask?&lt;/h2&gt;&#xA;&lt;p&gt;A &lt;strong&gt;subnet mask&lt;/strong&gt; is a number used to help identify which part of an IP address belongs to the &lt;strong&gt;network&lt;/strong&gt; (city) and which part identifies the &lt;strong&gt;device&lt;/strong&gt; (house). It’s like a divider that separates the network part from the device part in an IP address.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

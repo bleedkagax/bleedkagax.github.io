@@ -2,18 +2,46 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Redis on Kaga Blog</title>
-    <link>http://localhost:1313/tags/redis/</link>
+    <link>http://localhost:62354/tags/redis/</link>
     <description>Recent content in Redis on Kaga Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Sep 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:62354/tags/redis/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Troubleshooting Redis Performance Issues</title>
-      <link>http://localhost:1313/post/troubleshooting-redis-performance-issues/</link>
+      <title>Eval and Evalsha</title>
+      <link>http://localhost:62354/post/3_eval_and_evalsha/</link>
+      <pubDate>Wed, 02 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:62354/post/3_eval_and_evalsha/</guid>
+      <description>&lt;h1 id=&#34;overview&#34;&gt;Overview&lt;/h1&gt;&#xA;&lt;p&gt;&lt;code&gt;EVAL&lt;/code&gt; and &lt;code&gt;EVALSHA&lt;/code&gt; are Redis commands used to execute Lua scripts within the Redis server.  They differ primarily in how they handle script loading and execution:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;code&gt;EVAL&lt;/code&gt;:&lt;/strong&gt; This command takes the Lua script as an argument.  Redis parses and hashes the script every time &lt;code&gt;EVAL&lt;/code&gt; is called.  This adds overhead, especially for frequently executed scripts.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;code&gt;EVALSHA&lt;/code&gt;:&lt;/strong&gt; This command takes the SHA1 hash of the Lua script as an argument.  Redis retrieves the script from its internal cache using this hash.  If the script is found, it&amp;rsquo;s executed directly, bypassing the parsing and hashing steps.  This results in significantly faster execution times for frequently used scripts.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Redlock Algorithm</title>
+      <link>http://localhost:62354/post/4_redlock_algorithm/</link>
+      <pubDate>Wed, 02 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:62354/post/4_redlock_algorithm/</guid>
+      <description>&lt;h1 id=&#34;redlock-algorithm-distributed-lock-management&#34;&gt;Redlock Algorithm: Distributed Lock Management&lt;/h1&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;The Redlock algorithm is a distributed lock algorithm designed to provide a reliable locking mechanism in distributed systems. It was proposed by the Redis community as a way to implement distributed locks using multiple independent Redis instances.&lt;/p&gt;&#xA;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;/h2&gt;&#xA;&lt;p&gt;The main purpose of the Redlock algorithm is to ensure that:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Mutual exclusion is guaranteed&lt;/li&gt;&#xA;&lt;li&gt;Deadlock free operation is possible&lt;/li&gt;&#xA;&lt;li&gt;Fault tolerance is achieved up to a certain degree&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;algorithm-overview&#34;&gt;Algorithm Overview&lt;/h2&gt;&#xA;&lt;p&gt;The Redlock algorithm uses multiple Redis instances (typically 5) to achieve consensus on lock acquisition and release. The basic idea is to acquire the lock in the majority of the instances to consider it as a successful lock acquisition.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Redis, Pika, and Codis</title>
+      <link>http://localhost:62354/post/1_redis_pika_codis/</link>
+      <pubDate>Mon, 09 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:62354/post/1_redis_pika_codis/</guid>
+      <description>&lt;h1 id=&#34;comprehensive-technical-analysis-redis-pika-and-codis&#34;&gt;Comprehensive Technical Analysis: Redis, Pika, and Codis&lt;/h1&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;In the realm of distributed data storage and caching systems, Redis, Pika, and Codis represent three distinct approaches to solving scalability, persistence, and performance challenges. This comprehensive analysis delves deep into the architectures, features, and use cases of these systems, providing detailed code examples and visual representations to facilitate a thorough understanding.&lt;/p&gt;&#xA;&lt;h2 id=&#34;redis&#34;&gt;Redis&lt;/h2&gt;&#xA;&lt;p&gt;Redis (Remote Dictionary Server) is an open-source, in-memory data structure store that has become a cornerstone in modern application architectures. Its versatility allows it to function as a database, cache, message broker, and queue.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Redis Performance Issues</title>
+      <link>http://localhost:62354/post/2_redis_performance_issues/</link>
       <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/troubleshooting-redis-performance-issues/</guid>
+      <guid>http://localhost:62354/post/2_redis_performance_issues/</guid>
       <description>&lt;h1 id=&#34;a-comprehensive-guide-to-troubleshooting-redis-performance-issues&#34;&gt;A comprehensive guide to troubleshooting Redis performance issues&lt;/h1&gt;&#xA;&lt;h2 id=&#34;1-introduction&#34;&gt;1. Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Redis is renowned for its high performance, capable of handling 100,000 operations per second. However, users may encounter unexpected latency issues in various scenarios:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Same commands sometimes fast, sometimes slow&lt;/li&gt;&#xA;&lt;li&gt;Simple operations like SET and DEL taking unexpectedly long&lt;/li&gt;&#xA;&lt;li&gt;Temporary slowdowns that resolve themselves&lt;/li&gt;&#xA;&lt;li&gt;Sudden performance degradation after long periods of stability&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This comprehensive guide (approximately 20,000 words) aims to provide a thorough troubleshooting approach for Redis performance issues.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Redis Interview</title>
+      <link>http://localhost:62354/post/0_redis_interview/</link>
+      <pubDate>Sun, 01 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:62354/post/0_redis_interview/</guid>
+      <description>&lt;h2 id=&#34;what-is-redis-pipelining&#34;&gt;What is Redis pipelining?&lt;/h2&gt;&#xA;&lt;p&gt;Pipelining is a technique used to send multiple commands to the server without waiting for the replies, and then reading the replies in a single step.&lt;/p&gt;&#xA;&lt;h2 id=&#34;explain-redis-transactions&#34;&gt;Explain Redis transactions.&lt;/h2&gt;&#xA;&lt;p&gt;Redis transactions allow the execution of a group of commands in a single step. Key properties:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;All commands in a transaction are serialized and executed sequentially&lt;/li&gt;&#xA;&lt;li&gt;Either all or none of the commands are processed&lt;/li&gt;&#xA;&lt;li&gt;Redis transactions are atomic&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;how-does-redis-implement-master-slave-replication&#34;&gt;How does Redis implement master-slave replication?&lt;/h2&gt;&#xA;&lt;p&gt;Redis uses asynchronous replication, where a master can have multiple slaves. The replication is non-blocking on the master side, so the master can continue serving queries while slaves are synchronizing. Slaves can also be configured to accept connections from other slaves, creating a graph-like structure.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

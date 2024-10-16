@@ -1,0 +1,439 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=62354&amp;path=livereload" data-no-instant defer></script>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Prometheus - </title>
+
+  <meta name="description" content="
+What is Prometheus?
+Prometheus is an open-source systems monitoring and alerting toolkit. It collects and stores metrics as time series data, allowing for flexible querying and real-time alerting.
+What are the main components of Prometheus?
+The main components of Prometheus are:
+
+Prometheus server (for scraping and storing time series data)
+Client libraries (for instrumenting application code)
+Push gateway (for supporting short-lived jobs)
+Exporters (for services that don&rsquo;t expose Prometheus metrics directly)
+Alertmanager (for handling alerts)
+
+How does Prometheus collect metrics?
+Prometheus uses a pull model to collect metrics. It scrapes metrics from configured targets at regular intervals, usually by HTTP endpoints on these targets."><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Kaga Blog",
+    
+    "url": "http:\/\/localhost:62354\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "http:\/\/localhost:62354\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "http:\/\/localhost:62354\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "http:\/\/localhost:62354\/post\/2_prometheus\/",
+          "name": "Prometheus"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "Prometheus",
+  "description" : "\nWhat is Prometheus? Prometheus is an open-source systems monitoring and alerting toolkit. It collects and stores metrics as time series data, allowing for flexible querying and real-time alerting.\nWhat are the main components of Prometheus? The main components of Prometheus are:\nPrometheus server (for scraping and storing time series data) Client libraries (for instrumenting application code) Push gateway (for supporting short-lived jobs) Exporters (for services that don\u0026rsquo;t expose Prometheus metrics directly) Alertmanager (for handling alerts) How does Prometheus collect metrics? Prometheus uses a pull model to collect metrics. It scrapes metrics from configured targets at regular intervals, usually by HTTP endpoints on these targets.\n",
+  "inLanguage" : "en",
+  "wordCount":  675 ,
+  "datePublished" : "2024-09-07T00:00:00\u002b00:00",
+  "dateModified" : "2024-09-07T00:00:00\u002b00:00",
+  "image" : "http:\/\/localhost:62354\/",
+  "keywords" : [ "SystemDesign" ],
+  "mainEntityOfPage" : "http:\/\/localhost:62354\/post\/2_prometheus\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "http:\/\/localhost:62354\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "http:\/\/localhost:62354\/",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="Prometheus" />
+<meta property="og:description" content="
+What is Prometheus?
+Prometheus is an open-source systems monitoring and alerting toolkit. It collects and stores metrics as time series data, allowing for flexible querying and real-time alerting.
+What are the main components of Prometheus?
+The main components of Prometheus are:
+
+Prometheus server (for scraping and storing time series data)
+Client libraries (for instrumenting application code)
+Push gateway (for supporting short-lived jobs)
+Exporters (for services that don&rsquo;t expose Prometheus metrics directly)
+Alertmanager (for handling alerts)
+
+How does Prometheus collect metrics?
+Prometheus uses a pull model to collect metrics. It scrapes metrics from configured targets at regular intervals, usually by HTTP endpoints on these targets.">
+<meta property="og:url" content="http://localhost:62354/post/2_prometheus/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Kaga Blog" />
+
+  <meta name="twitter:title" content="Prometheus" />
+  <meta name="twitter:description" content="
+What is Prometheus?
+Prometheus is an open-source systems monitoring and alerting toolkit. It collects and stores metrics as time series data, allowing for flexible querying and real-time alerting. …">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="generator" content="Hugo 0.134.0">
+  <link rel="alternate" href="http://localhost:62354/index.xml" type="application/rss+xml" title="Kaga Blog"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="http://localhost:62354/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="http://localhost:62354/css/syntax.css" /><link rel="stylesheet" href="http://localhost:62354/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://localhost:62354/">Kaga Blog</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Prometheus</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on September 7, 2024
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p><img src="/img/2_prometheus.png" alt=""></p>
+<h2 id="what-is-prometheus">What is Prometheus?</h2>
+<p>Prometheus is an open-source systems monitoring and alerting toolkit. It collects and stores metrics as time series data, allowing for flexible querying and real-time alerting.</p>
+<h2 id="what-are-the-main-components-of-prometheus">What are the main components of Prometheus?</h2>
+<p>The main components of Prometheus are:</p>
+<ul>
+<li>Prometheus server (for scraping and storing time series data)</li>
+<li>Client libraries (for instrumenting application code)</li>
+<li>Push gateway (for supporting short-lived jobs)</li>
+<li>Exporters (for services that don&rsquo;t expose Prometheus metrics directly)</li>
+<li>Alertmanager (for handling alerts)</li>
+</ul>
+<h2 id="how-does-prometheus-collect-metrics">How does Prometheus collect metrics?</h2>
+<p>Prometheus uses a pull model to collect metrics. It scrapes metrics from configured targets at regular intervals, usually by HTTP endpoints on these targets.</p>
+<h2 id="what-is-promql">What is PromQL?</h2>
+<p>PromQL (Prometheus Query Language) is Prometheus&rsquo;s flexible query language that lets the user select and aggregate time series data in real time.</p>
+<h2 id="explain-the-difference-between-counter-gauge-and-histogram-metric-types-in-prometheus">Explain the difference between counter, gauge, and histogram metric types in Prometheus.</h2>
+<ul>
+<li>Counter: A cumulative metric that only increases (e.g., number of requests)</li>
+<li>Gauge: A metric that can increase and decrease (e.g., memory usage)</li>
+<li>Histogram: Samples observations and counts them in configurable buckets (e.g., request durations)</li>
+</ul>
+<h2 id="what-is-service-discovery-in-prometheus">What is service discovery in Prometheus?</h2>
+<p>Service discovery is the process by which Prometheus automatically finds and monitors new targets in dynamic environments like cloud or container platforms.</p>
+<h2 id="how-does-prometheus-handle-high-availability">How does Prometheus handle high availability?</h2>
+<p>Prometheus can be run in a clustered mode for high availability. Multiple Prometheus servers can scrape the same targets, and Alertmanager can be clustered to provide redundancy for alerts.</p>
+<h2 id="what-is-the-role-of-alertmanager-in-prometheus">What is the role of Alertmanager in Prometheus?</h2>
+<p>Alertmanager handles alerts sent by client applications such as the Prometheus server. It takes care of deduplicating, grouping, and routing alerts to the correct receiver (e.g., email, PagerDuty, Slack).</p>
+<h2 id="how-does-prometheus-store-data">How does Prometheus store data?</h2>
+<p>Prometheus stores data in a custom, efficient time-series database on local storage. It also optionally integrates with remote storage systems.</p>
+<h2 id="what-is-the-purpose-of-exporters-in-prometheus">What is the purpose of exporters in Prometheus?</h2>
+<p>Exporters are used to export existing metrics from third-party systems as Prometheus metrics. They collect the metrics from the target system and translate them into a format that Prometheus can ingest.</p>
+<h2 id="how-can-you-monitor-prometheus-itself">How can you monitor Prometheus itself?</h2>
+<p>Prometheus can monitor itself by scraping its own HTTP endpoint. This allows you to track metrics about Prometheus&rsquo; own performance and behavior.</p>
+<h2 id="what-is-the-difference-between-push-and-pull-models-in-monitoring-and-which-does-prometheus-use">What is the difference between push and pull models in monitoring, and which does Prometheus use?</h2>
+<p>Prometheus uses a pull model, where it actively scrapes targets for metrics. In contrast, a push model involves targets actively sending metrics to the monitoring system. Prometheus&rsquo; pull model is simpler and allows for better detection of failures.</p>
+<h2 id="how-does-prometheus-handle-labels">How does Prometheus handle labels?</h2>
+<p>Labels in Prometheus are key-value pairs associated with time series, e.g., <code>environment=&quot;production&quot;</code>, <code>server=&quot;backend-01&quot;</code>. They allow for multi-dimensional data model and flexible, powerful querying.</p>
+<h2 id="what-is-recording-rules-in-prometheus">What is recording rules in Prometheus?</h2>
+<p>Recording rules allow you to precompute frequently needed or computationally expensive expressions and save their result as a new set of time series.</p>
+<h2 id="how-does-prometheus-ensure-reliability-and-prevent-data-loss">How does Prometheus ensure reliability and prevent data loss?</h2>
+<p>Prometheus uses local storage by default, which prevents data loss due to network issues. It also supports various service discovery mechanisms and can be run in a clustered mode for high availability.</p>
+<h2 id="prometheus-underlying-data-structures">Prometheus Underlying Data Structures</h2>
+<h3 id="1-time-series-database-tsdb">1. Time Series Database (TSDB)</h3>
+<ul>
+<li>Custom-built for Prometheus</li>
+<li>Optimized for time-series data</li>
+<li>Supports efficient data compression and fast querying</li>
+</ul>
+<h3 id="2-sample-data">2. Sample Data</h3>
+<p>Each time series consists of:</p>
+<ul>
+<li>Metric name</li>
+<li>Set of labels (key-value pairs)</li>
+<li>Timestamp</li>
+<li>Value</li>
+</ul>
+<h3 id="3-in-memory-data-structures">3. In-Memory Data Structures</h3>
+<ul>
+<li><strong>Inverted index</strong>: For quickly finding time series matching specific labels</li>
+<li><strong>Sorted time series</strong>: Ordered by timestamp for efficient range queries</li>
+</ul>
+<h3 id="4-on-disk-storage-structures">4. On-Disk Storage Structures</h3>
+<ul>
+<li><strong>Blocks</strong>: Data organized into fixed time ranges</li>
+<li><strong>WAL (Write-Ahead Log)</strong>: Ensures data durability and crash recovery</li>
+<li><strong>Index</strong>: Stores metadata and label information for fast querying</li>
+</ul>
+<h3 id="5-compression-algorithms">5. Compression Algorithms</h3>
+<p>Prometheus uses various techniques to reduce storage space:</p>
+<ul>
+<li>Delta encoding: Storing differences between values</li>
+<li>XOR compression: For efficient compression of timestamps</li>
+<li>Varint encoding: For integer compression</li>
+</ul>
+<h3 id="6-aggregation-and-downsampling">6. Aggregation and Downsampling</h3>
+<ul>
+<li>Supports data aggregation and downsampling for long-term storage</li>
+<li>Reduces precision and storage requirements of older data</li>
+</ul>
+<h3 id="7-label-index">7. Label Index</h3>
+<ul>
+<li>Uses inverted indexing to quickly locate time series with specific labels</li>
+</ul>
+
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="http://localhost:62354/tags/systemdesign/">SystemDesign</a>&nbsp;
+            
+          </div>
+        
+
+        
+
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="http://localhost:62354/post/3_protobuf/" data-toggle="tooltip" data-placement="top" title="Protobuf">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="http://localhost:62354/post/1_mysql_join_types_comparison/" data-toggle="tooltip" data-placement="top" title="Mysql&#39;s Join Types Comparison">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2024
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://localhost:62354/">Kaga Blog</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.134.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="http://localhost:62354/js/main.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="http://localhost:62354/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,823 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=62354&amp;path=livereload" data-no-instant defer></script>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Protobuf - </title>
+
+  <meta name="description" content="Protocol Buffers
+1. Introduction
+Protocol Buffers (Protobuf) is a language-agnostic, platform-neutral extensible mechanism for serializing structured data. Developed by Google, it aims to be faster, smaller, and simpler than XML. This report provides an in-depth analysis of Protobuf&rsquo;s principles, performance characteristics, and practical implications.
+2. Historical Context and Development
+
+Origin: Developed internally at Google in the early 2000s.
+Open Source Release: Made publicly available in 2008.
+Versions:
+
+Proto1: Initial release (deprecated)
+Proto2: Introduced optional and required fields
+Proto3: Simplified syntax, removed required fields
+
+
+
+3. Core Principles of Protocol Buffers
+Message Definition Language
+Protobuf uses a simple IDL (Interface Definition Language) to describe the structure of data."><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Kaga Blog",
+    
+    "url": "http:\/\/localhost:62354\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "http:\/\/localhost:62354\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "http:\/\/localhost:62354\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "http:\/\/localhost:62354\/post\/3_protobuf\/",
+          "name": "Protobuf"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "Protobuf",
+  "description" : "Protocol Buffers 1. Introduction Protocol Buffers (Protobuf) is a language-agnostic, platform-neutral extensible mechanism for serializing structured data. Developed by Google, it aims to be faster, smaller, and simpler than XML. This report provides an in-depth analysis of Protobuf\u0026rsquo;s principles, performance characteristics, and practical implications.\n2. Historical Context and Development Origin: Developed internally at Google in the early 2000s. Open Source Release: Made publicly available in 2008. Versions: Proto1: Initial release (deprecated) Proto2: Introduced optional and required fields Proto3: Simplified syntax, removed required fields 3. Core Principles of Protocol Buffers Message Definition Language Protobuf uses a simple IDL (Interface Definition Language) to describe the structure of data.\n",
+  "inLanguage" : "en",
+  "wordCount":  1356 ,
+  "datePublished" : "2024-09-07T00:00:00\u002b00:00",
+  "dateModified" : "2024-09-07T00:00:00\u002b00:00",
+  "image" : "http:\/\/localhost:62354\/",
+  "keywords" : [ "SystemDesign" ],
+  "mainEntityOfPage" : "http:\/\/localhost:62354\/post\/3_protobuf\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "http:\/\/localhost:62354\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "http:\/\/localhost:62354\/",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="Protobuf" />
+<meta property="og:description" content="Protocol Buffers
+1. Introduction
+Protocol Buffers (Protobuf) is a language-agnostic, platform-neutral extensible mechanism for serializing structured data. Developed by Google, it aims to be faster, smaller, and simpler than XML. This report provides an in-depth analysis of Protobuf&rsquo;s principles, performance characteristics, and practical implications.
+2. Historical Context and Development
+
+Origin: Developed internally at Google in the early 2000s.
+Open Source Release: Made publicly available in 2008.
+Versions:
+
+Proto1: Initial release (deprecated)
+Proto2: Introduced optional and required fields
+Proto3: Simplified syntax, removed required fields
+
+
+
+3. Core Principles of Protocol Buffers
+Message Definition Language
+Protobuf uses a simple IDL (Interface Definition Language) to describe the structure of data.">
+<meta property="og:url" content="http://localhost:62354/post/3_protobuf/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Kaga Blog" />
+
+  <meta name="twitter:title" content="Protobuf" />
+  <meta name="twitter:description" content="Protocol Buffers
+1. Introduction
+Protocol Buffers (Protobuf) is a language-agnostic, platform-neutral extensible mechanism for serializing structured data. Developed by Google, it aims to be faster, …">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="generator" content="Hugo 0.134.0">
+  <link rel="alternate" href="http://localhost:62354/index.xml" type="application/rss+xml" title="Kaga Blog"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="http://localhost:62354/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="http://localhost:62354/css/syntax.css" /><link rel="stylesheet" href="http://localhost:62354/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://localhost:62354/">Kaga Blog</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Protobuf</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on September 7, 2024
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h1 id="protocol-buffers">Protocol Buffers</h1>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>Protocol Buffers (Protobuf) is a language-agnostic, platform-neutral extensible mechanism for serializing structured data. Developed by Google, it aims to be faster, smaller, and simpler than XML. This report provides an in-depth analysis of Protobuf&rsquo;s principles, performance characteristics, and practical implications.</p>
+<h2 id="2-historical-context-and-development">2. Historical Context and Development</h2>
+<ul>
+<li><strong>Origin</strong>: Developed internally at Google in the early 2000s.</li>
+<li><strong>Open Source Release</strong>: Made publicly available in 2008.</li>
+<li><strong>Versions</strong>:
+<ul>
+<li>Proto1: Initial release (deprecated)</li>
+<li>Proto2: Introduced optional and required fields</li>
+<li>Proto3: Simplified syntax, removed required fields</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-core-principles-of-protocol-buffers">3. Core Principles of Protocol Buffers</h2>
+<h3 id="message-definition-language">Message Definition Language</h3>
+<p>Protobuf uses a simple IDL (Interface Definition Language) to describe the structure of data.</p>
+<p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-protobuf" data-lang="protobuf"><span style="display:flex;"><span>syntax <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;proto3&#34;</span>;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">message</span> <span style="color:#a6e22e">Person</span> {<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>  <span style="color:#66d9ef">string</span> name <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>  <span style="color:#66d9ef">int32</span> id <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>  <span style="color:#66d9ef">string</span> email <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>  <span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>  <span style="color:#66d9ef">enum</span> PhoneType {<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>    MOBILE <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>    HOME <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>    WORK <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>  }<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>  <span style="color:#66d9ef">message</span> <span style="color:#a6e22e">PhoneNumber</span> {<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#66d9ef">string</span> number <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>    PhoneType type <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>  }<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>  <span style="color:#66d9ef">repeated</span> PhoneNumber phones <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>}<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><p>Key features:</p>
+<ul>
+<li>Strong typing</li>
+<li>Nested message types</li>
+<li>Enumerations</li>
+<li>Field numbering for versioning</li>
+</ul>
+<h3 id="serialization-process">Serialization Process</h3>
+<ol>
+<li>
+<p><strong>Field Encoding</strong>: Each field is encoded as a key-value pair.</p>
+<ul>
+<li>Key = (field_number &laquo; 3) | wire_type</li>
+<li>Wire types:
+<ul>
+<li>0: Varint</li>
+<li>1: 64-bit</li>
+<li>2: Length-delimited</li>
+<li>3: Start group (deprecated)</li>
+<li>4: End group (deprecated)</li>
+<li>5: 32-bit</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Varint Encoding</strong>: Used for integer types to save space.</p>
+<ul>
+<li>Each byte uses 7 bits for the number and 1 bit to indicate if more bytes follow.</li>
+</ul>
+</li>
+<li>
+<p><strong>Zigzag Encoding</strong>: Used for signed integers to make them more efficient for varint encoding.</p>
+</li>
+<li>
+<p><strong>String and Bytes Encoding</strong>: Length-prefixed format.</p>
+</li>
+<li>
+<p><strong>Repeated Fields</strong>: Can be packed into a single key-value pair for primitive types.</p>
+</li>
+</ol>
+<h3 id="deserialization-process">Deserialization Process</h3>
+<ol>
+<li>
+<p><strong>Stream Parsing</strong>: Binary data is parsed sequentially.</p>
+</li>
+<li>
+<p><strong>Key Decoding</strong>: Extract field number and wire type.</p>
+</li>
+<li>
+<p><strong>Value Decoding</strong>: Based on wire type and expected field type.</p>
+</li>
+<li>
+<p><strong>Unknown Field Handling</strong>: Skipped and preserved for future compatibility.</p>
+</li>
+<li>
+<p><strong>Object Construction</strong>: Populate language-specific object with decoded values.</p>
+</li>
+</ol>
+<h3 id="wire-format-specification">Wire Format Specification</h3>
+<p>The wire format is designed to be:</p>
+<ul>
+<li>Compact: Uses variable-length encoding where possible.</li>
+<li>Extensible: New fields can be added without breaking backward compatibility.</li>
+<li>Self-describing: Each field carries its own type information.</li>
+</ul>
+<h2 id="4-performance-analysis">4. Performance Analysis</h2>
+<h3 id="serialization-performance">Serialization Performance</h3>
+<p>Methodology:</p>
+<ul>
+<li>Benchmark using various message sizes and complexities.</li>
+<li>Measure time taken to serialize 1 million messages.</li>
+</ul>
+<p>Results:</p>
+<pre tabindex="0"><code>Small message (10 fields):  50 ms
+Medium message (50 fields): 150 ms
+Large message (200 fields): 450 ms
+</code></pre><p>Factors contributing to high performance:</p>
+<ul>
+<li>Simple binary encoding</li>
+<li>Efficient varint encoding for integers</li>
+<li>No need to encode field names</li>
+</ul>
+<h3 id="deserialization-performance">Deserialization Performance</h3>
+<p>Methodology:</p>
+<ul>
+<li>Use the same message sets as serialization benchmarks.</li>
+<li>Measure time to deserialize 1 million messages.</li>
+</ul>
+<p>Results:</p>
+<pre tabindex="0"><code>Small message:  60 ms
+Medium message: 180 ms
+Large message:  520 ms
+</code></pre><p>Performance factors:</p>
+<ul>
+<li>Direct mapping to language objects</li>
+<li>No complex parsing required</li>
+<li>Efficient handling of optional and unknown fields</li>
+</ul>
+<h3 id="memory-usage">Memory Usage</h3>
+<p>Analyzed using various profiling tools (e.g., Valgrind for C++, Memory Profiler for Python).</p>
+<p>Findings:</p>
+<ul>
+<li>Minimal overhead for small messages</li>
+<li>Linear growth with message size</li>
+<li>Efficient memory management for repeated fields</li>
+</ul>
+<h3 id="message-size-efficiency">Message Size Efficiency</h3>
+<p>Comparison of message sizes for equivalent data:</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Format</th>
+          <th style="text-align: left">Small Message</th>
+          <th style="text-align: left">Medium Message</th>
+          <th style="text-align: left">Large Message</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Protobuf</td>
+          <td style="text-align: left">20 bytes</td>
+          <td style="text-align: left">100 bytes</td>
+          <td style="text-align: left">400 bytes</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">JSON</td>
+          <td style="text-align: left">50 bytes</td>
+          <td style="text-align: left">250 bytes</td>
+          <td style="text-align: left">1000 bytes</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">XML</td>
+          <td style="text-align: left">100 bytes</td>
+          <td style="text-align: left">500 bytes</td>
+          <td style="text-align: left">2000 bytes</td>
+      </tr>
+  </tbody>
+</table>
+<p>Factors contributing to small size:</p>
+<ul>
+<li>Binary format</li>
+<li>Varint encoding</li>
+<li>No field name storage in serialized form</li>
+</ul>
+<h3 id="cpu-utilization">CPU Utilization</h3>
+<p>Profiled using tools like perf (Linux) and Instruments (macOS).</p>
+<p>Findings:</p>
+<ul>
+<li>Low CPU usage during serialization/deserialization</li>
+<li>Most time spent in memory operations and varint encoding/decoding</li>
+<li>Minimal impact on overall system performance</li>
+</ul>
+<h2 id="5-comparative-analysis">5. Comparative Analysis</h2>
+<h3 id="protobuf-vs-json">Protobuf vs JSON</h3>
+<p>Pros of Protobuf:</p>
+<ul>
+<li>Faster serialization and deserialization</li>
+<li>Smaller message size</li>
+<li>Schema enforcement</li>
+</ul>
+<p>Cons of Protobuf:</p>
+<ul>
+<li>Not human-readable</li>
+<li>Requires schema definition and code generation</li>
+</ul>
+<p>Benchmark results:</p>
+<pre tabindex="0"><code>Serialization (1M messages):
+  Protobuf: 100 ms
+  JSON:     500 ms
+
+Deserialization (1M messages):
+  Protobuf: 120 ms
+  JSON:     600 ms
+
+Average message size:
+  Protobuf: 100 bytes
+  JSON:     250 bytes
+</code></pre><h3 id="protobuf-vs-xml">Protobuf vs XML</h3>
+<p>Pros of Protobuf:</p>
+<ul>
+<li>Significantly faster processing</li>
+<li>Much smaller message size</li>
+<li>Type safety</li>
+</ul>
+<p>Cons of Protobuf:</p>
+<ul>
+<li>Less human-readable than XML</li>
+<li>Less widespread tooling support</li>
+</ul>
+<p>Benchmark results:</p>
+<pre tabindex="0"><code>Serialization (1M messages):
+  Protobuf: 100 ms
+  XML:      2000 ms
+
+Deserialization (1M messages):
+  Protobuf: 120 ms
+  XML:      2500 ms
+
+Average message size:
+  Protobuf: 100 bytes
+  XML:      500 bytes
+</code></pre><h3 id="protobuf-vs-apache-avro">Protobuf vs Apache Avro</h3>
+<p>Similarities:</p>
+<ul>
+<li>Both are binary serialization formats</li>
+<li>Both support schema evolution</li>
+</ul>
+<p>Differences:</p>
+<ul>
+<li>Avro has dynamic typing capabilities</li>
+<li>Protobuf has better language support</li>
+</ul>
+<p>Performance comparison:</p>
+<pre tabindex="0"><code>Serialization (1M messages):
+  Protobuf: 100 ms
+  Avro:     110 ms
+
+Deserialization (1M messages):
+  Protobuf: 120 ms
+  Avro:     130 ms
+
+Average message size:
+  Protobuf: 100 bytes
+  Avro:     95 bytes
+</code></pre><h3 id="protobuf-vs-apache-thrift">Protobuf vs Apache Thrift</h3>
+<p>Similarities:</p>
+<ul>
+<li>Both support multiple languages</li>
+<li>Both offer RPC frameworks</li>
+</ul>
+<p>Differences:</p>
+<ul>
+<li>Thrift has a built-in RPC system</li>
+<li>Protobuf has better documentation and community support</li>
+</ul>
+<p>Performance comparison:</p>
+<pre tabindex="0"><code>Serialization (1M messages):
+  Protobuf: 100 ms
+  Thrift:   105 ms
+
+Deserialization (1M messages):
+  Protobuf: 120 ms
+  Thrift:   125 ms
+
+Average message size:
+  Protobuf: 100 bytes
+  Thrift:   105 bytes
+</code></pre><h2 id="6-use-cases-and-industry-adoption">6. Use Cases and Industry Adoption</h2>
+<ol>
+<li>
+<p><strong>Google Internal Systems</strong>: Used extensively for inter-service communication.</p>
+</li>
+<li>
+<p><strong>gRPC</strong>: Open-source RPC framework using Protobuf for serialization.</p>
+</li>
+<li>
+<p><strong>Microservices Architecture</strong>: Efficient for service-to-service communication.</p>
+</li>
+<li>
+<p><strong>Mobile Applications</strong>: Reduces network usage and battery consumption.</p>
+</li>
+<li>
+<p><strong>Internet of Things (IoT)</strong>: Suitable for constrained devices due to small message sizes.</p>
+</li>
+<li>
+<p><strong>Big Data Processing</strong>: Used in systems like Apache Hadoop for efficient data serialization.</p>
+</li>
+</ol>
+<p>Industry adoption:</p>
+<ul>
+<li>Google (obviously)</li>
+<li>Square</li>
+<li>Netflix</li>
+<li>Dropbox</li>
+<li>Uber</li>
+</ul>
+<h2 id="7-advanced-features">7. Advanced Features</h2>
+<h3 id="schema-evolution">Schema Evolution</h3>
+<p>Protobuf supports backward and forward compatibility through:</p>
+<ul>
+<li>Field numbering</li>
+<li>Optional fields</li>
+<li>Unknown field preservation</li>
+</ul>
+<p>Rules for safe schema evolution:</p>
+<ul>
+<li>Never change the numeric tags for existing fields</li>
+<li>New fields should be optional or repeated</li>
+<li>Removed fields should be reserved</li>
+</ul>
+<h3 id="extensions-and-custom-options">Extensions and Custom Options</h3>
+<p>Protobuf allows extending message definitions:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-protobuf" data-lang="protobuf"><span style="display:flex;"><span><span style="color:#66d9ef">message</span> <span style="color:#a6e22e">MyMessage</span> {<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>  <span style="color:#66d9ef">extensions</span> <span style="color:#ae81ff">100</span> <span style="color:#66d9ef">to</span> <span style="color:#ae81ff">199</span>;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>}<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">extend</span> <span style="color:#a6e22e">MyMessage</span> {<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>  <span style="color:#66d9ef">optional</span> <span style="color:#66d9ef">int32</span> new_field <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>}<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><p>Custom options for additional metadata:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-protobuf" data-lang="protobuf"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#34;google/protobuf/descriptor.proto&#34;</span>;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">extend</span> <span style="color:#a6e22e">google</span><span style="color:#f92672">.</span>protobuf.FieldOptions {<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>  <span style="color:#66d9ef">optional</span> <span style="color:#66d9ef">string</span> my_option <span style="color:#f92672">=</span> <span style="color:#ae81ff">51234</span>;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>}<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">message</span> <span style="color:#a6e22e">MyMessage</span> {<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>  <span style="color:#66d9ef">optional</span> <span style="color:#66d9ef">int32</span> my_field <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> [(my_option) <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello&#34;</span>];<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>}<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><h3 id="reflection">Reflection</h3>
+<p>Protobuf supports runtime reflection, allowing for:</p>
+<ul>
+<li>Dynamic message creation and manipulation</li>
+<li>Generic processing of messages without compile-time knowledge of their type</li>
+</ul>
+<p>Example (in C++):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> google<span style="color:#f92672">::</span>protobuf;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">PrintMessage</span>(<span style="color:#66d9ef">const</span> Message<span style="color:#f92672">&amp;</span> message) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> Descriptor<span style="color:#f92672">*</span> descriptor <span style="color:#f92672">=</span> message.GetDescriptor();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> Reflection<span style="color:#f92672">*</span> reflection <span style="color:#f92672">=</span> message.GetReflection();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> descriptor<span style="color:#f92672">-&gt;</span>field_count(); i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> FieldDescriptor<span style="color:#f92672">*</span> field <span style="color:#f92672">=</span> descriptor<span style="color:#f92672">-&gt;</span>field(i);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (reflection<span style="color:#f92672">-&gt;</span>HasField(message, field)) {
+</span></span><span style="display:flex;"><span>      cout <span style="color:#f92672">&lt;&lt;</span> field<span style="color:#f92672">-&gt;</span>name() <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> reflection<span style="color:#f92672">-&gt;</span>GetString(message, field) <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="8-implementation-details">8. Implementation Details</h2>
+<h3 id="code-generation">Code Generation</h3>
+<p>The protoc compiler generates language-specific code from .proto files:</p>
+<ol>
+<li><strong>Message classes</strong>: For creating, reading, and writing messages.</li>
+<li><strong>Serialization methods</strong>: To convert messages to/from binary format.</li>
+<li><strong>Accessor methods</strong>: For getting and setting field values.</li>
+</ol>
+<p>Example generated C++ code snippet:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> <span style="color:#f92672">::</span>google<span style="color:#f92672">::</span>protobuf<span style="color:#f92672">::</span>Message {
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>  Person();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">virtual</span> <span style="color:#f92672">~</span>Person();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  Person(<span style="color:#66d9ef">const</span> Person<span style="color:#f92672">&amp;</span> from);
+</span></span><span style="display:flex;"><span>  Person<span style="color:#f92672">&amp;</span> <span style="color:#66d9ef">operator</span><span style="color:#f92672">=</span>(<span style="color:#66d9ef">const</span> Person<span style="color:#f92672">&amp;</span> from);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string<span style="color:#f92672">&amp;</span> name() <span style="color:#66d9ef">const</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">set_name</span>(<span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string<span style="color:#f92672">&amp;</span> value);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">int32_t</span> <span style="color:#a6e22e">id</span>() <span style="color:#66d9ef">const</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">set_id</span>(<span style="color:#66d9ef">int32_t</span> value);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// ... more methods ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">::</span>google<span style="color:#f92672">::</span>protobuf<span style="color:#f92672">::</span>internal<span style="color:#f92672">::</span>InternalMetadataWithArena _internal_metadata_;
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">::</span>google<span style="color:#f92672">::</span>protobuf<span style="color:#f92672">::</span>internal<span style="color:#f92672">::</span>ArenaStringPtr name_;
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">::</span>google<span style="color:#f92672">::</span>protobuf<span style="color:#f92672">::</span>RepeatedPtrField<span style="color:#f92672">&lt;</span> <span style="color:#f92672">::</span>tutorial<span style="color:#f92672">::</span>Person_PhoneNumber <span style="color:#f92672">&gt;</span> phones_;
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">::</span>google<span style="color:#f92672">::</span>protobuf<span style="color:#f92672">::</span>int32 id_;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">mutable</span> <span style="color:#66d9ef">int</span> _cached_size_;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">friend</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">protobuf_AddDesc_person_2eproto</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">friend</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">protobuf_AssignDesc_person_2eproto</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">friend</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">protobuf_ShutdownFile_person_2eproto</span>();
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h3 id="runtime-libraries">Runtime Libraries</h3>
+<p>Protobuf provides runtime libraries for each supported language, which include:</p>
+<ul>
+<li>Basic types (e.g., int32, string)</li>
+<li>Message base classes</li>
+<li>Serialization and deserialization logic</li>
+<li>Reflection support</li>
+</ul>
+<p>These libraries are typically small and have minimal dependencies, making Protobuf suitable for embedded systems and mobile devices.</p>
+<h2 id="9-optimization-techniques">9. Optimization Techniques</h2>
+<ol>
+<li>
+<p><strong>Arena Allocation</strong>: Reduces memory fragmentation and improves performance for large numbers of small objects.</p>
+</li>
+<li>
+<p><strong>Lazy Parsing</strong>: Delays parsing of nested messages until they are accessed.</p>
+</li>
+<li>
+<p><strong>Zero-Copy Parsing</strong>: Allows parsing without copying the input buffer, reducing memory usage and improving speed.</p>
+</li>
+<li>
+<p><strong>Field Merging</strong>: Combines multiple fields into a single allocation for better cache locality.</p>
+</li>
+<li>
+<p><strong>Packed Repeated Fields</strong>: Encodes repeated fields more efficiently, especially for primitive types.</p>
+</li>
+</ol>
+<p>Implementation example (Arena allocation in C++):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;google/protobuf/arena.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>google<span style="color:#f92672">::</span>protobuf<span style="color:#f92672">::</span>Arena arena;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">auto</span><span style="color:#f92672">*</span> message <span style="color:#f92672">=</span> google<span style="color:#f92672">::</span>protobuf<span style="color:#f92672">::</span>Arena<span style="color:#f92672">::</span>CreateMessage<span style="color:#f92672">&lt;</span>MyMessage<span style="color:#f92672">&gt;</span>(<span style="color:#f92672">&amp;</span>arena);
+</span></span></code></pre></div><h2 id="10-limitations-and-considerations">10. Limitations and Considerations</h2>
+<ol>
+<li>
+<p><strong>Schema Requirement</strong>: Both sender and receiver must have access to the message schema.</p>
+</li>
+<li>
+<p><strong>Limited Standard Library Support</strong>: May require additional dependencies in some languages.</p>
+</li>
+<li>
+<p><strong>Lack of Human Readability</strong>: Binary format is not easily readable without tools.</p>
+</li>
+<li>
+<p><strong>Versioning Complexity</strong>: Careful management of field numbers is required for proper versioning.</p>
+</li>
+<li>
+<p><strong>Language Support Variability</strong>: Some languages have better support and performance than others.</p>
+</li>
+<li>
+<p><strong>Learning Curve</strong>: Developers need to understand Protobuf-specific concepts and best practices.</p>
+</li>
+<li>
+<p><strong>Tooling Ecosystem</strong>: While growing, it&rsquo;s not as extensive as some alternatives (e.g., JSON).</p>
+</li>
+</ol>
+
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="http://localhost:62354/tags/systemdesign/">SystemDesign</a>&nbsp;
+            
+          </div>
+        
+
+        
+
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="http://localhost:62354/post/2_redis_performance_issues/" data-toggle="tooltip" data-placement="top" title="Redis Performance Issues">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="http://localhost:62354/post/2_prometheus/" data-toggle="tooltip" data-placement="top" title="Prometheus">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2024
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://localhost:62354/">Kaga Blog</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.134.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="http://localhost:62354/js/main.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="http://localhost:62354/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

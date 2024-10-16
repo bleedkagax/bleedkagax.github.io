@@ -1,0 +1,513 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=62354&amp;path=livereload" data-no-instant defer></script>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Go Pprof - </title>
+
+  <meta name="description" content="Overview of Pprof
+pprof is a tool that comes with Go&rsquo;s standard library and is used for collecting and viewing profiling data. It can collect different types of profiles including:
+
+CPU Profile: Measures where the program spends most of its time.
+Memory Profile: Measures the amount of memory allocated and retained.
+Block Profile: Measures where the program spends time waiting for synchronization primitives.
+Mutex Profile: Measures contention on mutexes.
+
+Setting Up pprof
+To use pprof, you need to import the net/http/pprof package and set up HTTP server to serve the profiling data."><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Kaga Blog",
+    
+    "url": "http:\/\/localhost:62354\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "http:\/\/localhost:62354\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "http:\/\/localhost:62354\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "http:\/\/localhost:62354\/post\/3_go_pprof\/",
+          "name": "Go pprof"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "Go Pprof",
+  "description" : "Overview of Pprof pprof is a tool that comes with Go\u0026rsquo;s standard library and is used for collecting and viewing profiling data. It can collect different types of profiles including:\nCPU Profile: Measures where the program spends most of its time. Memory Profile: Measures the amount of memory allocated and retained. Block Profile: Measures where the program spends time waiting for synchronization primitives. Mutex Profile: Measures contention on mutexes. Setting Up pprof To use pprof, you need to import the net\/http\/pprof package and set up HTTP server to serve the profiling data.\n",
+  "inLanguage" : "en",
+  "wordCount":  881 ,
+  "datePublished" : "2024-09-12T00:00:00\u002b00:00",
+  "dateModified" : "2024-09-12T00:00:00\u002b00:00",
+  "image" : "http:\/\/localhost:62354\/",
+  "keywords" : [ "Golang" ],
+  "mainEntityOfPage" : "http:\/\/localhost:62354\/post\/3_go_pprof\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "http:\/\/localhost:62354\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "http:\/\/localhost:62354\/",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="Go Pprof" />
+<meta property="og:description" content="Overview of Pprof
+pprof is a tool that comes with Go&rsquo;s standard library and is used for collecting and viewing profiling data. It can collect different types of profiles including:
+
+CPU Profile: Measures where the program spends most of its time.
+Memory Profile: Measures the amount of memory allocated and retained.
+Block Profile: Measures where the program spends time waiting for synchronization primitives.
+Mutex Profile: Measures contention on mutexes.
+
+Setting Up pprof
+To use pprof, you need to import the net/http/pprof package and set up HTTP server to serve the profiling data.">
+<meta property="og:url" content="http://localhost:62354/post/3_go_pprof/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Kaga Blog" />
+
+  <meta name="twitter:title" content="Go Pprof" />
+  <meta name="twitter:description" content="Overview of Pprof
+pprof is a tool that comes with Go&rsquo;s standard library and is used for collecting and viewing profiling data. It can collect different types of profiles including:
+
+CPU Profile: …">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="generator" content="Hugo 0.134.0">
+  <link rel="alternate" href="http://localhost:62354/index.xml" type="application/rss+xml" title="Kaga Blog"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="http://localhost:62354/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="http://localhost:62354/css/syntax.css" /><link rel="stylesheet" href="http://localhost:62354/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://localhost:62354/">Kaga Blog</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Go Pprof</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on September 12, 2024
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h1 id="overview-of-pprof">Overview of Pprof</h1>
+<p><code>pprof</code> is a tool that comes with Go&rsquo;s standard library and is used for collecting and viewing profiling data. It can collect different types of profiles including:</p>
+<ul>
+<li><strong>CPU Profile</strong>: Measures where the program spends most of its time.</li>
+<li><strong>Memory Profile</strong>: Measures the amount of memory allocated and retained.</li>
+<li><strong>Block Profile</strong>: Measures where the program spends time waiting for synchronization primitives.</li>
+<li><strong>Mutex Profile</strong>: Measures contention on mutexes.</li>
+</ul>
+<h1 id="setting-up-pprof">Setting Up pprof</h1>
+<p>To use <code>pprof</code>, you need to import the <code>net/http/pprof</code> package and set up HTTP server to serve the profiling data.</p>
+<h2 id="step-1-import-the-pprof-package">Step 1: Import the pprof Package</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;net/http&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">_</span> <span style="color:#e6db74">&#34;net/http/pprof&#34;</span> <span style="color:#75715e">// This blank import enables the HTTP endpoints for `pprof`
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>)
+</span></span></code></pre></div><h2 id="step-2-start-the-http-server">Step 2: Start the HTTP Server</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// The ListenAndServe function starts the HTTP server. It never returns.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// We use `log.Fatal` here to ensure that the program will exit if the server fails to start.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;localhost:6060&#34;</span>, <span style="color:#66d9ef">nil</span>))
+</span></span><span style="display:flex;"><span>    }()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Your application logic here...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><h1 id="writing-code-to-profile">Writing Code to Profile</h1>
+<p>For demonstration, we&rsquo;ll use a CPU-intensive function.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">expensiveFunction</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#ae81ff">1000000</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Simulating some CPU intensive computation
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;localhost:6060&#34;</span>, <span style="color:#66d9ef">nil</span>))
+</span></span><span style="display:flex;"><span>    }()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Call the function multiple times to simulate CPU usage
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#ae81ff">10</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">expensiveFunction</span>()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h1 id="profiling-the-application">Profiling the Application</h1>
+<p>After running your program, you can access the <code>pprof</code> HTTP endpoints at <code>http://localhost:6060/debug/pprof/</code>.</p>
+<h2 id="profiling-cpu-usage">Profiling CPU Usage</h2>
+<ol>
+<li><strong>Generate a CPU profile</strong> by visiting <code>http://localhost:6060/debug/pprof/profile</code> in your browser.</li>
+<li><strong>Capture the profile</strong> by setting the duration for which you want to collect the profile. For example, you can set it to 30 seconds.</li>
+</ol>
+<h2 id="profiling-memory-usage">Profiling Memory Usage</h2>
+<ol>
+<li><strong>Generate a memory profile</strong> by visiting <code>http://localhost:6060/debug/pprof/heap</code> in your browser.</li>
+<li><strong>Capture the profile</strong> and download the snapshot.</li>
+</ol>
+<h1 id="analyzing-the-profile">Analyzing the Profile</h1>
+<p>Use the <code>go tool pprof</code> command to analyze the profile.</p>
+<h2 id="analyzing-cpu-profile">Analyzing CPU Profile</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>go tool pprof http://localhost:6060/debug/pprof/profile
+</span></span></code></pre></div><p>Use various commands to explore the data:</p>
+<ul>
+<li><code>top</code>: Lists the top functions by self or total CPU time.</li>
+<li><code>list &lt;function_name&gt;</code>: Shows the source code of a specific function.</li>
+<li><code>web</code>: Opens an interactive web visualization of the call graph.</li>
+</ul>
+<h2 id="analyzing-memory-profile">Analyzing Memory Profile</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>go tool pprof http://localhost:6060/debug/pprof/heap
+</span></span></code></pre></div><h2 id="analyzing-concurrency-performance">Analyzing concurrency performance</h2>
+<h3 id="step-1-enablepprofhttp-endpoints">Step 1: Enable pprof HTTP Endpoints</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;net/http&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">_</span> <span style="color:#e6db74">&#34;net/http/pprof&#34;</span> <span style="color:#75715e">// This blank import enables the HTTP endpoints for `pprof`
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#e6db74">&#34;log&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;time&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">startProfiler</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Start the HTTP server on a different goroutine
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;localhost:6060&#34;</span>, <span style="color:#66d9ef">nil</span>))
+</span></span><span style="display:flex;"><span>    }()
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="step-2-write-concurrent-code">Step 2: Write Concurrent Code</h3>
+<p>Create a Go program that uses concurrency features like goroutines and channels.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">worker</span>(<span style="color:#a6e22e">id</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">done</span> <span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">bool</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// Simulating work by sleeping for a bit.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Sleep</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Millisecond</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// Log the work being processed.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;Worker %d is processing\n&#34;</span>, <span style="color:#a6e22e">id</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// Signal that the work is done.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#a6e22e">done</span> <span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">startProfiler</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">numWorkers</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">10000</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">done</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">bool</span>, <span style="color:#a6e22e">numWorkers</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">numWorkers</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">go</span> <span style="color:#a6e22e">worker</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">done</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">numWorkers</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">done</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="step-3-collect-concurrency-profiles">Step 3: Collect Concurrency Profiles</h3>
+<h4 id="mutex-profile">Mutex Profile</h4>
+<ol>
+<li>
+<p><strong>Run the Mutex Profiler</strong>: Access <code>http://localhost:6060/debug/pprof/mutex</code> to view the mutex profile, which shows contention points for mutexes.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>go tool pprof http://localhost:6060/debug/pprof/mutex
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Analyze Contention</strong>: Look for high <code>contention</code> values, which indicate that goroutines are frequently blocked waiting for a mutex.</p>
+</li>
+</ol>
+<h4 id="goroutine-profile">Goroutine Profile</h4>
+<ol>
+<li>
+<p><strong>Run the Goroutine Profiler</strong>: Access <code>http://localhost:6060/debug/pprof/goroutine</code> to get a report of all current goroutines.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>go tool pprof http://localhost:6060/debug/pprof/goroutine
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Analyze Goroutine Counts</strong>: Check for an unusually high number of goroutines, which might indicate a leak.</p>
+</li>
+</ol>
+<h3 id="step-4-usepprofto-analyze-data">Step 4: Use pprof to Analyze Data</h3>
+<p>Use the <code>top</code> <code>list</code> <code>web</code> command</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">(</span>pprof<span style="color:#f92672">)</span> top
+</span></span><span style="display:flex;"><span>Showing nodes accounting <span style="color:#66d9ef">for</span> 77021, 96.14% of <span style="color:#ae81ff">80112</span> total
+</span></span><span style="display:flex;"><span>top - 15:25:56 up  1:15,  <span style="color:#ae81ff">0</span> users,  load average: 2.18, 2.84, 2.41
+</span></span><span style="display:flex;"><span>Tasks:  <span style="color:#ae81ff">17</span> total,   <span style="color:#ae81ff">1</span> running,  <span style="color:#ae81ff">15</span> sleeping,   <span style="color:#ae81ff">0</span> stopped,   <span style="color:#ae81ff">1</span> zombie
+</span></span><span style="display:flex;"><span>%Cpu<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span>: 50.1 us, 11.5 sy,  0.0 ni, 37.4 id,  0.0 wa,  0.0 hi,  1.0 si,  0.0 st
+</span></span><span style="display:flex;"><span>MiB Mem :   7950.9 total,   4956.1 free,   2293.5 used,    701.4 buff/cache
+</span></span><span style="display:flex;"><span>MiB Swap:      0.0 total,      0.0 free,      0.0 used.   5196.8 avail Mem 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND                                                                              
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">135</span> user      <span style="color:#ae81ff">20</span>   <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">1717788</span> <span style="color:#ae81ff">847608</span>  <span style="color:#ae81ff">10480</span> S   4.3  10.4   2:34.51 node                                                                                 
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">6</span> user      <span style="color:#ae81ff">20</span>   <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">954168</span>  <span style="color:#ae81ff">88244</span>   <span style="color:#ae81ff">9608</span> S   3.0   1.1   1:21.68 node                                                                                                             
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">295</span> user      <span style="color:#ae81ff">20</span>   <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">899088</span>  <span style="color:#ae81ff">16332</span>   <span style="color:#ae81ff">1264</span> S   0.0   0.2   0:00.99 nodemon                                                                              
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">324</span> user      <span style="color:#ae81ff">20</span>   <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">503980</span>  <span style="color:#ae81ff">12852</span>      <span style="color:#ae81ff">0</span> S   0.0   0.2   0:00.49 nixd                                                                                 
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">439</span> user      <span style="color:#ae81ff">20</span>   <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">684016</span>  <span style="color:#ae81ff">73544</span>      <span style="color:#ae81ff">0</span> S   0.0   0.9   0:00.87 nixd-attrset-ev        
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">3949</span> user      <span style="color:#ae81ff">20</span>   <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">223960</span>   <span style="color:#ae81ff">2840</span>   <span style="color:#ae81ff">1952</span> S   0.0   0.0   0:00.06 bash                                                                                 
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">7542</span> user      <span style="color:#ae81ff">20</span>   <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">1524220</span>  <span style="color:#ae81ff">75852</span>      <span style="color:#ae81ff">0</span> S   0.0   0.9   0:10.57 gopls                                                                                
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">9074</span> user      <span style="color:#ae81ff">20</span>   <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">223960</span>   <span style="color:#ae81ff">2560</span>   <span style="color:#ae81ff">1668</span> S   0.0   0.0   0:00.09 bash     
+</span></span></code></pre></div><h3 id="step-5-optimize-concurrency">Step 5: Optimize Concurrency</h3>
+<ol>
+<li><strong>Reduce Lock Contention</strong>: Redesign your code to reduce the need for locking or use finer-grained locks.</li>
+<li><strong>Optimize Channel Usage</strong>: Ensure that channel operations are efficient and that goroutines are not blocked waiting for channel operations unnecessarily.</li>
+<li><strong>Limit Goroutine Creation</strong>: Use a pool of worker goroutines or limit the creation of new goroutines.</li>
+<li><strong>Avoid Blocking Operations</strong>: Ensure that blocking operations are handled correctly and do not unnecessarily block other goroutines.</li>
+</ol>
+<h1 id="conclusion">Conclusion</h1>
+<p><code>pprof</code> is a powerful tool for understanding and optimizing the performance of your Go applications.</p>
+<h1 id="additional-resources">Additional Resources</h1>
+<ul>
+<li><a href="https://pkg.go.dev/net/http/pprof">Go <code>pprof</code> documentation</a></li>
+<li><a href="https://github.com/golang/go/tree/master/src/net/http/pprof">Go <code>pprof</code> GitHub repository</a></li>
+</ul>
+
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="http://localhost:62354/tags/golang/">Golang</a>&nbsp;
+            
+          </div>
+        
+
+        
+
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="http://localhost:62354/post/1_redis_pika_codis/" data-toggle="tooltip" data-placement="top" title="Redis, Pika, and Codis">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="http://localhost:62354/post/0_system_design/" data-toggle="tooltip" data-placement="top" title="System Design">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2024
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://localhost:62354/">Kaga Blog</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.134.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="http://localhost:62354/js/main.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="http://localhost:62354/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

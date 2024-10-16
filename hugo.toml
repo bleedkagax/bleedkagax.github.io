@@ -8,9 +8,7 @@ theme = 'beautifulhugo'
   [[module.imports]]
     path = "github.com/halogenica/beautifulhugo"    
 [params]
-  [params.mermaid]
-    js_url = 'https://cdn.jsdelivr.net/npm/mermaid@latest/dist/mermaid.esm.min.mjs'
-
+  mermaid = true
 
 
 

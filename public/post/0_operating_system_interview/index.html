@@ -1,0 +1,582 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=62354&amp;path=livereload" data-no-instant defer></script>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Operating System Interview - </title>
+
+  <meta name="description" content="Explain the difference between a process and a thread.
+
+
+Process:
+
+Independent execution unit
+Has its own memory space
+Heavyweight, more resources
+Isolated from other processes
+
+
+
+Thread:
+
+Lightweight unit of execution within a process
+Shares memory space with other threads in the same process
+Less resource-intensive
+Can communicate easily with other threads in the same process
+
+
+
+How do processes and threads communicate
+Process communication methods:"><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Kaga Blog",
+    
+    "url": "http:\/\/localhost:62354\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "http:\/\/localhost:62354\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "http:\/\/localhost:62354\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "http:\/\/localhost:62354\/post\/0_operating_system_interview\/",
+          "name": "Operating system interview"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "Operating System Interview",
+  "description" : "Explain the difference between a process and a thread. Process:\nIndependent execution unit Has its own memory space Heavyweight, more resources Isolated from other processes Thread:\nLightweight unit of execution within a process Shares memory space with other threads in the same process Less resource-intensive Can communicate easily with other threads in the same process How do processes and threads communicate Process communication methods:\n",
+  "inLanguage" : "en",
+  "wordCount":  1079 ,
+  "datePublished" : "2024-10-04T00:00:00\u002b00:00",
+  "dateModified" : "2024-10-04T00:00:00\u002b00:00",
+  "image" : "http:\/\/localhost:62354\/",
+  "keywords" : [ "OperatingSystem" ],
+  "mainEntityOfPage" : "http:\/\/localhost:62354\/post\/0_operating_system_interview\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "http:\/\/localhost:62354\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "http:\/\/localhost:62354\/",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="Operating System Interview" />
+<meta property="og:description" content="Explain the difference between a process and a thread.
+
+
+Process:
+
+Independent execution unit
+Has its own memory space
+Heavyweight, more resources
+Isolated from other processes
+
+
+
+Thread:
+
+Lightweight unit of execution within a process
+Shares memory space with other threads in the same process
+Less resource-intensive
+Can communicate easily with other threads in the same process
+
+
+
+How do processes and threads communicate
+Process communication methods:">
+<meta property="og:url" content="http://localhost:62354/post/0_operating_system_interview/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Kaga Blog" />
+
+  <meta name="twitter:title" content="Operating System Interview" />
+  <meta name="twitter:description" content="Explain the difference between a process and a thread.
+
+
+Process:
+
+Independent execution unit
+Has its own memory space
+Heavyweight, more resources
+Isolated from other processes
+
+
+
+Thread:
+
+Lightweight …">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="generator" content="Hugo 0.134.0">
+  <link rel="alternate" href="http://localhost:62354/index.xml" type="application/rss+xml" title="Kaga Blog"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="http://localhost:62354/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="http://localhost:62354/css/syntax.css" /><link rel="stylesheet" href="http://localhost:62354/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://localhost:62354/">Kaga Blog</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Operating System Interview</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on October 4, 2024
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="explain-the-difference-between-a-process-and-a-thread">Explain the difference between a process and a thread.</h2>
+<ul>
+<li>
+<p>Process:</p>
+<ul>
+<li>Independent execution unit</li>
+<li>Has its own memory space</li>
+<li>Heavyweight, more resources</li>
+<li>Isolated from other processes</li>
+</ul>
+</li>
+<li>
+<p>Thread:</p>
+<ul>
+<li>Lightweight unit of execution within a process</li>
+<li>Shares memory space with other threads in the same process</li>
+<li>Less resource-intensive</li>
+<li>Can communicate easily with other threads in the same process</li>
+</ul>
+</li>
+</ul>
+<h2 id="how-do-processes-and-threads-communicate">How do processes and threads communicate</h2>
+<p>Process communication methods:</p>
+<ul>
+<li>Pipes and named pipes</li>
+<li>Shared memory</li>
+<li>Message queues</li>
+<li>Sockets</li>
+<li>Signals</li>
+</ul>
+<p>Thread communication methods:</p>
+<ul>
+<li>Shared memory within the same process</li>
+<li>Mutex and semaphores for synchronization</li>
+<li>Condition variables</li>
+</ul>
+<h2 id="explain-the-concept-of-deadlock-and-its-four-necessary-conditions">Explain the concept of deadlock and its four necessary conditions.</h2>
+<p>Deadlock is a situation where a set of processes are blocked because each process is holding a resource and waiting to acquire a resource held by another process.</p>
+<p>Four necessary conditions (Coffman conditions):</p>
+<ol>
+<li>Mutual Exclusion: At least one resource must be held in a non-sharable mode</li>
+<li>Hold and Wait: A process must be holding at least one resource while waiting to acquire additional resources held by other processes</li>
+<li>No Preemption: Resources cannot be forcibly taken away from a process; they must be released voluntarily</li>
+<li>Circular Wait: A circular chain of two or more processes, each waiting for a resource held by the next member in the chain</li>
+</ol>
+<h2 id="what-is-the-purpose-of-paging-in-an-operating-system">What is the purpose of paging in an operating system?</h2>
+<p>Paging is a memory management scheme that eliminates the need for contiguous allocation of physical memory. It allows the physical address space of a process to be non-contiguous.</p>
+<p>Benefits:</p>
+<ul>
+<li>Efficient use of memory</li>
+<li>Supports virtual memory</li>
+<li>Simplifies memory allocation</li>
+</ul>
+<p>Paging Overview</p>
+<pre tabindex="0"><code>[Logical Address Space]     [Page Table]     [Physical Address Space]
++------------------+        +----------+     +------------------+
+|      Page 0      | -----&gt; | Frame 2  | --&gt; |     Frame 0      |
++------------------+        +----------+     +------------------+
+|      Page 1      | -----&gt; | Frame 4  | --&gt; |     Frame 1      |
++------------------+        +----------+     +------------------+
+|      Page 2      | -----&gt; | Frame 1  | --&gt; |     Frame 2      |
++------------------+        +----------+     +------------------+
+|      Page 3      | -----&gt; | Frame 7  | --&gt; |     Frame 3      |
++------------------+        +----------+     +------------------+
+                                             |     Frame 4      |
+                                             +------------------+
+                                             |     Frame 5      |
+                                             +------------------+
+                                             |     Frame 6      |
+                                             +------------------+
+                                             |     Frame 7      |
+                                             +------------------+
+</code></pre><p>Logical pages are mapped to physical frames through a page table. Note that pages can be stored in non-contiguous frames.</p>
+<p>Address Translation</p>
+<pre tabindex="0"><code>[Logical Address]
++----------------+----------------+
+|    Page No.    |    Offset      |
++----------------+----------------+
+       |                 |
+       |                 |
+       V                 |
+ [Page Table]            |
++----------------+       |
+| Frame Number   |       |
++----------------+       |
+       |                 |
+       |                 |
+       V                 V
++----------------+----------------+
+|  Frame Number  |    Offset      |
++----------------+----------------+
+[Physical Address]
+</code></pre><p>Virtual Memory with Paging</p>
+<pre tabindex="0"><code>[Virtual Address Space]   [Physical Memory]   [Disk Storage]
++------------------+      +---------------+   +-------------+
+|      Page 0      | ---&gt; |    Frame 0    |   |   Page 3    |
++------------------+      +---------------+   +-------------+
+|      Page 1      | ---&gt; |    Frame 2    |   |   Page 5    |
++------------------+      +---------------+   +-------------+
+|      Page 2      | ---&gt; |    Frame 1    |   |   Page 6    |
++------------------+      +---------------+   +-------------+
+|      Page 3      | --.  |    Frame 3    |   |    ...      |
++------------------+   |  +---------------+   +-------------+
+|      Page 4      | ---&gt; |    Frame 4    |
++------------------+      +---------------+
+|      Page 5      | --.
++------------------+   |
+|      Page 6      | --.
++------------------+
+</code></pre><p>Paging supports virtual memory. Some pages are in physical memory, while others are stored on disk and can be swapped in when needed.</p>
+<h2 id="explain-the-difference-between-preemptive-and-non-preemptive-scheduling">Explain the difference between preemptive and non-preemptive scheduling.</h2>
+<ul>
+<li>
+<p>Preemptive Scheduling:</p>
+<ul>
+<li>The CPU can be taken away from a process before it finishes its burst time</li>
+<li>Better for time-sharing systems</li>
+<li>Can lead to race conditions if not properly managed</li>
+</ul>
+</li>
+<li>
+<p>Non-preemptive Scheduling:</p>
+<ul>
+<li>Once the CPU has been allocated to a process, the process keeps it until it releases the CPU either by terminating or by switching to the waiting state</li>
+<li>Simpler to implement</li>
+<li>Can lead to poor response time for interactive processes</li>
+</ul>
+</li>
+</ul>
+<h2 id="what-is-a-system-call">What is a system call?</h2>
+<p>A system call is the programmatic way in which a computer program requests a service from the kernel of the operating system. System calls provide an essential interface between a process and the operating system.</p>
+<p>Examples of system calls:</p>
+<ul>
+<li>File operations (open, read, write, close)</li>
+<li>Process control (fork, exec, exit)</li>
+<li>Device management</li>
+<li>Information maintenance</li>
+<li>Communication</li>
+</ul>
+<h2 id="explain-the-concept-of-thrashing">Explain the concept of thrashing.</h2>
+<p>Thrashing is a condition where excessive paging operations are taking place. It occurs when a computer&rsquo;s virtual memory subsystem is in a constant state of paging, rapidly exchanging data in memory for data on disk, to the exclusion of most application-level processing.</p>
+<p>Causes:</p>
+<ul>
+<li>Insufficient physical memory</li>
+<li>Poor page replacement algorithms</li>
+<li>Large working sets</li>
+</ul>
+<h2 id="what-is-the-purpose-of-a-semaphore">What is the purpose of a semaphore?</h2>
+<p>A semaphore is a variable or abstract data type used to control access to a common resource by multiple processes in a concurrent system. It&rsquo;s used for process synchronization and to solve critical section problems.</p>
+<p>Types:</p>
+<ul>
+<li>Binary Semaphore (mutex): Can have only 0 or 1 as value</li>
+<li>Counting Semaphore: Can have any non-negative value</li>
+</ul>
+<h2 id="what-is-memory-fragmentation-how-does-it-occur-and-how-is-it-solved">What is memory fragmentation, how does it occur, and how is it solved?</h2>
+<p>Memory fragmentation refers to the condition where memory space is broken into small, unusable blocks, reducing overall memory utilization efficiency.</p>
+<p>How it occurs:</p>
+<ul>
+<li>External fragmentation: Frequent allocation and deallocation of memory blocks leaves small, unusable gaps between allocated blocks</li>
+<li>Internal fragmentation: Fixed-size memory allocation schemes may allocate more memory than required, leaving unused space within allocated blocks</li>
+</ul>
+<p>Solutions:</p>
+<ul>
+<li>Compaction: Relocating allocated memory blocks to create larger contiguous free spaces</li>
+<li>Paging: Dividing memory into fixed-size pages, eliminating external fragmentation</li>
+<li>Memory pools: Pre-allocating fixed-size memory blocks for specific uses</li>
+<li>Garbage collection: Automatically freeing unused memory and reorganizing remaining objects</li>
+</ul>
+<h2 id="what-are-virtual-memory-and-physical-memory-in-operating-systems">What are virtual memory and physical memory in operating systems?</h2>
+<p>Virtual memory is an abstraction of physical memory that provides each process with the illusion of having its own large, contiguous address space.</p>
+<p>Physical memory refers to the actual RAM(Random-access memory) installed in a computer.</p>
+<p>Key points:</p>
+<ul>
+<li>Virtual memory allows programs to use more memory than physically available</li>
+<li>It maps virtual addresses to physical addresses or disk storage</li>
+<li>Enables memory protection between processes</li>
+<li>Simplifies memory management for programmers</li>
+</ul>
+<h2 id="explain-kernel-mode-and-user-mode-in-operating-systems">Explain kernel mode and user mode in operating systems</h2>
+<p>Kernel mode and user mode are privilege levels in which code executes:</p>
+<p>Kernel mode:</p>
+<ul>
+<li>Has unrestricted access to hardware and system resources</li>
+<li>Can execute privileged instructions</li>
+<li>Used by the operating system kernel and device drivers</li>
+</ul>
+<p>User mode:</p>
+<ul>
+<li>Has limited access to system resources</li>
+<li>Cannot execute privileged instructions directly</li>
+<li>Used by application programs</li>
+</ul>
+<p>Switching between modes:</p>
+<ul>
+<li>System calls trigger a switch from user mode to kernel mode</li>
+<li>Return from system calls switches back to user mode</li>
+</ul>
+
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="http://localhost:62354/tags/operatingsystem/">OperatingSystem</a>&nbsp;
+            
+          </div>
+        
+
+        
+
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="http://localhost:62354/post/2_subnet/" data-toggle="tooltip" data-placement="top" title="Subnet and Subnet">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="http://localhost:62354/post/1_network_protocols/" data-toggle="tooltip" data-placement="top" title="Network Protocols">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2024
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://localhost:62354/">Kaga Blog</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.134.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="http://localhost:62354/js/main.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="http://localhost:62354/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+
