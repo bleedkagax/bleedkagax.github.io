@@ -1,0 +1,20 @@
+{{- if or (.Params.mermaid) (site.Params.mermaid) -}}
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>
+<script>
+  (function () {
+    var blocks = document.querySelectorAll('pre > code.language-mermaid');
+    blocks.forEach(function (code) {
+      var pre = code.parentElement;
+      if (!pre) return;
+      var container = document.createElement('div');
+      container.className = 'mermaid';
+      container.textContent = code.textContent || '';
+      pre.replaceWith(container);
+    });
+  })();
+</script>
+{{- end -}}
+

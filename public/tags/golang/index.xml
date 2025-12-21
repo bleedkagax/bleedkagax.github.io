@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Golang on Kaga Blog</title><link>https://bleedkagax.github.io/tags/golang/</link><description>Recent content in Golang on Kaga Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 11 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bleedkagax.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml"/><item><title>Go's Common Data Structures</title><link>https://bleedkagax.github.io/post/1_go_data_structure/</link><pubDate>Fri, 11 Oct 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/1_go_data_structure/</guid><description>&lt;h2 id="1-strings">1. Strings&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Golang on Kaga Blog</title><link>https://bleedkagax.github.io/tags/golang/</link><description>Recent content in Golang on Kaga Blog</description><generator>Hugo -- 0.134.0</generator><language>en-us</language><lastBuildDate>Fri, 11 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bleedkagax.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml"/><item><title>Go's Common Data Structures</title><link>https://bleedkagax.github.io/post/1_go_data_structure/</link><pubDate>Fri, 11 Oct 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/1_go_data_structure/</guid><description>&lt;h2 id="1-strings">1. Strings&lt;/h2>
 &lt;p>Strings in Go are immutable sequences of bytes, typically used to represent UTF-8 encoded text.&lt;/p>
 &lt;h3 id="structure">Structure&lt;/h3>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">type&lt;/span> &lt;span style="color:#a6e22e">stringStruct&lt;/span> &lt;span style="color:#66d9ef">struct&lt;/span> {
@@ -31,15 +31,15 @@
 &lt;li>&lt;strong>Objects&lt;/strong>: Individual allocated pieces of memory.&lt;/li>
 &lt;/ol>
 &lt;pre class="mermaid">
- graph TD
-	 Heap --&amp;gt; Span1[Span 1]
-	 Heap --&amp;gt; Span2[Span 2]
-	 Heap --&amp;gt; Span3[Span 3]
-	 Span1 --&amp;gt; Obj1[Object 1]
-	 Span1 --&amp;gt; Obj2[Object 2]
-	 Span2 --&amp;gt; Obj3[Object 3]
-	 Span2 --&amp;gt; Obj4[Object 4]
-	 Span3 --&amp;gt; Obj5[Object 5]
+graph TD
+Heap --&amp;gt; Span1[Span 1]
+Heap --&amp;gt; Span2[Span 2]
+Heap --&amp;gt; Span3[Span 3]
+Span1 --&amp;gt; Obj1[Object 1]
+Span1 --&amp;gt; Obj2[Object 2]
+Span2 --&amp;gt; Obj3[Object 3]
+Span2 --&amp;gt; Obj4[Object 4]
+Span3 --&amp;gt; Obj5[Object 5]
 &lt;/pr</description></item><item><title>Go's GMP Model</title><link>https://bleedkagax.github.io/post/7_go_gmp_model/</link><pubDate>Tue, 01 Oct 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/7_go_gmp_model/</guid><description>&lt;h3 id="what-is-the-gpm-model-in-go">What is the GPM model in Go?&lt;/h3>
 &lt;h4 id="gmp-model">GMP Model&lt;/h4>
 &lt;p>The GMP model is the cornerstone of Go&amp;rsquo;s runtime scheduler.&lt;/p>
@@ -65,45 +65,45 @@
 &lt;p>Go uses a module system for dependency management. The &lt;code>go.mod&lt;/code> file specifies the module&amp;rsquo;s dependencies and their versions. The &lt;code>go get&lt;/code> command is used to download and install dependencies.&lt;/p>
 &lt;h3 id="what-is-the-difference-between-go-run-and-go-build-">What is the difference between &lt;code>go run&lt;/code> and &lt;code>go build&lt;/code> ?&lt;/h3>
 &lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th style="text-align: left">Feature&lt;/th>
- &lt;th style="text-align: left">&lt;code>go run&lt;/code>&lt;/th>
- &lt;th style="text-align: left">&lt;code>go build&lt;/code>&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td style="text-align: left">&lt;strong>Purpose&lt;/strong>&lt;/td>
- &lt;td style="text-align: left">Compile and run in one step&lt;/td>
- &lt;td style="text-align: left">Compile to a permanent executable&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">&lt;strong>Output&lt;/strong>&lt;/td>
- &lt;td style="text-align: left">Temporary executable (deleted)&lt;/td>
- &lt;td style="text-align: left">Permanent executable on disk&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">&lt;strong>Use Case&lt;/strong>&lt;/td>
- &lt;td style="text-align: left">Quick testing of small programs&lt;/td>
- &lt;td style="text-align: left">Building applications for deployment&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">&lt;strong>Performance&lt;/strong>&lt;/td>
- &lt;td style="text-align: left">Slower due to temporary compilation&lt;/td>
- &lt;td style="text-align: left">Faster execution of compiled binary&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">&lt;strong>Debugging&lt;/strong>&lt;/td>
- &lt;td style="text-align: left">Limited debugging capabilities&lt;/td>
- &lt;td style="text-align: left">Supports debugging and profiling&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">&lt;strong>Configuration Options&lt;/strong>&lt;/td>
- &lt;td style="text-align: left">None&lt;/td>
- &lt;td style="text-align: left">Various options for customization&lt;/td>
- &lt;/tr>
- &lt;/tbody>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align: left">Feature&lt;/th>
+&lt;th style="text-align: left">&lt;code>go run&lt;/code>&lt;/th>
+&lt;th style="text-align: left">&lt;code>go build&lt;/code>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align: left">&lt;strong>Purpose&lt;/strong>&lt;/td>
+&lt;td style="text-align: left">Compile and run in one step&lt;/td>
+&lt;td style="text-align: left">Compile to a permanent executable&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;strong>Output&lt;/strong>&lt;/td>
+&lt;td style="text-align: left">Temporary executable (deleted)&lt;/td>
+&lt;td style="text-align: left">Permanent executable on disk&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;strong>Use Case&lt;/strong>&lt;/td>
+&lt;td style="text-align: left">Quick testing of small programs&lt;/td>
+&lt;td style="text-align: left">Building applications for deployment&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;strong>Performance&lt;/strong>&lt;/td>
+&lt;td style="text-align: left">Slower due to temporary compilation&lt;/td>
+&lt;td style="text-align: left">Faster execution of compiled binary&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;strong>Debugging&lt;/strong>&lt;/td>
+&lt;td style="text-align: left">Limited debugging capabilities&lt;/td>
+&lt;td style="text-align: left">Supports debugging and profiling&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;strong>Configuration Options&lt;/strong>&lt;/td>
+&lt;td style="text-align: left">None&lt;/td>
+&lt;td style="text-align: left">Various options for customization&lt;/td>
+&lt;/tr>
+&lt;/tbody>
 &lt;/table>
 &lt;ul>
 &lt;li>Use &lt;strong>&lt;code>go run&lt;/code>&lt;/strong> for quick tests and development.&lt;/li>
@@ -130,11 +130,11 @@
 &lt;li>&lt;strong>Sweep&lt;/strong>: Reclaiming memory from dead objects.&lt;/li>
 &lt;/ol>
 &lt;pre class="mermaid">
- graph LR
-	 A[Mark Setup] --&amp;gt; B[Marking]
-	 B --&amp;gt; C[Mark Termination]
-	 C --&amp;gt; D[Sweep]
-	 D --&amp;gt; A
+graph LR
+A[Mark Setup] --&amp;gt; B[Marking]
+B --&amp;gt; C[Mark Termination]
+C --&amp;gt; D[Sweep]
+D --&amp;gt; A
 &lt;/pr</description></item><item><title>Go's Sync</title><link>https://bleedkagax.github.io/post/5_sync/</link><pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/5_sync/</guid><description>&lt;h2 id="syncmutex">&lt;code>sync.Mutex&lt;/code>&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// Mutex provides mutual exclusion for shared resources.
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">type&lt;/span> &lt;span style="color:#a6e22e">Mutex&lt;/span> &lt;span style="color:#66d9ef">struct&lt;/span> {

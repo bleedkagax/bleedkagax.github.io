@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Network on Kaga Blog</title><link>https://bleedkagax.github.io/tags/network/</link><description>Recent content in Network on Kaga Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bleedkagax.github.io/tags/network/index.xml" rel="self" type="application/rss+xml"/><item><title>Network Interview</title><link>https://bleedkagax.github.io/post/0_network_interview/</link><pubDate>Fri, 04 Oct 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/0_network_interview/</guid><description>&lt;h2 id="what-is-the-osi-model">What is the OSI model?&lt;/h2>
-&lt;p>&lt;img src="https://bleedkagax.github.io/img/0_network_interview.png" alt="">&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Network on Kaga Blog</title><link>https://bleedkagax.github.io/tags/network/</link><description>Recent content in Network on Kaga Blog</description><generator>Hugo -- 0.134.0</generator><language>en-us</language><lastBuildDate>Fri, 04 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bleedkagax.github.io/tags/network/index.xml" rel="self" type="application/rss+xml"/><item><title>Network Interview</title><link>https://bleedkagax.github.io/post/0_network_interview/</link><pubDate>Fri, 04 Oct 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/0_network_interview/</guid><description>&lt;h2 id="what-is-the-osi-model">What is the OSI model?&lt;/h2>
+&lt;p>&lt;img loading="lazy" src="https://bleedkagax.github.io/img/0_network_interview.png" alt="" />
+&lt;/p>
 &lt;ol>
 &lt;li>Physical Layer&lt;/li>
 &lt;li>Data Link Layer&lt;/li>
@@ -22,7 +23,8 @@
 &lt;/ul>
 &lt;/li>
 &lt;li>
-&lt;p>UDP (User Datagram Protocol):&lt;/p></description></item><item><title>Network Protocols</title><link>https://bleedkagax.github.io/post/1_network_protocols/</link><pubDate>Fri, 04 Oct 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/1_network_protocols/</guid><description>&lt;p>&lt;img src="https://bleedkagax.github.io/img/1_network_protocols.png" alt="">&lt;/p>
+&lt;p>UDP (User Datagram Protocol):&lt;/p></description></item><item><title>Network Protocols</title><link>https://bleedkagax.github.io/post/1_network_protocols/</link><pubDate>Fri, 04 Oct 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/1_network_protocols/</guid><description>&lt;p>&lt;img loading="lazy" src="https://bleedkagax.github.io/img/1_network_protocols.png" alt="" />
+&lt;/p>
 &lt;h2 id="transmission-control-protocol-tcp">Transmission Control Protocol (TCP)&lt;/h2>
 &lt;h3 id="tcp-principles-and-mechanisms">TCP Principles and Mechanisms&lt;/h3>
 &lt;p>Key features:&lt;/p>
@@ -36,7 +38,7 @@
 &lt;/ol>
 &lt;p>Example of TCP header:&lt;/p>
 &lt;pre tabindex="0">&lt;code> 0 1 2 3
- 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 | Source Port | Destination Port |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+

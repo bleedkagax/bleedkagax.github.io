@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Snippet on Kaga Blog</title><link>https://bleedkagax.github.io/tags/snippet/</link><description>Recent content in Snippet on Kaga Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 05 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bleedkagax.github.io/tags/snippet/index.xml" rel="self" type="application/rss+xml"/><item><title>Deep Dive Into Design Patterns</title><link>https://bleedkagax.github.io/post/1_deep_dive_into_design_patterns/</link><pubDate>Thu, 05 Sep 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/1_deep_dive_into_design_patterns/</guid><description>&lt;h1 id="一面向对象-程序设计-简介">&lt;strong>一、面向对象 程序设计 简介&lt;/strong>&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Snippet on Kaga Blog</title><link>https://bleedkagax.github.io/tags/snippet/</link><description>Recent content in Snippet on Kaga Blog</description><generator>Hugo -- 0.134.0</generator><language>en-us</language><lastBuildDate>Thu, 05 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bleedkagax.github.io/tags/snippet/index.xml" rel="self" type="application/rss+xml"/><item><title>Deep Dive Into Design Patterns</title><link>https://bleedkagax.github.io/post/1_deep_dive_into_design_patterns/</link><pubDate>Thu, 05 Sep 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/1_deep_dive_into_design_patterns/</guid><description>&lt;h1 id="一面向对象-程序设计-简介">&lt;strong>一、面向对象 程序设计 简介&lt;/strong>&lt;/h1>
 &lt;p>&lt;strong>对象之间的关系&lt;/strong>&lt;/p>
-&lt;p>&lt;img src="https://bleedkagax.github.io/img/1_deep_dive_into_design_patterns.png" alt="img/1_deep_dive_into_design_patterns.png">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://bleedkagax.github.io/img/1_deep_dive_into_design_patterns.png" alt="img/1_deep_dive_into_design_patterns.png" />
+&lt;/p>
 &lt;p>&lt;strong>依赖&lt;/strong>:对类 B 进行修改会影响到类 A 。&lt;/p>
 &lt;p>&lt;strong>关联&lt;/strong>:对象 A 知道对象 B。类 A 依赖于类 B。&lt;/p>
 &lt;p>&lt;strong>聚合&lt;/strong>:对象A知道对象B且由B构成。类A依赖于类B。&lt;/p>
@@ -9,10 +10,7 @@
 &lt;p>&lt;strong>实现&lt;/strong>: 类 A 定义的方法由接口 B 声明。 对象 A 可被视为对象 B。类 A
 依赖于类 B。&lt;/p>
 &lt;p>&lt;strong>继承&lt;/strong>: 类 A 继承类 B 的接口和实现， 但是可以对其进行扩 展。对象 A
-可被视为对象 B。类 A 依赖于类 B。&lt;/p>
-&lt;h1 id="二设计模式简介">&lt;strong>二、设计模式简介&lt;/strong>&lt;/h1>
-&lt;p>设计模式是针对软件设计中常见问题的工具箱， 其中的工具
-就是各种&lt;strong>经过实践验证的解决方案。&lt;/strong>&lt;/p></description></item><item><title>Refactor</title><link>https://bleedkagax.github.io/post/0_refactor/</link><pubDate>Thu, 05 Sep 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/0_refactor/</guid><description>&lt;p>Essentially, &lt;strong>refactoring is improving the design of code after it&amp;rsquo;s been written&lt;/strong>.&lt;/p>
+可被视为对象 B。类 A 依赖于类 B。&lt;/p></description></item><item><title>Refactor</title><link>https://bleedkagax.github.io/post/0_refactor/</link><pubDate>Thu, 05 Sep 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/0_refactor/</guid><description>&lt;p>Essentially, &lt;strong>refactoring is improving the design of code after it&amp;rsquo;s been written&lt;/strong>.&lt;/p>
 &lt;p>If you want to add a feature to a program, but find that the code isn&amp;rsquo;t easy to change due to a lack of good structure, refactor that program first so that it&amp;rsquo;s easier to add the feature, and then add the feature.&lt;/p>
 &lt;p>It is the change in &lt;strong>requirements&lt;/strong> that makes refactoring necessary.&lt;/p>
 &lt;p>The refactoring technique is to &lt;strong>modify the program at a tiny pace&lt;/strong>. If you make a mistake, it&amp;rsquo;s easy to spot it.&lt;/p></description></item></channel></rss>

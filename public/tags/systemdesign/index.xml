@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SystemDesign on Kaga Blog</title><link>https://bleedkagax.github.io/tags/systemdesign/</link><description>Recent content in SystemDesign on Kaga Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 15 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bleedkagax.github.io/tags/systemdesign/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker</title><link>https://bleedkagax.github.io/post/4_docker/</link><pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/4_docker/</guid><description>&lt;h1 id="docker-guidelines">Docker Guidelines&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>SystemDesign on Kaga Blog</title><link>https://bleedkagax.github.io/tags/systemdesign/</link><description>Recent content in SystemDesign on Kaga Blog</description><generator>Hugo -- 0.134.0</generator><language>en-us</language><lastBuildDate>Tue, 15 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bleedkagax.github.io/tags/systemdesign/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker</title><link>https://bleedkagax.github.io/post/4_docker/</link><pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/4_docker/</guid><description>&lt;h1 id="docker-guidelines">Docker Guidelines&lt;/h1>
 &lt;h2 id="dockerfile-best-practices">Dockerfile Best Practices&lt;/h2>
 &lt;h3 id="use-official-base-images">Use Official Base Images&lt;/h3>
 &lt;ul>
@@ -94,13 +94,16 @@
 &lt;/ul>
 &lt;h2 id="how-to-solve-cache-avalanche">How to Solve Cache Avalanche?&lt;/h2>
 &lt;p>Cache avalanche involves a massive number of database hits due to the simultaneous expiration of many cache entries or a cache server failure.&lt;/p></description></item><item><title>Jaeger</title><link>https://bleedkagax.github.io/post/1_jaeger/</link><pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/1_jaeger/</guid><description>&lt;p>direct-to-storage architecture&lt;/p>
-&lt;p>&lt;img src="https://bleedkagax.github.io/img/1_jaeger.png" alt="">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://bleedkagax.github.io/img/1_jaeger.png" alt="" />
+&lt;/p>
 &lt;p>architecture with Kafka as intermediate buffer&lt;/p>
-&lt;p>&lt;img src="https://bleedkagax.github.io/img/1_jaeger-1.png" alt="">&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://bleedkagax.github.io/img/1_jaeger-1.png" alt="" />
+&lt;/p>
 &lt;h2 id="what-is-jaeger">What is Jaeger?&lt;/h2>
 &lt;p>Jaeger is an open-source, end-to-end distributed tracing system. It helps monitor and troubleshoot transactions in complex, microservices-based architectures.&lt;/p>
 &lt;h2 id="what-problem-does-distributed-tracing-solve">What problem does distributed tracing solve?&lt;/h2>
-&lt;p>Distributed tracing helps in understanding the flow of requests through a distributed system, identifying performance bottlenecks, and diagnosing issues in microservices architectures.&lt;/p></description></item><item><title>Prometheus</title><link>https://bleedkagax.github.io/post/2_prometheus/</link><pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/2_prometheus/</guid><description>&lt;p>&lt;img src="https://bleedkagax.github.io/img/2_prometheus.png" alt="">&lt;/p>
+&lt;p>Distributed tracing helps in understanding the flow of requests through a distributed system, identifying performance bottlenecks, and diagnosing issues in microservices architectures.&lt;/p></description></item><item><title>Prometheus</title><link>https://bleedkagax.github.io/post/2_prometheus/</link><pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/2_prometheus/</guid><description>&lt;p>&lt;img loading="lazy" src="https://bleedkagax.github.io/img/2_prometheus.png" alt="" />
+&lt;/p>
 &lt;h2 id="what-is-prometheus">What is Prometheus?&lt;/h2>
 &lt;p>Prometheus is an open-source systems monitoring and alerting toolkit. It collects and stores metrics as time series data, allowing for flexible querying and real-time alerting.&lt;/p>
 &lt;h2 id="what-are-the-main-components-of-prometheus">What are the main components of Prometheus?&lt;/h2>

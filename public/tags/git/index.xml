@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git on Kaga Blog</title><link>https://bleedkagax.github.io/tags/git/</link><description>Recent content in Git on Kaga Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 08 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bleedkagax.github.io/tags/git/index.xml" rel="self" type="application/rss+xml"/><item><title>Git</title><link>https://bleedkagax.github.io/post/0_git/</link><pubDate>Sun, 08 Sep 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/0_git/</guid><description>&lt;p>&lt;img src="https://bleedkagax.github.io/img/0_git.png" alt="">&lt;/p>
-&lt;p>&lt;img src="https://bleedkagax.github.io/img/0_git-1.png" alt="">&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Git on Kaga Blog</title><link>https://bleedkagax.github.io/tags/git/</link><description>Recent content in Git on Kaga Blog</description><generator>Hugo -- 0.134.0</generator><language>en-us</language><lastBuildDate>Sun, 08 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bleedkagax.github.io/tags/git/index.xml" rel="self" type="application/rss+xml"/><item><title>Git</title><link>https://bleedkagax.github.io/post/0_git/</link><pubDate>Sun, 08 Sep 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/0_git/</guid><description>&lt;p>&lt;img loading="lazy" src="https://bleedkagax.github.io/img/0_git.png" alt="" />
+&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://bleedkagax.github.io/img/0_git-1.png" alt="" />
+&lt;/p>
 &lt;h1 id="git-cheat-sheet">GIT CHEAT SHEET&lt;/h1>
 &lt;h2 id="create">CREATE&lt;/h2>
 &lt;ul>
@@ -14,7 +16,4 @@
 &lt;ul>
 &lt;li>Changed files in your working directory:
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ git status
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>Changes to tracked files:
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ git diff
 &lt;/span>&lt;/span>&lt;/code>&lt;/pr</description></item></channel></rss>
