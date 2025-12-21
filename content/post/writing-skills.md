@@ -3,7 +3,7 @@ title: writing skills
 name: writing-skills
 date: 2024-09-07
 draft: false
-tags: 
+tags:
 share: "true"
 ---
 
