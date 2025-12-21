@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>AI on Kaga Blog</title><link>https://bleedkagax.github.io/tags/ai/</link><description>Recent content in AI on Kaga Blog</description><generator>Hugo -- 0.134.0</generator><language>en-us</language><lastBuildDate>Sun, 21 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://bleedkagax.github.io/tags/ai/index.xml" rel="self" type="application/rss+xml"/><item><title>AI：Advanced Tool Use</title><link>https://bleedkagax.github.io/post/advanced_tool_use/</link><pubDate>Sun, 21 Dec 2025 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/advanced_tool_use/</guid><description>&lt;h2 id="advanced-tool-use">Advanced Tool Use&lt;/h2>
+&lt;p>来源：&lt;a href="https://www.anthropic.com/engineering/advanced-tool-use">&lt;code>https://www.anthropic.com/engineering/advanced-tool-use&lt;/code>&lt;/a>&lt;/p>
+&lt;h3 id="图示">图示&lt;/h3>
+&lt;p>Tool Search Tool 对比图（Context Usage: Traditional vs. Tool Search Tool）&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://bleedkagax.github.io/img/202511~12-9.png" alt="" />
+&lt;/p>
+&lt;p>Programmatic Tool Calling 流程图（Programmatic Tool Calling Flow）&lt;/p>
+&lt;p>&lt;img loading="lazy" src="https://bleedkagax.github.io/img/202511~12-10.png" alt="" />
+&lt;/p>
+&lt;h3 id="核心要点">核心要点&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>整体目标&lt;/strong>：解决三个老问题&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>工具太多&lt;/strong>：定义太长，把上下文挤爆&lt;/li>
+&lt;li>&lt;strong>链路太长&lt;/strong>：工具链一长，来回调用慢且耗 tokens&lt;/li>
+&lt;li>&lt;strong>仅靠 Schema 不够&lt;/strong>：只有 JSON Schema 时，模型仍会经常填错参数/用错工具&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Tool Search Tool（工具搜索）&lt;/strong>：&lt;br>
+不再一次性把几十上百个工具定义全部塞进上下文，而是只提前加载一个“搜索工具 + 少数高频工具”。当 Claude 需要某类能力时，先用搜索工具按名字/描述去检索，再按需把少量匹配工具的定义展开进上下文。&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>收益&lt;/strong>：减少 token 开销（官方示例：上下文消耗可降低 80%+），同时降低“选错工具”的概率&lt;/li>
+&lt;li>&lt;strong>适用&lt;/strong>：MCP 多服务、工具数量 10+ 的场景&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Programmatic Tool Calling（编程式工具调用）&lt;/strong>：&lt;br>
+以前是“自然语言 → 一次推理 → 调一个工具 → 结果全丢回模型上下文”，多步流程就意味着多次推理 + 大量中间数据灌进上下文。现在改成：Claude 写一段 Python 脚本，在沙盒里 orchestrate 工具调用（循环、并发、条件分支都写在代码里），工具结果先在代码里处理，最后只把“结论”返回给 Claude。&lt;/p></description></item><item><title>AI：评估AI Agent的上下文压缩策略</title><link>https://bleedkagax.github.io/post/context_compression_evaluation/</link><pubDate>Sun, 21 Dec 2025 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/context_compression_evaluation/</guid><description>&lt;h1 id="评估ai-agent的上下文压缩策略">评估AI Agent的上下文压缩策略&lt;/h1>
+&lt;p>&lt;img loading="lazy" src="https://bleedkagax.github.io/img/Context%20compression-1.png" alt="" />
+&lt;/p>
+&lt;h2 id="执行摘要">执行摘要&lt;/h2>
+&lt;p>长会话超出上下文窗口会让AI Agent丢失关键信息。Factory.ai为此构建了基于探针的评估框架，用来衡量不同上下文压缩策略的“功能质量”。对比Factory、OpenAI与Anthropic三种方法，Factory的“锚定迭代式摘要”在保留技术细节上最佳：通过持续维护并增量合并结构化摘要，在准确性与上下文感知上领先，说明&lt;strong>结构&lt;/strong>比单纯的&lt;strong>压缩率&lt;/strong>更决定任务成败。&lt;/p>
+&lt;h2 id="1-核心问题长对话中的上下文丢失">1. 核心问题：长对话中的上下文丢失&lt;/h2>
+&lt;p>AI Agent在调试、代码审查或功能实现等复杂任务中，会产生数百万Token的对话历史，远超模型上下文窗口。激进压缩常导致代理遗忘关键信息（如改动过的文件、已尝试的方案），从而反复读取、重复探索。&lt;/p>
+&lt;p>研究指出，优化目标不应是“单次请求的Token数”（tokens per request），而应是“完成任务所需的总Token数”（tokens per task）。更高质量的上下文保留能减少返工，进而降低总消耗。&lt;/p>
+&lt;h2 id="2-评估框架基于探针的功能性质询">2. 评估框架：基于探针的功能性质询&lt;/h2>
+&lt;p>传统摘要指标（如ROUGE或嵌入相似度）无法回答关键问题：压缩后的上下文还能否支撑代理继续工作。Factory.ai因此设计探针评估：向压缩后的代理提问必须依赖具体历史细节的问题，以直接衡量其功能质量。&lt;/p>
+&lt;h4 id="探针类型">探针类型&lt;/h4>
+&lt;p>该框架使用四种探针，覆盖不同维度的信息保留：&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align: left">探针类型&lt;/th>
+&lt;th style="text-align: left">测试内容&lt;/th>
+&lt;th style="text-align: left">示例问题&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align: left">&lt;strong>回忆（Recall）&lt;/strong>&lt;/td>
+&lt;td style="text-align: left">事实性信息的保留&lt;/td>
+&lt;td style="text-align: left">“最初的错误信息是什么？”&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;strong>工件（Artifact）&lt;/strong>&lt;/td>
+&lt;td style="text-align: left">文件追踪&lt;/td>
+&lt;td style="text-align: left">“我们修改了哪些文件？描述每个文件的变化。”&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;strong>延续（Continuation）&lt;/strong>&lt;/td>
+&lt;td style="text-align: left">任务规划&lt;/td>
+&lt;td style="text-align: left">“我们下一步该做什么？”&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;strong>决策（Decision）&lt;/strong>&lt;/td>
+&lt;td style="text-align: left">推理链&lt;/td>
+&lt;td style="text-align: left">“我们针对Redis问题讨论了哪些方案，最终决定是什么？”&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="评估维度">评估维度&lt;/h4>
+&lt;p>由LLM裁判（GPT-5.2）按六个维度评分（0-5分），面向软件开发场景：&lt;/p></description></item></channel></rss>

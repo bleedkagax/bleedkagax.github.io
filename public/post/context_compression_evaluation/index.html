@@ -1,0 +1,141 @@
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>AI：评估AI Agent的上下文压缩策略 | Kaga Blog</title>
+<meta name=keywords content="blog,AI"><meta name=description content="评估AI Agent的上下文压缩策略
+
+
+执行摘要
+长会话超出上下文窗口会让AI Agent丢失关键信息。Factory.ai为此构建了基于探针的评估框架，用来衡量不同上下文压缩策略的“功能质量”。对比Factory、OpenAI与Anthropic三种方法，Factory的“锚定迭代式摘要”在保留技术细节上最佳：通过持续维护并增量合并结构化摘要，在准确性与上下文感知上领先，说明结构比单纯的压缩率更决定任务成败。
+1. 核心问题：长对话中的上下文丢失
+AI Agent在调试、代码审查或功能实现等复杂任务中，会产生数百万Token的对话历史，远超模型上下文窗口。激进压缩常导致代理遗忘关键信息（如改动过的文件、已尝试的方案），从而反复读取、重复探索。
+研究指出，优化目标不应是“单次请求的Token数”（tokens per request），而应是“完成任务所需的总Token数”（tokens per task）。更高质量的上下文保留能减少返工，进而降低总消耗。
+2. 评估框架：基于探针的功能性质询
+传统摘要指标（如ROUGE或嵌入相似度）无法回答关键问题：压缩后的上下文还能否支撑代理继续工作。Factory.ai因此设计探针评估：向压缩后的代理提问必须依赖具体历史细节的问题，以直接衡量其功能质量。
+探针类型
+该框架使用四种探针，覆盖不同维度的信息保留：
+
+  
+      
+          探针类型
+          测试内容
+          示例问题
+      
+  
+  
+      
+          回忆（Recall）
+          事实性信息的保留
+          “最初的错误信息是什么？”
+      
+      
+          工件（Artifact）
+          文件追踪
+          “我们修改了哪些文件？描述每个文件的变化。”
+      
+      
+          延续（Continuation）
+          任务规划
+          “我们下一步该做什么？”
+      
+      
+          决策（Decision）
+          推理链
+          “我们针对Redis问题讨论了哪些方案，最终决定是什么？”
+      
+  
+
+评估维度
+由LLM裁判（GPT-5.2）按六个维度评分（0-5分），面向软件开发场景："><meta name=author content><link rel=canonical href=https://bleedkagax.github.io/post/context_compression_evaluation/><link crossorigin=anonymous href=/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as=style><link rel=icon href=https://bleedkagax.github.io/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://bleedkagax.github.io/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://bleedkagax.github.io/favicon-32x32.png><link rel=apple-touch-icon href=https://bleedkagax.github.io/apple-touch-icon.png><link rel=mask-icon href=https://bleedkagax.github.io/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://bleedkagax.github.io/post/context_compression_evaluation/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:title" content="AI：评估AI Agent的上下文压缩策略"><meta property="og:description" content="评估AI Agent的上下文压缩策略
+
+
+执行摘要
+长会话超出上下文窗口会让AI Agent丢失关键信息。Factory.ai为此构建了基于探针的评估框架，用来衡量不同上下文压缩策略的“功能质量”。对比Factory、OpenAI与Anthropic三种方法，Factory的“锚定迭代式摘要”在保留技术细节上最佳：通过持续维护并增量合并结构化摘要，在准确性与上下文感知上领先，说明结构比单纯的压缩率更决定任务成败。
+1. 核心问题：长对话中的上下文丢失
+AI Agent在调试、代码审查或功能实现等复杂任务中，会产生数百万Token的对话历史，远超模型上下文窗口。激进压缩常导致代理遗忘关键信息（如改动过的文件、已尝试的方案），从而反复读取、重复探索。
+研究指出，优化目标不应是“单次请求的Token数”（tokens per request），而应是“完成任务所需的总Token数”（tokens per task）。更高质量的上下文保留能减少返工，进而降低总消耗。
+2. 评估框架：基于探针的功能性质询
+传统摘要指标（如ROUGE或嵌入相似度）无法回答关键问题：压缩后的上下文还能否支撑代理继续工作。Factory.ai因此设计探针评估：向压缩后的代理提问必须依赖具体历史细节的问题，以直接衡量其功能质量。
+探针类型
+该框架使用四种探针，覆盖不同维度的信息保留：
+
+  
+      
+          探针类型
+          测试内容
+          示例问题
+      
+  
+  
+      
+          回忆（Recall）
+          事实性信息的保留
+          “最初的错误信息是什么？”
+      
+      
+          工件（Artifact）
+          文件追踪
+          “我们修改了哪些文件？描述每个文件的变化。”
+      
+      
+          延续（Continuation）
+          任务规划
+          “我们下一步该做什么？”
+      
+      
+          决策（Decision）
+          推理链
+          “我们针对Redis问题讨论了哪些方案，最终决定是什么？”
+      
+  
+
+评估维度
+由LLM裁判（GPT-5.2）按六个维度评分（0-5分），面向软件开发场景："><meta property="og:type" content="article"><meta property="og:url" content="https://bleedkagax.github.io/post/context_compression_evaluation/"><meta property="article:section" content="post"><meta property="article:published_time" content="2025-12-21T00:00:00+00:00"><meta property="article:modified_time" content="2025-12-21T00:00:00+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="AI：评估AI Agent的上下文压缩策略"><meta name=twitter:description content="评估AI Agent的上下文压缩策略
+
+
+执行摘要
+长会话超出上下文窗口会让AI Agent丢失关键信息。Factory.ai为此构建了基于探针的评估框架，用来衡量不同上下文压缩策略的“功能质量”。对比Factory、OpenAI与Anthropic三种方法，Factory的“锚定迭代式摘要”在保留技术细节上最佳：通过持续维护并增量合并结构化摘要，在准确性与上下文感知上领先，说明结构比单纯的压缩率更决定任务成败。
+1. 核心问题：长对话中的上下文丢失
+AI Agent在调试、代码审查或功能实现等复杂任务中，会产生数百万Token的对话历史，远超模型上下文窗口。激进压缩常导致代理遗忘关键信息（如改动过的文件、已尝试的方案），从而反复读取、重复探索。
+研究指出，优化目标不应是“单次请求的Token数”（tokens per request），而应是“完成任务所需的总Token数”（tokens per task）。更高质量的上下文保留能减少返工，进而降低总消耗。
+2. 评估框架：基于探针的功能性质询
+传统摘要指标（如ROUGE或嵌入相似度）无法回答关键问题：压缩后的上下文还能否支撑代理继续工作。Factory.ai因此设计探针评估：向压缩后的代理提问必须依赖具体历史细节的问题，以直接衡量其功能质量。
+探针类型
+该框架使用四种探针，覆盖不同维度的信息保留：
+
+  
+      
+          探针类型
+          测试内容
+          示例问题
+      
+  
+  
+      
+          回忆（Recall）
+          事实性信息的保留
+          “最初的错误信息是什么？”
+      
+      
+          工件（Artifact）
+          文件追踪
+          “我们修改了哪些文件？描述每个文件的变化。”
+      
+      
+          延续（Continuation）
+          任务规划
+          “我们下一步该做什么？”
+      
+      
+          决策（Decision）
+          推理链
+          “我们针对Redis问题讨论了哪些方案，最终决定是什么？”
+      
+  
+
+评估维度
+由LLM裁判（GPT-5.2）按六个维度评分（0-5分），面向软件开发场景："><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://bleedkagax.github.io/post/"},{"@type":"ListItem","position":2,"name":"AI：评估AI Agent的上下文压缩策略","item":"https://bleedkagax.github.io/post/context_compression_evaluation/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"AI：评估AI Agent的上下文压缩策略","name":"AI：评估AI Agent的上下文压缩策略","description":"评估AI Agent的上下文压缩策略 执行摘要 长会话超出上下文窗口会让AI Agent丢失关键信息。Factory.ai为此构建了基于探针的评估框架，用来衡量不同上下文压缩策略的“功能质量”。对比Factory、OpenAI与Anthropic三种方法，Factory的“锚定迭代式摘要”在保留技术细节上最佳：通过持续维护并增量合并结构化摘要，在准确性与上下文感知上领先，说明结构比单纯的压缩率更决定任务成败。\n1. 核心问题：长对话中的上下文丢失 AI Agent在调试、代码审查或功能实现等复杂任务中，会产生数百万Token的对话历史，远超模型上下文窗口。激进压缩常导致代理遗忘关键信息（如改动过的文件、已尝试的方案），从而反复读取、重复探索。\n研究指出，优化目标不应是“单次请求的Token数”（tokens per request），而应是“完成任务所需的总Token数”（tokens per task）。更高质量的上下文保留能减少返工，进而降低总消耗。\n2. 评估框架：基于探针的功能性质询 传统摘要指标（如ROUGE或嵌入相似度）无法回答关键问题：压缩后的上下文还能否支撑代理继续工作。Factory.ai因此设计探针评估：向压缩后的代理提问必须依赖具体历史细节的问题，以直接衡量其功能质量。\n探针类型 该框架使用四种探针，覆盖不同维度的信息保留：\n探针类型 测试内容 示例问题 回忆（Recall） 事实性信息的保留 “最初的错误信息是什么？” 工件（Artifact） 文件追踪 “我们修改了哪些文件？描述每个文件的变化。” 延续（Continuation） 任务规划 “我们下一步该做什么？” 决策（Decision） 推理链 “我们针对Redis问题讨论了哪些方案，最终决定是什么？” 评估维度 由LLM裁判（GPT-5.2）按六个维度评分（0-5分），面向软件开发场景：\n","keywords":["blog","AI"],"articleBody":"评估AI Agent的上下文压缩策略 执行摘要 长会话超出上下文窗口会让AI Agent丢失关键信息。Factory.ai为此构建了基于探针的评估框架，用来衡量不同上下文压缩策略的“功能质量”。对比Factory、OpenAI与Anthropic三种方法，Factory的“锚定迭代式摘要”在保留技术细节上最佳：通过持续维护并增量合并结构化摘要，在准确性与上下文感知上领先，说明结构比单纯的压缩率更决定任务成败。\n1. 核心问题：长对话中的上下文丢失 AI Agent在调试、代码审查或功能实现等复杂任务中，会产生数百万Token的对话历史，远超模型上下文窗口。激进压缩常导致代理遗忘关键信息（如改动过的文件、已尝试的方案），从而反复读取、重复探索。\n研究指出，优化目标不应是“单次请求的Token数”（tokens per request），而应是“完成任务所需的总Token数”（tokens per task）。更高质量的上下文保留能减少返工，进而降低总消耗。\n2. 评估框架：基于探针的功能性质询 传统摘要指标（如ROUGE或嵌入相似度）无法回答关键问题：压缩后的上下文还能否支撑代理继续工作。Factory.ai因此设计探针评估：向压缩后的代理提问必须依赖具体历史细节的问题，以直接衡量其功能质量。\n探针类型 该框架使用四种探针，覆盖不同维度的信息保留：\n探针类型 测试内容 示例问题 回忆（Recall） 事实性信息的保留 “最初的错误信息是什么？” 工件（Artifact） 文件追踪 “我们修改了哪些文件？描述每个文件的变化。” 延续（Continuation） 任务规划 “我们下一步该做什么？” 决策（Decision） 推理链 “我们针对Redis问题讨论了哪些方案，最终决定是什么？” 评估维度 由LLM裁判（GPT-5.2）按六个维度评分（0-5分），面向软件开发场景：\n准确性 (Accuracy): 技术细节（如文件路径、函数名）是否正确。\n上下文感知 (Context Awareness): 响应是否反映了当前的对话状态。\n工件追踪 (Artifact Trail): 代理是否知道哪些文件被读取或修改过。\n完整性 (Completeness): 响应是否解决了问题的所有部分。\n连续性 (Continuity): 工作能否在不重新获取信息的情况下继续。\n指令遵循 (Instruction Following): 响应是否遵循了格式或约束要求。\n3. 三种压缩策略对比 研究评估了三种生产级的压缩策略：\nFactory：锚定迭代式摘要 (Anchored Iterative Summarization)\n机制： 维护一个包含明确分区（如会话意图、文件修改、决策）的持久化结构性摘要。当需要压缩时，仅对新截断的对话部分进行摘要，并将其合并到现有摘要中。\n核心洞察： 结构强制保留。通过为特定信息类型设置专门的区域，可以防止关键细节（如文件路径）在自由形式的摘要中被无声地丢弃。\nOpenAI：不透明压缩端点（/responses/compact）\n机制： 生成面向重建保真度的不透明压缩表示。\n特点： 压缩率最高（99.3%），但牺牲了解释性，用户无法直接读取压缩内容以验证保留了哪些信息。\nAnthropic：内置上下文压缩 (Claude SDK)\n机制： 生成包含分析、文件、待办任务等部分的详细结构化摘要。\n与Factory的区别： 每次压缩时都会重新生成完整的摘要，而不是像Factory那样进行增量合并。这影响了摘要在多次压缩循环中的一致性。\n4. 关键发现与量化结果 研究分析了来自生产环境（涉及代码审查、测试、错误修复等）的超过36,000条消息。\n示例对比 在一个调试会话后，针对探针问题“最初的错误是什么？”，三种方法的响应质量差异显著：\nFactory (4.8/5分): 准确指出了“/api/auth/login”端点的“401 Unauthorized”错误，并说明了根本原因是“Redis连接陈旧”。\nAnthropic (3.9/5分): 提到了401错误，但丢失了具体的端点路径。\nOpenAI (3.2/5分): 响应非常笼统，几乎丢失了所有技术细节，只提到“正在调试一个认证问题”。\n总体性能数据 下表展示了三种方法在六个维度上的平均得分：\n方法 总体得分 准确性 上下文感知 工件追踪 完整性 连续性 指令遵循 Factory 3.70 4.04 4.01 2.45 4.44 3.80 4.99 Anthropic 3.44 3.74 3.56 2.33 4.37 3.67 4.95 OpenAI 3.35 3.43 3.64 2.19 4.37 3.77 4.92 Factory表现领先： 总体得分比OpenAI高0.35分，比Anthropic高0.26分。其在准确性和上下文感知方面的优势最大，这直接归功于其结构化的摘要方法。\n工件追踪是普遍弱点： 所有方法的得分都较低（2.19-2.45），表明仅靠通用摘要难以有效追踪文件修改历史。\n压缩率与质量的权衡 OpenAI: 99.3%\nAnthropic: 98.7%\nFactory: 98.6%\n尽管Factory的压缩率比OpenAI低0.7%，但其质量得分高出0.35分。这一权衡通常划算：更高质量的上下文可减少因信息丢失导致的重试，从而节省总Token。\n5. 核心结论 结构至关重要： 通用摘要将所有内容一视同仁，而Factory的结构化方法强制保留了对任务至关重要的信息（如文件路径和决策），有效防止了“信息漂移”。\n压缩率是错误指标： 真正的衡量标准是“完成任务的总Token数”。牺牲少量压缩率以换取更高的上下文质量，可以避免代价高昂的返工，从而提高整体效率。\n工件追踪是未解难题： 所有被测方法在追踪文件创建和修改方面都表现不佳。这表明需要超越通用摘要的专门解决方案，例如独立的工件索引或显式的状态跟踪机制。\n探针评估更有效： 与衡量词汇相似度的传统指标不同，基于探针的评估直接衡量摘要是否能支持代理继续执行任务，这对于代理工作流至关重要。\n","wordCount":"151","inLanguage":"en","datePublished":"2025-12-21T00:00:00Z","dateModified":"2025-12-21T00:00:00Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://bleedkagax.github.io/post/context_compression_evaluation/"},"publisher":{"@type":"Organization","name":"Kaga Blog","logo":{"@type":"ImageObject","url":"https://bleedkagax.github.io/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://bleedkagax.github.io/ accesskey=h title="Kaga Blog (Alt + H)">Kaga Blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://bleedkagax.github.io/post/ title=Posts><span>Posts</span></a></li><li><a href=https://bleedkagax.github.io/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://bleedkagax.github.io/archives/ title=Archives><span>Archives</span></a></li><li><a href=https://bleedkagax.github.io/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><h1 class="post-title entry-hint-parent">AI：评估AI Agent的上下文压缩策略</h1><div class=post-meta><span title='2025-12-21 00:00:00 +0000 UTC'>December 21, 2025</span></div></header><div class=toc><details><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><ul><li><a href=#%e8%af%84%e4%bc%b0ai-agent%e7%9a%84%e4%b8%8a%e4%b8%8b%e6%96%87%e5%8e%8b%e7%bc%a9%e7%ad%96%e7%95%a5 aria-label="评估AI Agent的上下文压缩策略">评估AI Agent的上下文压缩策略</a><ul><li><a href=#%e6%89%a7%e8%a1%8c%e6%91%98%e8%a6%81 aria-label=执行摘要>执行摘要</a></li><li><a href=#1-%e6%a0%b8%e5%bf%83%e9%97%ae%e9%a2%98%e9%95%bf%e5%af%b9%e8%af%9d%e4%b8%ad%e7%9a%84%e4%b8%8a%e4%b8%8b%e6%96%87%e4%b8%a2%e5%a4%b1 aria-label="1. 核心问题：长对话中的上下文丢失">1. 核心问题：长对话中的上下文丢失</a></li><li><a href=#2-%e8%af%84%e4%bc%b0%e6%a1%86%e6%9e%b6%e5%9f%ba%e4%ba%8e%e6%8e%a2%e9%92%88%e7%9a%84%e5%8a%9f%e8%83%bd%e6%80%a7%e8%b4%a8%e8%af%a2 aria-label="2. 评估框架：基于探针的功能性质询">2. 评估框架：基于探针的功能性质询</a><ul><ul><li><a href=#%e6%8e%a2%e9%92%88%e7%b1%bb%e5%9e%8b aria-label=探针类型>探针类型</a></li><li><a href=#%e8%af%84%e4%bc%b0%e7%bb%b4%e5%ba%a6 aria-label=评估维度>评估维度</a></li></ul></ul></li><li><a href=#3-%e4%b8%89%e7%a7%8d%e5%8e%8b%e7%bc%a9%e7%ad%96%e7%95%a5%e5%af%b9%e6%af%94 aria-label="3. 三种压缩策略对比">3. 三种压缩策略对比</a></li><li><a href=#4-%e5%85%b3%e9%94%ae%e5%8f%91%e7%8e%b0%e4%b8%8e%e9%87%8f%e5%8c%96%e7%bb%93%e6%9e%9c aria-label="4. 关键发现与量化结果">4. 关键发现与量化结果</a><ul><ul><li><a href=#%e7%a4%ba%e4%be%8b%e5%af%b9%e6%af%94 aria-label=示例对比>示例对比</a></li><li><a href=#%e6%80%bb%e4%bd%93%e6%80%a7%e8%83%bd%e6%95%b0%e6%8d%ae aria-label=总体性能数据>总体性能数据</a></li><li><a href=#%e5%8e%8b%e7%bc%a9%e7%8e%87%e4%b8%8e%e8%b4%a8%e9%87%8f%e7%9a%84%e6%9d%83%e8%a1%a1 aria-label=压缩率与质量的权衡>压缩率与质量的权衡</a></li></ul></ul></li><li><a href=#5-%e6%a0%b8%e5%bf%83%e7%bb%93%e8%ae%ba aria-label="5. 核心结论">5. 核心结论</a></li></ul></li></ul></div></details></div><div class=post-content><h1 id=评估ai-agent的上下文压缩策略>评估AI Agent的上下文压缩策略<a hidden class=anchor aria-hidden=true href=#评估ai-agent的上下文压缩策略>#</a></h1><p><img loading=lazy src=/img/Context%20compression-1.png alt></p><h2 id=执行摘要>执行摘要<a hidden class=anchor aria-hidden=true href=#执行摘要>#</a></h2><p>长会话超出上下文窗口会让AI Agent丢失关键信息。Factory.ai为此构建了基于探针的评估框架，用来衡量不同上下文压缩策略的“功能质量”。对比Factory、OpenAI与Anthropic三种方法，Factory的“锚定迭代式摘要”在保留技术细节上最佳：通过持续维护并增量合并结构化摘要，在准确性与上下文感知上领先，说明<strong>结构</strong>比单纯的<strong>压缩率</strong>更决定任务成败。</p><h2 id=1-核心问题长对话中的上下文丢失>1. 核心问题：长对话中的上下文丢失<a hidden class=anchor aria-hidden=true href=#1-核心问题长对话中的上下文丢失>#</a></h2><p>AI Agent在调试、代码审查或功能实现等复杂任务中，会产生数百万Token的对话历史，远超模型上下文窗口。激进压缩常导致代理遗忘关键信息（如改动过的文件、已尝试的方案），从而反复读取、重复探索。</p><p>研究指出，优化目标不应是“单次请求的Token数”（tokens per request），而应是“完成任务所需的总Token数”（tokens per task）。更高质量的上下文保留能减少返工，进而降低总消耗。</p><h2 id=2-评估框架基于探针的功能性质询>2. 评估框架：基于探针的功能性质询<a hidden class=anchor aria-hidden=true href=#2-评估框架基于探针的功能性质询>#</a></h2><p>传统摘要指标（如ROUGE或嵌入相似度）无法回答关键问题：压缩后的上下文还能否支撑代理继续工作。Factory.ai因此设计探针评估：向压缩后的代理提问必须依赖具体历史细节的问题，以直接衡量其功能质量。</p><h4 id=探针类型>探针类型<a hidden class=anchor aria-hidden=true href=#探针类型>#</a></h4><p>该框架使用四种探针，覆盖不同维度的信息保留：</p><table><thead><tr><th style=text-align:left>探针类型</th><th style=text-align:left>测试内容</th><th style=text-align:left>示例问题</th></tr></thead><tbody><tr><td style=text-align:left><strong>回忆（Recall）</strong></td><td style=text-align:left>事实性信息的保留</td><td style=text-align:left>“最初的错误信息是什么？”</td></tr><tr><td style=text-align:left><strong>工件（Artifact）</strong></td><td style=text-align:left>文件追踪</td><td style=text-align:left>“我们修改了哪些文件？描述每个文件的变化。”</td></tr><tr><td style=text-align:left><strong>延续（Continuation）</strong></td><td style=text-align:left>任务规划</td><td style=text-align:left>“我们下一步该做什么？”</td></tr><tr><td style=text-align:left><strong>决策（Decision）</strong></td><td style=text-align:left>推理链</td><td style=text-align:left>“我们针对Redis问题讨论了哪些方案，最终决定是什么？”</td></tr></tbody></table><h4 id=评估维度>评估维度<a hidden class=anchor aria-hidden=true href=#评估维度>#</a></h4><p>由LLM裁判（GPT-5.2）按六个维度评分（0-5分），面向软件开发场景：</p><ul><li><p><strong>准确性 (Accuracy):</strong> 技术细节（如文件路径、函数名）是否正确。</p></li><li><p><strong>上下文感知 (Context Awareness):</strong> 响应是否反映了当前的对话状态。</p></li><li><p><strong>工件追踪 (Artifact Trail):</strong> 代理是否知道哪些文件被读取或修改过。</p></li><li><p><strong>完整性 (Completeness):</strong> 响应是否解决了问题的所有部分。</p></li><li><p><strong>连续性 (Continuity):</strong> 工作能否在不重新获取信息的情况下继续。</p></li><li><p><strong>指令遵循 (Instruction Following):</strong> 响应是否遵循了格式或约束要求。</p></li></ul><h2 id=3-三种压缩策略对比>3. 三种压缩策略对比<a hidden class=anchor aria-hidden=true href=#3-三种压缩策略对比>#</a></h2><p>研究评估了三种生产级的压缩策略：</p><ol><li><p><strong>Factory：锚定迭代式摘要 (Anchored Iterative Summarization)</strong></p><ul><li><p><strong>机制：</strong> 维护一个包含明确分区（如会话意图、文件修改、决策）的持久化结构性摘要。当需要压缩时，仅对新截断的对话部分进行摘要，并将其合并到现有摘要中。</p></li><li><p><strong>核心洞察：</strong> 结构强制保留。通过为特定信息类型设置专门的区域，可以防止关键细节（如文件路径）在自由形式的摘要中被无声地丢弃。</p></li></ul></li><li><p><strong>OpenAI：不透明压缩端点（<code>/responses/compact</code>）</strong></p><ul><li><p><strong>机制：</strong> 生成面向重建保真度的不透明压缩表示。</p></li><li><p><strong>特点：</strong> 压缩率最高（99.3%），但牺牲了解释性，用户无法直接读取压缩内容以验证保留了哪些信息。</p></li></ul></li><li><p><strong>Anthropic：内置上下文压缩 (Claude SDK)</strong></p><ul><li><p><strong>机制：</strong> 生成包含分析、文件、待办任务等部分的详细结构化摘要。</p></li><li><p><strong>与Factory的区别：</strong> 每次压缩时都会重新生成完整的摘要，而不是像Factory那样进行增量合并。这影响了摘要在多次压缩循环中的一致性。</p></li></ul></li></ol><h2 id=4-关键发现与量化结果>4. 关键发现与量化结果<a hidden class=anchor aria-hidden=true href=#4-关键发现与量化结果>#</a></h2><p>研究分析了来自生产环境（涉及代码审查、测试、错误修复等）的超过36,000条消息。</p><h4 id=示例对比>示例对比<a hidden class=anchor aria-hidden=true href=#示例对比>#</a></h4><p>在一个调试会话后，针对探针问题“最初的错误是什么？”，三种方法的响应质量差异显著：</p><ul><li><p><strong>Factory (4.8/5分):</strong> 准确指出了“/api/auth/login”端点的“401 Unauthorized”错误，并说明了根本原因是“Redis连接陈旧”。</p></li><li><p><strong>Anthropic (3.9/5分):</strong> 提到了401错误，但丢失了具体的端点路径。</p></li><li><p><strong>OpenAI (3.2/5分):</strong> 响应非常笼统，几乎丢失了所有技术细节，只提到“正在调试一个认证问题”。</p></li></ul><h4 id=总体性能数据>总体性能数据<a hidden class=anchor aria-hidden=true href=#总体性能数据>#</a></h4><p>下表展示了三种方法在六个维度上的平均得分：</p><table><thead><tr><th style=text-align:left>方法</th><th style=text-align:right>总体得分</th><th style=text-align:right>准确性</th><th style=text-align:right>上下文感知</th><th style=text-align:right>工件追踪</th><th style=text-align:right>完整性</th><th style=text-align:right>连续性</th><th style=text-align:right>指令遵循</th></tr></thead><tbody><tr><td style=text-align:left><strong>Factory</strong></td><td style=text-align:right><strong>3.70</strong></td><td style=text-align:right><strong>4.04</strong></td><td style=text-align:right><strong>4.01</strong></td><td style=text-align:right>2.45</td><td style=text-align:right>4.44</td><td style=text-align:right>3.80</td><td style=text-align:right>4.99</td></tr><tr><td style=text-align:left><strong>Anthropic</strong></td><td style=text-align:right>3.44</td><td style=text-align:right>3.74</td><td style=text-align:right>3.56</td><td style=text-align:right>2.33</td><td style=text-align:right>4.37</td><td style=text-align:right>3.67</td><td style=text-align:right>4.95</td></tr><tr><td style=text-align:left><strong>OpenAI</strong></td><td style=text-align:right>3.35</td><td style=text-align:right>3.43</td><td style=text-align:right>3.64</td><td style=text-align:right>2.19</td><td style=text-align:right>4.37</td><td style=text-align:right>3.77</td><td style=text-align:right>4.92</td></tr></tbody></table><ul><li><p><strong>Factory表现领先：</strong> 总体得分比OpenAI高0.35分，比Anthropic高0.26分。其在<strong>准确性</strong>和<strong>上下文感知</strong>方面的优势最大，这直接归功于其结构化的摘要方法。</p></li><li><p><strong>工件追踪是普遍弱点：</strong> 所有方法的得分都较低（2.19-2.45），表明仅靠通用摘要难以有效追踪文件修改历史。</p></li></ul><h4 id=压缩率与质量的权衡>压缩率与质量的权衡<a hidden class=anchor aria-hidden=true href=#压缩率与质量的权衡>#</a></h4><ul><li><p><strong>OpenAI:</strong> 99.3%</p></li><li><p><strong>Anthropic:</strong> 98.7%</p></li><li><p><strong>Factory:</strong> 98.6%</p></li></ul><p>尽管Factory的压缩率比OpenAI低0.7%，但其质量得分高出0.35分。这一权衡通常划算：更高质量的上下文可减少因信息丢失导致的重试，从而节省总Token。</p><h2 id=5-核心结论>5. 核心结论<a hidden class=anchor aria-hidden=true href=#5-核心结论>#</a></h2><ol><li><p><strong>结构至关重要：</strong> 通用摘要将所有内容一视同仁，而Factory的结构化方法强制保留了对任务至关重要的信息（如文件路径和决策），有效防止了“信息漂移”。</p></li><li><p><strong>压缩率是错误指标：</strong> 真正的衡量标准是“完成任务的总Token数”。牺牲少量压缩率以换取更高的上下文质量，可以避免代价高昂的返工，从而提高整体效率。</p></li><li><p><strong>工件追踪是未解难题：</strong> 所有被测方法在追踪文件创建和修改方面都表现不佳。这表明需要超越通用摘要的专门解决方案，例如独立的工件索引或显式的状态跟踪机制。</p></li><li><p><strong>探针评估更有效：</strong> 与衡量词汇相似度的传统指标不同，基于探针的评估直接衡量摘要是否能支持代理继续执行任务，这对于代理工作流至关重要。</p></li></ol></div><footer class=post-footer><ul class=post-tags><li><a href=https://bleedkagax.github.io/tags/blog/>Blog</a></li><li><a href=https://bleedkagax.github.io/tags/ai/>AI</a></li></ul></footer></article></main><footer class=footer><span>&copy; 2025 <a href=https://bleedkagax.github.io/>Kaga Blog</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a><script type=module>
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script><script>(function(){var e=document.querySelectorAll("pre > code.language-mermaid");e.forEach(function(e){var t,n=e.parentElement;if(!n)return;t=document.createElement("div"),t.className="mermaid",t.textContent=e.textContent||"",n.replaceWith(t)})})()</script><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>
