@@ -8,6 +8,9 @@ tags:
 share: "true"
 ---
 
+![](/img/2_openresty-1.png)
+
+
 ## Introduction to OpenResty
 
 OpenResty is a dynamic web platform that integrates Nginx with the powerful Lua scripting language. It is designed to build scalable web applications, web services, and dynamic web gateways. By combining the high performance of Nginx with the flexibility of Lua, OpenResty enables developers to handle complex processing at the edge of the network.
@@ -726,22 +729,42 @@ Write optimized Lua code to reduce execution time and memory usage.
 **Example: Avoiding Unnecessary Table Creations**
 
 ```lua
--- Inefficient
-local function generate_users(n)
-    local users = {}
-    for i = 1, n do
-        users[i] = {id = i, name = "User" .. i}
+-- Inefficient: Creates new table for each user attributes
+local function process_users(users)
+    local results = {}
+    for i, user in ipairs(users) do
+        -- Creates a new temporary table for each iteration
+        local attributes = {
+            name = user.name,
+            age = user.age,
+            status = "active",
+            last_login = os.time()
+        }
+        results[i] = attributes
     end
-    return users
+    return results
 end
 
--- Efficient
-local function generate_users(n)
-    local users = {}
-    for i = 1, n do
-        users[i] = {id = i, name = "User" .. i}
+-- Efficient: Reuses a single template table
+local function process_users(users)
+    local results = {}
+    -- Create template table once
+    local template = {
+        name = "",
+        age = 0,
+        status = "active",
+        last_login = 0
+    }
+    
+    for i, user in ipairs(users) do
+        -- Reuse template structure via metatable
+        local attributes = setmetatable({}, {__index = template})
+        attributes.name = user.name
+        attributes.age = user.age
+        attributes.last_login = os.time()
+        results[i] = attributes
     end
-    return users
+    return results
 end
 ```
 
@@ -1107,6 +1130,198 @@ http {
 - **Rate Limiting:** Apply rate limiting on `service2_backend`.
 - **Authentication:** Add authentication checks for sensitive endpoints.
 
+#### Deep Into API Gateway Configuration
+
+1. Shared Memory and Cache Configuration:
+```nginx
+http {
+    # Allocates 10MB shared memory for rate limiting
+    lua_shared_dict limits 10m;
+
+    # Cache configuration
+    proxy_cache_path /var/cache/nginx  # Cache directory
+        levels=1:2                     # Two-level directory hierarchy
+        keys_zone=my_cache:10m         # Allocates 10MB for cache keys
+        max_size=1g                    # Maximum cache size
+        inactive=60m                   # Remove items inactive for 60 minutes
+        use_temp_path=off;             # Don't use temporary path
+}
+```
+
+2. Service 1 Endpoint with Caching:
+```nginx
+location /api/service1 {
+    # Forward requests to service1_backend
+    proxy_pass http://service1_backend;
+    
+    # Pass client information
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+
+    # Caching configuration
+    proxy_cache my_cache;              # Use cache zone defined above
+    proxy_cache_valid 200 302 10m;     # Cache successful responses for 10 mins
+    proxy_cache_valid 404      1m;     # Cache 404s for 1 min
+}
+```
+
+3. Service 2 Endpoint with Rate Limiting:
+```nginx
+location /api/service2 {
+    proxy_pass http://service2_backend;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+
+    # Here's an implementation of rate limiting:
+    access_by_lua_block {
+        local limit_req = require "resty.limit.req"
+        
+        -- Create limiter: 10 requests/second with 20 request burst
+        local lim, err = limit_req.new("limits", 10, 20)
+        if not lim then
+            ngx.log(ngx.ERR, "failed to instantiate limiter: ", err)
+            return ngx.exit(500)
+        end
+        
+        -- Get client IP
+        local key = ngx.var.binary_remote_addr
+        
+        -- Check rate limit
+        local delay, err = lim:incoming(key, true)
+        if not delay then
+            if err == "rejected" then
+                return ngx.exit(429)  -- Too Many Requests
+            end
+            ngx.log(ngx.ERR, "failed to limit req: ", err)
+            return ngx.exit(500)
+        end
+        
+        -- Apply delay if necessary
+        if delay > 0 then
+            ngx.sleep(delay)
+        end
+    }
+}
+```
+
+4. Authentication Endpoint:
+```nginx
+location /auth {
+    access_by_lua_block {
+        local function validate_token(token)
+            -- Example token validation
+            if not token then
+                return false
+            end
+            -- Add your token validation logic here
+            return true
+        end
+        
+        -- Get Authorization header
+        local auth_header = ngx.req.get_headers()["Authorization"]
+        if not auth_header then
+            ngx.status = 401
+            ngx.say("Missing authorization header")
+            return ngx.exit(401)
+        end
+        
+        -- Extract token
+        local _, _, token = string.find(auth_header, "Bearer%s+(.+)")
+        if not token then
+            ngx.status = 401
+            ngx.say("Invalid token format")
+            return ngx.exit(401)
+        end
+        
+        -- Validate token
+        if not validate_token(token) then
+            ngx.status = 401
+            ngx.say("Invalid token")
+            return ngx.exit(401)
+        end
+    }
+    proxy_pass http://auth_backend;
+}
+```
+
+5. Complete Implementation with Error Handling:
+
+```lua
+-- common/auth.lua
+local _M = {}
+
+function _M.validate_token(token)
+    -- JWT validation example
+    local jwt = require "resty.jwt"
+    local jwt_secret = "your-secret-key"
+    
+    local jwt_obj = jwt:verify(jwt_secret, token)
+    if not jwt_obj.verified then
+        return false, "Invalid token"
+    end
+    
+    return true, jwt_obj.payload
+end
+
+return _M
+
+-- common/rate_limit.lua
+local _M = {}
+
+function _M.new_limiter(limit_key, rate, burst)
+    local limit_req = require "resty.limit.req"
+    local lim, err = limit_req.new("limits", rate, burst)
+    
+    if not lim then
+        return nil, "failed to create limiter: " .. (err or "unknown")
+    end
+    
+    return lim
+end
+
+function _M.check_limit(lim, key)
+    local delay, err = lim:incoming(key, true)
+    
+    if not delay then
+        if err == "rejected" then
+            return nil, "rate_limited"
+        end
+        return nil, "internal_error"
+    end
+    
+    return delay
+end
+
+return _M
+
+-- common/cache.lua
+local _M = {}
+
+function _M.get_cached_response()
+    local cache_ngx = ngx.shared.my_cache
+    local cache_key = ngx.var.request_uri
+    
+    local value = cache_ngx:get(cache_key)
+    if value then
+        return value
+    end
+    
+    return nil
+end
+
+function _M.set_cached_response(response, ttl)
+    local cache_ngx = ngx.shared.my_cache
+    local cache_key = ngx.var.request_uri
+    
+    local success, err = cache_ngx:set(cache_key, response, ttl)
+    if not success then
+        ngx.log(ngx.ERR, "failed to cache response: ", err)
+    end
+end
+
+return _M
+```
+
 ## Resources and Further Reading
 
 ### Official Documentation
@@ -1140,9 +1355,5 @@ http {
 ## Conclusion
 
 OpenResty is a powerful platform that combines the robust capabilities of Nginx with the flexibility of Lua scripting. This comprehensive tutorial has walked you through the essentials of setting up, configuring, and optimizing OpenResty for various web applications. By mastering OpenResty, you can build high-performance, scalable, and secure web services tailored to your specific needs.
-
-Remember, the key to proficiency is consistent practice and active participation in the community. Leverage the resources provided, experiment with different configurations, and contribute to open-source projects to deepen your understanding and expertise in OpenResty.
-
----
 
 *Happy Coding!*
