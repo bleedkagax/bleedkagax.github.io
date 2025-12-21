@@ -35,6 +35,21 @@ theme = 'papermod'
   ShowToc = true
   TocOpen = false
 
+  [params.profileMode]
+    enabled = true
+    title = "Kaga Blog"
+    subtitle = "Notes on engineering, systems, and learning."
+
+    [[params.profileMode.buttons]]
+      name = "Posts"
+      url = "/post/"
+    [[params.profileMode.buttons]]
+      name = "Archives"
+      url = "/archives/"
+    [[params.profileMode.buttons]]
+      name = "Search"
+      url = "/search/"
+
 
 
 

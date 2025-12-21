@@ -61,7 +61,7 @@
 &lt;/ul>
 &lt;h2 id="prerequisites">Prerequisites&lt;/h2>
 &lt;p>Before diving into Lua, ensure you have the following:&lt;/p></description></item><item><title>Nginx</title><link>https://bleedkagax.github.io/post/0_nginx/</link><pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/0_nginx/</guid><description>&lt;h2 id="introduction-to-nginx">Introduction to Nginx&lt;/h2>
-&lt;p>Nginx (pronounced as &amp;ldquo;Engine-X&amp;rdquo;) is a high-performance, open-source web server, reverse proxy server, and email (IMAP/POP3) proxy server. It is renowned for its ability to handle high concurrency, low memory usage, and exceptional speed, making it a popular choice for serving both static and dynamic content on the web.&lt;/p>
+&lt;p>Nginx (pronounced as &amp;ldquo;Engine-X&amp;rdquo;) is a high-performance, open-source web server, reverse proxy server, and email (IMAP/POP3) proxy server.&lt;/p>
 &lt;h2 id="what-is-nginx">What is Nginx?&lt;/h2>
 &lt;h3 id="key-features">Key Features&lt;/h3>
 &lt;ul>
@@ -82,7 +82,9 @@
 &lt;li>&lt;strong>Content Caching:&lt;/strong> Storing frequently accessed content to enhance performance.&lt;/li>
 &lt;/ul>
 &lt;h2 id="prerequisites">Prerequisites&lt;/h2>
-&lt;p>Before diving into Nginx, ensure you have the following:&lt;/p></description></item><item><title>Openresty</title><link>https://bleedkagax.github.io/post/2_openresty/</link><pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/2_openresty/</guid><description>&lt;h2 id="introduction-to-openresty">Introduction to OpenResty&lt;/h2>
+&lt;p>Before diving into Nginx, ensure you have the following:&lt;/p></description></item><item><title>Openresty</title><link>https://bleedkagax.github.io/post/2_openresty/</link><pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/2_openresty/</guid><description>&lt;p>&lt;img loading="lazy" src="https://bleedkagax.github.io/img/2_openresty-1.png" alt="" />
+&lt;/p>
+&lt;h2 id="introduction-to-openresty">Introduction to OpenResty&lt;/h2>
 &lt;p>OpenResty is a dynamic web platform that integrates Nginx with the powerful Lua scripting language. It is designed to build scalable web applications, web services, and dynamic web gateways. By combining the high performance of Nginx with the flexibility of Lua, OpenResty enables developers to handle complex processing at the edge of the network.&lt;/p>
 &lt;h2 id="what-is-openresty">What is OpenResty?&lt;/h2>
 &lt;p>OpenResty extends Nginx by bundling it with a set of powerful Lua libraries and modules (known as LuaJIT). This allows embedding Lua scripts directly into the Nginx configuration, offering unparalleled flexibility for customizing request handling, routing, and response generation.&lt;/p></description></item><item><title>System Design</title><link>https://bleedkagax.github.io/post/0_system_design/</link><pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/0_system_design/</guid><description>&lt;h2 id="how-to-solve-cache-penetration">How to Solve Cache Penetration?&lt;/h2>
