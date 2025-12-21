@@ -1,259 +1,12 @@
-
-
-<!DOCTYPE html>
-<html lang="en" itemscope itemtype="http://schema.org/WebPage">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=62354&amp;path=livereload" data-no-instant defer></script>
-    
-
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-
- 
-
-
-      <title>Redis, Pika, and Codis - </title>
-
-  <meta name="description" content="Comprehensive Technical Analysis: Redis, Pika, and Codis
+<!doctype html><html class="not-ready lg:text-base" style=--bg:#faf8f1 lang=en-us dir=ltr><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Redis, Pika, and Codis - Kaga Blog</title>
+<meta name=theme-color><meta name=description content="Comprehensive Technical Analysis: Redis, Pika, and Codis
 Introduction
 In the realm of distributed data storage and caching systems, Redis, Pika, and Codis represent three distinct approaches to solving scalability, persistence, and performance challenges. This comprehensive analysis delves deep into the architectures, features, and use cases of these systems, providing detailed code examples and visual representations to facilitate a thorough understanding.
 Redis
-Redis (Remote Dictionary Server) is an open-source, in-memory data structure store that has become a cornerstone in modern application architectures. Its versatility allows it to function as a database, cache, message broker, and queue."><script type="application/ld+json">
-{
-    "@context": "http://schema.org",
-    "@type": "WebSite",
-    "name": "Kaga Blog",
-    
-    "url": "http:\/\/localhost:62354\/"
-}
-</script><script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Organization",
-  "name": "",
-  "url": "http:\/\/localhost:62354\/"
-  
-  
-  
-  
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "item": {
-          "@id": "http:\/\/localhost:62354\/",
-          "name": "home"
-        }
-    },{
-        "@type": "ListItem",
-        "position": 3,
-        "item": {
-          "@id": "http:\/\/localhost:62354\/post\/1_redis_pika_codis\/",
-          "name": "Redis, pika, and codis"
-        }
-    }]
-}
-</script><script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Article",
-  "author": {
-    "name" : ""
-  },
-  "headline": "Redis, Pika, and Codis",
-  "description" : "Comprehensive Technical Analysis: Redis, Pika, and Codis Introduction In the realm of distributed data storage and caching systems, Redis, Pika, and Codis represent three distinct approaches to solving scalability, persistence, and performance challenges. This comprehensive analysis delves deep into the architectures, features, and use cases of these systems, providing detailed code examples and visual representations to facilitate a thorough understanding.\nRedis Redis (Remote Dictionary Server) is an open-source, in-memory data structure store that has become a cornerstone in modern application architectures. Its versatility allows it to function as a database, cache, message broker, and queue.\n",
-  "inLanguage" : "en",
-  "wordCount":  2116 ,
-  "datePublished" : "2024-09-09T00:00:00\u002b00:00",
-  "dateModified" : "2024-09-09T00:00:00\u002b00:00",
-  "image" : "http:\/\/localhost:62354\/",
-  "keywords" : [ "Redis" ],
-  "mainEntityOfPage" : "http:\/\/localhost:62354\/post\/1_redis_pika_codis\/",
-  "publisher" : {
-    "@type": "Organization",
-    "name" : "http:\/\/localhost:62354\/",
-    "logo" : {
-        "@type" : "ImageObject",
-        "url" : "http:\/\/localhost:62354\/",
-        "height" :  60 ,
-        "width" :  60
-    }
-  }
-}
-</script>
-
-
-<meta property="og:title" content="Redis, Pika, and Codis" />
-<meta property="og:description" content="Comprehensive Technical Analysis: Redis, Pika, and Codis
-Introduction
-In the realm of distributed data storage and caching systems, Redis, Pika, and Codis represent three distinct approaches to solving scalability, persistence, and performance challenges. This comprehensive analysis delves deep into the architectures, features, and use cases of these systems, providing detailed code examples and visual representations to facilitate a thorough understanding.
-Redis
-Redis (Remote Dictionary Server) is an open-source, in-memory data structure store that has become a cornerstone in modern application architectures. Its versatility allows it to function as a database, cache, message broker, and queue.">
-<meta property="og:url" content="http://localhost:62354/post/1_redis_pika_codis/" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Kaga Blog" />
-
-  <meta name="twitter:title" content="Redis, Pika, and Codis" />
-  <meta name="twitter:description" content="Comprehensive Technical Analysis: Redis, Pika, and Codis
-Introduction
-In the realm of distributed data storage and caching systems, Redis, Pika, and Codis represent three distinct approaches to …">
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="generator" content="Hugo 0.134.0">
-  <link rel="alternate" href="http://localhost:62354/index.xml" type="application/rss+xml" title="Kaga Blog"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="http://localhost:62354/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="http://localhost:62354/css/syntax.css" /><link rel="stylesheet" href="http://localhost:62354/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
-
-  </head>
-  <body>
-    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="http://localhost:62354/">Kaga Blog</a>
-    </div>
-
-    <div class="collapse navbar-collapse" id="main-navbar">
-      <ul class="nav navbar-nav navbar-right">
-        
-
-        
-
-        
-      </ul>
-    </div>
-
-    
-
-  </div>
-</nav>
-
-
-
-
-    
-
-
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-<div class="pswp__bg"></div>
-
-<div class="pswp__scroll-wrap">
-    
-    <div class="pswp__container">
-      <div class="pswp__item"></div>
-      <div class="pswp__item"></div>
-      <div class="pswp__item"></div>
-    </div>
-    
-    <div class="pswp__ui pswp__ui--hidden">
-    <div class="pswp__top-bar">
-      
-      <div class="pswp__counter"></div>
-      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-      <button class="pswp__button pswp__button--share" title="Share"></button>
-      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-      
-      
-      <div class="pswp__preloader">
-        <div class="pswp__preloader__icn">
-          <div class="pswp__preloader__cut">
-            <div class="pswp__preloader__donut"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-      <div class="pswp__share-tooltip"></div>
-    </div>
-    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-    </button>
-    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-    </button>
-    <div class="pswp__caption">
-      <div class="pswp__caption__center"></div>
-    </div>
-    </div>
-    </div>
-</div>
-
-
-  
-  
-  
-
-
-
-
-
-
-  
-
-  <header class="header-section ">
-    
-    
-    <div class="intro-header no-img">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="post-heading">
-              
-                <h1>Redis, Pika, and Codis</h1>
-              
-              
-              
-              
-                <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on September 9, 2024
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
-    
-  
-  
-</span>
-
-
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-  </header>
-
-
-    
-<div class="container" role="main">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <article role="main" class="blog-post">
-        <h1 id="comprehensive-technical-analysis-redis-pika-and-codis">Comprehensive Technical Analysis: Redis, Pika, and Codis</h1>
-<h2 id="introduction">Introduction</h2>
-<p>In the realm of distributed data storage and caching systems, Redis, Pika, and Codis represent three distinct approaches to solving scalability, persistence, and performance challenges. This comprehensive analysis delves deep into the architectures, features, and use cases of these systems, providing detailed code examples and visual representations to facilitate a thorough understanding.</p>
-<h2 id="redis">Redis</h2>
-<p>Redis (Remote Dictionary Server) is an open-source, in-memory data structure store that has become a cornerstone in modern application architectures. Its versatility allows it to function as a database, cache, message broker, and queue.</p>
-<h3 id="redis-core-architecture">Redis Core Architecture</h3>
-<p>Redis follows a single-threaded, event-driven model using an I/O multiplexing technique.</p>
-<pre class="mermaid">
+Redis (Remote Dictionary Server) is an open-source, in-memory data structure store that has become a cornerstone in modern application architectures. Its versatility allows it to function as a database, cache, message broker, and queue."><meta name=author content="Kaga Blog"><link rel="preload stylesheet" as=style href=https://bleedkagax.github.io/main.min.css><link rel=preload as=image href=https://bleedkagax.github.io/theme.png><script defer src=https://bleedkagax.github.io/highlight.min.js onload=hljs.initHighlightingOnLoad()></script><link rel=icon href=https://bleedkagax.github.io/favicon.ico><link rel=apple-touch-icon href=https://bleedkagax.github.io/apple-touch-icon.png><meta name=generator content="Hugo 0.134.0"><meta itemprop=name content="Redis, Pika, and Codis"><meta itemprop=description content="Comprehensive Technical Analysis: Redis, Pika, and Codis Introduction In the realm of distributed data storage and caching systems, Redis, Pika, and Codis represent three distinct approaches to solving scalability, persistence, and performance challenges. This comprehensive analysis delves deep into the architectures, features, and use cases of these systems, providing detailed code examples and visual representations to facilitate a thorough understanding.
+Redis Redis (Remote Dictionary Server) is an open-source, in-memory data structure store that has become a cornerstone in modern application architectures. Its versatility allows it to function as a database, cache, message broker, and queue."><meta itemprop=datePublished content="2024-09-09T00:00:00+00:00"><meta itemprop=dateModified content="2024-09-09T00:00:00+00:00"><meta itemprop=wordCount content="2116"><meta itemprop=keywords content="Redis"><meta property="og:url" content="https://bleedkagax.github.io/post/1_redis_pika_codis/"><meta property="og:site_name" content="Kaga Blog"><meta property="og:title" content="Redis, Pika, and Codis"><meta property="og:description" content="Comprehensive Technical Analysis: Redis, Pika, and Codis Introduction In the realm of distributed data storage and caching systems, Redis, Pika, and Codis represent three distinct approaches to solving scalability, persistence, and performance challenges. This comprehensive analysis delves deep into the architectures, features, and use cases of these systems, providing detailed code examples and visual representations to facilitate a thorough understanding.
+Redis Redis (Remote Dictionary Server) is an open-source, in-memory data structure store that has become a cornerstone in modern application architectures. Its versatility allows it to function as a database, cache, message broker, and queue."><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:published_time" content="2024-09-09T00:00:00+00:00"><meta property="article:modified_time" content="2024-09-09T00:00:00+00:00"><meta property="article:tag" content="Redis"><meta name=twitter:card content="summary"><meta name=twitter:title content="Redis, Pika, and Codis"><meta name=twitter:description content="Comprehensive Technical Analysis: Redis, Pika, and Codis Introduction In the realm of distributed data storage and caching systems, Redis, Pika, and Codis represent three distinct approaches to solving scalability, persistence, and performance challenges. This comprehensive analysis delves deep into the architectures, features, and use cases of these systems, providing detailed code examples and visual representations to facilitate a thorough understanding.
+Redis Redis (Remote Dictionary Server) is an open-source, in-memory data structure store that has become a cornerstone in modern application architectures. Its versatility allows it to function as a database, cache, message broker, and queue."><link rel=canonical href=https://bleedkagax.github.io/post/1_redis_pika_codis/></head><body class="text-black duration-200 ease-out dark:text-white"><header class="mx-auto flex h-[4.5rem] max-w-[--w] px-8 lg:justify-center"><div class="relative z-50 ltr:mr-auto rtl:ml-auto flex items-center"><a class="-translate-y-[1px] text-2xl font-medium" href=https://bleedkagax.github.io/>Kaga Blog</a><div class="btn-dark text-[0] ltr:ml-4 rtl:mr-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]" role=button aria-label=Dark></div></div><div class="btn-menu relative z-50 ltr:-mr-8 rtl:-ml-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden" role=button aria-label=Menu></div><script>const htmlClass=document.documentElement.classList;setTimeout(()=>{htmlClass.remove("not-ready")},10);const btnMenu=document.querySelector(".btn-menu");btnMenu.addEventListener("click",()=>{htmlClass.toggle("open")});const metaTheme=document.querySelector('meta[name="theme-color"]'),lightBg="#faf8f1".replace(/"/g,""),setDark=e=>{metaTheme.setAttribute("content",e?"#000":lightBg),htmlClass[e?"add":"remove"]("dark"),localStorage.setItem("dark",e)},darkScheme=window.matchMedia("(prefers-color-scheme: dark)");if(htmlClass.contains("dark"))setDark(!0);else{const e=localStorage.getItem("dark");setDark(e?e==="true":darkScheme.matches)}darkScheme.addEventListener("change",e=>{setDark(e.matches)});const btnDark=document.querySelector(".btn-dark");btnDark.addEventListener("click",()=>{setDark(localStorage.getItem("dark")!=="true")})</script><div class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"></div></header><main class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-[--w] px-8 pb-16 pt-14 dark:prose-invert"><article><header class=mb-14><h1 class="!my-0 pb-2.5">Redis, Pika, and Codis</h1><div class="text-xs antialiased opacity-60"><time>Sep 9, 2024</time></div></header><section><h1 id=comprehensive-technical-analysis-redis-pika-and-codis>Comprehensive Technical Analysis: Redis, Pika, and Codis</h1><h2 id=introduction>Introduction</h2><p>In the realm of distributed data storage and caching systems, Redis, Pika, and Codis represent three distinct approaches to solving scalability, persistence, and performance challenges. This comprehensive analysis delves deep into the architectures, features, and use cases of these systems, providing detailed code examples and visual representations to facilitate a thorough understanding.</p><h2 id=redis>Redis</h2><p>Redis (Remote Dictionary Server) is an open-source, in-memory data structure store that has become a cornerstone in modern application architectures. Its versatility allows it to function as a database, cache, message broker, and queue.</p><h3 id=redis-core-architecture>Redis Core Architecture</h3><p>Redis follows a single-threaded, event-driven model using an I/O multiplexing technique.</p><pre class=mermaid>
     graph TD
 	    A[Client Connections] --&gt; B[Event Loop]
 	    B --&gt; C[Command Processing]
@@ -262,131 +15,34 @@ In the realm of distributed data storage and caching systems, Redis, Pika, and C
 	    B --&gt; F[Replication]
 	    B --&gt; G[Pub/Sub]
 	    B --&gt; H[Transactions]
-</pre>
-<p>The event loop efficiently handles multiple client connections using mechanisms like <code>epoll</code> (Linux) or <code>kqueue</code> (BSD).</p>
-<p>Key components:</p>
-<ul>
-<li><strong>Event Loop</strong>: Manages I/O events and timers</li>
-<li><strong>Command Processing</strong>: Executes Redis commands</li>
-<li><strong>In-Memory Data Structures</strong>: Stores and manipulates data</li>
-<li><strong>Persistence Layer</strong>: Handles RDB and AOF persistence</li>
-<li><strong>Replication</strong>: Manages master-slave replication</li>
-<li><strong>Pub/Sub</strong>: Implements publish/subscribe messaging</li>
-<li><strong>Transactions</strong>: Handles atomic command execution</li>
-</ul>
-<h3 id="redis-data-structures-and-implementations">Redis Data Structures and Implementations</h3>
-<p>Redis offers a rich set of data structures, each with specific use cases and internal implementations:</p>
-<ol>
-<li><strong>Strings</strong>
-<ul>
-<li>Implementation: Simple dynamic string (SDS)</li>
-<li>Use case: Caching, counters, bit operations</li>
-</ul>
-</li>
-</ol>
-<pre tabindex="0"><code class="language-redis" data-lang="redis">SET key &#34;Hello, Redis!&#34;
+</pre><p>The event loop efficiently handles multiple client connections using mechanisms like <code>epoll</code> (Linux) or <code>kqueue</code> (BSD).</p><p>Key components:</p><ul><li><strong>Event Loop</strong>: Manages I/O events and timers</li><li><strong>Command Processing</strong>: Executes Redis commands</li><li><strong>In-Memory Data Structures</strong>: Stores and manipulates data</li><li><strong>Persistence Layer</strong>: Handles RDB and AOF persistence</li><li><strong>Replication</strong>: Manages master-slave replication</li><li><strong>Pub/Sub</strong>: Implements publish/subscribe messaging</li><li><strong>Transactions</strong>: Handles atomic command execution</li></ul><h3 id=redis-data-structures-and-implementations>Redis Data Structures and Implementations</h3><p>Redis offers a rich set of data structures, each with specific use cases and internal implementations:</p><ol><li><strong>Strings</strong><ul><li>Implementation: Simple dynamic string (SDS)</li><li>Use case: Caching, counters, bit operations</li></ul></li></ol><pre tabindex=0><code class=language-redis data-lang=redis>SET key &#34;Hello, Redis!&#34;
 GET key
 INCR counter
 SETBIT flag 10 1
-</code></pre><ol start="2">
-<li><strong>Lists</strong>
-<ul>
-<li>Implementation: Linked list or ziplist (for small lists)</li>
-<li>Use case: Message queues, recent items lists</li>
-</ul>
-</li>
-</ol>
-<pre tabindex="0"><code class="language-redis" data-lang="redis">LPUSH mylist &#34;item1&#34; &#34;item2&#34;
+</code></pre><ol start=2><li><strong>Lists</strong><ul><li>Implementation: Linked list or ziplist (for small lists)</li><li>Use case: Message queues, recent items lists</li></ul></li></ol><pre tabindex=0><code class=language-redis data-lang=redis>LPUSH mylist &#34;item1&#34; &#34;item2&#34;
 RPOP mylist
 LRANGE mylist 0 -1
-</code></pre><ol start="3">
-<li><strong>Sets</strong>
-<ul>
-<li>Implementation: Hash table or intset (for small integer sets)</li>
-<li>Use case: Unique items, relations between objects</li>
-</ul>
-</li>
-</ol>
-<pre tabindex="0"><code class="language-redis" data-lang="redis">SADD myset &#34;member1&#34; &#34;member2&#34;
+</code></pre><ol start=3><li><strong>Sets</strong><ul><li>Implementation: Hash table or intset (for small integer sets)</li><li>Use case: Unique items, relations between objects</li></ul></li></ol><pre tabindex=0><code class=language-redis data-lang=redis>SADD myset &#34;member1&#34; &#34;member2&#34;
 SMEMBERS myset
 SINTER set1 set2
-</code></pre><ol start="4">
-<li><strong>Sorted Sets</strong>
-<ul>
-<li>Implementation: Skip list and hash table</li>
-<li>Use case: Leaderboards, priority queues</li>
-</ul>
-</li>
-</ol>
-<pre tabindex="0"><code class="language-redis" data-lang="redis">ZADD leaderboard 100 &#34;player1&#34; 200 &#34;player2&#34;
+</code></pre><ol start=4><li><strong>Sorted Sets</strong><ul><li>Implementation: Skip list and hash table</li><li>Use case: Leaderboards, priority queues</li></ul></li></ol><pre tabindex=0><code class=language-redis data-lang=redis>ZADD leaderboard 100 &#34;player1&#34; 200 &#34;player2&#34;
 ZRANGE leaderboard 0 -1 WITHSCORES
-</code></pre><ol start="5">
-<li><strong>Hashes</strong>
-<ul>
-<li>Implementation: Hash table or ziplist (for small hashes)</li>
-<li>Use case: Object representation, field-value pairs</li>
-</ul>
-</li>
-</ol>
-<pre tabindex="0"><code class="language-redis" data-lang="redis">HSET user:1 name &#34;John&#34; age 30
+</code></pre><ol start=5><li><strong>Hashes</strong><ul><li>Implementation: Hash table or ziplist (for small hashes)</li><li>Use case: Object representation, field-value pairs</li></ul></li></ol><pre tabindex=0><code class=language-redis data-lang=redis>HSET user:1 name &#34;John&#34; age 30
 HGETALL user:1
-</code></pre><ol start="6">
-<li><strong>Bitmaps and HyperLogLogs</strong>
-<ul>
-<li>Implementation: Special encoding of string keys</li>
-<li>Use case: Space-efficient storage of boolean information, cardinality estimation</li>
-</ul>
-</li>
-</ol>
-<pre tabindex="0"><code class="language-redis" data-lang="redis">SETBIT visitors 10 1
+</code></pre><ol start=6><li><strong>Bitmaps and HyperLogLogs</strong><ul><li>Implementation: Special encoding of string keys</li><li>Use case: Space-efficient storage of boolean information, cardinality estimation</li></ul></li></ol><pre tabindex=0><code class=language-redis data-lang=redis>SETBIT visitors 10 1
 BITCOUNT visitors
 PFADD unique_visitors &#34;user1&#34; &#34;user2&#34;
 PFCOUNT unique_visitors
-</code></pre><ol start="7">
-<li><strong>Streams</strong>
-<ul>
-<li>Implementation: Radix tree</li>
-<li>Use case: Log storage, time-series data</li>
-</ul>
-</li>
-</ol>
-<pre tabindex="0"><code class="language-redis" data-lang="redis">XADD mystream * sensor-id 1234 temperature 19.8
+</code></pre><ol start=7><li><strong>Streams</strong><ul><li>Implementation: Radix tree</li><li>Use case: Log storage, time-series data</li></ul></li></ol><pre tabindex=0><code class=language-redis data-lang=redis>XADD mystream * sensor-id 1234 temperature 19.8
 XRANGE mystream - +
-</code></pre><h3 id="redis-persistence-mechanisms">Redis Persistence Mechanisms</h3>
-<p>Redis offers two primary persistence options:</p>
-<ol>
-<li><strong>RDB (Redis Database)</strong>
-<ul>
-<li>Point-in-time snapshots of the dataset</li>
-<li>Compact single-file format</li>
-<li>Suitable for backups and disaster recovery</li>
-</ul>
-</li>
-</ol>
-<pre tabindex="0"><code class="language-conf" data-lang="conf">save 900 1
+</code></pre><h3 id=redis-persistence-mechanisms>Redis Persistence Mechanisms</h3><p>Redis offers two primary persistence options:</p><ol><li><strong>RDB (Redis Database)</strong><ul><li>Point-in-time snapshots of the dataset</li><li>Compact single-file format</li><li>Suitable for backups and disaster recovery</li></ul></li></ol><pre tabindex=0><code class=language-conf data-lang=conf>save 900 1
 save 300 10
 save 60 10000
-</code></pre><ol start="2">
-<li><strong>AOF (Append-Only File)</strong>
-<ul>
-<li>Logs every write operation</li>
-<li>Higher durability</li>
-<li>Supports background rewrite for log compaction</li>
-</ul>
-</li>
-</ol>
-<pre tabindex="0"><code class="language-conf" data-lang="conf">appendonly yes
+</code></pre><ol start=2><li><strong>AOF (Append-Only File)</strong><ul><li>Logs every write operation</li><li>Higher durability</li><li>Supports background rewrite for log compaction</li></ul></li></ol><pre tabindex=0><code class=language-conf data-lang=conf>appendonly yes
 appendfsync everysec
 auto-aof-rewrite-percentage 100
 auto-aof-rewrite-min-size 64mb
-</code></pre><p>Implementation details:</p>
-<ul>
-<li>RDB uses fork() to create a child process for snapshotting</li>
-<li>AOF uses a write buffer and background fsync for performance</li>
-</ul>
-<h3 id="redis-replication-and-high-availability">Redis Replication and High Availability</h3>
-<p>Redis supports master-slave replication for high availability and read scalability.</p>
-<pre class="mermaid">
+</code></pre><p>Implementation details:</p><ul><li>RDB uses fork() to create a child process for snapshotting</li><li>AOF uses a write buffer and background fsync for performance</li></ul><h3 id=redis-replication-and-high-availability>Redis Replication and High Availability</h3><p>Redis supports master-slave replication for high availability and read scalability.</p><pre class=mermaid>
     graph TD
 	    A[Master] --&gt;|Sync| B[Slave 1]
 	    A --&gt;|Sync| C[Slave 2]
@@ -403,15 +59,7 @@ auto-aof-rewrite-min-size 64mb
 	    G --&gt;|Monitor| B
 	    G --&gt;|Monitor| C
 	    G --&gt;|Monitor| D
-</pre>
-<p>Key features:</p>
-<ul>
-<li>Asynchronous replication</li>
-<li>Partial resynchronization for efficiency</li>
-<li>Redis Sentinel for automatic failover</li>
-</ul>
-<p>Configuration example:</p>
-<pre tabindex="0"><code class="language-conf" data-lang="conf"># On slave
+</pre><p>Key features:</p><ul><li>Asynchronous replication</li><li>Partial resynchronization for efficiency</li><li>Redis Sentinel for automatic failover</li></ul><p>Configuration example:</p><pre tabindex=0><code class=language-conf data-lang=conf># On slave
 slaveof 192.168.1.100 6379
 slave-read-only yes
 
@@ -419,9 +67,7 @@ slave-read-only yes
 sentinel monitor mymaster 192.168.1.100 6379 2
 sentinel down-after-milliseconds mymaster 5000
 sentinel failover-timeout mymaster 60000
-</code></pre><h3 id="redis-clustering-and-sharding">Redis Clustering and Sharding</h3>
-<p>Redis Cluster provides a way to run a Redis installation where data is automatically sharded across multiple Redis nodes.</p>
-<pre class="mermaid">
+</code></pre><h3 id=redis-clustering-and-sharding>Redis Clustering and Sharding</h3><p>Redis Cluster provides a way to run a Redis installation where data is automatically sharded across multiple Redis nodes.</p><pre class=mermaid>
     graph TD
 	    A[Client] --&gt; B[Redis Cluster]
 	    B --&gt; C[Node 1 &lt;br/&gt; 0-5460]
@@ -433,85 +79,21 @@ sentinel failover-timeout mymaster 60000
 	    C --&gt; F[Replica 1]
 	    D --&gt; G[Replica 2]
 	    E --&gt; H[Replica 3]
-</pre>
-<p>Key features:</p>
-<ul>
-<li>16384 hash slots distributed across nodes</li>
-<li>Client-side sharding using CRC16</li>
-<li>Automatic failover and resharding</li>
-</ul>
-<p>Cluster setup example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>redis-cli --cluster create 127.0.0.1:7000 127.0.0.1:7001 <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    127.0.0.1:7002 127.0.0.1:7003 127.0.0.1:7004 127.0.0.1:7005 <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --cluster-replicas <span style="color:#ae81ff">1</span>
-</span></span></code></pre></div><h3 id="redis-transactions-and-lua-scripting">Redis Transactions and Lua Scripting</h3>
-<p>Redis supports transactions and Lua scripting for complex operations.</p>
-<ol>
-<li><strong>Transactions</strong>
-<ul>
-<li>Allows execution of a group of commands in a single step</li>
-<li>Provides optimistic locking with WATCH command</li>
-</ul>
-</li>
-</ol>
-<pre tabindex="0"><code class="language-redis" data-lang="redis">MULTI
+</pre><p>Key features:</p><ul><li>16384 hash slots distributed across nodes</li><li>Client-side sharding using CRC16</li><li>Automatic failover and resharding</li></ul><p>Cluster setup example:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>redis-cli --cluster create 127.0.0.1:7000 127.0.0.1:7001 <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    127.0.0.1:7002 127.0.0.1:7003 127.0.0.1:7004 127.0.0.1:7005 <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    --cluster-replicas <span style=color:#ae81ff>1</span>
+</span></span></code></pre></div><h3 id=redis-transactions-and-lua-scripting>Redis Transactions and Lua Scripting</h3><p>Redis supports transactions and Lua scripting for complex operations.</p><ol><li><strong>Transactions</strong><ul><li>Allows execution of a group of commands in a single step</li><li>Provides optimistic locking with WATCH command</li></ul></li></ol><pre tabindex=0><code class=language-redis data-lang=redis>MULTI
 INCR foo
 INCR bar
 EXEC
-</code></pre><ol start="2">
-<li><strong>Lua Scripting</strong>
-<ul>
-<li>Allows execution of complex operations atomically</li>
-<li>Scripts are executed using SHA1 digest for efficiency</li>
-</ul>
-</li>
-</ol>
-<pre tabindex="0"><code class="language-redis" data-lang="redis">EVAL &#34;return redis.call(&#39;SET&#39;, KEYS[1], ARGV[1])&#34; 1 mykey myvalue
-</code></pre><h3 id="redis-pubsub-and-streams">Redis Pub/Sub and Streams</h3>
-<p>Redis provides publish/subscribe messaging and a more advanced streams data structure.</p>
-<ol>
-<li><strong>Pub/Sub</strong>
-<ul>
-<li>Allows for real-time messaging between publishers and subscribers</li>
-</ul>
-</li>
-</ol>
-<pre tabindex="0"><code class="language-redis" data-lang="redis">SUBSCRIBE channel1 channel2
+</code></pre><ol start=2><li><strong>Lua Scripting</strong><ul><li>Allows execution of complex operations atomically</li><li>Scripts are executed using SHA1 digest for efficiency</li></ul></li></ol><pre tabindex=0><code class=language-redis data-lang=redis>EVAL &#34;return redis.call(&#39;SET&#39;, KEYS[1], ARGV[1])&#34; 1 mykey myvalue
+</code></pre><h3 id=redis-pubsub-and-streams>Redis Pub/Sub and Streams</h3><p>Redis provides publish/subscribe messaging and a more advanced streams data structure.</p><ol><li><strong>Pub/Sub</strong><ul><li>Allows for real-time messaging between publishers and subscribers</li></ul></li></ol><pre tabindex=0><code class=language-redis data-lang=redis>SUBSCRIBE channel1 channel2
 PUBLISH channel1 &#34;Hello, subscribers!&#34;
-</code></pre><ol start="2">
-<li><strong>Streams</strong>
-<ul>
-<li>Append-only log data structure</li>
-<li>Supports consumer groups for parallel processing</li>
-</ul>
-</li>
-</ol>
-<pre tabindex="0"><code class="language-redis" data-lang="redis">XADD mystream * field1 value1 field2 value2
+</code></pre><ol start=2><li><strong>Streams</strong><ul><li>Append-only log data structure</li><li>Supports consumer groups for parallel processing</li></ul></li></ol><pre tabindex=0><code class=language-redis data-lang=redis>XADD mystream * field1 value1 field2 value2
 XREAD COUNT 2 STREAMS mystream 0-0
-</code></pre><h3 id="redis-memory-management-and-eviction-policies">Redis Memory Management and Eviction Policies</h3>
-<p>Redis manages memory carefully and provides eviction policies for when memory limits are reached.</p>
-<p>Memory management techniques:</p>
-<ul>
-<li>Jemalloc memory allocator</li>
-<li>Memory sharing between instances (copy-on-write)</li>
-</ul>
-<p>Eviction policies:</p>
-<ul>
-<li>volatile-lru</li>
-<li>allkeys-lru</li>
-<li>volatile-random</li>
-<li>allkeys-random</li>
-<li>volatile-ttl</li>
-<li>noeviction</li>
-</ul>
-<p>Configuration example:</p>
-<pre tabindex="0"><code class="language-conf" data-lang="conf">maxmemory 100mb
+</code></pre><h3 id=redis-memory-management-and-eviction-policies>Redis Memory Management and Eviction Policies</h3><p>Redis manages memory carefully and provides eviction policies for when memory limits are reached.</p><p>Memory management techniques:</p><ul><li>Jemalloc memory allocator</li><li>Memory sharing between instances (copy-on-write)</li></ul><p>Eviction policies:</p><ul><li>volatile-lru</li><li>allkeys-lru</li><li>volatile-random</li><li>allkeys-random</li><li>volatile-ttl</li><li>noeviction</li></ul><p>Configuration example:</p><pre tabindex=0><code class=language-conf data-lang=conf>maxmemory 100mb
 maxmemory-policy allkeys-lru
-</code></pre><h2 id="pika">Pika</h2>
-<p>Pika is a persistent huge storage service, compatible with the Redis protocol but designed to handle datasets larger than memory.</p>
-<h3 id="pika-architecture-and-design-principles">Pika Architecture and Design Principles</h3>
-<p>Pika uses a multi-threaded architecture with RocksDB as its storage engine.</p>
-<pre class="mermaid">
+</code></pre><h2 id=pika>Pika</h2><p>Pika is a persistent huge storage service, compatible with the Redis protocol but designed to handle datasets larger than memory.</p><h3 id=pika-architecture-and-design-principles>Pika Architecture and Design Principles</h3><p>Pika uses a multi-threaded architecture with RocksDB as its storage engine.</p><pre class=mermaid>
     graph TD
 	    A[Client Connections] --&gt; B[Network Thread]
 	    B --&gt; C[Worker Threads]
@@ -519,35 +101,15 @@ maxmemory-policy allkeys-lru
 	    D --&gt; E[Disk Storage]
 	    F[Backup Thread] --&gt; D
 	    G[Compact Thread] --&gt; D
-</pre>
-<p>Key components:</p>
-<ul>
-<li><strong>Network Thread</strong>: Handles client connections and command parsing</li>
-<li><strong>Worker Threads</strong>: Execute commands and interact with RocksDB</li>
-<li><strong>RocksDB Storage Engine</strong>: Manages data persistence and retrieval</li>
-<li><strong>Backup Thread</strong>: Handles asynchronous backups</li>
-<li><strong>Compact Thread</strong>: Manages RocksDB compaction</li>
-</ul>
-<h3 id="pika-storage-engine-rocksdb-integration">Pika Storage Engine: RocksDB Integration</h3>
-<p>Pika leverages RocksDB for efficient storage and retrieval of large datasets.</p>
-<p>Key features:</p>
-<ul>
-<li>Log-structured merge-tree (LSM) based storage</li>
-<li>Efficient range queries and compactions</li>
-<li>Write-ahead logging for durability</li>
-</ul>
-<p>RocksDB configuration example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>rocksdb<span style="color:#f92672">::</span>Options options;
-</span></span><span style="display:flex;"><span>options.create_if_missing <span style="color:#f92672">=</span> true;
-</span></span><span style="display:flex;"><span>options.write_buffer_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">64</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1024</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1024</span>;  <span style="color:#75715e">// 64MB
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>options.max_write_buffer_number <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
-</span></span><span style="display:flex;"><span>options.target_file_size_base <span style="color:#f92672">=</span> <span style="color:#ae81ff">32</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1024</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1024</span>;  <span style="color:#75715e">// 32MB
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>options.max_background_compactions <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
-</span></span><span style="display:flex;"><span>options.max_background_flushes <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
-</span></span><span style="display:flex;"><span>options.compression <span style="color:#f92672">=</span> rocksdb<span style="color:#f92672">::</span>kSnappyCompression;
-</span></span></code></pre></div><h3 id="pika-thread-model-and-concurrency">Pika Thread Model and Concurrency</h3>
-<p>Pika uses a multi-threaded model to improve performance and concurrency.</p>
-<pre class="mermaid">
+</pre><p>Key components:</p><ul><li><strong>Network Thread</strong>: Handles client connections and command parsing</li><li><strong>Worker Threads</strong>: Execute commands and interact with RocksDB</li><li><strong>RocksDB Storage Engine</strong>: Manages data persistence and retrieval</li><li><strong>Backup Thread</strong>: Handles asynchronous backups</li><li><strong>Compact Thread</strong>: Manages RocksDB compaction</li></ul><h3 id=pika-storage-engine-rocksdb-integration>Pika Storage Engine: RocksDB Integration</h3><p>Pika leverages RocksDB for efficient storage and retrieval of large datasets.</p><p>Key features:</p><ul><li>Log-structured merge-tree (LSM) based storage</li><li>Efficient range queries and compactions</li><li>Write-ahead logging for durability</li></ul><p>RocksDB configuration example:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span>rocksdb<span style=color:#f92672>::</span>Options options;
+</span></span><span style=display:flex><span>options.create_if_missing <span style=color:#f92672>=</span> true;
+</span></span><span style=display:flex><span>options.write_buffer_size <span style=color:#f92672>=</span> <span style=color:#ae81ff>64</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>1024</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>1024</span>;  <span style=color:#75715e>// 64MB
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>options.max_write_buffer_number <span style=color:#f92672>=</span> <span style=color:#ae81ff>3</span>;
+</span></span><span style=display:flex><span>options.target_file_size_base <span style=color:#f92672>=</span> <span style=color:#ae81ff>32</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>1024</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>1024</span>;  <span style=color:#75715e>// 32MB
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>options.max_background_compactions <span style=color:#f92672>=</span> <span style=color:#ae81ff>4</span>;
+</span></span><span style=display:flex><span>options.max_background_flushes <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span>;
+</span></span><span style=display:flex><span>options.compression <span style=color:#f92672>=</span> rocksdb<span style=color:#f92672>::</span>kSnappyCompression;
+</span></span></code></pre></div><h3 id=pika-thread-model-and-concurrency>Pika Thread Model and Concurrency</h3><p>Pika uses a multi-threaded model to improve performance and concurrency.</p><pre class=mermaid>
     graph TD
 	    A[Client Requests] --&gt; B[Dispatch Thread]
 	    B --&gt; C[Worker Thread 1]
@@ -556,98 +118,43 @@ maxmemory-policy allkeys-lru
 	    C --&gt; F[RocksDB]
 	    D --&gt; F
 	    E --&gt; F
-</pre>
-<p>Implementation details:</p>
-<ul>
-<li>Thread pool for handling client requests</li>
-<li>Lock-free data structures for inter-thread communication</li>
-<li>Fine-grained locking for concurrent access to data structures</li>
-</ul>
-<h3 id="pika-data-structures-and-redis-compatibility">Pika Data Structures and Redis Compatibility</h3>
-<p>Pika supports most Redis data structures and commands, with some limitations.</p>
-<p>Supported data structures:</p>
-<ul>
-<li>Strings</li>
-<li>Hashes</li>
-<li>Lists</li>
-<li>Sets</li>
-<li>Sorted Sets</li>
-</ul>
-<p>Example of using Pika with a Redis client:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> redis
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>p <span style="color:#f92672">=</span> redis<span style="color:#f92672">.</span>Redis(host<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;localhost&#39;</span>, port<span style="color:#f92672">=</span><span style="color:#ae81ff">9221</span>, db<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># String operations</span>
-</span></span><span style="display:flex;"><span>p<span style="color:#f92672">.</span>set(<span style="color:#e6db74">&#39;key&#39;</span>, <span style="color:#e6db74">&#39;value&#39;</span>)
-</span></span><span style="display:flex;"><span>print(p<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;key&#39;</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Hash operations</span>
-</span></span><span style="display:flex;"><span>p<span style="color:#f92672">.</span>hset(<span style="color:#e6db74">&#39;hash&#39;</span>, <span style="color:#e6db74">&#39;field1&#39;</span>, <span style="color:#e6db74">&#39;value1&#39;</span>)
-</span></span><span style="display:flex;"><span>p<span style="color:#f92672">.</span>hset(<span style="color:#e6db74">&#39;hash&#39;</span>, <span style="color:#e6db74">&#39;field2&#39;</span>, <span style="color:#e6db74">&#39;value2&#39;</span>)
-</span></span><span style="display:flex;"><span>print(p<span style="color:#f92672">.</span>hgetall(<span style="color:#e6db74">&#39;hash&#39;</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># List operations</span>
-</span></span><span style="display:flex;"><span>p<span style="color:#f92672">.</span>lpush(<span style="color:#e6db74">&#39;list&#39;</span>, <span style="color:#e6db74">&#39;item1&#39;</span>, <span style="color:#e6db74">&#39;item2&#39;</span>, <span style="color:#e6db74">&#39;item3&#39;</span>)
-</span></span><span style="display:flex;"><span>print(p<span style="color:#f92672">.</span>lrange(<span style="color:#e6db74">&#39;list&#39;</span>, <span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>))
-</span></span></code></pre></div><h3 id="pika-replication-and-consistency">Pika Replication and Consistency</h3>
-<p>Pika supports master-slave replication for high availability and data consistency.</p>
-<pre class="mermaid">
+</pre><p>Implementation details:</p><ul><li>Thread pool for handling client requests</li><li>Lock-free data structures for inter-thread communication</li><li>Fine-grained locking for concurrent access to data structures</li></ul><h3 id=pika-data-structures-and-redis-compatibility>Pika Data Structures and Redis Compatibility</h3><p>Pika supports most Redis data structures and commands, with some limitations.</p><p>Supported data structures:</p><ul><li>Strings</li><li>Hashes</li><li>Lists</li><li>Sets</li><li>Sorted Sets</li></ul><p>Example of using Pika with a Redis client:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>import</span> redis
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>p <span style=color:#f92672>=</span> redis<span style=color:#f92672>.</span>Redis(host<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;localhost&#39;</span>, port<span style=color:#f92672>=</span><span style=color:#ae81ff>9221</span>, db<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># String operations</span>
+</span></span><span style=display:flex><span>p<span style=color:#f92672>.</span>set(<span style=color:#e6db74>&#39;key&#39;</span>, <span style=color:#e6db74>&#39;value&#39;</span>)
+</span></span><span style=display:flex><span>print(p<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#39;key&#39;</span>))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Hash operations</span>
+</span></span><span style=display:flex><span>p<span style=color:#f92672>.</span>hset(<span style=color:#e6db74>&#39;hash&#39;</span>, <span style=color:#e6db74>&#39;field1&#39;</span>, <span style=color:#e6db74>&#39;value1&#39;</span>)
+</span></span><span style=display:flex><span>p<span style=color:#f92672>.</span>hset(<span style=color:#e6db74>&#39;hash&#39;</span>, <span style=color:#e6db74>&#39;field2&#39;</span>, <span style=color:#e6db74>&#39;value2&#39;</span>)
+</span></span><span style=display:flex><span>print(p<span style=color:#f92672>.</span>hgetall(<span style=color:#e6db74>&#39;hash&#39;</span>))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># List operations</span>
+</span></span><span style=display:flex><span>p<span style=color:#f92672>.</span>lpush(<span style=color:#e6db74>&#39;list&#39;</span>, <span style=color:#e6db74>&#39;item1&#39;</span>, <span style=color:#e6db74>&#39;item2&#39;</span>, <span style=color:#e6db74>&#39;item3&#39;</span>)
+</span></span><span style=display:flex><span>print(p<span style=color:#f92672>.</span>lrange(<span style=color:#e6db74>&#39;list&#39;</span>, <span style=color:#ae81ff>0</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>))
+</span></span></code></pre></div><h3 id=pika-replication-and-consistency>Pika Replication and Consistency</h3><p>Pika supports master-slave replication for high availability and data consistency.</p><pre class=mermaid>
     graph TD
 	    A[Master] --&gt;|Binary Log| B[Slave 1]
 	    A --&gt;|Binary Log| C[Slave 2]
 	    A --&gt;|Binary Log| D[Slave 3]
-</pre>
-<p>Replication features:</p>
-<ul>
-<li>Asynchronous replication</li>
-<li>Full and incremental sync support</li>
-<li>Configurable sync speed limit</li>
-</ul>
-<p>Configuration example:</p>
-<pre tabindex="0"><code class="language-conf" data-lang="conf"># On master
+</pre><p>Replication features:</p><ul><li>Asynchronous replication</li><li>Full and incremental sync support</li><li>Configurable sync speed limit</li></ul><p>Configuration example:</p><pre tabindex=0><code class=language-conf data-lang=conf># On master
 slave-read-only no
 
 # On slave
 slaveof 192.168.1.100 9221
 slave-read-only yes
-</code></pre><h3 id="pika-backup-and-recovery">Pika Backup and Recovery</h3>
-<p>Pika provides mechanisms for backup and recovery to ensure data durability.</p>
-<p>Backup methods:</p>
-<ol>
-<li><strong>Full Backup</strong>: Complete snapshot of the database</li>
-<li><strong>Incremental Backup</strong>: Only changes since the last backup</li>
-</ol>
-<p>Recovery process:</p>
-<ol>
-<li>Stop Pika server</li>
-<li>Replace data directory with backup</li>
-<li>Start Pika server</li>
-</ol>
-<p>Backup command example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./pika_tools -t backup -s ./pika.conf
-</span></span></code></pre></div><h3 id="pika-performance-optimization-techniques">Pika Performance Optimization Techniques</h3>
-<p>Pika employs various techniques to optimize performance:</p>
-<ol>
-<li><strong>Write Amplification Reduction</strong>: Careful tuning of RocksDB parameters</li>
-<li><strong>Read Amplification Reduction</strong>: Use of bloom filters and cache</li>
-<li><strong>Compaction Optimization</strong>: Background compaction and level-based compaction</li>
-<li><strong>Memory Management</strong>: Efficient use of block cache and index cache</li>
-</ol>
-<p>RocksDB tuning example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>rocksdb<span style="color:#f92672">::</span>BlockBasedTableOptions table_options;
-</span></span><span style="display:flex;"><span>table_options.block_cache <span style="color:#f92672">=</span> rocksdb<span style="color:#f92672">::</span>NewLRUCache(<span style="color:#ae81ff">100</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1024</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1024</span>);  <span style="color:#75715e">// 100MB cache
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>table_options.filter_policy.reset(rocksdb<span style="color:#f92672">::</span>NewBloomFilterPolicy(<span style="color:#ae81ff">10</span>));
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>rocksdb<span style="color:#f92672">::</span>Options options;
-</span></span><span style="display:flex;"><span>options.table_factory.reset(NewBlockBasedTableFactory(table_options));
-</span></span><span style="display:flex;"><span>options.optimize_filters_for_hits <span style="color:#f92672">=</span> true;
-</span></span><span style="display:flex;"><span>options.level_compaction_dynamic_level_bytes <span style="color:#f92672">=</span> true;
-</span></span></code></pre></div><h2 id="codis">Codis</h2>
-<p>Codis is a proxy-based Redis cluster solution that supports dynamic scaling and provides high availability.</p>
-<h3 id="codis-system-architecture-and-components">Codis System Architecture and Components</h3>
-<p>Codis consists of several key components working together to provide a scalable Redis cluster solution.</p>
-<pre class="mermaid">
+</code></pre><h3 id=pika-backup-and-recovery>Pika Backup and Recovery</h3><p>Pika provides mechanisms for backup and recovery to ensure data durability.</p><p>Backup methods:</p><ol><li><strong>Full Backup</strong>: Complete snapshot of the database</li><li><strong>Incremental Backup</strong>: Only changes since the last backup</li></ol><p>Recovery process:</p><ol><li>Stop Pika server</li><li>Replace data directory with backup</li><li>Start Pika server</li></ol><p>Backup command example:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>./pika_tools -t backup -s ./pika.conf
+</span></span></code></pre></div><h3 id=pika-performance-optimization-techniques>Pika Performance Optimization Techniques</h3><p>Pika employs various techniques to optimize performance:</p><ol><li><strong>Write Amplification Reduction</strong>: Careful tuning of RocksDB parameters</li><li><strong>Read Amplification Reduction</strong>: Use of bloom filters and cache</li><li><strong>Compaction Optimization</strong>: Background compaction and level-based compaction</li><li><strong>Memory Management</strong>: Efficient use of block cache and index cache</li></ol><p>RocksDB tuning example:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span>rocksdb<span style=color:#f92672>::</span>BlockBasedTableOptions table_options;
+</span></span><span style=display:flex><span>table_options.block_cache <span style=color:#f92672>=</span> rocksdb<span style=color:#f92672>::</span>NewLRUCache(<span style=color:#ae81ff>100</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>1024</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>1024</span>);  <span style=color:#75715e>// 100MB cache
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>table_options.filter_policy.reset(rocksdb<span style=color:#f92672>::</span>NewBloomFilterPolicy(<span style=color:#ae81ff>10</span>));
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>rocksdb<span style=color:#f92672>::</span>Options options;
+</span></span><span style=display:flex><span>options.table_factory.reset(NewBlockBasedTableFactory(table_options));
+</span></span><span style=display:flex><span>options.optimize_filters_for_hits <span style=color:#f92672>=</span> true;
+</span></span><span style=display:flex><span>options.level_compaction_dynamic_level_bytes <span style=color:#f92672>=</span> true;
+</span></span></code></pre></div><h2 id=codis>Codis</h2><p>Codis is a proxy-based Redis cluster solution that supports dynamic scaling and provides high availability.</p><h3 id=codis-system-architecture-and-components>Codis System Architecture and Components</h3><p>Codis consists of several key components working together to provide a scalable Redis cluster solution.</p><pre class=mermaid>
     graph TD
 	    A[Client] --&gt; B[Codis Proxy]
 	    B --&gt; C[Redis 1]
@@ -660,49 +167,28 @@ slave-read-only yes
 	    G[Zookeeper/Etcd] --&gt; F
 	    H[Codis FE] --&gt; F
 	    I[Codis Admin] --&gt; F
-</pre>
-<p>Key components:</p>
-<ul>
-<li><strong>Codis Proxy</strong>: Stateless proxy that routes requests to the correct Redis instance</li>
-<li><strong>Codis Dashboard</strong>: Manages the cluster topology and handles administrative tasks</li>
-<li><strong>Codis FE</strong>: Web interface for cluster management</li>
-<li><strong>Zookeeper/Etcd</strong>: Distributed configuration and coordination service</li>
-<li><strong>Redis Instances</strong>: Actual data storage nodes</li>
-</ul>
-<h3 id="codis-proxy-design-and-implementation">Codis Proxy Design and Implementation</h3>
-<p>The Codis Proxy is a core component that handles request routing and connection management.</p>
-<pre class="mermaid">
+</pre><p>Key components:</p><ul><li><strong>Codis Proxy</strong>: Stateless proxy that routes requests to the correct Redis instance</li><li><strong>Codis Dashboard</strong>: Manages the cluster topology and handles administrative tasks</li><li><strong>Codis FE</strong>: Web interface for cluster management</li><li><strong>Zookeeper/Etcd</strong>: Distributed configuration and coordination service</li><li><strong>Redis Instances</strong>: Actual data storage nodes</li></ul><h3 id=codis-proxy-design-and-implementation>Codis Proxy Design and Implementation</h3><p>The Codis Proxy is a core component that handles request routing and connection management.</p><pre class=mermaid>
     graph TD
 	    A[Client Connections] --&gt; B[Connection Pool]
 	    B --&gt; C[Request Parser]
 	    C --&gt; D[Router]
 	    D --&gt; E[Backend Connection Pool]
 	    E --&gt; F[Redis Instances]
-</pre>
-<p>Key features:</p>
-<ul>
-<li>Supports pipelining and multiplexing</li>
-<li>Implements consistent hashing for request routing</li>
-<li>Handles connection pooling for efficient resource utilization</li>
-</ul>
-<p>Proxy configuration example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#a6e22e">product_name</span> = <span style="color:#e6db74">&#34;test&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">product_auth</span> = <span style="color:#e6db74">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">proxy_id</span> = <span style="color:#e6db74">&#34;proxy_1&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">admin_addr</span> = <span style="color:#e6db74">&#34;0.0.0.0:11080&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">proto_type</span> = <span style="color:#e6db74">&#34;tcp4&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">proxy_addr</span> = <span style="color:#e6db74">&#34;0.0.0.0:19000&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">jodis_addr</span> = <span style="color:#e6db74">&#34;zookeeper:2181&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">jodis_timeout</span> = <span style="color:#ae81ff">10</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">jodis_compatible</span> = <span style="color:#66d9ef">false</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">session_break_on_failure</span> = <span style="color:#66d9ef">false</span>
-</span></span></code></pre></div><h3 id="codis-data-sharding-and-rebalancing">Codis Data Sharding and Rebalancing</h3>
-<p>Codis uses pre-sharding and dynamic slot allocation for data distribution.</p>
-<pre class="mermaid">
+</pre><p>Key features:</p><ul><li>Supports pipelining and multiplexing</li><li>Implements consistent hashing for request routing</li><li>Handles connection pooling for efficient resource utilization</li></ul><p>Proxy configuration example:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-toml data-lang=toml><span style=display:flex><span><span style=color:#a6e22e>product_name</span> = <span style=color:#e6db74>&#34;test&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>product_auth</span> = <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>proxy_id</span> = <span style=color:#e6db74>&#34;proxy_1&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>admin_addr</span> = <span style=color:#e6db74>&#34;0.0.0.0:11080&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>proto_type</span> = <span style=color:#e6db74>&#34;tcp4&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>proxy_addr</span> = <span style=color:#e6db74>&#34;0.0.0.0:19000&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>jodis_addr</span> = <span style=color:#e6db74>&#34;zookeeper:2181&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>jodis_timeout</span> = <span style=color:#ae81ff>10</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>jodis_compatible</span> = <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>session_break_on_failure</span> = <span style=color:#66d9ef>false</span>
+</span></span></code></pre></div><h3 id=codis-data-sharding-and-rebalancing>Codis Data Sharding and Rebalancing</h3><p>Codis uses pre-sharding and dynamic slot allocation for data distribution.</p><pre class=mermaid>
     graph TD
 	    A[1024 Slots] --&gt; B[Group 1]
 	    A --&gt; C[Group 2]
@@ -713,22 +199,7 @@ slave-read-only yes
 	    C --&gt; H[Redis 2 Slave]
 	    D --&gt; I[Redis N]
 	    D --&gt; J[Redis N Slave]
-</pre>
-<p>Sharding details:</p>
-<ul>
-<li>1024 slots pre-defined</li>
-<li>Slots can be migrated between groups</li>
-<li>Each group contains a master-slave pair of Redis instances</li>
-</ul>
-<p>Rebalancing process:</p>
-<ol>
-<li>Initiate rebalance through Codis Dashboard</li>
-<li>Slots are gradually migrated between groups</li>
-<li>Proxies update their routing table in real-time</li>
-</ol>
-<h3 id="codis-high-availability-and-fault-tolerance">Codis High Availability and Fault Tolerance</h3>
-<p>Codis provides high availability through redundancy and automatic failover.</p>
-<pre class="mermaid">
+</pre><p>Sharding details:</p><ul><li>1024 slots pre-defined</li><li>Slots can be migrated between groups</li><li>Each group contains a master-slave pair of Redis instances</li></ul><p>Rebalancing process:</p><ol><li>Initiate rebalance through Codis Dashboard</li><li>Slots are gradually migrated between groups</li><li>Proxies update their routing table in real-time</li></ol><h3 id=codis-high-availability-and-fault-tolerance>Codis High Availability and Fault Tolerance</h3><p>Codis provides high availability through redundancy and automatic failover.</p><pre class=mermaid>
     graph TD
 	    A[Codis Dashboard] --&gt; B[Group 1]
 	    A --&gt; C[Group 2]
@@ -740,68 +211,18 @@ slave-read-only yes
 	    D --&gt; I[Redis Master]
 	    D --&gt; J[Redis Slave]
 	    K[Zookeeper/Etcd] --&gt; A
-</pre>
-<p>High availability features:</p>
-<ul>
-<li>Automatic failover within groups</li>
-<li>Multiple Codis Proxies for load balancing</li>
-<li>Zookeeper/Etcd for configuration consistency</li>
-</ul>
-<p>Failover process:</p>
-<ol>
-<li>Dashboard detects master failure</li>
-<li>Promote slave to master</li>
-<li>Update routing information in Zookeeper/Etcd</li>
-<li>Proxies update their routing table</li>
-</ol>
-<h3 id="codis-scaling-and-online-migration">Codis Scaling and Online Migration</h3>
-<p>Codis supports online scaling without downtime.</p>
-<p>Scaling process:</p>
-<ol>
-<li>Add new Redis instances to the cluster</li>
-<li>Create new groups in Codis Dashboard</li>
-<li>Initiate slot migration from existing groups to new groups</li>
-<li>Proxies automatically update routing information</li>
-</ol>
-<p>Migration command example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>codis-admin --dashboard<span style="color:#f92672">=</span>localhost:18080 --rebalance --confirm
-</span></span></code></pre></div><h3 id="codis-monitoring-and-management">Codis Monitoring and Management</h3>
-<p>Codis provides tools for monitoring and managing the cluster.</p>
-<p>Monitoring features:</p>
-<ul>
-<li>Codis FE web interface</li>
-<li>Prometheus integration for metrics</li>
-<li>Grafana dashboards for visualization</li>
-</ul>
-<p>Management tasks:</p>
-<ul>
-<li>Adding/removing nodes</li>
-<li>Manual failover</li>
-<li>Slot migration</li>
-<li>Configuration updates</li>
-</ul>
-<h3 id="codis-compatibility-and-limitations">Codis Compatibility and Limitations</h3>
-<p>While Codis is highly compatible with Redis, it has some limitations:</p>
-<ul>
-<li>Multi-key operations are limited to keys in the same slot</li>
-<li>Some Redis commands are not supported (e.g., KEYS, MOVE, MIGRATE)</li>
-<li>Custom support required for some language clients</li>
-</ul>
-<p>Client usage example (Python):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> codis <span style="color:#f92672">import</span> CodisConnectionPool
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>pool <span style="color:#f92672">=</span> CodisConnectionPool(host<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;localhost&#39;</span>, port<span style="color:#f92672">=</span><span style="color:#ae81ff">19000</span>, db<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
-</span></span><span style="display:flex;"><span>c <span style="color:#f92672">=</span> pool<span style="color:#f92672">.</span>get_connection()
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>c<span style="color:#f92672">.</span>set(<span style="color:#e6db74">&#39;key&#39;</span>, <span style="color:#e6db74">&#39;value&#39;</span>)
-</span></span><span style="display:flex;"><span>print(c<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;key&#39;</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>c<span style="color:#f92672">.</span>hset(<span style="color:#e6db74">&#39;hash&#39;</span>, <span style="color:#e6db74">&#39;field&#39;</span>, <span style="color:#e6db74">&#39;value&#39;</span>)
-</span></span><span style="display:flex;"><span>print(c<span style="color:#f92672">.</span>hgetall(<span style="color:#e6db74">&#39;hash&#39;</span>))
-</span></span></code></pre></div><h2 id="comparative-analysis">Comparative Analysis</h2>
-<h3 id="performance-benchmarks">Performance Benchmarks</h3>
-<p>Benchmark results for 100-byte SET/GET operations (operations per second):</p>
-<pre class="mermaid">
+</pre><p>High availability features:</p><ul><li>Automatic failover within groups</li><li>Multiple Codis Proxies for load balancing</li><li>Zookeeper/Etcd for configuration consistency</li></ul><p>Failover process:</p><ol><li>Dashboard detects master failure</li><li>Promote slave to master</li><li>Update routing information in Zookeeper/Etcd</li><li>Proxies update their routing table</li></ol><h3 id=codis-scaling-and-online-migration>Codis Scaling and Online Migration</h3><p>Codis supports online scaling without downtime.</p><p>Scaling process:</p><ol><li>Add new Redis instances to the cluster</li><li>Create new groups in Codis Dashboard</li><li>Initiate slot migration from existing groups to new groups</li><li>Proxies automatically update routing information</li></ol><p>Migration command example:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>codis-admin --dashboard<span style=color:#f92672>=</span>localhost:18080 --rebalance --confirm
+</span></span></code></pre></div><h3 id=codis-monitoring-and-management>Codis Monitoring and Management</h3><p>Codis provides tools for monitoring and managing the cluster.</p><p>Monitoring features:</p><ul><li>Codis FE web interface</li><li>Prometheus integration for metrics</li><li>Grafana dashboards for visualization</li></ul><p>Management tasks:</p><ul><li>Adding/removing nodes</li><li>Manual failover</li><li>Slot migration</li><li>Configuration updates</li></ul><h3 id=codis-compatibility-and-limitations>Codis Compatibility and Limitations</h3><p>While Codis is highly compatible with Redis, it has some limitations:</p><ul><li>Multi-key operations are limited to keys in the same slot</li><li>Some Redis commands are not supported (e.g., KEYS, MOVE, MIGRATE)</li><li>Custom support required for some language clients</li></ul><p>Client usage example (Python):</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>from</span> codis <span style=color:#f92672>import</span> CodisConnectionPool
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>pool <span style=color:#f92672>=</span> CodisConnectionPool(host<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;localhost&#39;</span>, port<span style=color:#f92672>=</span><span style=color:#ae81ff>19000</span>, db<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span>c <span style=color:#f92672>=</span> pool<span style=color:#f92672>.</span>get_connection()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>c<span style=color:#f92672>.</span>set(<span style=color:#e6db74>&#39;key&#39;</span>, <span style=color:#e6db74>&#39;value&#39;</span>)
+</span></span><span style=display:flex><span>print(c<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#39;key&#39;</span>))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>c<span style=color:#f92672>.</span>hset(<span style=color:#e6db74>&#39;hash&#39;</span>, <span style=color:#e6db74>&#39;field&#39;</span>, <span style=color:#e6db74>&#39;value&#39;</span>)
+</span></span><span style=display:flex><span>print(c<span style=color:#f92672>.</span>hgetall(<span style=color:#e6db74>&#39;hash&#39;</span>))
+</span></span></code></pre></div><h2 id=comparative-analysis>Comparative Analysis</h2><h3 id=performance-benchmarks>Performance Benchmarks</h3><p>Benchmark results for 100-byte SET/GET operations (operations per second):</p><pre class=mermaid>
     graph TD
 	    A[Redis] --&gt;|150k| B[SET]
 	    A --&gt;|200k| C[GET]
@@ -809,202 +230,10 @@ slave-read-only yes
 	    D --&gt;|100k| C
 	    E[Codis] --&gt;|130k| B
 	    E --&gt;|180k| C
-</pre>
-<p>Note: These are approximate values and can vary based on hardware and configuration.</p>
-<h3 id="use-case-scenarios">Use Case Scenarios</h3>
-<ol>
-<li>
-<p><strong>Redis</strong>:</p>
-<ul>
-<li>High-performance caching</li>
-<li>Real-time analytics</li>
-<li>Session storage</li>
-<li>Leaderboards and counters</li>
-</ul>
-</li>
-<li>
-<p><strong>Pika</strong>:</p>
-<ul>
-<li>Large datasets exceeding memory limits</li>
-<li>Persistent key-value storage</li>
-<li>Write-heavy workloads</li>
-</ul>
-</li>
-<li>
-<p><strong>Codis</strong>:</p>
-<ul>
-<li>Large-scale Redis deployments</li>
-<li>Need for horizontal scaling</li>
-<li>High availability requirements</li>
-</ul>
-</li>
-</ol>
-<h3 id="scalability-and-reliability-comparison">Scalability and Reliability Comparison</h3>
-<table>
-  <thead>
-      <tr>
-          <th style="text-align: left">Feature</th>
-          <th style="text-align: left">Redis</th>
-          <th style="text-align: left">Pika</th>
-          <th style="text-align: left">Codis</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="text-align: left">Vertical Scaling</td>
-          <td style="text-align: left">Excellent</td>
-          <td style="text-align: left">Good</td>
-          <td style="text-align: left">Good</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Horizontal Scaling</td>
-          <td style="text-align: left">Limited (Redis Cluster)</td>
-          <td style="text-align: left">Limited</td>
-          <td style="text-align: left">Excellent</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Data Persistence</td>
-          <td style="text-align: left">Optional (RDB/AOF)</td>
-          <td style="text-align: left">Always On (RocksDB)</td>
-          <td style="text-align: left">Inherited from Redis</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">High Availability</td>
-          <td style="text-align: left">Through Sentinel</td>
-          <td style="text-align: left">Master-Slave</td>
-          <td style="text-align: left">Built-in</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Automatic Failover</td>
-          <td style="text-align: left">Yes (with Sentinel)</td>
-          <td style="text-align: left">Manual</td>
-          <td style="text-align: left">Yes</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Online Scaling</td>
-          <td style="text-align: left">Limited</td>
-          <td style="text-align: left">Limited</td>
-          <td style="text-align: left">Yes</td>
-      </tr>
-  </tbody>
-</table>
-<h3 id="operational-complexity">Operational Complexity</h3>
-<ol>
-<li>
-<p><strong>Redis</strong>:</p>
-<ul>
-<li>Simple for single instance</li>
-<li>Moderate complexity for Redis Cluster</li>
-</ul>
-</li>
-<li>
-<p><strong>Pika</strong>:</p>
-<ul>
-<li>Moderate complexity</li>
-<li>Requires RocksDB tuning for optimal performance</li>
-</ul>
-</li>
-<li>
-<p><strong>Codis</strong>:</p>
-<ul>
-<li>Higher complexity</li>
-<li>Requires management of multiple components</li>
-</ul>
-</li>
-</ol>
-<h2 id="conclusion">Conclusion</h2>
-<p>Redis, Pika, and Codis each offer unique solutions to different data storage and caching challenges:</p>
-<ul>
-<li><strong>Redis</strong> excels in high-performance, in-memory operations and is ideal for scenarios where data fits in memory.</li>
-<li><strong>Pika</strong> offers a good balance between performance and large dataset support, making it suitable for applications that need to persist data larger than available memory.</li>
-<li><strong>Codis</strong> provides a scalable Redis cluster solution, ideal for large-scale deployments that require horizontal scaling and high availability.</li>
-</ul>
-
-
-        
-          <div class="blog-tags">
-            
-              
-              <a href="http://localhost:62354/tags/redis/">Redis</a>&nbsp;
-            
-          </div>
-        
-
-        
-
-        
-      </article>
-
-      
-        <ul class="pager blog-pager">
-          
-            <li class="previous">
-              <a href="http://localhost:62354/post/0_git/" data-toggle="tooltip" data-placement="top" title="Git">&larr; Previous Post</a>
-            </li>
-          
-          
-            <li class="next">
-              <a href="http://localhost:62354/post/3_go_pprof/" data-toggle="tooltip" data-placement="top" title="Go Pprof">Next Post &rarr;</a>
-            </li>
-          
-        </ul>
-      
-
-
-      
-
-    </div>
-  </div>
-</div>
-
-      <footer>
-  <div class="container">
-    
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <ul class="list-inline text-center footer-links">
-          
-          
-        </ul>
-        <p class="credits copyright text-muted">
-          
-
-          &nbsp;&bull;&nbsp;&copy;
-          
-            2024
-          
-
-          
-            &nbsp;&bull;&nbsp;
-            <a href="http://localhost:62354/">Kaga Blog</a>
-          
-        </p>
-        
-        <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.134.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
-          
-        </p>
-      </div>
-    </div>
-  </div>
-</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-
-<script src="http://localhost:62354/js/main.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="http://localhost:62354/js/load-photoswipe.js"></script>
-
-
-
-
-
-
-
-
-
-
-    
-  </body>
-</html>
-
+</pre><p>Note: These are approximate values and can vary based on hardware and configuration.</p><h3 id=use-case-scenarios>Use Case Scenarios</h3><ol><li><p><strong>Redis</strong>:</p><ul><li>High-performance caching</li><li>Real-time analytics</li><li>Session storage</li><li>Leaderboards and counters</li></ul></li><li><p><strong>Pika</strong>:</p><ul><li>Large datasets exceeding memory limits</li><li>Persistent key-value storage</li><li>Write-heavy workloads</li></ul></li><li><p><strong>Codis</strong>:</p><ul><li>Large-scale Redis deployments</li><li>Need for horizontal scaling</li><li>High availability requirements</li></ul></li></ol><h3 id=scalability-and-reliability-comparison>Scalability and Reliability Comparison</h3><table><thead><tr><th style=text-align:left>Feature</th><th style=text-align:left>Redis</th><th style=text-align:left>Pika</th><th style=text-align:left>Codis</th></tr></thead><tbody><tr><td style=text-align:left>Vertical Scaling</td><td style=text-align:left>Excellent</td><td style=text-align:left>Good</td><td style=text-align:left>Good</td></tr><tr><td style=text-align:left>Horizontal Scaling</td><td style=text-align:left>Limited (Redis Cluster)</td><td style=text-align:left>Limited</td><td style=text-align:left>Excellent</td></tr><tr><td style=text-align:left>Data Persistence</td><td style=text-align:left>Optional (RDB/AOF)</td><td style=text-align:left>Always On (RocksDB)</td><td style=text-align:left>Inherited from Redis</td></tr><tr><td style=text-align:left>High Availability</td><td style=text-align:left>Through Sentinel</td><td style=text-align:left>Master-Slave</td><td style=text-align:left>Built-in</td></tr><tr><td style=text-align:left>Automatic Failover</td><td style=text-align:left>Yes (with Sentinel)</td><td style=text-align:left>Manual</td><td style=text-align:left>Yes</td></tr><tr><td style=text-align:left>Online Scaling</td><td style=text-align:left>Limited</td><td style=text-align:left>Limited</td><td style=text-align:left>Yes</td></tr></tbody></table><h3 id=operational-complexity>Operational Complexity</h3><ol><li><p><strong>Redis</strong>:</p><ul><li>Simple for single instance</li><li>Moderate complexity for Redis Cluster</li></ul></li><li><p><strong>Pika</strong>:</p><ul><li>Moderate complexity</li><li>Requires RocksDB tuning for optimal performance</li></ul></li><li><p><strong>Codis</strong>:</p><ul><li>Higher complexity</li><li>Requires management of multiple components</li></ul></li></ol><h2 id=conclusion>Conclusion</h2><p>Redis, Pika, and Codis each offer unique solutions to different data storage and caching challenges:</p><ul><li><strong>Redis</strong> excels in high-performance, in-memory operations and is ideal for scenarios where data fits in memory.</li><li><strong>Pika</strong> offers a good balance between performance and large dataset support, making it suitable for applications that need to persist data larger than available memory.</li><li><strong>Codis</strong> provides a scalable Redis cluster solution, ideal for large-scale deployments that require horizontal scaling and high availability.</li></ul></section><footer class="mt-12 flex flex-wrap"><a class="mb-1.5 ltr:mr-1.5 rtl:ml-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] dark:bg-white/[8%] dark:hover:bg-white/[12%]" href=https://bleedkagax.github.io/tags/redis>Redis</a></footer><nav class="mt-24 flex overflow-hidden rounded-xl bg-black/[3%] text-lg !leading-[1.2] *:flex *:w-1/2 *:items-center *:p-5 *:font-medium *:no-underline dark:bg-white/[8%] [&>*:hover]:bg-black/[2%] dark:[&>*:hover]:bg-white/[3%]"><a class="ltr:pr-3 rtl:pl-3" href=https://bleedkagax.github.io/post/3_go_pprof/><span class="ltr:mr-1.5 rtl:ml-1.5">←</span><span>Go Pprof</span></a>
+<a class="ltr:ml-auto rtl:mr-auto justify-end pl-3" href=https://bleedkagax.github.io/post/0_git/><span>Git</span><span class="ltr:ml-1.5 rtl:mr-1.5">→</span></a></nav><script type=module>
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script><script>Array.from(document.getElementsByClassName("language-mermaid")).forEach(e=>{e.parentElement.outerHTML=`<div class="mermaid [&_svg]:block [&_svg]:m-auto">${e.innerHTML}</div>`})</script></article></main><footer class="mx-auto flex h-[4.5rem] max-w-[--w] items-center px-8 text-xs uppercase tracking-wider opacity-60"><div class=mr-auto>&copy; 2025
+<a class=link href=https://bleedkagax.github.io/>Kaga Blog</a></div><a class="link mx-6" href=https://gohugo.io/ rel=noopener target=_blank>powered by hugo️️</a>️
+<a class=link href=https://github.com/nanxiaobei/hugo-paper rel=noopener target=_blank>hugo-paper</a></footer></body></html>

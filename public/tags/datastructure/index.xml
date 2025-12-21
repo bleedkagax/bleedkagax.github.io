@@ -1,26 +1,37 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>DataStructure on Kaga Blog</title>
-    <link>http://localhost:62354/tags/datastructure/</link>
-    <description>Recent content in DataStructure on Kaga Blog</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 07 Oct 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:62354/tags/datastructure/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Tree</title>
-      <link>http://localhost:62354/post/1_tree/</link>
-      <pubDate>Mon, 07 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62354/post/1_tree/</guid>
-      <description>&lt;h2 id=&#34;binary-tree&#34;&gt;Binary Tree&lt;/h2&gt;&#xA;&lt;p&gt;A binary tree is a tree data structure in which each node has at most two children, referred to as the left child and the right child.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:62354/img/1_tree.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;b-tree&#34;&gt;B-Tree&lt;/h2&gt;&#xA;&lt;p&gt;A B-tree is a self-balancing tree data structure that maintains sorted data and allows searches, sequential access, insertions, and deletions in logarithmic time. It is optimized for systems that read and write large blocks of data.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Data Structure Interview</title>
-      <link>http://localhost:62354/post/0_data_structure_interview/</link>
-      <pubDate>Sun, 06 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62354/post/0_data_structure_interview/</guid>
-      <description>&lt;h2 id=&#34;what-is-the-difference-between-an-array-and-a-linked-list&#34;&gt;What is the difference between an array and a linked list?&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Array:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Fixed size (in most languages)&lt;/li&gt;&#xA;&lt;li&gt;Contiguous memory allocation&lt;/li&gt;&#xA;&lt;li&gt;Fast random access&lt;/li&gt;&#xA;&lt;li&gt;Insertion/deletion is expensive (except at the end)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Linked List:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Dynamic size&lt;/li&gt;&#xA;&lt;li&gt;Non-contiguous memory allocation&lt;/li&gt;&#xA;&lt;li&gt;Slow random access&lt;/li&gt;&#xA;&lt;li&gt;Fast insertion/deletion&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;explain-the-difference-between-a-stack-and-a-queue&#34;&gt;Explain the difference between a stack and a queue.&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Stack:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Last-In-First-Out (LIFO) structure&lt;/li&gt;&#xA;&lt;li&gt;Push (insert) and pop (remove) operations occur at the same end&lt;/li&gt;&#xA;&lt;li&gt;Used for function calls, undo mechanisms, expression evaluation&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Queue:&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DataStructure on Kaga Blog</title><link>https://bleedkagax.github.io/tags/datastructure/</link><description>Recent content in DataStructure on Kaga Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 07 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bleedkagax.github.io/tags/datastructure/index.xml" rel="self" type="application/rss+xml"/><item><title>Tree</title><link>https://bleedkagax.github.io/post/1_tree/</link><pubDate>Mon, 07 Oct 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/1_tree/</guid><description>&lt;h2 id="binary-tree">Binary Tree&lt;/h2>
+&lt;p>A binary tree is a tree data structure in which each node has at most two children, referred to as the left child and the right child.&lt;/p>
+&lt;p>&lt;img src="https://bleedkagax.github.io/img/1_tree.png" alt="">&lt;/p>
+&lt;h2 id="b-tree">B-Tree&lt;/h2>
+&lt;p>A B-tree is a self-balancing tree data structure that maintains sorted data and allows searches, sequential access, insertions, and deletions in logarithmic time. It is optimized for systems that read and write large blocks of data.&lt;/p></description></item><item><title>Data Structure Interview</title><link>https://bleedkagax.github.io/post/0_data_structure_interview/</link><pubDate>Sun, 06 Oct 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/0_data_structure_interview/</guid><description>&lt;h2 id="what-is-the-difference-between-an-array-and-a-linked-list">What is the difference between an array and a linked list?&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>Array:&lt;/p>
+&lt;ul>
+&lt;li>Fixed size (in most languages)&lt;/li>
+&lt;li>Contiguous memory allocation&lt;/li>
+&lt;li>Fast random access&lt;/li>
+&lt;li>Insertion/deletion is expensive (except at the end)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Linked List:&lt;/p>
+&lt;ul>
+&lt;li>Dynamic size&lt;/li>
+&lt;li>Non-contiguous memory allocation&lt;/li>
+&lt;li>Slow random access&lt;/li>
+&lt;li>Fast insertion/deletion&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="explain-the-difference-between-a-stack-and-a-queue">Explain the difference between a stack and a queue.&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>Stack:&lt;/p>
+&lt;ul>
+&lt;li>Last-In-First-Out (LIFO) structure&lt;/li>
+&lt;li>Push (insert) and pop (remove) operations occur at the same end&lt;/li>
+&lt;li>Used for function calls, undo mechanisms, expression evaluation&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Queue:&lt;/p></description></item></channel></rss>

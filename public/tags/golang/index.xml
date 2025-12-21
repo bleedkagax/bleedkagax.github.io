@@ -1,75 +1,154 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Golang on Kaga Blog</title>
-    <link>http://localhost:62354/tags/golang/</link>
-    <description>Recent content in Golang on Kaga Blog</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 11 Oct 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:62354/tags/golang/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Go&#39;s Common Data Structures</title>
-      <link>http://localhost:62354/post/1_go_data_structure/</link>
-      <pubDate>Fri, 11 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62354/post/1_go_data_structure/</guid>
-      <description>&lt;h2 id=&#34;1-strings&#34;&gt;1. Strings&lt;/h2&gt;&#xA;&lt;p&gt;Strings in Go are immutable sequences of bytes, typically used to represent UTF-8 encoded text.&lt;/p&gt;&#xA;&lt;h3 id=&#34;structure&#34;&gt;Structure&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;stringStruct&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;str&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;unsafe&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Pointer&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;len&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;memory-layout&#34;&gt;Memory Layout&lt;/h3&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;stringStruct&#xA;+----------------+&#xA;| str (uintptr)  | ---&amp;gt; [byte array]&#xA;| len (int)      |&#xA;+----------------+&#xA;&lt;/code&gt;&lt;/pr</description>
-    </item>
-    <item>
-      <title>Gin</title>
-      <link>http://localhost:62354/post/4_gin/</link>
-      <pubDate>Sat, 05 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62354/post/4_gin/</guid>
-      <description>&lt;h2 id=&#34;what-is-gin-web-framework&#34;&gt;What is Gin Web Framework?&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Gin&lt;/strong&gt; is a lightweight, high-performance web framework for Go, inspired by Martini but with a focus on speed and efficiency.&lt;/p&gt;&#xA;&lt;h2 id=&#34;key-features-of-gin&#34;&gt;Key Features of Gin&lt;/h2&gt;&#xA;&lt;p&gt;Gin is packed with features that make web development in Go both enjoyable and efficient. Here are some of its standout features:&lt;/p&gt;&#xA;&lt;h3 id=&#34;1-high-performance&#34;&gt;1. &lt;strong&gt;High Performance&lt;/strong&gt;&lt;/h3&gt;&#xA;&lt;p&gt;Gin is designed for speed. It outperforms many other Go frameworks by optimizing routing and minimizing middleware overhead, ensuring rapid request processing.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Go&#39;s `http.ListenAndServe`</title>
-      <link>http://localhost:62354/post/2_go_listenandserve/</link>
-      <pubDate>Fri, 04 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62354/post/2_go_listenandserve/</guid>
-      <description>&lt;h2 id=&#34;implementation-overview&#34;&gt;Implementation Overview&lt;/h2&gt;&#xA;&lt;p&gt;The &lt;code&gt;ListenAndServe&lt;/code&gt; function is part of Go&amp;rsquo;s standard library in the &lt;code&gt;net/http&lt;/code&gt; package. Its primary purpose is to start an HTTP server that listens on a specified address and handles incoming requests.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ListenAndServe&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;addr&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;handler&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Handler&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;error&lt;/span&gt; {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;server&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Server&lt;/span&gt;{&lt;span style=&#34;color:#a6e22e&#34;&gt;Addr&lt;/span&gt;: &lt;span style=&#34;color:#a6e22e&#34;&gt;addr&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;Handler&lt;/span&gt;: &lt;span style=&#34;color:#a6e22e&#34;&gt;handler&lt;/span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;server&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ListenAndServe&lt;/span&gt;()&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
-    </item>
-    <item>
-      <title>Go Memory Allocation</title>
-      <link>http://localhost:62354/post/8_go_memory_allocation/</link>
-      <pubDate>Wed, 02 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62354/post/8_go_memory_allocation/</guid>
-      <description>&lt;h3 id=&#34;how-does-go-handel-memory-allocation&#34;&gt;How does Go handel memory allocation&lt;/h3&gt;&#xA;&lt;h4 id=&#34;memory-allocator-overview&#34;&gt;Memory Allocator Overview&lt;/h4&gt;&#xA;&lt;p&gt;The Go memory allocator uses a hierarchical structure:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Heap&lt;/strong&gt;: The main memory area where dynamically allocated objects reside.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Spans&lt;/strong&gt;: Large blocks of memory (usually 8KB) used to allocate objects.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Objects&lt;/strong&gt;: Individual allocated pieces of memory.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;pre class=&#34;mermaid&#34;&gt;&#xA;    graph TD&#xA;&#x9;    Heap --&amp;gt; Span1[Span 1]&#xA;&#x9;    Heap --&amp;gt; Span2[Span 2]&#xA;&#x9;    Heap --&amp;gt; Span3[Span 3]&#xA;&#x9;    Span1 --&amp;gt; Obj1[Object 1]&#xA;&#x9;    Span1 --&amp;gt; Obj2[Object 2]&#xA;&#x9;    Span2 --&amp;gt; Obj3[Object 3]&#xA;&#x9;    Span2 --&amp;gt; Obj4[Object 4]&#xA;&#x9;    Span3 --&amp;gt; Obj5[Object 5]&#xA;&lt;/pr</description>
-    </item>
-    <item>
-      <title>Go&#39;s GMP Model</title>
-      <link>http://localhost:62354/post/7_go_gmp_model/</link>
-      <pubDate>Tue, 01 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62354/post/7_go_gmp_model/</guid>
-      <description>&lt;h3 id=&#34;what-is-the-gpm-model-in-go&#34;&gt;What is the GPM model in Go?&lt;/h3&gt;&#xA;&lt;h4 id=&#34;gmp-model&#34;&gt;GMP Model&lt;/h4&gt;&#xA;&lt;p&gt;The GMP model is the cornerstone of Go&amp;rsquo;s runtime scheduler.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;G (Goroutine)&lt;/strong&gt;:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Represents a goroutine, which is a lightweight thread of execution.&lt;/li&gt;&#xA;&lt;li&gt;Contains the stack, the instruction pointer, and other information important for scheduling.&lt;/li&gt;&#xA;&lt;li&gt;Many Gs can exist at the same time.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;P (Processor)&lt;/strong&gt;:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Represents a logical processor, which can be thought of as a context for scheduling.&lt;/li&gt;&#xA;&lt;li&gt;Acts as a local scheduler, managing a queue of runnable goroutines.&lt;/li&gt;&#xA;&lt;li&gt;The number of Ps is typically equal to &lt;code&gt;GOMAXPROCS&lt;/code&gt;, which by default is the number of CPU cores available.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;M (Machine)&lt;/strong&gt;:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Golang Interview</title>
-      <link>http://localhost:62354/post/0_go_interview/</link>
-      <pubDate>Sat, 14 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62354/post/0_go_interview/</guid>
-      <description>&lt;h3 id=&#34;how-does-go-handle-dependencies&#34;&gt;How does Go handle dependencies?&lt;/h3&gt;&#xA;&lt;p&gt;Go uses a module system for dependency management. The &lt;code&gt;go.mod&lt;/code&gt; file specifies the module&amp;rsquo;s dependencies and their versions. The &lt;code&gt;go get&lt;/code&gt; command is used to download and install dependencies.&lt;/p&gt;&#xA;&lt;h3 id=&#34;what-is-the-difference-between-go-run-and-go-build-&#34;&gt;What is the difference between &lt;code&gt;go run&lt;/code&gt; and &lt;code&gt;go build&lt;/code&gt; ?&lt;/h3&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th style=&#34;text-align: left&#34;&gt;Feature&lt;/th&gt;&#xA;          &lt;th style=&#34;text-align: left&#34;&gt;&lt;code&gt;go run&lt;/code&gt;&lt;/th&gt;&#xA;          &lt;th style=&#34;text-align: left&#34;&gt;&lt;code&gt;go build&lt;/code&gt;&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Purpose&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;Compile and run in one step&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;Compile to a permanent executable&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Output&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;Temporary executable (deleted)&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;Permanent executable on disk&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Use Case&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;Quick testing of small programs&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;Building applications for deployment&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Performance&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;Slower due to temporary compilation&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;Faster execution of compiled binary&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Debugging&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;Limited debugging capabilities&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;Supports debugging and profiling&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Configuration Options&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;None&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;Various options for customization&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Use &lt;strong&gt;&lt;code&gt;go run&lt;/code&gt;&lt;/strong&gt; for quick tests and development.&lt;/li&gt;&#xA;&lt;li&gt;Use &lt;strong&gt;&lt;code&gt;go build&lt;/code&gt;&lt;/strong&gt; for creating deployable binaries.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;what-is-a-goroutine&#34;&gt;What is a goroutine?&lt;/h3&gt;&#xA;&lt;p&gt;A goroutine is a lightweight thread managed by the Go runtime. It allows concurrent execution of functions or methods. Goroutines are created using the &lt;code&gt;go&lt;/code&gt; keyword followed by a function call.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Go Pprof</title>
-      <link>http://localhost:62354/post/3_go_pprof/</link>
-      <pubDate>Thu, 12 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62354/post/3_go_pprof/</guid>
-      <description>&lt;h1 id=&#34;overview-of-pprof&#34;&gt;Overview of Pprof&lt;/h1&gt;&#xA;&lt;p&gt;&lt;code&gt;pprof&lt;/code&gt; is a tool that comes with Go&amp;rsquo;s standard library and is used for collecting and viewing profiling data. It can collect different types of profiles including:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;CPU Profile&lt;/strong&gt;: Measures where the program spends most of its time.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Memory Profile&lt;/strong&gt;: Measures the amount of memory allocated and retained.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Block Profile&lt;/strong&gt;: Measures where the program spends time waiting for synchronization primitives.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Mutex Profile&lt;/strong&gt;: Measures contention on mutexes.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;setting-up-pprof&#34;&gt;Setting Up pprof&lt;/h1&gt;&#xA;&lt;p&gt;To use &lt;code&gt;pprof&lt;/code&gt;, you need to import the &lt;code&gt;net/http/pprof&lt;/code&gt; package and set up HTTP server to serve the profiling data.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Go Garbage Collection</title>
-      <link>http://localhost:62354/post/6_go_garbage_collection/</link>
-      <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62354/post/6_go_garbage_collection/</guid>
-      <description>&lt;h3 id=&#34;how-does-garbage-collection-work-in-go&#34;&gt;How does garbage collection work in Go?&lt;/h3&gt;&#xA;&lt;h4 id=&#34;garbage-collection&#34;&gt;Garbage Collection&lt;/h4&gt;&#xA;&lt;p&gt;Go uses a concurrent, tri-color mark-and-sweep garbage collector with write barriers.&lt;/p&gt;&#xA;&lt;h4 id=&#34;garbage-collection-phases&#34;&gt;Garbage Collection Phases&lt;/h4&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Mark Setup&lt;/strong&gt;: Preparation for marking phase.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Marking&lt;/strong&gt;: Identifying live objects.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Mark Termination&lt;/strong&gt;: Completion of marking phase.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Sweep&lt;/strong&gt;: Reclaiming memory from dead objects.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;pre class=&#34;mermaid&#34;&gt;&#xA;    graph LR&#xA;&#x9;    A[Mark Setup] --&amp;gt; B[Marking]&#xA;&#x9;    B --&amp;gt; C[Mark Termination]&#xA;&#x9;    C --&amp;gt; D[Sweep]&#xA;&#x9;    D --&amp;gt; A&#xA;&lt;/pr</description>
-    </item>
-    <item>
-      <title>Go&#39;s Sync</title>
-      <link>http://localhost:62354/post/5_sync/</link>
-      <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62354/post/5_sync/</guid>
-      <description>&lt;h2 id=&#34;syncmutex&#34;&gt;&lt;code&gt;sync.Mutex&lt;/code&gt;&lt;/h2&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// Mutex provides mutual exclusion for shared resources.&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Mutex&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;state&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int32&lt;/span&gt;   &lt;span style=&#34;color:#75715e&#34;&gt;// State of the mutex (locked/unlocked)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;sema&lt;/span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;uint32&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;// Semaphore for blocking goroutines&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// Lock acquires the mutex, blocking if necessary.&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;m&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Mutex&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;Lock&lt;/span&gt;() {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// Check if already locked; if so, block until unlocked.&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// Unlock releases the mutex.&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;m&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Mutex&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;Unlock&lt;/span&gt;() {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// Update state and unblock waiting goroutines if any.&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Golang on Kaga Blog</title><link>https://bleedkagax.github.io/tags/golang/</link><description>Recent content in Golang on Kaga Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 11 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bleedkagax.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml"/><item><title>Go's Common Data Structures</title><link>https://bleedkagax.github.io/post/1_go_data_structure/</link><pubDate>Fri, 11 Oct 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/1_go_data_structure/</guid><description>&lt;h2 id="1-strings">1. Strings&lt;/h2>
+&lt;p>Strings in Go are immutable sequences of bytes, typically used to represent UTF-8 encoded text.&lt;/p>
+&lt;h3 id="structure">Structure&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">type&lt;/span> &lt;span style="color:#a6e22e">stringStruct&lt;/span> &lt;span style="color:#66d9ef">struct&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">str&lt;/span> &lt;span style="color:#a6e22e">unsafe&lt;/span>.&lt;span style="color:#a6e22e">Pointer&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">len&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="memory-layout">Memory Layout&lt;/h3>
+&lt;pre tabindex="0">&lt;code>stringStruct
++----------------+
+| str (uintptr) | ---&amp;gt; [byte array]
+| len (int) |
++----------------+
+&lt;/code>&lt;/pr</description></item><item><title>Gin</title><link>https://bleedkagax.github.io/post/4_gin/</link><pubDate>Sat, 05 Oct 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/4_gin/</guid><description>&lt;h2 id="what-is-gin-web-framework">What is Gin Web Framework?&lt;/h2>
+&lt;p>&lt;strong>Gin&lt;/strong> is a lightweight, high-performance web framework for Go, inspired by Martini but with a focus on speed and efficiency.&lt;/p>
+&lt;h2 id="key-features-of-gin">Key Features of Gin&lt;/h2>
+&lt;p>Gin is packed with features that make web development in Go both enjoyable and efficient. Here are some of its standout features:&lt;/p>
+&lt;h3 id="1-high-performance">1. &lt;strong>High Performance&lt;/strong>&lt;/h3>
+&lt;p>Gin is designed for speed. It outperforms many other Go frameworks by optimizing routing and minimizing middleware overhead, ensuring rapid request processing.&lt;/p></description></item><item><title>Go's `http.ListenAndServe`</title><link>https://bleedkagax.github.io/post/2_go_listenandserve/</link><pubDate>Fri, 04 Oct 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/2_go_listenandserve/</guid><description>&lt;h2 id="implementation-overview">Implementation Overview&lt;/h2>
+&lt;p>The &lt;code>ListenAndServe&lt;/code> function is part of Go&amp;rsquo;s standard library in the &lt;code>net/http&lt;/code> package. Its primary purpose is to start an HTTP server that listens on a specified address and handles incoming requests.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> &lt;span style="color:#a6e22e">ListenAndServe&lt;/span>(&lt;span style="color:#a6e22e">addr&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span>, &lt;span style="color:#a6e22e">handler&lt;/span> &lt;span style="color:#a6e22e">Handler&lt;/span>) &lt;span style="color:#66d9ef">error&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">server&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#f92672">&amp;amp;&lt;/span>&lt;span style="color:#a6e22e">Server&lt;/span>{&lt;span style="color:#a6e22e">Addr&lt;/span>: &lt;span style="color:#a6e22e">addr&lt;/span>, &lt;span style="color:#a6e22e">Handler&lt;/span>: &lt;span style="color:#a6e22e">handler&lt;/span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#a6e22e">server&lt;/span>.&lt;span style="color:#a6e22e">ListenAndServe&lt;/span>()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pr</description></item><item><title>Go Memory Allocation</title><link>https://bleedkagax.github.io/post/8_go_memory_allocation/</link><pubDate>Wed, 02 Oct 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/8_go_memory_allocation/</guid><description>&lt;h3 id="how-does-go-handel-memory-allocation">How does Go handel memory allocation&lt;/h3>
+&lt;h4 id="memory-allocator-overview">Memory Allocator Overview&lt;/h4>
+&lt;p>The Go memory allocator uses a hierarchical structure:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Heap&lt;/strong>: The main memory area where dynamically allocated objects reside.&lt;/li>
+&lt;li>&lt;strong>Spans&lt;/strong>: Large blocks of memory (usually 8KB) used to allocate objects.&lt;/li>
+&lt;li>&lt;strong>Objects&lt;/strong>: Individual allocated pieces of memory.&lt;/li>
+&lt;/ol>
+&lt;pre class="mermaid">
+ graph TD
+	 Heap --&amp;gt; Span1[Span 1]
+	 Heap --&amp;gt; Span2[Span 2]
+	 Heap --&amp;gt; Span3[Span 3]
+	 Span1 --&amp;gt; Obj1[Object 1]
+	 Span1 --&amp;gt; Obj2[Object 2]
+	 Span2 --&amp;gt; Obj3[Object 3]
+	 Span2 --&amp;gt; Obj4[Object 4]
+	 Span3 --&amp;gt; Obj5[Object 5]
+&lt;/pr</description></item><item><title>Go's GMP Model</title><link>https://bleedkagax.github.io/post/7_go_gmp_model/</link><pubDate>Tue, 01 Oct 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/7_go_gmp_model/</guid><description>&lt;h3 id="what-is-the-gpm-model-in-go">What is the GPM model in Go?&lt;/h3>
+&lt;h4 id="gmp-model">GMP Model&lt;/h4>
+&lt;p>The GMP model is the cornerstone of Go&amp;rsquo;s runtime scheduler.&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>G (Goroutine)&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>Represents a goroutine, which is a lightweight thread of execution.&lt;/li>
+&lt;li>Contains the stack, the instruction pointer, and other information important for scheduling.&lt;/li>
+&lt;li>Many Gs can exist at the same time.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>P (Processor)&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>Represents a logical processor, which can be thought of as a context for scheduling.&lt;/li>
+&lt;li>Acts as a local scheduler, managing a queue of runnable goroutines.&lt;/li>
+&lt;li>The number of Ps is typically equal to &lt;code>GOMAXPROCS&lt;/code>, which by default is the number of CPU cores available.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>M (Machine)&lt;/strong>:&lt;/p></description></item><item><title>Golang Interview</title><link>https://bleedkagax.github.io/post/0_go_interview/</link><pubDate>Sat, 14 Sep 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/0_go_interview/</guid><description>&lt;h3 id="how-does-go-handle-dependencies">How does Go handle dependencies?&lt;/h3>
+&lt;p>Go uses a module system for dependency management. The &lt;code>go.mod&lt;/code> file specifies the module&amp;rsquo;s dependencies and their versions. The &lt;code>go get&lt;/code> command is used to download and install dependencies.&lt;/p>
+&lt;h3 id="what-is-the-difference-between-go-run-and-go-build-">What is the difference between &lt;code>go run&lt;/code> and &lt;code>go build&lt;/code> ?&lt;/h3>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: left">Feature&lt;/th>
+ &lt;th style="text-align: left">&lt;code>go run&lt;/code>&lt;/th>
+ &lt;th style="text-align: left">&lt;code>go build&lt;/code>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: left">&lt;strong>Purpose&lt;/strong>&lt;/td>
+ &lt;td style="text-align: left">Compile and run in one step&lt;/td>
+ &lt;td style="text-align: left">Compile to a permanent executable&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">&lt;strong>Output&lt;/strong>&lt;/td>
+ &lt;td style="text-align: left">Temporary executable (deleted)&lt;/td>
+ &lt;td style="text-align: left">Permanent executable on disk&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">&lt;strong>Use Case&lt;/strong>&lt;/td>
+ &lt;td style="text-align: left">Quick testing of small programs&lt;/td>
+ &lt;td style="text-align: left">Building applications for deployment&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">&lt;strong>Performance&lt;/strong>&lt;/td>
+ &lt;td style="text-align: left">Slower due to temporary compilation&lt;/td>
+ &lt;td style="text-align: left">Faster execution of compiled binary&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">&lt;strong>Debugging&lt;/strong>&lt;/td>
+ &lt;td style="text-align: left">Limited debugging capabilities&lt;/td>
+ &lt;td style="text-align: left">Supports debugging and profiling&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">&lt;strong>Configuration Options&lt;/strong>&lt;/td>
+ &lt;td style="text-align: left">None&lt;/td>
+ &lt;td style="text-align: left">Various options for customization&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;ul>
+&lt;li>Use &lt;strong>&lt;code>go run&lt;/code>&lt;/strong> for quick tests and development.&lt;/li>
+&lt;li>Use &lt;strong>&lt;code>go build&lt;/code>&lt;/strong> for creating deployable binaries.&lt;/li>
+&lt;/ul>
+&lt;h3 id="what-is-a-goroutine">What is a goroutine?&lt;/h3>
+&lt;p>A goroutine is a lightweight thread managed by the Go runtime. It allows concurrent execution of functions or methods. Goroutines are created using the &lt;code>go&lt;/code> keyword followed by a function call.&lt;/p></description></item><item><title>Go Pprof</title><link>https://bleedkagax.github.io/post/3_go_pprof/</link><pubDate>Thu, 12 Sep 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/3_go_pprof/</guid><description>&lt;h1 id="overview-of-pprof">Overview of Pprof&lt;/h1>
+&lt;p>&lt;code>pprof&lt;/code> is a tool that comes with Go&amp;rsquo;s standard library and is used for collecting and viewing profiling data. It can collect different types of profiles including:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>CPU Profile&lt;/strong>: Measures where the program spends most of its time.&lt;/li>
+&lt;li>&lt;strong>Memory Profile&lt;/strong>: Measures the amount of memory allocated and retained.&lt;/li>
+&lt;li>&lt;strong>Block Profile&lt;/strong>: Measures where the program spends time waiting for synchronization primitives.&lt;/li>
+&lt;li>&lt;strong>Mutex Profile&lt;/strong>: Measures contention on mutexes.&lt;/li>
+&lt;/ul>
+&lt;h1 id="setting-up-pprof">Setting Up pprof&lt;/h1>
+&lt;p>To use &lt;code>pprof&lt;/code>, you need to import the &lt;code>net/http/pprof&lt;/code> package and set up HTTP server to serve the profiling data.&lt;/p></description></item><item><title>Go Garbage Collection</title><link>https://bleedkagax.github.io/post/6_go_garbage_collection/</link><pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/6_go_garbage_collection/</guid><description>&lt;h3 id="how-does-garbage-collection-work-in-go">How does garbage collection work in Go?&lt;/h3>
+&lt;h4 id="garbage-collection">Garbage Collection&lt;/h4>
+&lt;p>Go uses a concurrent, tri-color mark-and-sweep garbage collector with write barriers.&lt;/p>
+&lt;h4 id="garbage-collection-phases">Garbage Collection Phases&lt;/h4>
+&lt;ol>
+&lt;li>&lt;strong>Mark Setup&lt;/strong>: Preparation for marking phase.&lt;/li>
+&lt;li>&lt;strong>Marking&lt;/strong>: Identifying live objects.&lt;/li>
+&lt;li>&lt;strong>Mark Termination&lt;/strong>: Completion of marking phase.&lt;/li>
+&lt;li>&lt;strong>Sweep&lt;/strong>: Reclaiming memory from dead objects.&lt;/li>
+&lt;/ol>
+&lt;pre class="mermaid">
+ graph LR
+	 A[Mark Setup] --&amp;gt; B[Marking]
+	 B --&amp;gt; C[Mark Termination]
+	 C --&amp;gt; D[Sweep]
+	 D --&amp;gt; A
+&lt;/pr</description></item><item><title>Go's Sync</title><link>https://bleedkagax.github.io/post/5_sync/</link><pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/5_sync/</guid><description>&lt;h2 id="syncmutex">&lt;code>sync.Mutex&lt;/code>&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// Mutex provides mutual exclusion for shared resources.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">type&lt;/span> &lt;span style="color:#a6e22e">Mutex&lt;/span> &lt;span style="color:#66d9ef">struct&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">state&lt;/span> &lt;span style="color:#66d9ef">int32&lt;/span> &lt;span style="color:#75715e">// State of the mutex (locked/unlocked)
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">sema&lt;/span> &lt;span style="color:#66d9ef">uint32&lt;/span> &lt;span style="color:#75715e">// Semaphore for blocking goroutines
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// Lock acquires the mutex, blocking if necessary.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">func&lt;/span> (&lt;span style="color:#a6e22e">m&lt;/span> &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">Mutex&lt;/span>) &lt;span style="color:#a6e22e">Lock&lt;/span>() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// Check if already locked; if so, block until unlocked.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// Unlock releases the mutex.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">func&lt;/span> (&lt;span style="color:#a6e22e">m&lt;/span> &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">Mutex&lt;/span>) &lt;span style="color:#a6e22e">Unlock&lt;/span>() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// Update state and unblock waiting goroutines if any.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pr</description></item></channel></rss>

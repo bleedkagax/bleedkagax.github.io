@@ -1,26 +1,29 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>OperatingSystem on Kaga Blog</title>
-    <link>http://localhost:62354/tags/operatingsystem/</link>
-    <description>Recent content in OperatingSystem on Kaga Blog</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 04 Oct 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:62354/tags/operatingsystem/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Operating System Interview</title>
-      <link>http://localhost:62354/post/0_operating_system_interview/</link>
-      <pubDate>Fri, 04 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62354/post/0_operating_system_interview/</guid>
-      <description>&lt;h2 id=&#34;explain-the-difference-between-a-process-and-a-thread&#34;&gt;Explain the difference between a process and a thread.&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Process:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Independent execution unit&lt;/li&gt;&#xA;&lt;li&gt;Has its own memory space&lt;/li&gt;&#xA;&lt;li&gt;Heavyweight, more resources&lt;/li&gt;&#xA;&lt;li&gt;Isolated from other processes&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Thread:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Lightweight unit of execution within a process&lt;/li&gt;&#xA;&lt;li&gt;Shares memory space with other threads in the same process&lt;/li&gt;&#xA;&lt;li&gt;Less resource-intensive&lt;/li&gt;&#xA;&lt;li&gt;Can communicate easily with other threads in the same process&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;how-do-processes-and-threads-communicate&#34;&gt;How do processes and threads communicate&lt;/h2&gt;&#xA;&lt;p&gt;Process communication methods:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Epoll</title>
-      <link>http://localhost:62354/post/1_epoll/</link>
-      <pubDate>Thu, 03 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62354/post/1_epoll/</guid>
-      <description>&lt;h1 id=&#34;epoll-linux-an-efficient-io-multiplexing-mechanism&#34;&gt;&lt;code&gt;epoll&lt;/code&gt; (Linux): An Efficient I/O Multiplexing Mechanism&lt;/h1&gt;&#xA;&lt;p&gt;&lt;code&gt;epoll&lt;/code&gt; operates on an event-driven model, meaning it only notifies the application when an event occurs on a specific file descriptor, unlike &lt;code&gt;select&lt;/code&gt; and &lt;code&gt;poll&lt;/code&gt; which poll all descriptors regardless of activity. This drastically reduces overhead, especially when managing numerous connections.&lt;/p&gt;&#xA;&lt;h2 id=&#34;key-features-and-functionality&#34;&gt;Key Features and Functionality&lt;/h2&gt;&#xA;&lt;p&gt;The core functionality revolves around three system calls:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;code&gt;epoll_create(size)&lt;/code&gt;:&lt;/strong&gt; Creates an &lt;code&gt;epoll&lt;/code&gt; instance and returns an &lt;code&gt;epoll&lt;/code&gt; file descriptor.  While &lt;code&gt;size&lt;/code&gt; was initially used to hint at the number of file descriptors, modern kernels largely ignore it.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OperatingSystem on Kaga Blog</title><link>https://bleedkagax.github.io/tags/operatingsystem/</link><description>Recent content in OperatingSystem on Kaga Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bleedkagax.github.io/tags/operatingsystem/index.xml" rel="self" type="application/rss+xml"/><item><title>Operating System Interview</title><link>https://bleedkagax.github.io/post/0_operating_system_interview/</link><pubDate>Fri, 04 Oct 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/0_operating_system_interview/</guid><description>&lt;h2 id="explain-the-difference-between-a-process-and-a-thread">Explain the difference between a process and a thread.&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>Process:&lt;/p>
+&lt;ul>
+&lt;li>Independent execution unit&lt;/li>
+&lt;li>Has its own memory space&lt;/li>
+&lt;li>Heavyweight, more resources&lt;/li>
+&lt;li>Isolated from other processes&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Thread:&lt;/p>
+&lt;ul>
+&lt;li>Lightweight unit of execution within a process&lt;/li>
+&lt;li>Shares memory space with other threads in the same process&lt;/li>
+&lt;li>Less resource-intensive&lt;/li>
+&lt;li>Can communicate easily with other threads in the same process&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-do-processes-and-threads-communicate">How do processes and threads communicate&lt;/h2>
+&lt;p>Process communication methods:&lt;/p></description></item><item><title>Epoll</title><link>https://bleedkagax.github.io/post/1_epoll/</link><pubDate>Thu, 03 Oct 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/1_epoll/</guid><description>&lt;h1 id="epoll-linux-an-efficient-io-multiplexing-mechanism">&lt;code>epoll&lt;/code> (Linux): An Efficient I/O Multiplexing Mechanism&lt;/h1>
+&lt;p>&lt;code>epoll&lt;/code> operates on an event-driven model, meaning it only notifies the application when an event occurs on a specific file descriptor, unlike &lt;code>select&lt;/code> and &lt;code>poll&lt;/code> which poll all descriptors regardless of activity. This drastically reduces overhead, especially when managing numerous connections.&lt;/p>
+&lt;h2 id="key-features-and-functionality">Key Features and Functionality&lt;/h2>
+&lt;p>The core functionality revolves around three system calls:&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>&lt;code>epoll_create(size)&lt;/code>:&lt;/strong> Creates an &lt;code>epoll&lt;/code> instance and returns an &lt;code>epoll&lt;/code> file descriptor. While &lt;code>size&lt;/code> was initially used to hint at the number of file descriptors, modern kernels largely ignore it.&lt;/p></description></item></channel></rss>

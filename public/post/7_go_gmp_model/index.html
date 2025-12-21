@@ -1,20 +1,5 @@
-
-
-<!DOCTYPE html>
-<html lang="en" itemscope itemtype="http://schema.org/WebPage">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=62354&amp;path=livereload" data-no-instant defer></script>
-    
-
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-
- 
-
-
-      <title>Go&#39;s GMP Model - </title>
-
-  <meta name="description" content="What is the GPM model in Go?
+<!doctype html><html class="not-ready lg:text-base" style=--bg:#faf8f1 lang=en-us dir=ltr><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Go's GMP Model - Kaga Blog</title>
+<meta name=theme-color><meta name=description content="What is the GPM model in Go?
 GMP Model
 The GMP model is the cornerstone of Go&rsquo;s runtime scheduler.
 
@@ -35,287 +20,16 @@ The number of Ps is typically equal to GOMAXPROCS, which by default is the numbe
 
 
 
-M (Machine):"><script type="application/ld+json">
-{
-    "@context": "http://schema.org",
-    "@type": "WebSite",
-    "name": "Kaga Blog",
-    
-    "url": "http:\/\/localhost:62354\/"
-}
-</script><script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Organization",
-  "name": "",
-  "url": "http:\/\/localhost:62354\/"
-  
-  
-  
-  
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "item": {
-          "@id": "http:\/\/localhost:62354\/",
-          "name": "home"
-        }
-    },{
-        "@type": "ListItem",
-        "position": 3,
-        "item": {
-          "@id": "http:\/\/localhost:62354\/post\/7_go_gmp_model\/",
-          "name": "Go\u0027s gmp model"
-        }
-    }]
-}
-</script><script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Article",
-  "author": {
-    "name" : ""
-  },
-  "headline": "Go\u0027s GMP Model",
-  "description" : "What is the GPM model in Go? GMP Model The GMP model is the cornerstone of Go\u0026rsquo;s runtime scheduler.\nG (Goroutine):\nRepresents a goroutine, which is a lightweight thread of execution. Contains the stack, the instruction pointer, and other information important for scheduling. Many Gs can exist at the same time. P (Processor):\nRepresents a logical processor, which can be thought of as a context for scheduling. Acts as a local scheduler, managing a queue of runnable goroutines. The number of Ps is typically equal to GOMAXPROCS, which by default is the number of CPU cores available. M (Machine):\n",
-  "inLanguage" : "en",
-  "wordCount":  841 ,
-  "datePublished" : "2024-10-01T00:00:00\u002b00:00",
-  "dateModified" : "2024-10-01T00:00:00\u002b00:00",
-  "image" : "http:\/\/localhost:62354\/",
-  "keywords" : [ "Golang" ],
-  "mainEntityOfPage" : "http:\/\/localhost:62354\/post\/7_go_gmp_model\/",
-  "publisher" : {
-    "@type": "Organization",
-    "name" : "http:\/\/localhost:62354\/",
-    "logo" : {
-        "@type" : "ImageObject",
-        "url" : "http:\/\/localhost:62354\/",
-        "height" :  60 ,
-        "width" :  60
-    }
-  }
-}
-</script>
-
-
-<meta property="og:title" content="Go&#39;s GMP Model" />
-<meta property="og:description" content="What is the GPM model in Go?
-GMP Model
-The GMP model is the cornerstone of Go&rsquo;s runtime scheduler.
-
-
+M (Machine):"><meta name=author content="Kaga Blog"><link rel="preload stylesheet" as=style href=https://bleedkagax.github.io/main.min.css><link rel=preload as=image href=https://bleedkagax.github.io/theme.png><script defer src=https://bleedkagax.github.io/highlight.min.js onload=hljs.initHighlightingOnLoad()></script><link rel=icon href=https://bleedkagax.github.io/favicon.ico><link rel=apple-touch-icon href=https://bleedkagax.github.io/apple-touch-icon.png><meta name=generator content="Hugo 0.134.0"><meta itemprop=name content="Go's GMP Model"><meta itemprop=description content="What is the GPM model in Go? GMP Model The GMP model is the cornerstone of Go’s runtime scheduler.
 G (Goroutine):
-
-Represents a goroutine, which is a lightweight thread of execution.
-Contains the stack, the instruction pointer, and other information important for scheduling.
-Many Gs can exist at the same time.
-
-
-
-P (Processor):
-
-Represents a logical processor, which can be thought of as a context for scheduling.
-Acts as a local scheduler, managing a queue of runnable goroutines.
-The number of Ps is typically equal to GOMAXPROCS, which by default is the number of CPU cores available.
-
-
-
-M (Machine):">
-<meta property="og:url" content="http://localhost:62354/post/7_go_gmp_model/" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Kaga Blog" />
-
-  <meta name="twitter:title" content="Go&#39;s GMP Model" />
-  <meta name="twitter:description" content="What is the GPM model in Go?
-GMP Model
-The GMP model is the cornerstone of Go&rsquo;s runtime scheduler.
-
-
+Represents a goroutine, which is a lightweight thread of execution. Contains the stack, the instruction pointer, and other information important for scheduling. Many Gs can exist at the same time. P (Processor):
+Represents a logical processor, which can be thought of as a context for scheduling. Acts as a local scheduler, managing a queue of runnable goroutines. The number of Ps is typically equal to GOMAXPROCS, which by default is the number of CPU cores available. M (Machine):"><meta itemprop=datePublished content="2024-10-01T00:00:00+00:00"><meta itemprop=dateModified content="2024-10-01T00:00:00+00:00"><meta itemprop=wordCount content="841"><meta itemprop=keywords content="Golang"><meta property="og:url" content="https://bleedkagax.github.io/post/7_go_gmp_model/"><meta property="og:site_name" content="Kaga Blog"><meta property="og:title" content="Go's GMP Model"><meta property="og:description" content="What is the GPM model in Go? GMP Model The GMP model is the cornerstone of Go’s runtime scheduler.
 G (Goroutine):
-
-Represents a goroutine, which is a lightweight thread of execution.
-Contains …">
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="generator" content="Hugo 0.134.0">
-  <link rel="alternate" href="http://localhost:62354/index.xml" type="application/rss+xml" title="Kaga Blog"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="http://localhost:62354/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="http://localhost:62354/css/syntax.css" /><link rel="stylesheet" href="http://localhost:62354/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
-
-  </head>
-  <body>
-    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="http://localhost:62354/">Kaga Blog</a>
-    </div>
-
-    <div class="collapse navbar-collapse" id="main-navbar">
-      <ul class="nav navbar-nav navbar-right">
-        
-
-        
-
-        
-      </ul>
-    </div>
-
-    
-
-  </div>
-</nav>
-
-
-
-
-    
-
-
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-<div class="pswp__bg"></div>
-
-<div class="pswp__scroll-wrap">
-    
-    <div class="pswp__container">
-      <div class="pswp__item"></div>
-      <div class="pswp__item"></div>
-      <div class="pswp__item"></div>
-    </div>
-    
-    <div class="pswp__ui pswp__ui--hidden">
-    <div class="pswp__top-bar">
-      
-      <div class="pswp__counter"></div>
-      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-      <button class="pswp__button pswp__button--share" title="Share"></button>
-      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-      
-      
-      <div class="pswp__preloader">
-        <div class="pswp__preloader__icn">
-          <div class="pswp__preloader__cut">
-            <div class="pswp__preloader__donut"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-      <div class="pswp__share-tooltip"></div>
-    </div>
-    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-    </button>
-    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-    </button>
-    <div class="pswp__caption">
-      <div class="pswp__caption__center"></div>
-    </div>
-    </div>
-    </div>
-</div>
-
-
-  
-  
-  
-
-
-
-
-
-
-  
-
-  <header class="header-section ">
-    
-    
-    <div class="intro-header no-img">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="post-heading">
-              
-                <h1>Go&#39;s GMP Model</h1>
-              
-              
-              
-              
-                <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on October 1, 2024
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
-    
-  
-  
-</span>
-
-
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-  </header>
-
-
-    
-<div class="container" role="main">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <article role="main" class="blog-post">
-        <h3 id="what-is-the-gpm-model-in-go">What is the GPM model in Go?</h3>
-<h4 id="gmp-model">GMP Model</h4>
-<p>The GMP model is the cornerstone of Go&rsquo;s runtime scheduler.</p>
-<ol>
-<li>
-<p><strong>G (Goroutine)</strong>:</p>
-<ul>
-<li>Represents a goroutine, which is a lightweight thread of execution.</li>
-<li>Contains the stack, the instruction pointer, and other information important for scheduling.</li>
-<li>Many Gs can exist at the same time.</li>
-</ul>
-</li>
-<li>
-<p><strong>P (Processor)</strong>:</p>
-<ul>
-<li>Represents a logical processor, which can be thought of as a context for scheduling.</li>
-<li>Acts as a local scheduler, managing a queue of runnable goroutines.</li>
-<li>The number of Ps is typically equal to <code>GOMAXPROCS</code>, which by default is the number of CPU cores available.</li>
-</ul>
-</li>
-<li>
-<p><strong>M (Machine)</strong>:</p>
-<ul>
-<li>Represents an OS thread.</li>
-<li>The Go runtime manages a pool of Ms.</li>
-<li>Ms execute the code of runnable goroutines.</li>
-</ul>
-</li>
-</ol>
-<pre class="mermaid">
+Represents a goroutine, which is a lightweight thread of execution. Contains the stack, the instruction pointer, and other information important for scheduling. Many Gs can exist at the same time. P (Processor):
+Represents a logical processor, which can be thought of as a context for scheduling. Acts as a local scheduler, managing a queue of runnable goroutines. The number of Ps is typically equal to GOMAXPROCS, which by default is the number of CPU cores available. M (Machine):"><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:published_time" content="2024-10-01T00:00:00+00:00"><meta property="article:modified_time" content="2024-10-01T00:00:00+00:00"><meta property="article:tag" content="Golang"><meta name=twitter:card content="summary"><meta name=twitter:title content="Go's GMP Model"><meta name=twitter:description content="What is the GPM model in Go? GMP Model The GMP model is the cornerstone of Go’s runtime scheduler.
+G (Goroutine):
+Represents a goroutine, which is a lightweight thread of execution. Contains the stack, the instruction pointer, and other information important for scheduling. Many Gs can exist at the same time. P (Processor):
+Represents a logical processor, which can be thought of as a context for scheduling. Acts as a local scheduler, managing a queue of runnable goroutines. The number of Ps is typically equal to GOMAXPROCS, which by default is the number of CPU cores available. M (Machine):"><link rel=canonical href=https://bleedkagax.github.io/post/7_go_gmp_model/></head><body class="text-black duration-200 ease-out dark:text-white"><header class="mx-auto flex h-[4.5rem] max-w-[--w] px-8 lg:justify-center"><div class="relative z-50 ltr:mr-auto rtl:ml-auto flex items-center"><a class="-translate-y-[1px] text-2xl font-medium" href=https://bleedkagax.github.io/>Kaga Blog</a><div class="btn-dark text-[0] ltr:ml-4 rtl:mr-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]" role=button aria-label=Dark></div></div><div class="btn-menu relative z-50 ltr:-mr-8 rtl:-ml-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden" role=button aria-label=Menu></div><script>const htmlClass=document.documentElement.classList;setTimeout(()=>{htmlClass.remove("not-ready")},10);const btnMenu=document.querySelector(".btn-menu");btnMenu.addEventListener("click",()=>{htmlClass.toggle("open")});const metaTheme=document.querySelector('meta[name="theme-color"]'),lightBg="#faf8f1".replace(/"/g,""),setDark=e=>{metaTheme.setAttribute("content",e?"#000":lightBg),htmlClass[e?"add":"remove"]("dark"),localStorage.setItem("dark",e)},darkScheme=window.matchMedia("(prefers-color-scheme: dark)");if(htmlClass.contains("dark"))setDark(!0);else{const e=localStorage.getItem("dark");setDark(e?e==="true":darkScheme.matches)}darkScheme.addEventListener("change",e=>{setDark(e.matches)});const btnDark=document.querySelector(".btn-dark");btnDark.addEventListener("click",()=>{setDark(localStorage.getItem("dark")!=="true")})</script><div class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"></div></header><main class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-[--w] px-8 pb-16 pt-14 dark:prose-invert"><article><header class=mb-14><h1 class="!my-0 pb-2.5">Go's GMP Model</h1><div class="text-xs antialiased opacity-60"><time>Oct 1, 2024</time></div></header><section><h3 id=what-is-the-gpm-model-in-go>What is the GPM model in Go?</h3><h4 id=gmp-model>GMP Model</h4><p>The GMP model is the cornerstone of Go&rsquo;s runtime scheduler.</p><ol><li><p><strong>G (Goroutine)</strong>:</p><ul><li>Represents a goroutine, which is a lightweight thread of execution.</li><li>Contains the stack, the instruction pointer, and other information important for scheduling.</li><li>Many Gs can exist at the same time.</li></ul></li><li><p><strong>P (Processor)</strong>:</p><ul><li>Represents a logical processor, which can be thought of as a context for scheduling.</li><li>Acts as a local scheduler, managing a queue of runnable goroutines.</li><li>The number of Ps is typically equal to <code>GOMAXPROCS</code>, which by default is the number of CPU cores available.</li></ul></li><li><p><strong>M (Machine)</strong>:</p><ul><li>Represents an OS thread.</li><li>The Go runtime manages a pool of Ms.</li><li>Ms execute the code of runnable goroutines.</li></ul></li></ol><pre class=mermaid>
     graph TD
 	    G[Goroutine] --&gt; P[Processor]
 	    P --&gt; M[Machine]
@@ -328,9 +42,7 @@ Contains …">
 	    end
 	    
 	    OS
-</pre>
-<h4 id="goroutine-scheduling">Goroutine Scheduling</h4>
-<pre class="mermaid">
+</pre><h4 id=goroutine-scheduling>Goroutine Scheduling</h4><pre class=mermaid>
     flowchart TD
 	    GRQ[Global Run Queue] --&gt; |schedule| P1[Processor P1]
 	    GRQ --&gt; |schedule| P2[Processor P2]
@@ -344,275 +56,43 @@ Contains …">
 	    M2[Machine M2] --&gt; P2
 	    G5[New Goroutine] -.-&gt; |enqueue| GRQ
 	    G6[Blocked Goroutine] -.-&gt; |wake up| GRQ
-</pre>
-<h5 id="scheduler-data-structures">Scheduler Data Structures</h5>
-<ol>
-<li>
-<p><strong>Global Run Queue (GRQ)</strong></p>
-<ul>
-<li>Holds runnable goroutines not assigned to any P</li>
-<li>Represented by <code>sched.runq</code> in the runtime</li>
-<li>Used when local run queues are full or during work stealing</li>
-<li>Implemented as a lock-free ring buffer</li>
-</ul>
-</li>
-<li>
-<p><strong>Local Run Queue (LRQ)</strong></p>
-<ul>
-<li>Each P has its own LRQ</li>
-<li>Holds goroutines assigned to that P</li>
-<li>Implemented as a circular queue with a fixed size of 256</li>
-<li>When full, half of the goroutines are moved to the GRQ</li>
-</ul>
-</li>
-<li>
-<p><strong>Idle M List</strong></p>
-<ul>
-<li>Tracks idle OS threads</li>
-<li>Managed by the scheduler</li>
-<li>Used to quickly find an M when a goroutine becomes runnable</li>
-</ul>
-</li>
-<li>
-<p><strong>Idle P List</strong></p>
-<ul>
-<li>Maintains idle P structures</li>
-<li>Used when allocating P to new M</li>
-<li>Helps in quick P acquisition for waiting Ms</li>
-</ul>
-</li>
-</ol>
-<h5 id="scheduling-algorithm">Scheduling Algorithm</h5>
-<ol>
-<li>
-<p>When a new goroutine is created:</p>
-<ul>
-<li>If there&rsquo;s space in the current P&rsquo;s local run queue, add it there</li>
-<li>Otherwise, add it to the global run queue</li>
-</ul>
-</li>
-<li>
-<p>When a P needs to find a goroutine to run:</p>
-<ul>
-<li>Check its local run queue first</li>
-<li>If empty, check the global run queue</li>
-<li>If still empty, try to steal work from other Ps</li>
-</ul>
-</li>
-<li>
-<p>When a goroutine blocks (e.g., on I/O or channel operations):</p>
-<ul>
-<li>The current M will detach from its P</li>
-<li>Another M will pick up the P and continue running goroutines</li>
-</ul>
-</li>
-<li>
-<p>When a goroutine unblocks:</p>
-<ul>
-<li>It&rsquo;s placed back on a run queue (local or global)</li>
-<li>If there&rsquo;s an idle P, it may be scheduled immediately</li>
-</ul>
-</li>
-</ol>
-<h4 id="advanced-scheduling-concepts">Advanced Scheduling Concepts</h4>
-<h5 id="preemption">Preemption</h5>
-<p>Go uses a combination of cooperative and preemptive scheduling:</p>
-<ol>
-<li>
-<p><strong>Cooperative Scheduling</strong></p>
-<ul>
-<li>Goroutines yield control at certain points (e.g., function calls, channel operations)</li>
-<li>Implemented through checks in the compiler-generated code</li>
-</ul>
-</li>
-<li>
-<p><strong>Preemptive Scheduling</strong></p>
-<ul>
-<li>Introduced in Go 1.14 for long-running goroutines</li>
-<li>Uses asynchronous preemption via signals (SIGURG on Unix systems)</li>
-<li>Allows interruption of CPU-bound goroutines</li>
-</ul>
-</li>
-</ol>
-<h5 id="work-stealing">Work Stealing</h5>
-<p>Work stealing is a technique used by the Go scheduler to balance load across processors:</p>
-<ol>
-<li>When a P&rsquo;s local run queue is empty, it attempts to steal work from other Ps</li>
-<li>The stealing process is randomized to avoid contention</li>
-<li>If stealing fails, the P checks the global run queue and network poller</li>
-</ol>
-<p>Implementation details:</p>
-<ul>
-<li>Uses a random starting point to avoid always stealing from the same P</li>
-<li>Steals half of the victim&rsquo;s local run queue to minimize future stealing</li>
-</ul>
-<h5 id="syscall-handling">Syscall Handling</h5>
-<p>When a goroutine makes a syscall, special handling is required to ensure efficient use of resources:</p>
-<ol>
-<li>The M running the goroutine enters syscall mode</li>
-<li>The P is detached from the M to allow other goroutines to run</li>
-<li>If there are no idle Ms, a new M may be created to run the P</li>
-<li>When the syscall completes, the goroutine is rescheduled</li>
-</ol>
-<h5 id="spinning-threads">Spinning Threads</h5>
-<p>The Go scheduler uses spinning threads to reduce latency:</p>
-<ol>
-<li>Some Ms may spin instead of going to sleep immediately</li>
-<li>Spinning Ms check for new work frequently</li>
-<li>This helps in quickly responding to newly runnable goroutines</li>
-<li>The number of spinning Ms is limited to avoid wasting CPU</li>
-</ol>
-<p>Spinning states:</p>
-<ul>
-<li>Spinning looking for work</li>
-<li>Spinning waiting for GRQ lock</li>
-</ul>
-<h4 id="runtime-hooks-and-tracing">Runtime Hooks and Tracing</h4>
-<p>Go provides several hooks and tracing capabilities for advanced scheduling analysis:</p>
-<ol>
-<li>
-<p><strong>Runtime Tracing</strong></p>
-<ul>
-<li>Enabled with <code>runtime/trace</code> package</li>
-<li>Provides detailed information about goroutine scheduling, GC, and more</li>
-</ul>
-</li>
-<li>
-<p><strong>Scheduler Tracing</strong></p>
-<ul>
-<li>Enabled with <code>GODEBUG=schedtrace=X</code> environment variable</li>
-<li>Prints scheduler state every X milliseconds</li>
-</ul>
-</li>
-<li>
-<p><strong>Execution Tracing</strong></p>
-<ul>
-<li>Uses <code>runtime.Trace()</code> and <code>runtime.StopTrace()</code> functions</li>
-<li>Allows for custom tracing points in code</li>
-</ul>
-</li>
-</ol>
-<p>Example of using runtime tracing:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;os&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;runtime/trace&#34;</span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Create a trace file
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">f</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Create</span>(<span style="color:#e6db74">&#34;trace.out&#34;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>        panic(<span style="color:#a6e22e">err</span>)
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">f</span>.<span style="color:#a6e22e">Close</span>()
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Start tracing
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">trace</span>.<span style="color:#a6e22e">Start</span>(<span style="color:#a6e22e">f</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>        panic(<span style="color:#a6e22e">err</span>)
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">trace</span>.<span style="color:#a6e22e">Stop</span>()
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Your program logic here
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#ae81ff">10</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>() {
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Some work
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        }()
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Wait for goroutines to finish
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// ...
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
-</span></span></code></pre></div><p>To analyze the trace:</p>
-<pre tabindex="0"><code>go tool trace trace.out
-</code></pre>
-
-        
-          <div class="blog-tags">
-            
-              
-              <a href="http://localhost:62354/tags/golang/">Golang</a>&nbsp;
-            
-          </div>
-        
-
-        
-
-        
-      </article>
-
-      
-        <ul class="pager blog-pager">
-          
-            <li class="previous">
-              <a href="http://localhost:62354/post/0_go_interview/" data-toggle="tooltip" data-placement="top" title="Golang Interview">&larr; Previous Post</a>
-            </li>
-          
-          
-            <li class="next">
-              <a href="http://localhost:62354/post/4_redlock_algorithm/" data-toggle="tooltip" data-placement="top" title="Redlock Algorithm">Next Post &rarr;</a>
-            </li>
-          
-        </ul>
-      
-
-
-      
-
-    </div>
-  </div>
-</div>
-
-      <footer>
-  <div class="container">
-    
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <ul class="list-inline text-center footer-links">
-          
-          
-        </ul>
-        <p class="credits copyright text-muted">
-          
-
-          &nbsp;&bull;&nbsp;&copy;
-          
-            2024
-          
-
-          
-            &nbsp;&bull;&nbsp;
-            <a href="http://localhost:62354/">Kaga Blog</a>
-          
-        </p>
-        
-        <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.134.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
-          
-        </p>
-      </div>
-    </div>
-  </div>
-</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-
-<script src="http://localhost:62354/js/main.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="http://localhost:62354/js/load-photoswipe.js"></script>
-
-
-
-
-
-
-
-
-
-
-    
-  </body>
-</html>
-
+</pre><h5 id=scheduler-data-structures>Scheduler Data Structures</h5><ol><li><p><strong>Global Run Queue (GRQ)</strong></p><ul><li>Holds runnable goroutines not assigned to any P</li><li>Represented by <code>sched.runq</code> in the runtime</li><li>Used when local run queues are full or during work stealing</li><li>Implemented as a lock-free ring buffer</li></ul></li><li><p><strong>Local Run Queue (LRQ)</strong></p><ul><li>Each P has its own LRQ</li><li>Holds goroutines assigned to that P</li><li>Implemented as a circular queue with a fixed size of 256</li><li>When full, half of the goroutines are moved to the GRQ</li></ul></li><li><p><strong>Idle M List</strong></p><ul><li>Tracks idle OS threads</li><li>Managed by the scheduler</li><li>Used to quickly find an M when a goroutine becomes runnable</li></ul></li><li><p><strong>Idle P List</strong></p><ul><li>Maintains idle P structures</li><li>Used when allocating P to new M</li><li>Helps in quick P acquisition for waiting Ms</li></ul></li></ol><h5 id=scheduling-algorithm>Scheduling Algorithm</h5><ol><li><p>When a new goroutine is created:</p><ul><li>If there&rsquo;s space in the current P&rsquo;s local run queue, add it there</li><li>Otherwise, add it to the global run queue</li></ul></li><li><p>When a P needs to find a goroutine to run:</p><ul><li>Check its local run queue first</li><li>If empty, check the global run queue</li><li>If still empty, try to steal work from other Ps</li></ul></li><li><p>When a goroutine blocks (e.g., on I/O or channel operations):</p><ul><li>The current M will detach from its P</li><li>Another M will pick up the P and continue running goroutines</li></ul></li><li><p>When a goroutine unblocks:</p><ul><li>It&rsquo;s placed back on a run queue (local or global)</li><li>If there&rsquo;s an idle P, it may be scheduled immediately</li></ul></li></ol><h4 id=advanced-scheduling-concepts>Advanced Scheduling Concepts</h4><h5 id=preemption>Preemption</h5><p>Go uses a combination of cooperative and preemptive scheduling:</p><ol><li><p><strong>Cooperative Scheduling</strong></p><ul><li>Goroutines yield control at certain points (e.g., function calls, channel operations)</li><li>Implemented through checks in the compiler-generated code</li></ul></li><li><p><strong>Preemptive Scheduling</strong></p><ul><li>Introduced in Go 1.14 for long-running goroutines</li><li>Uses asynchronous preemption via signals (SIGURG on Unix systems)</li><li>Allows interruption of CPU-bound goroutines</li></ul></li></ol><h5 id=work-stealing>Work Stealing</h5><p>Work stealing is a technique used by the Go scheduler to balance load across processors:</p><ol><li>When a P&rsquo;s local run queue is empty, it attempts to steal work from other Ps</li><li>The stealing process is randomized to avoid contention</li><li>If stealing fails, the P checks the global run queue and network poller</li></ol><p>Implementation details:</p><ul><li>Uses a random starting point to avoid always stealing from the same P</li><li>Steals half of the victim&rsquo;s local run queue to minimize future stealing</li></ul><h5 id=syscall-handling>Syscall Handling</h5><p>When a goroutine makes a syscall, special handling is required to ensure efficient use of resources:</p><ol><li>The M running the goroutine enters syscall mode</li><li>The P is detached from the M to allow other goroutines to run</li><li>If there are no idle Ms, a new M may be created to run the P</li><li>When the syscall completes, the goroutine is rescheduled</li></ol><h5 id=spinning-threads>Spinning Threads</h5><p>The Go scheduler uses spinning threads to reduce latency:</p><ol><li>Some Ms may spin instead of going to sleep immediately</li><li>Spinning Ms check for new work frequently</li><li>This helps in quickly responding to newly runnable goroutines</li><li>The number of spinning Ms is limited to avoid wasting CPU</li></ol><p>Spinning states:</p><ul><li>Spinning looking for work</li><li>Spinning waiting for GRQ lock</li></ul><h4 id=runtime-hooks-and-tracing>Runtime Hooks and Tracing</h4><p>Go provides several hooks and tracing capabilities for advanced scheduling analysis:</p><ol><li><p><strong>Runtime Tracing</strong></p><ul><li>Enabled with <code>runtime/trace</code> package</li><li>Provides detailed information about goroutine scheduling, GC, and more</li></ul></li><li><p><strong>Scheduler Tracing</strong></p><ul><li>Enabled with <code>GODEBUG=schedtrace=X</code> environment variable</li><li>Prints scheduler state every X milliseconds</li></ul></li><li><p><strong>Execution Tracing</strong></p><ul><li>Uses <code>runtime.Trace()</code> and <code>runtime.StopTrace()</code> functions</li><li>Allows for custom tracing points in code</li></ul></li></ol><p>Example of using runtime tracing:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> (
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;os&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;runtime/trace&#34;</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Create a trace file
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>f</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Create</span>(<span style=color:#e6db74>&#34;trace.out&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>        panic(<span style=color:#a6e22e>err</span>)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>f</span>.<span style=color:#a6e22e>Close</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Start tracing
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>err</span> = <span style=color:#a6e22e>trace</span>.<span style=color:#a6e22e>Start</span>(<span style=color:#a6e22e>f</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>        panic(<span style=color:#a6e22e>err</span>)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>trace</span>.<span style=color:#a6e22e>Stop</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Your program logic here
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>for</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>:=</span> <span style=color:#ae81ff>0</span>; <span style=color:#a6e22e>i</span> &lt; <span style=color:#ae81ff>10</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>++</span> {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>go</span> <span style=color:#66d9ef>func</span>() {
+</span></span><span style=display:flex><span>            <span style=color:#75715e>// Some work
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        }()
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Wait for goroutines to finish
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>// ...
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>}
+</span></span></code></pre></div><p>To analyze the trace:</p><pre tabindex=0><code>go tool trace trace.out
+</code></pre></section><footer class="mt-12 flex flex-wrap"><a class="mb-1.5 ltr:mr-1.5 rtl:ml-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] dark:bg-white/[8%] dark:hover:bg-white/[12%]" href=https://bleedkagax.github.io/tags/golang>Golang</a></footer><nav class="mt-24 flex overflow-hidden rounded-xl bg-black/[3%] text-lg !leading-[1.2] *:flex *:w-1/2 *:items-center *:p-5 *:font-medium *:no-underline dark:bg-white/[8%] [&>*:hover]:bg-black/[2%] dark:[&>*:hover]:bg-white/[3%]"><a class="ltr:pr-3 rtl:pl-3" href=https://bleedkagax.github.io/post/4_redlock_algorithm/><span class="ltr:mr-1.5 rtl:ml-1.5">←</span><span>Redlock Algorithm</span></a>
+<a class="ltr:ml-auto rtl:mr-auto justify-end pl-3" href=https://bleedkagax.github.io/post/0_go_interview/><span>Golang Interview</span><span class="ltr:ml-1.5 rtl:mr-1.5">→</span></a></nav><script type=module>
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script><script>Array.from(document.getElementsByClassName("language-mermaid")).forEach(e=>{e.parentElement.outerHTML=`<div class="mermaid [&_svg]:block [&_svg]:m-auto">${e.innerHTML}</div>`})</script></article></main><footer class="mx-auto flex h-[4.5rem] max-w-[--w] items-center px-8 text-xs uppercase tracking-wider opacity-60"><div class=mr-auto>&copy; 2025
+<a class=link href=https://bleedkagax.github.io/>Kaga Blog</a></div><a class="link mx-6" href=https://gohugo.io/ rel=noopener target=_blank>powered by hugo️️</a>️
+<a class=link href=https://github.com/nanxiaobei/hugo-paper rel=noopener target=_blank>hugo-paper</a></footer></body></html>

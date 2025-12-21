@@ -1,33 +1,75 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Mysql on Kaga Blog</title>
-    <link>http://localhost:62354/tags/mysql/</link>
-    <description>Recent content in Mysql on Kaga Blog</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 03 Oct 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:62354/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>MySQL&#39;s Transaction Isolation Levels</title>
-      <link>http://localhost:62354/post/2_mysql_isolation_levels/</link>
-      <pubDate>Thu, 03 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62354/post/2_mysql_isolation_levels/</guid>
-      <description>&lt;h1 id=&#34;sql-transaction-isolation-levels&#34;&gt;SQL Transaction Isolation Levels&lt;/h1&gt;&#xA;&lt;p&gt;Transaction isolation levels define the degree to which the operations in one transaction are visible to other concurrent transactions and the types of reads and writes that are allowed.&lt;/p&gt;&#xA;&lt;h2 id=&#34;comparison-table&#34;&gt;Comparison Table&lt;/h2&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th style=&#34;text-align: left&#34;&gt;Isolation Level&lt;/th&gt;&#xA;          &lt;th style=&#34;text-align: left&#34;&gt;Dirty Read&lt;/th&gt;&#xA;          &lt;th style=&#34;text-align: left&#34;&gt;Non-repeatable Read&lt;/th&gt;&#xA;          &lt;th style=&#34;text-align: left&#34;&gt;Phantom Read&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;READ UNCOMMITTED&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;Yes&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;Yes&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;Yes&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;READ COMMITTED&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;No&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;Yes&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;Yes&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;REPEATABLE READ&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;No&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;No&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;Yes&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;SERIALIZABLE&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;No&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;No&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;No&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h2 id=&#34;explanation-of-isolation-levels&#34;&gt;Explanation of Isolation Levels&lt;/h2&gt;&#xA;&lt;h3 id=&#34;1-read-uncommitted&#34;&gt;1. READ UNCOMMITTED&lt;/h3&gt;&#xA;&lt;p&gt;This is the lowest isolation level. Transactions can read data that has been modified by other transactions but not yet committed.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Mysql Interview</title>
-      <link>http://localhost:62354/post/0_mysql_interview/</link>
-      <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62354/post/0_mysql_interview/</guid>
-      <description>&lt;h2 id=&#34;what-are-the-main-mysql-storage-engines-and-their-differences&#34;&gt;What are the main MySQL storage engines and their differences?&lt;/h2&gt;&#xA;&lt;p&gt;MySQL supports multiple storage engines, each with distinct characteristics:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;InnoDB:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Default engine since MySQL 5.5&lt;/li&gt;&#xA;&lt;li&gt;Supports ACID transactions&lt;/li&gt;&#xA;&lt;li&gt;Provides row-level locking&lt;/li&gt;&#xA;&lt;li&gt;Supports foreign keys and relationship constraints&lt;/li&gt;&#xA;&lt;li&gt;Uses clustered indexes&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;MyISAM:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Older engine, used as default before MySQL 5.5&lt;/li&gt;&#xA;&lt;li&gt;Non-transactional&lt;/li&gt;&#xA;&lt;li&gt;Table-level locking&lt;/li&gt;&#xA;&lt;li&gt;Faster for read-heavy operations&lt;/li&gt;&#xA;&lt;li&gt;Supports full-text indexing&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Memory (HEAP):&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Mysql&#39;s Join Types Comparison</title>
-      <link>http://localhost:62354/post/1_mysql_join_types_comparison/</link>
-      <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62354/post/1_mysql_join_types_comparison/</guid>
-      <description>&lt;h1 id=&#34;input-tables&#34;&gt;Input Tables&lt;/h1&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:62354/img/1_mysql_join_types_comparison.png&#34; alt=&#34;|400*400&#34;&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;inner-join&#34;&gt;INNER JOIN&lt;/h1&gt;&#xA;&lt;p&gt;INNER JOIN returns only the rows where there&amp;rsquo;s a match between both tables based on the join condition.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; A.ID, A.Name, B.ID, B.Department&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; A&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;INNER&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;JOIN&lt;/span&gt; B &lt;span style=&#34;color:#66d9ef&#34;&gt;ON&lt;/span&gt; A.ID &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; B.ID  &#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:62354/img/1_mysql_join_types_comparison-1.png&#34; alt=&#34;|400*400&#34;&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;left-join&#34;&gt;LEFT JOIN&lt;/h1&gt;&#xA;&lt;p&gt;LEFT JOIN returns all rows from the left table (A), and the matched rows from the right table (B). If there&amp;rsquo;s no match, NULL values are used for the right table columns.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mysql on Kaga Blog</title><link>https://bleedkagax.github.io/tags/mysql/</link><description>Recent content in Mysql on Kaga Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 03 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bleedkagax.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml"/><item><title>MySQL's Transaction Isolation Levels</title><link>https://bleedkagax.github.io/post/2_mysql_isolation_levels/</link><pubDate>Thu, 03 Oct 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/2_mysql_isolation_levels/</guid><description>&lt;h1 id="sql-transaction-isolation-levels">SQL Transaction Isolation Levels&lt;/h1>
+&lt;p>Transaction isolation levels define the degree to which the operations in one transaction are visible to other concurrent transactions and the types of reads and writes that are allowed.&lt;/p>
+&lt;h2 id="comparison-table">Comparison Table&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: left">Isolation Level&lt;/th>
+ &lt;th style="text-align: left">Dirty Read&lt;/th>
+ &lt;th style="text-align: left">Non-repeatable Read&lt;/th>
+ &lt;th style="text-align: left">Phantom Read&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: left">READ UNCOMMITTED&lt;/td>
+ &lt;td style="text-align: left">Yes&lt;/td>
+ &lt;td style="text-align: left">Yes&lt;/td>
+ &lt;td style="text-align: left">Yes&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">READ COMMITTED&lt;/td>
+ &lt;td style="text-align: left">No&lt;/td>
+ &lt;td style="text-align: left">Yes&lt;/td>
+ &lt;td style="text-align: left">Yes&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">REPEATABLE READ&lt;/td>
+ &lt;td style="text-align: left">No&lt;/td>
+ &lt;td style="text-align: left">No&lt;/td>
+ &lt;td style="text-align: left">Yes&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">SERIALIZABLE&lt;/td>
+ &lt;td style="text-align: left">No&lt;/td>
+ &lt;td style="text-align: left">No&lt;/td>
+ &lt;td style="text-align: left">No&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="explanation-of-isolation-levels">Explanation of Isolation Levels&lt;/h2>
+&lt;h3 id="1-read-uncommitted">1. READ UNCOMMITTED&lt;/h3>
+&lt;p>This is the lowest isolation level. Transactions can read data that has been modified by other transactions but not yet committed.&lt;/p></description></item><item><title>Mysql Interview</title><link>https://bleedkagax.github.io/post/0_mysql_interview/</link><pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/0_mysql_interview/</guid><description>&lt;h2 id="what-are-the-main-mysql-storage-engines-and-their-differences">What are the main MySQL storage engines and their differences?&lt;/h2>
+&lt;p>MySQL supports multiple storage engines, each with distinct characteristics:&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>InnoDB:&lt;/p>
+&lt;ul>
+&lt;li>Default engine since MySQL 5.5&lt;/li>
+&lt;li>Supports ACID transactions&lt;/li>
+&lt;li>Provides row-level locking&lt;/li>
+&lt;li>Supports foreign keys and relationship constraints&lt;/li>
+&lt;li>Uses clustered indexes&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>MyISAM:&lt;/p>
+&lt;ul>
+&lt;li>Older engine, used as default before MySQL 5.5&lt;/li>
+&lt;li>Non-transactional&lt;/li>
+&lt;li>Table-level locking&lt;/li>
+&lt;li>Faster for read-heavy operations&lt;/li>
+&lt;li>Supports full-text indexing&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Memory (HEAP):&lt;/p></description></item><item><title>Mysql's Join Types Comparison</title><link>https://bleedkagax.github.io/post/1_mysql_join_types_comparison/</link><pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/1_mysql_join_types_comparison/</guid><description>&lt;h1 id="input-tables">Input Tables&lt;/h1>
+&lt;p>&lt;img src="https://bleedkagax.github.io/img/1_mysql_join_types_comparison.png" alt="|400*400">&lt;/p>
+&lt;h1 id="inner-join">INNER JOIN&lt;/h1>
+&lt;p>INNER JOIN returns only the rows where there&amp;rsquo;s a match between both tables based on the join condition.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">SELECT&lt;/span> A.ID, A.Name, B.ID, B.Department
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">FROM&lt;/span> A
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">INNER&lt;/span> &lt;span style="color:#66d9ef">JOIN&lt;/span> B &lt;span style="color:#66d9ef">ON&lt;/span> A.ID &lt;span style="color:#f92672">=&lt;/span> B.ID 
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://bleedkagax.github.io/img/1_mysql_join_types_comparison-1.png" alt="|400*400">&lt;/p>
+&lt;h1 id="left-join">LEFT JOIN&lt;/h1>
+&lt;p>LEFT JOIN returns all rows from the left table (A), and the matched rows from the right table (B). If there&amp;rsquo;s no match, NULL values are used for the right table columns.&lt;/p></description></item></channel></rss>

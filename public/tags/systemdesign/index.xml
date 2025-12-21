@@ -1,75 +1,133 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>SystemDesign on Kaga Blog</title>
-    <link>http://localhost:62354/tags/systemdesign/</link>
-    <description>Recent content in SystemDesign on Kaga Blog</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 15 Oct 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:62354/tags/systemdesign/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Docker</title>
-      <link>http://localhost:62354/post/4_docker/</link>
-      <pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62354/post/4_docker/</guid>
-      <description>&lt;h1 id=&#34;docker-guidelines&#34;&gt;Docker Guidelines&lt;/h1&gt;&#xA;&lt;h2 id=&#34;dockerfile-best-practices&#34;&gt;Dockerfile Best Practices&lt;/h2&gt;&#xA;&lt;h3 id=&#34;use-official-base-images&#34;&gt;Use Official Base Images&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Why&lt;/strong&gt;: Official images are maintained and frequently updated, ensuring reliability and security.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;How&lt;/strong&gt;:&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-dockerfile&#34; data-lang=&#34;dockerfile&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; node:14-alpine&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;minimize-image-size&#34;&gt;Minimize Image Size&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Why&lt;/strong&gt;: Smaller images lead to faster deployments and reduced storage costs.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;How&lt;/strong&gt;:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Use minimal base images (e.g., Alpine Linux).&lt;/li&gt;&#xA;&lt;li&gt;Remove unnecessary packages and files.&lt;/li&gt;&#xA;&lt;li&gt;Combine commands to reduce layers.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-dockerfile&#34; data-lang=&#34;dockerfile&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;RUN&lt;/span&gt; apt-get update &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    apt-get install -y package1 package2 &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    rm -rf /var/lib/apt/lists/*&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
-    </item>
-    <item>
-      <title>Kubernetes</title>
-      <link>http://localhost:62354/post/5_k8s/</link>
-      <pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62354/post/5_k8s/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Kubernetes (k8s) is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications.&lt;/p&gt;&#xA;&lt;h2 id=&#34;kubernetes-architecture&#34;&gt;Kubernetes Architecture&lt;/h2&gt;&#xA;&lt;h3 id=&#34;masters&#34;&gt;Masters&lt;/h3&gt;&#xA;&lt;p&gt;The &lt;strong&gt;master node&lt;/strong&gt; manages the Kubernetes cluster. It coordinates all activities, such as scheduling, scaling, and updating applications.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Components&lt;/strong&gt;:&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;API Server&lt;/strong&gt;: The front-end of the Kubernetes control plane.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;etcd&lt;/strong&gt;: A distributed key-value store for configuration data.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Controller Manager&lt;/strong&gt;: Manages controllers that handle routine tasks.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Scheduler&lt;/strong&gt;: Assigns workloads to nodes based on resource availability and policies.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;nodes&#34;&gt;Nodes&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Worker nodes&lt;/strong&gt; run the containerized applications. Each node contains the necessary services to run Pods and communicate with the master node.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Lua</title>
-      <link>http://localhost:62354/post/1_lua/</link>
-      <pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62354/post/1_lua/</guid>
-      <description>&lt;h2 id=&#34;introduction-to-lua&#34;&gt;Introduction to Lua&lt;/h2&gt;&#xA;&lt;p&gt;Lua is a powerful, efficient, lightweight, embeddable scripting language. It is designed to be embedded in other applications, providing flexibility and extensibility. Lua is widely used in game development, embedded systems, web applications, and more due to its simple syntax, fast execution, and ease of integration.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-lua&#34;&gt;What is Lua?&lt;/h2&gt;&#xA;&lt;h3 id=&#34;key-features&#34;&gt;Key Features&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Lightweight and Fast:&lt;/strong&gt; Lua is designed to have a small footprint and execute rapidly, making it ideal for performance-critical applications.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Embeddable:&lt;/strong&gt; Easily integrates with C and other programming languages, allowing developers to extend its capabilities.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Simple Syntax:&lt;/strong&gt; Clean and straightforward syntax that is easy to learn and use.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Extensible:&lt;/strong&gt; Provides powerful metaprogramming capabilities through metatables and metamethods.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Powerful Data Structures:&lt;/strong&gt; Uses tables as the primary data structure, enabling the creation of arrays, dictionaries, and more.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;First-Class Functions:&lt;/strong&gt; Functions are first-class citizens, allowing for functional programming paradigms.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Coroutines:&lt;/strong&gt; Supports cooperative multitasking, enabling asynchronous programming.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;use-cases&#34;&gt;Use Cases&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Game Development:&lt;/strong&gt; Scripting game logic, AI, and event handling.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Embedded Systems:&lt;/strong&gt; Providing scripting capabilities within hardware devices.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Web Development:&lt;/strong&gt; Enhancing web servers with dynamic content generation (e.g., OpenResty).&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Configuration:&lt;/strong&gt; Scriptable configuration files for applications and services.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Data Processing:&lt;/strong&gt; Handling data transformations and manipulations.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;&#xA;&lt;p&gt;Before diving into Lua, ensure you have the following:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Nginx</title>
-      <link>http://localhost:62354/post/0_nginx/</link>
-      <pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62354/post/0_nginx/</guid>
-      <description>&lt;h2 id=&#34;introduction-to-nginx&#34;&gt;Introduction to Nginx&lt;/h2&gt;&#xA;&lt;p&gt;Nginx (pronounced as &amp;ldquo;Engine-X&amp;rdquo;) is a high-performance, open-source web server, reverse proxy server, and email (IMAP/POP3) proxy server. It is renowned for its ability to handle high concurrency, low memory usage, and exceptional speed, making it a popular choice for serving both static and dynamic content on the web.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-nginx&#34;&gt;What is Nginx?&lt;/h2&gt;&#xA;&lt;h3 id=&#34;key-features&#34;&gt;Key Features&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;High Performance:&lt;/strong&gt; Ability to handle thousands of concurrent connections with minimal memory footprint.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Reverse Proxying:&lt;/strong&gt; Acts as an intermediary for requests from clients seeking resources from servers.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Load Balancing:&lt;/strong&gt; Distributes incoming traffic across multiple servers to ensure reliability and uptime.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;SSL/TLS Support:&lt;/strong&gt; Provides secure connections using SSL/TLS protocols.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Caching:&lt;/strong&gt; Reduces server load and improves response times by caching responses from backend servers.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Modular Architecture:&lt;/strong&gt; Supports dynamic modules to extend its functionality.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Static and Dynamic Content Serving:&lt;/strong&gt; Efficiently serves static files and dynamically generated content.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;use-cases&#34;&gt;Use Cases&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Web Servers:&lt;/strong&gt; Serving websites and web applications.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Reverse Proxy:&lt;/strong&gt; Forwarding requests to application servers like Node.js, Python, Ruby, etc.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Load Balancer:&lt;/strong&gt; Distributing traffic across multiple backend servers.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;API Gateway:&lt;/strong&gt; Managing and routing API requests.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Content Caching:&lt;/strong&gt; Storing frequently accessed content to enhance performance.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;&#xA;&lt;p&gt;Before diving into Nginx, ensure you have the following:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Openresty</title>
-      <link>http://localhost:62354/post/2_openresty/</link>
-      <pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62354/post/2_openresty/</guid>
-      <description>&lt;h2 id=&#34;introduction-to-openresty&#34;&gt;Introduction to OpenResty&lt;/h2&gt;&#xA;&lt;p&gt;OpenResty is a dynamic web platform that integrates Nginx with the powerful Lua scripting language. It is designed to build scalable web applications, web services, and dynamic web gateways. By combining the high performance of Nginx with the flexibility of Lua, OpenResty enables developers to handle complex processing at the edge of the network.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-openresty&#34;&gt;What is OpenResty?&lt;/h2&gt;&#xA;&lt;p&gt;OpenResty extends Nginx by bundling it with a set of powerful Lua libraries and modules (known as LuaJIT). This allows embedding Lua scripts directly into the Nginx configuration, offering unparalleled flexibility for customizing request handling, routing, and response generation.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>System Design</title>
-      <link>http://localhost:62354/post/0_system_design/</link>
-      <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62354/post/0_system_design/</guid>
-      <description>&lt;h2 id=&#34;how-to-solve-cache-penetration&#34;&gt;How to Solve Cache Penetration?&lt;/h2&gt;&#xA;&lt;p&gt;Cache penetration occurs when requests for non-existent data bypass the cache and hit the database repeatedly. Solutions include:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Caching Empty Results&lt;/strong&gt;: Store empty results for non-existent keys with a short expiration time.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Bloom Filters&lt;/strong&gt;: Use a Bloom filter to check if a key exists before querying the database.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Rate Limiting&lt;/strong&gt;: Limit requests for certain keys to prevent overwhelming the database with requests for non-existent data.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;how-to-solve-cache-avalanche&#34;&gt;How to Solve Cache Avalanche?&lt;/h2&gt;&#xA;&lt;p&gt;Cache avalanche involves a massive number of database hits due to the simultaneous expiration of many cache entries or a cache server failure.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Jaeger</title>
-      <link>http://localhost:62354/post/1_jaeger/</link>
-      <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62354/post/1_jaeger/</guid>
-      <description>&lt;p&gt;direct-to-storage architecture&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:62354/img/1_jaeger.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;architecture with Kafka as intermediate buffer&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:62354/img/1_jaeger-1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-jaeger&#34;&gt;What is Jaeger?&lt;/h2&gt;&#xA;&lt;p&gt;Jaeger is an open-source, end-to-end distributed tracing system. It helps monitor and troubleshoot transactions in complex, microservices-based architectures.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-problem-does-distributed-tracing-solve&#34;&gt;What problem does distributed tracing solve?&lt;/h2&gt;&#xA;&lt;p&gt;Distributed tracing helps in understanding the flow of requests through a distributed system, identifying performance bottlenecks, and diagnosing issues in microservices architectures.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Prometheus</title>
-      <link>http://localhost:62354/post/2_prometheus/</link>
-      <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62354/post/2_prometheus/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:62354/img/2_prometheus.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-prometheus&#34;&gt;What is Prometheus?&lt;/h2&gt;&#xA;&lt;p&gt;Prometheus is an open-source systems monitoring and alerting toolkit. It collects and stores metrics as time series data, allowing for flexible querying and real-time alerting.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-are-the-main-components-of-prometheus&#34;&gt;What are the main components of Prometheus?&lt;/h2&gt;&#xA;&lt;p&gt;The main components of Prometheus are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Prometheus server (for scraping and storing time series data)&lt;/li&gt;&#xA;&lt;li&gt;Client libraries (for instrumenting application code)&lt;/li&gt;&#xA;&lt;li&gt;Push gateway (for supporting short-lived jobs)&lt;/li&gt;&#xA;&lt;li&gt;Exporters (for services that don&amp;rsquo;t expose Prometheus metrics directly)&lt;/li&gt;&#xA;&lt;li&gt;Alertmanager (for handling alerts)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;how-does-prometheus-collect-metrics&#34;&gt;How does Prometheus collect metrics?&lt;/h2&gt;&#xA;&lt;p&gt;Prometheus uses a pull model to collect metrics. It scrapes metrics from configured targets at regular intervals, usually by HTTP endpoints on these targets.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Protobuf</title>
-      <link>http://localhost:62354/post/3_protobuf/</link>
-      <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62354/post/3_protobuf/</guid>
-      <description>&lt;h1 id=&#34;protocol-buffers&#34;&gt;Protocol Buffers&lt;/h1&gt;&#xA;&lt;h2 id=&#34;1-introduction&#34;&gt;1. Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Protocol Buffers (Protobuf) is a language-agnostic, platform-neutral extensible mechanism for serializing structured data. Developed by Google, it aims to be faster, smaller, and simpler than XML. This report provides an in-depth analysis of Protobuf&amp;rsquo;s principles, performance characteristics, and practical implications.&lt;/p&gt;&#xA;&lt;h2 id=&#34;2-historical-context-and-development&#34;&gt;2. Historical Context and Development&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Origin&lt;/strong&gt;: Developed internally at Google in the early 2000s.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Open Source Release&lt;/strong&gt;: Made publicly available in 2008.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Versions&lt;/strong&gt;:&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Proto1: Initial release (deprecated)&lt;/li&gt;&#xA;&lt;li&gt;Proto2: Introduced optional and required fields&lt;/li&gt;&#xA;&lt;li&gt;Proto3: Simplified syntax, removed required fields&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;3-core-principles-of-protocol-buffers&#34;&gt;3. Core Principles of Protocol Buffers&lt;/h2&gt;&#xA;&lt;h3 id=&#34;message-definition-language&#34;&gt;Message Definition Language&lt;/h3&gt;&#xA;&lt;p&gt;Protobuf uses a simple IDL (Interface Definition Language) to describe the structure of data.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SystemDesign on Kaga Blog</title><link>https://bleedkagax.github.io/tags/systemdesign/</link><description>Recent content in SystemDesign on Kaga Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 15 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bleedkagax.github.io/tags/systemdesign/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker</title><link>https://bleedkagax.github.io/post/4_docker/</link><pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/4_docker/</guid><description>&lt;h1 id="docker-guidelines">Docker Guidelines&lt;/h1>
+&lt;h2 id="dockerfile-best-practices">Dockerfile Best Practices&lt;/h2>
+&lt;h3 id="use-official-base-images">Use Official Base Images&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Why&lt;/strong>: Official images are maintained and frequently updated, ensuring reliability and security.&lt;/li>
+&lt;li>&lt;strong>How&lt;/strong>:
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-dockerfile" data-lang="dockerfile">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">FROM&lt;/span>&lt;span style="color:#e6db74"> node:14-alpine&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="minimize-image-size">Minimize Image Size&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Why&lt;/strong>: Smaller images lead to faster deployments and reduced storage costs.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>How&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>Use minimal base images (e.g., Alpine Linux).&lt;/li>
+&lt;li>Remove unnecessary packages and files.&lt;/li>
+&lt;li>Combine commands to reduce layers.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-dockerfile" data-lang="dockerfile">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">RUN&lt;/span> apt-get update &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> apt-get install -y package1 package2 &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> rm -rf /var/lib/apt/lists/*&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pr</description></item><item><title>Kubernetes</title><link>https://bleedkagax.github.io/post/5_k8s/</link><pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/5_k8s/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;p>Kubernetes (k8s) is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications.&lt;/p>
+&lt;h2 id="kubernetes-architecture">Kubernetes Architecture&lt;/h2>
+&lt;h3 id="masters">Masters&lt;/h3>
+&lt;p>The &lt;strong>master node&lt;/strong> manages the Kubernetes cluster. It coordinates all activities, such as scheduling, scaling, and updating applications.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Components&lt;/strong>:
+&lt;ul>
+&lt;li>&lt;strong>API Server&lt;/strong>: The front-end of the Kubernetes control plane.&lt;/li>
+&lt;li>&lt;strong>etcd&lt;/strong>: A distributed key-value store for configuration data.&lt;/li>
+&lt;li>&lt;strong>Controller Manager&lt;/strong>: Manages controllers that handle routine tasks.&lt;/li>
+&lt;li>&lt;strong>Scheduler&lt;/strong>: Assigns workloads to nodes based on resource availability and policies.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="nodes">Nodes&lt;/h3>
+&lt;p>&lt;strong>Worker nodes&lt;/strong> run the containerized applications. Each node contains the necessary services to run Pods and communicate with the master node.&lt;/p></description></item><item><title>Lua</title><link>https://bleedkagax.github.io/post/1_lua/</link><pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/1_lua/</guid><description>&lt;h2 id="introduction-to-lua">Introduction to Lua&lt;/h2>
+&lt;p>Lua is a powerful, efficient, lightweight, embeddable scripting language. It is designed to be embedded in other applications, providing flexibility and extensibility. Lua is widely used in game development, embedded systems, web applications, and more due to its simple syntax, fast execution, and ease of integration.&lt;/p>
+&lt;h2 id="what-is-lua">What is Lua?&lt;/h2>
+&lt;h3 id="key-features">Key Features&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Lightweight and Fast:&lt;/strong> Lua is designed to have a small footprint and execute rapidly, making it ideal for performance-critical applications.&lt;/li>
+&lt;li>&lt;strong>Embeddable:&lt;/strong> Easily integrates with C and other programming languages, allowing developers to extend its capabilities.&lt;/li>
+&lt;li>&lt;strong>Simple Syntax:&lt;/strong> Clean and straightforward syntax that is easy to learn and use.&lt;/li>
+&lt;li>&lt;strong>Extensible:&lt;/strong> Provides powerful metaprogramming capabilities through metatables and metamethods.&lt;/li>
+&lt;li>&lt;strong>Powerful Data Structures:&lt;/strong> Uses tables as the primary data structure, enabling the creation of arrays, dictionaries, and more.&lt;/li>
+&lt;li>&lt;strong>First-Class Functions:&lt;/strong> Functions are first-class citizens, allowing for functional programming paradigms.&lt;/li>
+&lt;li>&lt;strong>Coroutines:&lt;/strong> Supports cooperative multitasking, enabling asynchronous programming.&lt;/li>
+&lt;/ul>
+&lt;h3 id="use-cases">Use Cases&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Game Development:&lt;/strong> Scripting game logic, AI, and event handling.&lt;/li>
+&lt;li>&lt;strong>Embedded Systems:&lt;/strong> Providing scripting capabilities within hardware devices.&lt;/li>
+&lt;li>&lt;strong>Web Development:&lt;/strong> Enhancing web servers with dynamic content generation (e.g., OpenResty).&lt;/li>
+&lt;li>&lt;strong>Configuration:&lt;/strong> Scriptable configuration files for applications and services.&lt;/li>
+&lt;li>&lt;strong>Data Processing:&lt;/strong> Handling data transformations and manipulations.&lt;/li>
+&lt;/ul>
+&lt;h2 id="prerequisites">Prerequisites&lt;/h2>
+&lt;p>Before diving into Lua, ensure you have the following:&lt;/p></description></item><item><title>Nginx</title><link>https://bleedkagax.github.io/post/0_nginx/</link><pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/0_nginx/</guid><description>&lt;h2 id="introduction-to-nginx">Introduction to Nginx&lt;/h2>
+&lt;p>Nginx (pronounced as &amp;ldquo;Engine-X&amp;rdquo;) is a high-performance, open-source web server, reverse proxy server, and email (IMAP/POP3) proxy server. It is renowned for its ability to handle high concurrency, low memory usage, and exceptional speed, making it a popular choice for serving both static and dynamic content on the web.&lt;/p>
+&lt;h2 id="what-is-nginx">What is Nginx?&lt;/h2>
+&lt;h3 id="key-features">Key Features&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>High Performance:&lt;/strong> Ability to handle thousands of concurrent connections with minimal memory footprint.&lt;/li>
+&lt;li>&lt;strong>Reverse Proxying:&lt;/strong> Acts as an intermediary for requests from clients seeking resources from servers.&lt;/li>
+&lt;li>&lt;strong>Load Balancing:&lt;/strong> Distributes incoming traffic across multiple servers to ensure reliability and uptime.&lt;/li>
+&lt;li>&lt;strong>SSL/TLS Support:&lt;/strong> Provides secure connections using SSL/TLS protocols.&lt;/li>
+&lt;li>&lt;strong>Caching:&lt;/strong> Reduces server load and improves response times by caching responses from backend servers.&lt;/li>
+&lt;li>&lt;strong>Modular Architecture:&lt;/strong> Supports dynamic modules to extend its functionality.&lt;/li>
+&lt;li>&lt;strong>Static and Dynamic Content Serving:&lt;/strong> Efficiently serves static files and dynamically generated content.&lt;/li>
+&lt;/ul>
+&lt;h3 id="use-cases">Use Cases&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Web Servers:&lt;/strong> Serving websites and web applications.&lt;/li>
+&lt;li>&lt;strong>Reverse Proxy:&lt;/strong> Forwarding requests to application servers like Node.js, Python, Ruby, etc.&lt;/li>
+&lt;li>&lt;strong>Load Balancer:&lt;/strong> Distributing traffic across multiple backend servers.&lt;/li>
+&lt;li>&lt;strong>API Gateway:&lt;/strong> Managing and routing API requests.&lt;/li>
+&lt;li>&lt;strong>Content Caching:&lt;/strong> Storing frequently accessed content to enhance performance.&lt;/li>
+&lt;/ul>
+&lt;h2 id="prerequisites">Prerequisites&lt;/h2>
+&lt;p>Before diving into Nginx, ensure you have the following:&lt;/p></description></item><item><title>Openresty</title><link>https://bleedkagax.github.io/post/2_openresty/</link><pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/2_openresty/</guid><description>&lt;h2 id="introduction-to-openresty">Introduction to OpenResty&lt;/h2>
+&lt;p>OpenResty is a dynamic web platform that integrates Nginx with the powerful Lua scripting language. It is designed to build scalable web applications, web services, and dynamic web gateways. By combining the high performance of Nginx with the flexibility of Lua, OpenResty enables developers to handle complex processing at the edge of the network.&lt;/p>
+&lt;h2 id="what-is-openresty">What is OpenResty?&lt;/h2>
+&lt;p>OpenResty extends Nginx by bundling it with a set of powerful Lua libraries and modules (known as LuaJIT). This allows embedding Lua scripts directly into the Nginx configuration, offering unparalleled flexibility for customizing request handling, routing, and response generation.&lt;/p></description></item><item><title>System Design</title><link>https://bleedkagax.github.io/post/0_system_design/</link><pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/0_system_design/</guid><description>&lt;h2 id="how-to-solve-cache-penetration">How to Solve Cache Penetration?&lt;/h2>
+&lt;p>Cache penetration occurs when requests for non-existent data bypass the cache and hit the database repeatedly. Solutions include:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Caching Empty Results&lt;/strong>: Store empty results for non-existent keys with a short expiration time.&lt;/li>
+&lt;li>&lt;strong>Bloom Filters&lt;/strong>: Use a Bloom filter to check if a key exists before querying the database.&lt;/li>
+&lt;li>&lt;strong>Rate Limiting&lt;/strong>: Limit requests for certain keys to prevent overwhelming the database with requests for non-existent data.&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to-solve-cache-avalanche">How to Solve Cache Avalanche?&lt;/h2>
+&lt;p>Cache avalanche involves a massive number of database hits due to the simultaneous expiration of many cache entries or a cache server failure.&lt;/p></description></item><item><title>Jaeger</title><link>https://bleedkagax.github.io/post/1_jaeger/</link><pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/1_jaeger/</guid><description>&lt;p>direct-to-storage architecture&lt;/p>
+&lt;p>&lt;img src="https://bleedkagax.github.io/img/1_jaeger.png" alt="">&lt;/p>
+&lt;p>architecture with Kafka as intermediate buffer&lt;/p>
+&lt;p>&lt;img src="https://bleedkagax.github.io/img/1_jaeger-1.png" alt="">&lt;/p>
+&lt;h2 id="what-is-jaeger">What is Jaeger?&lt;/h2>
+&lt;p>Jaeger is an open-source, end-to-end distributed tracing system. It helps monitor and troubleshoot transactions in complex, microservices-based architectures.&lt;/p>
+&lt;h2 id="what-problem-does-distributed-tracing-solve">What problem does distributed tracing solve?&lt;/h2>
+&lt;p>Distributed tracing helps in understanding the flow of requests through a distributed system, identifying performance bottlenecks, and diagnosing issues in microservices architectures.&lt;/p></description></item><item><title>Prometheus</title><link>https://bleedkagax.github.io/post/2_prometheus/</link><pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/2_prometheus/</guid><description>&lt;p>&lt;img src="https://bleedkagax.github.io/img/2_prometheus.png" alt="">&lt;/p>
+&lt;h2 id="what-is-prometheus">What is Prometheus?&lt;/h2>
+&lt;p>Prometheus is an open-source systems monitoring and alerting toolkit. It collects and stores metrics as time series data, allowing for flexible querying and real-time alerting.&lt;/p>
+&lt;h2 id="what-are-the-main-components-of-prometheus">What are the main components of Prometheus?&lt;/h2>
+&lt;p>The main components of Prometheus are:&lt;/p>
+&lt;ul>
+&lt;li>Prometheus server (for scraping and storing time series data)&lt;/li>
+&lt;li>Client libraries (for instrumenting application code)&lt;/li>
+&lt;li>Push gateway (for supporting short-lived jobs)&lt;/li>
+&lt;li>Exporters (for services that don&amp;rsquo;t expose Prometheus metrics directly)&lt;/li>
+&lt;li>Alertmanager (for handling alerts)&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-does-prometheus-collect-metrics">How does Prometheus collect metrics?&lt;/h2>
+&lt;p>Prometheus uses a pull model to collect metrics. It scrapes metrics from configured targets at regular intervals, usually by HTTP endpoints on these targets.&lt;/p></description></item><item><title>Protobuf</title><link>https://bleedkagax.github.io/post/3_protobuf/</link><pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate><guid>https://bleedkagax.github.io/post/3_protobuf/</guid><description>&lt;h1 id="protocol-buffers">Protocol Buffers&lt;/h1>
+&lt;h2 id="1-introduction">1. Introduction&lt;/h2>
+&lt;p>Protocol Buffers (Protobuf) is a language-agnostic, platform-neutral extensible mechanism for serializing structured data. Developed by Google, it aims to be faster, smaller, and simpler than XML. This report provides an in-depth analysis of Protobuf&amp;rsquo;s principles, performance characteristics, and practical implications.&lt;/p>
+&lt;h2 id="2-historical-context-and-development">2. Historical Context and Development&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>Origin&lt;/strong>: Developed internally at Google in the early 2000s.&lt;/li>
+&lt;li>&lt;strong>Open Source Release&lt;/strong>: Made publicly available in 2008.&lt;/li>
+&lt;li>&lt;strong>Versions&lt;/strong>:
+&lt;ul>
+&lt;li>Proto1: Initial release (deprecated)&lt;/li>
+&lt;li>Proto2: Introduced optional and required fields&lt;/li>
+&lt;li>Proto3: Simplified syntax, removed required fields&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="3-core-principles-of-protocol-buffers">3. Core Principles of Protocol Buffers&lt;/h2>
+&lt;h3 id="message-definition-language">Message Definition Language&lt;/h3>
+&lt;p>Protobuf uses a simple IDL (Interface Definition Language) to describe the structure of data.&lt;/p></description></item></channel></rss>

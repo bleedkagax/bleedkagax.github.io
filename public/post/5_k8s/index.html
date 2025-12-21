@@ -1,20 +1,5 @@
-
-
-<!DOCTYPE html>
-<html lang="en" itemscope itemtype="http://schema.org/WebPage">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=62354&amp;path=livereload" data-no-instant defer></script>
-    
-
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-
- 
-
-
-      <title>Kubernetes - </title>
-
-  <meta name="description" content="Introduction
+<!doctype html><html class="not-ready lg:text-base" style=--bg:#faf8f1 lang=en-us dir=ltr><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Kubernetes - Kaga Blog</title>
+<meta name=theme-color><meta name=description content="Introduction
 Kubernetes (k8s) is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications.
 Kubernetes Architecture
 Masters
@@ -30,783 +15,229 @@ Scheduler: Assigns workloads to nodes based on resource availability and policie
 
 
 Nodes
-Worker nodes run the containerized applications. Each node contains the necessary services to run Pods and communicate with the master node."><script type="application/ld+json">
-{
-    "@context": "http://schema.org",
-    "@type": "WebSite",
-    "name": "Kaga Blog",
-    
-    "url": "http:\/\/localhost:62354\/"
-}
-</script><script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Organization",
-  "name": "",
-  "url": "http:\/\/localhost:62354\/"
-  
-  
-  
-  
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "item": {
-          "@id": "http:\/\/localhost:62354\/",
-          "name": "home"
-        }
-    },{
-        "@type": "ListItem",
-        "position": 3,
-        "item": {
-          "@id": "http:\/\/localhost:62354\/post\/5_k8s\/",
-          "name": "Kubernetes"
-        }
-    }]
-}
-</script><script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Article",
-  "author": {
-    "name" : ""
-  },
-  "headline": "Kubernetes",
-  "description" : "Introduction Kubernetes (k8s) is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications.\nKubernetes Architecture Masters The master node manages the Kubernetes cluster. It coordinates all activities, such as scheduling, scaling, and updating applications.\nComponents: API Server: The front-end of the Kubernetes control plane. etcd: A distributed key-value store for configuration data. Controller Manager: Manages controllers that handle routine tasks. Scheduler: Assigns workloads to nodes based on resource availability and policies. Nodes Worker nodes run the containerized applications. Each node contains the necessary services to run Pods and communicate with the master node.\n",
-  "inLanguage" : "en",
-  "wordCount":  1266 ,
-  "datePublished" : "2024-10-15T00:00:00\u002b00:00",
-  "dateModified" : "2024-10-15T00:00:00\u002b00:00",
-  "image" : "http:\/\/localhost:62354\/",
-  "keywords" : [ "SystemDesign" ],
-  "mainEntityOfPage" : "http:\/\/localhost:62354\/post\/5_k8s\/",
-  "publisher" : {
-    "@type": "Organization",
-    "name" : "http:\/\/localhost:62354\/",
-    "logo" : {
-        "@type" : "ImageObject",
-        "url" : "http:\/\/localhost:62354\/",
-        "height" :  60 ,
-        "width" :  60
-    }
-  }
-}
-</script>
-
-
-<meta property="og:title" content="Kubernetes" />
-<meta property="og:description" content="Introduction
-Kubernetes (k8s) is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications.
-Kubernetes Architecture
-Masters
-The master node manages the Kubernetes cluster. It coordinates all activities, such as scheduling, scaling, and updating applications.
-
-Components:
-
-API Server: The front-end of the Kubernetes control plane.
-etcd: A distributed key-value store for configuration data.
-Controller Manager: Manages controllers that handle routine tasks.
-Scheduler: Assigns workloads to nodes based on resource availability and policies.
-
-
-
-Nodes
-Worker nodes run the containerized applications. Each node contains the necessary services to run Pods and communicate with the master node.">
-<meta property="og:url" content="http://localhost:62354/post/5_k8s/" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Kaga Blog" />
-
-  <meta name="twitter:title" content="Kubernetes" />
-  <meta name="twitter:description" content="Introduction
-Kubernetes (k8s) is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications.
-Kubernetes Architecture
-Masters …">
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="generator" content="Hugo 0.134.0">
-  <link rel="alternate" href="http://localhost:62354/index.xml" type="application/rss+xml" title="Kaga Blog"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="http://localhost:62354/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="http://localhost:62354/css/syntax.css" /><link rel="stylesheet" href="http://localhost:62354/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
-
-  </head>
-  <body>
-    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="http://localhost:62354/">Kaga Blog</a>
-    </div>
-
-    <div class="collapse navbar-collapse" id="main-navbar">
-      <ul class="nav navbar-nav navbar-right">
-        
-
-        
-
-        
-      </ul>
-    </div>
-
-    
-
-  </div>
-</nav>
-
-
-
-
-    
-
-
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-<div class="pswp__bg"></div>
-
-<div class="pswp__scroll-wrap">
-    
-    <div class="pswp__container">
-      <div class="pswp__item"></div>
-      <div class="pswp__item"></div>
-      <div class="pswp__item"></div>
-    </div>
-    
-    <div class="pswp__ui pswp__ui--hidden">
-    <div class="pswp__top-bar">
-      
-      <div class="pswp__counter"></div>
-      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-      <button class="pswp__button pswp__button--share" title="Share"></button>
-      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-      
-      
-      <div class="pswp__preloader">
-        <div class="pswp__preloader__icn">
-          <div class="pswp__preloader__cut">
-            <div class="pswp__preloader__donut"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-      <div class="pswp__share-tooltip"></div>
-    </div>
-    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-    </button>
-    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-    </button>
-    <div class="pswp__caption">
-      <div class="pswp__caption__center"></div>
-    </div>
-    </div>
-    </div>
-</div>
-
-
-  
-  
-  
-
-
-
-
-
-
-  
-
-  <header class="header-section ">
-    
-    
-    <div class="intro-header no-img">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="post-heading">
-              
-                <h1>Kubernetes</h1>
-              
-              
-              
-              
-                <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on October 15, 2024
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
-    
-  
-  
-</span>
-
-
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-  </header>
-
-
-    
-<div class="container" role="main">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <article role="main" class="blog-post">
-        <h2 id="introduction">Introduction</h2>
-<p>Kubernetes (k8s) is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications.</p>
-<h2 id="kubernetes-architecture">Kubernetes Architecture</h2>
-<h3 id="masters">Masters</h3>
-<p>The <strong>master node</strong> manages the Kubernetes cluster. It coordinates all activities, such as scheduling, scaling, and updating applications.</p>
-<ul>
-<li><strong>Components</strong>:
-<ul>
-<li><strong>API Server</strong>: The front-end of the Kubernetes control plane.</li>
-<li><strong>etcd</strong>: A distributed key-value store for configuration data.</li>
-<li><strong>Controller Manager</strong>: Manages controllers that handle routine tasks.</li>
-<li><strong>Scheduler</strong>: Assigns workloads to nodes based on resource availability and policies.</li>
-</ul>
-</li>
-</ul>
-<h3 id="nodes">Nodes</h3>
-<p><strong>Worker nodes</strong> run the containerized applications. Each node contains the necessary services to run Pods and communicate with the master node.</p>
-<ul>
-<li><strong>Components</strong>:
-<ul>
-<li><strong>kubelet</strong>: Ensures containers are running in a Pod.</li>
-<li><strong>kube-proxy</strong>: Manages network routing for Kubernetes services.</li>
-<li><strong>Container Runtime</strong>: Software responsible for running containers (e.g., Docker, containerd).</li>
-</ul>
-</li>
-</ul>
-<h3 id="components">Components</h3>
-<p>Understanding the architecture is crucial for effective cluster management and troubleshooting.</p>
-<h2 id="setup-and-installation">Setup and Installation</h2>
-<h3 id="prerequisites">Prerequisites</h3>
-<ul>
-<li><strong>Operating System</strong>: Linux distributions are commonly used.</li>
-<li><strong>Hardware Requirements</strong>: Adequate CPU, memory, and storage.</li>
-<li><strong>Networking</strong>: Proper network configuration for node communication.</li>
-</ul>
-<h3 id="installation-methods">Installation Methods</h3>
-<h4 id="minikube">Minikube</h4>
-<p>Ideal for local development and testing.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Install Minikube</span>
-</span></span><span style="display:flex;"><span>curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-</span></span><span style="display:flex;"><span>sudo install minikube-linux-amd64 /usr/local/bin/minikube
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Start Minikube</span>
-</span></span><span style="display:flex;"><span>minikube start
-</span></span></code></pre></div><h4 id="kubeadm">kubeadm</h4>
-<p>Suitable for setting up production-grade clusters.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Initialize Master Node</span>
-</span></span><span style="display:flex;"><span>sudo kubeadm init --pod-network-cidr<span style="color:#f92672">=</span>10.244.0.0/16
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set up Kubernetes configuration</span>
-</span></span><span style="display:flex;"><span>mkdir -p $HOME/.kube
-</span></span><span style="display:flex;"><span>sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-</span></span><span style="display:flex;"><span>sudo chown <span style="color:#66d9ef">$(</span>id -u<span style="color:#66d9ef">)</span>:<span style="color:#66d9ef">$(</span>id -g<span style="color:#66d9ef">)</span> $HOME/.kube/config
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Install a Pod network (e.g., Flannel)</span>
-</span></span><span style="display:flex;"><span>kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
-</span></span></code></pre></div><h4 id="managed-kubernetes-services">Managed Kubernetes Services</h4>
-<p>Managed services simplify cluster setup and management.</p>
-<ul>
-<li><strong>Options</strong>:
-<ul>
-<li><strong>Google Kubernetes Engine (GKE)</strong></li>
-<li><strong>Amazon Elastic Kubernetes Service (EKS)</strong></li>
-<li><strong>Azure Kubernetes Service (AKS)</strong></li>
-<li><strong>Alibaba Cloud Container Service</strong></li>
-</ul>
-</li>
-</ul>
-<h2 id="core-concepts">Core Concepts</h2>
-<h3 id="pods">Pods</h3>
-<p>The smallest deployable units in Kubernetes, representing a single instance of a running process.</p>
-<ul>
-<li><strong>Features</strong>:
-<ul>
-<li>Can contain one or more containers.</li>
-<li>Share storage, network, and specifications.</li>
-</ul>
-</li>
-</ul>
-<h3 id="services">Services</h3>
-<p>Define a logical set of Pods and a policy to access them.</p>
-<ul>
-<li><strong>Types</strong>:
-<ul>
-<li><strong>ClusterIP</strong>: Internal access within the cluster.</li>
-<li><strong>NodePort</strong>: Exposes the service on each node’s IP at a static port.</li>
-<li><strong>LoadBalancer</strong>: Exposes the service externally using a cloud provider’s load balancer.</li>
-<li><strong>ExternalName</strong>: Maps a service to a DNS name.</li>
-</ul>
-</li>
-</ul>
-<h3 id="deployments">Deployments</h3>
-<p>Provide declarative updates for Pods and ReplicaSets.</p>
-<ul>
-<li><strong>Features</strong>:
-<ul>
-<li>Manage rolling updates and rollbacks.</li>
-<li>Ensure desired state is maintained.</li>
-</ul>
-</li>
-</ul>
-<h3 id="replicasets">ReplicaSets</h3>
-<p>Ensure a specified number of Pod replicas are running at any given time.</p>
-<h3 id="namespaces">Namespaces</h3>
-<p>Provide a way to divide cluster resources between multiple users.</p>
-<ul>
-<li><strong>Use Cases</strong>:
-<ul>
-<li>Environment segregation (e.g., dev, staging, production).</li>
-<li>Resource isolation.</li>
-</ul>
-</li>
-</ul>
-<h3 id="configmaps-and-secrets">ConfigMaps and Secrets</h3>
-<ul>
-<li><strong>ConfigMaps</strong>: Store non-confidential configuration data.</li>
-<li><strong>Secrets</strong>: Store sensitive information such as passwords and tokens.</li>
-</ul>
-<h2 id="best-practices">Best Practices</h2>
-<h3 id="resource-management">Resource Management</h3>
-<h4 id="resource-requests-and-limits">Resource Requests and Limits</h4>
-<p>Define resource requirements to optimize scheduling and prevent resource contention.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">resources</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">requests</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">memory</span>: <span style="color:#e6db74">&#34;64Mi&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">cpu</span>: <span style="color:#e6db74">&#34;250m&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">limits</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">memory</span>: <span style="color:#e6db74">&#34;128Mi&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">cpu</span>: <span style="color:#e6db74">&#34;500m&#34;</span>
-</span></span></code></pre></div><h4 id="auto-scaling">Auto-scaling</h4>
-<p>Utilize Kubernetes’ auto-scaling features to handle varying workloads.</p>
-<ul>
-<li>
-<p><strong>Horizontal Pod Autoscaler (HPA)</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">autoscaling/v1</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">HorizontalPodAutoscaler</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">hpa-example</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">scaleTargetRef</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">myapp</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">minReplicas</span>: <span style="color:#ae81ff">2</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">maxReplicas</span>: <span style="color:#ae81ff">10</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">targetCPUUtilizationPercentage</span>: <span style="color:#ae81ff">80</span>
-</span></span></code></pre></div></li>
-<li>
-<p><strong>Vertical Pod Autoscaler (VPA)</strong></p>
-</li>
-<li>
-<p><strong>Cluster Autoscaler</strong></p>
-</li>
-</ul>
-<h3 id="naming-conventions">Naming Conventions</h3>
-<p>Maintain consistent and descriptive names for resources.</p>
-<ul>
-<li><strong>Format</strong>: <code>&lt;project&gt;-&lt;component&gt;-&lt;environment&gt;-&lt;instance&gt;</code></li>
-<li><strong>Example</strong>: <code>webapp-api-prod-1</code></li>
-</ul>
-<h3 id="configuration-management">Configuration Management</h3>
-<p>Store configurations separately using ConfigMaps and Secrets to maintain flexibility and security.</p>
-<h3 id="version-control">Version Control</h3>
-<p>Manage Kubernetes manifests using version control systems like Git to track changes and enable collaboration.</p>
-<h2 id="security-best-practices">Security Best Practices</h2>
-<h3 id="rbac-role-based-access-control">RBAC (Role-Based Access Control)</h3>
-<p>Control access to Kubernetes resources by defining roles and role bindings.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">rbac.authorization.k8s.io/v1</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Role</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">default</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">pod-reader</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">rules</span>:
-</span></span><span style="display:flex;"><span>- <span style="color:#f92672">apiGroups</span>: [<span style="color:#e6db74">&#34;&#34;</span>]
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">resources</span>: [<span style="color:#e6db74">&#34;pods&#34;</span>]
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">verbs</span>: [<span style="color:#e6db74">&#34;get&#34;</span>, <span style="color:#e6db74">&#34;watch&#34;</span>, <span style="color:#e6db74">&#34;list&#34;</span>]
-</span></span><span style="display:flex;"><span>---
-</span></span><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">rbac.authorization.k8s.io/v1</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">RoleBinding</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">read-pods</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">default</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">subjects</span>:
-</span></span><span style="display:flex;"><span>- <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">User</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">jane</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">apiGroup</span>: <span style="color:#ae81ff">rbac.authorization.k8s.io</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">roleRef</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Role</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">pod-reader</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">apiGroup</span>: <span style="color:#ae81ff">rbac.authorization.k8s.io</span>
-</span></span></code></pre></div><h3 id="network-policies">Network Policies</h3>
-<p>Define how Pods communicate with each other and other network endpoints.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">networking.k8s.io/v1</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">NetworkPolicy</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">allow-same-namespace</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">podSelector</span>: {}
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ingress</span>:
-</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">from</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">podSelector</span>: {}
-</span></span></code></pre></div><h3 id="pod-security-policies">Pod Security Policies</h3>
-<p>Enforce security standards for Pods, such as restricting privileged containers.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">policy/v1beta1</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">PodSecurityPolicy</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">restricted</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">privileged</span>: <span style="color:#66d9ef">false</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">seLinux</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">rule</span>: <span style="color:#ae81ff">RunAsAny</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">supplementalGroups</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">rule</span>: <span style="color:#ae81ff">RunAsAny</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">runAsUser</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">rule</span>: <span style="color:#ae81ff">MustRunAsNonRoot</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">fsGroup</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">rule</span>: <span style="color:#ae81ff">RunAsAny</span>
-</span></span></code></pre></div><h3 id="image-security">Image Security</h3>
-<ul>
-<li><strong>Use Trusted Images</strong>: Pull images from reputable sources.</li>
-<li><strong>Scan for Vulnerabilities</strong>: Use tools like <strong>Trivy</strong> or <strong>Clair</strong>.</li>
-<li><strong>Avoid Running as Root</strong>: Define non-root users in Dockerfiles.</li>
-</ul>
-<h3 id="secrets-management">Secrets Management</h3>
-<p>Use Kubernetes Secrets to manage sensitive data securely.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Secret</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">db-secret</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">type</span>: <span style="color:#ae81ff">Opaque</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">data</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">username</span>: <span style="color:#ae81ff">YWRtaW4= </span> <span style="color:#75715e"># base64 encoded</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">password</span>: <span style="color:#ae81ff">MWYyZDFlMmU2N2Rm</span>
-</span></span></code></pre></div><h2 id="networking">Networking</h2>
-<h3 id="service-types">Service Types</h3>
-<ul>
-<li><strong>ClusterIP</strong>: Default type; accessible only within the cluster.</li>
-<li><strong>NodePort</strong>: Exposes the service on each node’s IP at a static port.</li>
-<li><strong>LoadBalancer</strong>: Integrates with cloud provider load balancers.</li>
-<li><strong>ExternalName</strong>: Maps the service to an external DNS name.</li>
-</ul>
-<h3 id="ingress-controllers">Ingress Controllers</h3>
-<p>Manage external access to services, typically HTTP.</p>
-<ul>
-<li><strong>Popular Ingress Controllers</strong>:
-<ul>
-<li><strong>NGINX Ingress Controller</strong></li>
-<li><strong>Traefik</strong></li>
-<li><strong>HAProxy</strong></li>
-</ul>
-</li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">networking.k8s.io/v1</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Ingress</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">example-ingress</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">rules</span>:
-</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">host</span>: <span style="color:#ae81ff">example.com</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">http</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">paths</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">pathType</span>: <span style="color:#ae81ff">Prefix</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">backend</span>:
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">service</span>:
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">name</span>: <span style="color:#ae81ff">my-service</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">port</span>:
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">number</span>: <span style="color:#ae81ff">80</span>
-</span></span></code></pre></div><h3 id="dns-management">DNS Management</h3>
-<p>Kubernetes provides internal DNS for service discovery. Ensure proper DNS setup for ClusterDNS.</p>
-<h3 id="service-mesh">Service Mesh</h3>
-<p>Implement advanced networking features like traffic management, security, and observability.</p>
-<ul>
-<li><strong>Popular Service Meshes</strong>:
-<ul>
-<li><strong>Istio</strong></li>
-<li><strong>Linkerd</strong></li>
-<li><strong>Consul Connect</strong></li>
-</ul>
-</li>
-</ul>
-<h2 id="storage-management">Storage Management</h2>
-<h3 id="persistent-volumes-pvs-and-persistent-volume-claims-pvcs">Persistent Volumes (PVs) and Persistent Volume Claims (PVCs)</h3>
-<p>Use PVs and PVCs to manage storage resources dynamically.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">PersistentVolumeClaim</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">pvc-example</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">accessModes</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">ReadWriteOnce</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">resources</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">requests</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">storage</span>: <span style="color:#ae81ff">10Gi</span>
-</span></span></code></pre></div><h3 id="storage-classes">Storage Classes</h3>
-<p>Define different storage backends and reclaim policies.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">storage.k8s.io/v1</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">StorageClass</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">fast</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">provisioner</span>: <span style="color:#ae81ff">kubernetes.io/aws-ebs</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">parameters</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">gp2</span>
-</span></span></code></pre></div><h3 id="data-backup-and-restore">Data Backup and Restore</h3>
-<p>Implement backup strategies for persistent data using tools like <strong>Velero</strong> or <strong>Kasten</strong>.</p>
-<h2 id="monitoring-and-logging">Monitoring and Logging</h2>
-<h3 id="monitoring-tools">Monitoring Tools</h3>
-<ul>
-<li><strong>Prometheus</strong>: Metrics collection and alerting.</li>
-<li><strong>Grafana</strong>: Visualization of metrics.</li>
-<li><strong>Kube-state-metrics</strong>: Kubernetes specific metrics.</li>
-</ul>
-<h3 id="logging-solutions">Logging Solutions</h3>
-<ul>
-<li><strong>ELK Stack (Elasticsearch, Logstash, Kibana)</strong></li>
-<li><strong>Fluentd</strong></li>
-<li><strong>Graylog</strong></li>
-<li><strong>Loki</strong></li>
-</ul>
-<h3 id="alerting">Alerting</h3>
-<p>Set up alerts for critical metrics and events using <strong>Alertmanager</strong> or integrated tools with Prometheus.</p>
-<h2 id="deployment-strategies">Deployment Strategies</h2>
-<h3 id="rolling-updates">Rolling Updates</h3>
-<p>Gradually replace Pods with new ones to ensure zero downtime.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">rolling-update-deployment</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">replicas</span>: <span style="color:#ae81ff">3</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">strategy</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">RollingUpdate</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">rollingUpdate</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">maxUnavailable</span>: <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">maxSurge</span>: <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">selector</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">matchLabels</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">app</span>: <span style="color:#ae81ff">myapp</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">template</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">metadata</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">labels</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">app</span>: <span style="color:#ae81ff">myapp</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">spec</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">containers</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">myapp-container</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">image</span>: <span style="color:#ae81ff">myapp:v2</span>
-</span></span></code></pre></div><h3 id="bluegreen-deployments">Blue/Green Deployments</h3>
-<p>Maintain two environments (blue and green) and switch traffic between them during updates.</p>
-<h3 id="canary-releases">Canary Releases</h3>
-<p>Deploy new versions to a subset of users to monitor performance before a full rollout.</p>
-<h2 id="cicd-integration">CI/CD Integration</h2>
-<h3 id="automated-builds-and-deployments">Automated Builds and Deployments</h3>
-<p>Integrate Kubernetes with CI/CD pipelines for automated testing and deployment.</p>
-<ul>
-<li><strong>Tools</strong>: <strong>Jenkins</strong>, <strong>GitLab CI/CD</strong>, <strong>GitHub Actions</strong>, <strong>Argo CD</strong></li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># Example GitHub Actions Workflow</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">CI/CD Pipeline</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">on</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">push</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">branches</span>: [ <span style="color:#ae81ff">main ]</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">build</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v2</span>
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Build Docker Image</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">run</span>: <span style="color:#ae81ff">docker build -t myapp:${{ github.sha }} .</span>
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Push to Registry</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">run</span>: <span style="color:#ae81ff">docker push myapp:${{ github.sha }}</span>
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">deploy</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">needs</span>: <span style="color:#ae81ff">build</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Deploy to Kubernetes</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">appleboy/k8s-action@v1.0.0</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">with</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">kubeconfig</span>: <span style="color:#ae81ff">${{ secrets.KUBECONFIG }}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">args</span>: <span style="color:#ae81ff">kubectl set image deployment/myapp-deployment myapp=myapp:${{ github.sha }}</span>
-</span></span></code></pre></div><h3 id="gitops">GitOps</h3>
-<p>Adopt Git-centric workflows using tools like <strong>Argo CD</strong> or <strong>Flux</strong> to manage deployments declaratively.</p>
-<h2 id="troubleshooting-tips">Troubleshooting Tips</h2>
-<h3 id="common-issues">Common Issues</h3>
-<ul>
-<li><strong>Pod Failing to Start</strong>: Check events and logs.</li>
-<li><strong>Service Unreachable</strong>: Verify Service and Ingress configurations.</li>
-<li><strong>Resource Limits Exceeded</strong>: Adjust requests and limits.</li>
-</ul>
-<h3 id="debugging-tools">Debugging Tools</h3>
-<ul>
-<li><strong>kubectl</strong>: Interact with Kubernetes clusters.
-<ul>
-<li><code>kubectl describe pod &lt;pod-name&gt;</code></li>
-<li><code>kubectl logs &lt;pod-name&gt;</code></li>
-<li><code>kubectl exec -it &lt;pod-name&gt; -- /bin/bash</code></li>
-</ul>
-</li>
-<li><strong>k9s</strong>: Terminal UI to manage Kubernetes clusters.</li>
-<li><strong>Lens</strong>: Kubernetes IDE for visual management.</li>
-</ul>
-<h2 id="examples">Examples</h2>
-<h3 id="sample-deployment-yaml">Sample Deployment YAML</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">myapp-deployment</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">labels</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">app</span>: <span style="color:#ae81ff">myapp</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">replicas</span>: <span style="color:#ae81ff">3</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">selector</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">matchLabels</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">app</span>: <span style="color:#ae81ff">myapp</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">template</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">metadata</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">labels</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">app</span>: <span style="color:#ae81ff">myapp</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">spec</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">containers</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">myapp-container</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">image</span>: <span style="color:#ae81ff">myapp:1.0.0</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">ports</span>:
-</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">containerPort</span>: <span style="color:#ae81ff">80</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">env</span>:
-</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ENVIRONMENT</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;production&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">resources</span>:
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">requests</span>:
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">memory</span>: <span style="color:#e6db74">&#34;64Mi&#34;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">cpu</span>: <span style="color:#e6db74">&#34;250m&#34;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">limits</span>:
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">memory</span>: <span style="color:#e6db74">&#34;128Mi&#34;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">cpu</span>: <span style="color:#e6db74">&#34;500m&#34;</span>
-</span></span></code></pre></div><h3 id="sample-service-yaml">Sample Service YAML</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Service</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">myapp-service</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">selector</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">app</span>: <span style="color:#ae81ff">myapp</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ports</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">protocol</span>: <span style="color:#ae81ff">TCP</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">port</span>: <span style="color:#ae81ff">80</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">targetPort</span>: <span style="color:#ae81ff">80</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">LoadBalancer</span>
-</span></span></code></pre></div><p><strong>Happy Orchestrating!</strong> 🚀</p>
-
-
-        
-          <div class="blog-tags">
-            
-              
-              <a href="http://localhost:62354/tags/systemdesign/">SystemDesign</a>&nbsp;
-            
-          </div>
-        
-
-        
-
-        
-      </article>
-
-      
-        <ul class="pager blog-pager">
-          
-            <li class="previous">
-              <a href="http://localhost:62354/post/1_lua/" data-toggle="tooltip" data-placement="top" title="Lua">&larr; Previous Post</a>
-            </li>
-          
-          
-            <li class="next">
-              <a href="http://localhost:62354/post/4_docker/" data-toggle="tooltip" data-placement="top" title="Docker">Next Post &rarr;</a>
-            </li>
-          
-        </ul>
-      
-
-
-      
-
-    </div>
-  </div>
-</div>
-
-      <footer>
-  <div class="container">
-    
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <ul class="list-inline text-center footer-links">
-          
-          
-        </ul>
-        <p class="credits copyright text-muted">
-          
-
-          &nbsp;&bull;&nbsp;&copy;
-          
-            2024
-          
-
-          
-            &nbsp;&bull;&nbsp;
-            <a href="http://localhost:62354/">Kaga Blog</a>
-          
-        </p>
-        
-        <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.134.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
-          
-        </p>
-      </div>
-    </div>
-  </div>
-</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-
-<script src="http://localhost:62354/js/main.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="http://localhost:62354/js/load-photoswipe.js"></script>
-
-
-
-
-
-
-
-
-
-
-    
-  </body>
-</html>
-
+Worker nodes run the containerized applications. Each node contains the necessary services to run Pods and communicate with the master node."><meta name=author content="Kaga Blog"><link rel="preload stylesheet" as=style href=https://bleedkagax.github.io/main.min.css><link rel=preload as=image href=https://bleedkagax.github.io/theme.png><script defer src=https://bleedkagax.github.io/highlight.min.js onload=hljs.initHighlightingOnLoad()></script><link rel=icon href=https://bleedkagax.github.io/favicon.ico><link rel=apple-touch-icon href=https://bleedkagax.github.io/apple-touch-icon.png><meta name=generator content="Hugo 0.134.0"><meta itemprop=name content="Kubernetes"><meta itemprop=description content="Introduction Kubernetes (k8s) is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications.
+Kubernetes Architecture Masters The master node manages the Kubernetes cluster. It coordinates all activities, such as scheduling, scaling, and updating applications.
+Components: API Server: The front-end of the Kubernetes control plane. etcd: A distributed key-value store for configuration data. Controller Manager: Manages controllers that handle routine tasks. Scheduler: Assigns workloads to nodes based on resource availability and policies. Nodes Worker nodes run the containerized applications. Each node contains the necessary services to run Pods and communicate with the master node."><meta itemprop=datePublished content="2024-10-15T00:00:00+00:00"><meta itemprop=dateModified content="2024-10-15T00:00:00+00:00"><meta itemprop=wordCount content="1266"><meta itemprop=keywords content="SystemDesign"><meta property="og:url" content="https://bleedkagax.github.io/post/5_k8s/"><meta property="og:site_name" content="Kaga Blog"><meta property="og:title" content="Kubernetes"><meta property="og:description" content="Introduction Kubernetes (k8s) is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications.
+Kubernetes Architecture Masters The master node manages the Kubernetes cluster. It coordinates all activities, such as scheduling, scaling, and updating applications.
+Components: API Server: The front-end of the Kubernetes control plane. etcd: A distributed key-value store for configuration data. Controller Manager: Manages controllers that handle routine tasks. Scheduler: Assigns workloads to nodes based on resource availability and policies. Nodes Worker nodes run the containerized applications. Each node contains the necessary services to run Pods and communicate with the master node."><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:published_time" content="2024-10-15T00:00:00+00:00"><meta property="article:modified_time" content="2024-10-15T00:00:00+00:00"><meta property="article:tag" content="SystemDesign"><meta name=twitter:card content="summary"><meta name=twitter:title content="Kubernetes"><meta name=twitter:description content="Introduction Kubernetes (k8s) is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications.
+Kubernetes Architecture Masters The master node manages the Kubernetes cluster. It coordinates all activities, such as scheduling, scaling, and updating applications.
+Components: API Server: The front-end of the Kubernetes control plane. etcd: A distributed key-value store for configuration data. Controller Manager: Manages controllers that handle routine tasks. Scheduler: Assigns workloads to nodes based on resource availability and policies. Nodes Worker nodes run the containerized applications. Each node contains the necessary services to run Pods and communicate with the master node."><link rel=canonical href=https://bleedkagax.github.io/post/5_k8s/></head><body class="text-black duration-200 ease-out dark:text-white"><header class="mx-auto flex h-[4.5rem] max-w-[--w] px-8 lg:justify-center"><div class="relative z-50 ltr:mr-auto rtl:ml-auto flex items-center"><a class="-translate-y-[1px] text-2xl font-medium" href=https://bleedkagax.github.io/>Kaga Blog</a><div class="btn-dark text-[0] ltr:ml-4 rtl:mr-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]" role=button aria-label=Dark></div></div><div class="btn-menu relative z-50 ltr:-mr-8 rtl:-ml-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden" role=button aria-label=Menu></div><script>const htmlClass=document.documentElement.classList;setTimeout(()=>{htmlClass.remove("not-ready")},10);const btnMenu=document.querySelector(".btn-menu");btnMenu.addEventListener("click",()=>{htmlClass.toggle("open")});const metaTheme=document.querySelector('meta[name="theme-color"]'),lightBg="#faf8f1".replace(/"/g,""),setDark=e=>{metaTheme.setAttribute("content",e?"#000":lightBg),htmlClass[e?"add":"remove"]("dark"),localStorage.setItem("dark",e)},darkScheme=window.matchMedia("(prefers-color-scheme: dark)");if(htmlClass.contains("dark"))setDark(!0);else{const e=localStorage.getItem("dark");setDark(e?e==="true":darkScheme.matches)}darkScheme.addEventListener("change",e=>{setDark(e.matches)});const btnDark=document.querySelector(".btn-dark");btnDark.addEventListener("click",()=>{setDark(localStorage.getItem("dark")!=="true")})</script><div class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"></div></header><main class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-[--w] px-8 pb-16 pt-14 dark:prose-invert"><article><header class=mb-14><h1 class="!my-0 pb-2.5">Kubernetes</h1><div class="text-xs antialiased opacity-60"><time>Oct 15, 2024</time></div></header><section><h2 id=introduction>Introduction</h2><p>Kubernetes (k8s) is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications.</p><h2 id=kubernetes-architecture>Kubernetes Architecture</h2><h3 id=masters>Masters</h3><p>The <strong>master node</strong> manages the Kubernetes cluster. It coordinates all activities, such as scheduling, scaling, and updating applications.</p><ul><li><strong>Components</strong>:<ul><li><strong>API Server</strong>: The front-end of the Kubernetes control plane.</li><li><strong>etcd</strong>: A distributed key-value store for configuration data.</li><li><strong>Controller Manager</strong>: Manages controllers that handle routine tasks.</li><li><strong>Scheduler</strong>: Assigns workloads to nodes based on resource availability and policies.</li></ul></li></ul><h3 id=nodes>Nodes</h3><p><strong>Worker nodes</strong> run the containerized applications. Each node contains the necessary services to run Pods and communicate with the master node.</p><ul><li><strong>Components</strong>:<ul><li><strong>kubelet</strong>: Ensures containers are running in a Pod.</li><li><strong>kube-proxy</strong>: Manages network routing for Kubernetes services.</li><li><strong>Container Runtime</strong>: Software responsible for running containers (e.g., Docker, containerd).</li></ul></li></ul><h3 id=components>Components</h3><p>Understanding the architecture is crucial for effective cluster management and troubleshooting.</p><h2 id=setup-and-installation>Setup and Installation</h2><h3 id=prerequisites>Prerequisites</h3><ul><li><strong>Operating System</strong>: Linux distributions are commonly used.</li><li><strong>Hardware Requirements</strong>: Adequate CPU, memory, and storage.</li><li><strong>Networking</strong>: Proper network configuration for node communication.</li></ul><h3 id=installation-methods>Installation Methods</h3><h4 id=minikube>Minikube</h4><p>Ideal for local development and testing.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Install Minikube</span>
+</span></span><span style=display:flex><span>curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+</span></span><span style=display:flex><span>sudo install minikube-linux-amd64 /usr/local/bin/minikube
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Start Minikube</span>
+</span></span><span style=display:flex><span>minikube start
+</span></span></code></pre></div><h4 id=kubeadm>kubeadm</h4><p>Suitable for setting up production-grade clusters.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Initialize Master Node</span>
+</span></span><span style=display:flex><span>sudo kubeadm init --pod-network-cidr<span style=color:#f92672>=</span>10.244.0.0/16
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Set up Kubernetes configuration</span>
+</span></span><span style=display:flex><span>mkdir -p $HOME/.kube
+</span></span><span style=display:flex><span>sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+</span></span><span style=display:flex><span>sudo chown <span style=color:#66d9ef>$(</span>id -u<span style=color:#66d9ef>)</span>:<span style=color:#66d9ef>$(</span>id -g<span style=color:#66d9ef>)</span> $HOME/.kube/config
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Install a Pod network (e.g., Flannel)</span>
+</span></span><span style=display:flex><span>kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+</span></span></code></pre></div><h4 id=managed-kubernetes-services>Managed Kubernetes Services</h4><p>Managed services simplify cluster setup and management.</p><ul><li><strong>Options</strong>:<ul><li><strong>Google Kubernetes Engine (GKE)</strong></li><li><strong>Amazon Elastic Kubernetes Service (EKS)</strong></li><li><strong>Azure Kubernetes Service (AKS)</strong></li><li><strong>Alibaba Cloud Container Service</strong></li></ul></li></ul><h2 id=core-concepts>Core Concepts</h2><h3 id=pods>Pods</h3><p>The smallest deployable units in Kubernetes, representing a single instance of a running process.</p><ul><li><strong>Features</strong>:<ul><li>Can contain one or more containers.</li><li>Share storage, network, and specifications.</li></ul></li></ul><h3 id=services>Services</h3><p>Define a logical set of Pods and a policy to access them.</p><ul><li><strong>Types</strong>:<ul><li><strong>ClusterIP</strong>: Internal access within the cluster.</li><li><strong>NodePort</strong>: Exposes the service on each node’s IP at a static port.</li><li><strong>LoadBalancer</strong>: Exposes the service externally using a cloud provider’s load balancer.</li><li><strong>ExternalName</strong>: Maps a service to a DNS name.</li></ul></li></ul><h3 id=deployments>Deployments</h3><p>Provide declarative updates for Pods and ReplicaSets.</p><ul><li><strong>Features</strong>:<ul><li>Manage rolling updates and rollbacks.</li><li>Ensure desired state is maintained.</li></ul></li></ul><h3 id=replicasets>ReplicaSets</h3><p>Ensure a specified number of Pod replicas are running at any given time.</p><h3 id=namespaces>Namespaces</h3><p>Provide a way to divide cluster resources between multiple users.</p><ul><li><strong>Use Cases</strong>:<ul><li>Environment segregation (e.g., dev, staging, production).</li><li>Resource isolation.</li></ul></li></ul><h3 id=configmaps-and-secrets>ConfigMaps and Secrets</h3><ul><li><strong>ConfigMaps</strong>: Store non-confidential configuration data.</li><li><strong>Secrets</strong>: Store sensitive information such as passwords and tokens.</li></ul><h2 id=best-practices>Best Practices</h2><h3 id=resource-management>Resource Management</h3><h4 id=resource-requests-and-limits>Resource Requests and Limits</h4><p>Define resource requirements to optimize scheduling and prevent resource contention.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>resources</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>requests</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>memory</span>: <span style=color:#e6db74>&#34;64Mi&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>cpu</span>: <span style=color:#e6db74>&#34;250m&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>limits</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>memory</span>: <span style=color:#e6db74>&#34;128Mi&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>cpu</span>: <span style=color:#e6db74>&#34;500m&#34;</span>
+</span></span></code></pre></div><h4 id=auto-scaling>Auto-scaling</h4><p>Utilize Kubernetes’ auto-scaling features to handle varying workloads.</p><ul><li><p><strong>Horizontal Pod Autoscaler (HPA)</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>autoscaling/v1</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>kind</span>: <span style=color:#ae81ff>HorizontalPodAutoscaler</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>metadata</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>hpa-example</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>spec</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>scaleTargetRef</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>apps/v1</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>kind</span>: <span style=color:#ae81ff>Deployment</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>name</span>: <span style=color:#ae81ff>myapp</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>minReplicas</span>: <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>maxReplicas</span>: <span style=color:#ae81ff>10</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>targetCPUUtilizationPercentage</span>: <span style=color:#ae81ff>80</span>
+</span></span></code></pre></div></li><li><p><strong>Vertical Pod Autoscaler (VPA)</strong></p></li><li><p><strong>Cluster Autoscaler</strong></p></li></ul><h3 id=naming-conventions>Naming Conventions</h3><p>Maintain consistent and descriptive names for resources.</p><ul><li><strong>Format</strong>: <code>&lt;project>-&lt;component>-&lt;environment>-&lt;instance></code></li><li><strong>Example</strong>: <code>webapp-api-prod-1</code></li></ul><h3 id=configuration-management>Configuration Management</h3><p>Store configurations separately using ConfigMaps and Secrets to maintain flexibility and security.</p><h3 id=version-control>Version Control</h3><p>Manage Kubernetes manifests using version control systems like Git to track changes and enable collaboration.</p><h2 id=security-best-practices>Security Best Practices</h2><h3 id=rbac-role-based-access-control>RBAC (Role-Based Access Control)</h3><p>Control access to Kubernetes resources by defining roles and role bindings.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>rbac.authorization.k8s.io/v1</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>kind</span>: <span style=color:#ae81ff>Role</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>metadata</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>namespace</span>: <span style=color:#ae81ff>default</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>pod-reader</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>rules</span>:
+</span></span><span style=display:flex><span>- <span style=color:#f92672>apiGroups</span>: [<span style=color:#e6db74>&#34;&#34;</span>]
+</span></span><span style=display:flex><span>  <span style=color:#f92672>resources</span>: [<span style=color:#e6db74>&#34;pods&#34;</span>]
+</span></span><span style=display:flex><span>  <span style=color:#f92672>verbs</span>: [<span style=color:#e6db74>&#34;get&#34;</span>, <span style=color:#e6db74>&#34;watch&#34;</span>, <span style=color:#e6db74>&#34;list&#34;</span>]
+</span></span><span style=display:flex><span>---
+</span></span><span style=display:flex><span><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>rbac.authorization.k8s.io/v1</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>kind</span>: <span style=color:#ae81ff>RoleBinding</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>metadata</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>read-pods</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>namespace</span>: <span style=color:#ae81ff>default</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>subjects</span>:
+</span></span><span style=display:flex><span>- <span style=color:#f92672>kind</span>: <span style=color:#ae81ff>User</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>jane</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>apiGroup</span>: <span style=color:#ae81ff>rbac.authorization.k8s.io</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>roleRef</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>kind</span>: <span style=color:#ae81ff>Role</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>pod-reader</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>apiGroup</span>: <span style=color:#ae81ff>rbac.authorization.k8s.io</span>
+</span></span></code></pre></div><h3 id=network-policies>Network Policies</h3><p>Define how Pods communicate with each other and other network endpoints.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>networking.k8s.io/v1</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>kind</span>: <span style=color:#ae81ff>NetworkPolicy</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>metadata</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>allow-same-namespace</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>spec</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>podSelector</span>: {}
+</span></span><span style=display:flex><span>  <span style=color:#f92672>ingress</span>:
+</span></span><span style=display:flex><span>  - <span style=color:#f92672>from</span>:
+</span></span><span style=display:flex><span>    - <span style=color:#f92672>podSelector</span>: {}
+</span></span></code></pre></div><h3 id=pod-security-policies>Pod Security Policies</h3><p>Enforce security standards for Pods, such as restricting privileged containers.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>policy/v1beta1</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>kind</span>: <span style=color:#ae81ff>PodSecurityPolicy</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>metadata</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>restricted</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>spec</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>privileged</span>: <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>seLinux</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>rule</span>: <span style=color:#ae81ff>RunAsAny</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>supplementalGroups</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>rule</span>: <span style=color:#ae81ff>RunAsAny</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>runAsUser</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>rule</span>: <span style=color:#ae81ff>MustRunAsNonRoot</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>fsGroup</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>rule</span>: <span style=color:#ae81ff>RunAsAny</span>
+</span></span></code></pre></div><h3 id=image-security>Image Security</h3><ul><li><strong>Use Trusted Images</strong>: Pull images from reputable sources.</li><li><strong>Scan for Vulnerabilities</strong>: Use tools like <strong>Trivy</strong> or <strong>Clair</strong>.</li><li><strong>Avoid Running as Root</strong>: Define non-root users in Dockerfiles.</li></ul><h3 id=secrets-management>Secrets Management</h3><p>Use Kubernetes Secrets to manage sensitive data securely.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>v1</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>kind</span>: <span style=color:#ae81ff>Secret</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>metadata</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>db-secret</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>type</span>: <span style=color:#ae81ff>Opaque</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>data</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>username</span>: <span style=color:#ae81ff>YWRtaW4= </span> <span style=color:#75715e># base64 encoded</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>password</span>: <span style=color:#ae81ff>MWYyZDFlMmU2N2Rm</span>
+</span></span></code></pre></div><h2 id=networking>Networking</h2><h3 id=service-types>Service Types</h3><ul><li><strong>ClusterIP</strong>: Default type; accessible only within the cluster.</li><li><strong>NodePort</strong>: Exposes the service on each node’s IP at a static port.</li><li><strong>LoadBalancer</strong>: Integrates with cloud provider load balancers.</li><li><strong>ExternalName</strong>: Maps the service to an external DNS name.</li></ul><h3 id=ingress-controllers>Ingress Controllers</h3><p>Manage external access to services, typically HTTP.</p><ul><li><strong>Popular Ingress Controllers</strong>:<ul><li><strong>NGINX Ingress Controller</strong></li><li><strong>Traefik</strong></li><li><strong>HAProxy</strong></li></ul></li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>networking.k8s.io/v1</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>kind</span>: <span style=color:#ae81ff>Ingress</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>metadata</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>example-ingress</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>spec</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>rules</span>:
+</span></span><span style=display:flex><span>  - <span style=color:#f92672>host</span>: <span style=color:#ae81ff>example.com</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>http</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>paths</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>path</span>: <span style=color:#ae81ff>/</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>pathType</span>: <span style=color:#ae81ff>Prefix</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>backend</span>:
+</span></span><span style=display:flex><span>          <span style=color:#f92672>service</span>:
+</span></span><span style=display:flex><span>            <span style=color:#f92672>name</span>: <span style=color:#ae81ff>my-service</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>port</span>:
+</span></span><span style=display:flex><span>              <span style=color:#f92672>number</span>: <span style=color:#ae81ff>80</span>
+</span></span></code></pre></div><h3 id=dns-management>DNS Management</h3><p>Kubernetes provides internal DNS for service discovery. Ensure proper DNS setup for ClusterDNS.</p><h3 id=service-mesh>Service Mesh</h3><p>Implement advanced networking features like traffic management, security, and observability.</p><ul><li><strong>Popular Service Meshes</strong>:<ul><li><strong>Istio</strong></li><li><strong>Linkerd</strong></li><li><strong>Consul Connect</strong></li></ul></li></ul><h2 id=storage-management>Storage Management</h2><h3 id=persistent-volumes-pvs-and-persistent-volume-claims-pvcs>Persistent Volumes (PVs) and Persistent Volume Claims (PVCs)</h3><p>Use PVs and PVCs to manage storage resources dynamically.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>v1</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>kind</span>: <span style=color:#ae81ff>PersistentVolumeClaim</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>metadata</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>pvc-example</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>spec</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>accessModes</span>:
+</span></span><span style=display:flex><span>    - <span style=color:#ae81ff>ReadWriteOnce</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>resources</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>requests</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>storage</span>: <span style=color:#ae81ff>10Gi</span>
+</span></span></code></pre></div><h3 id=storage-classes>Storage Classes</h3><p>Define different storage backends and reclaim policies.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>storage.k8s.io/v1</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>kind</span>: <span style=color:#ae81ff>StorageClass</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>metadata</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>fast</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>provisioner</span>: <span style=color:#ae81ff>kubernetes.io/aws-ebs</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>parameters</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>type</span>: <span style=color:#ae81ff>gp2</span>
+</span></span></code></pre></div><h3 id=data-backup-and-restore>Data Backup and Restore</h3><p>Implement backup strategies for persistent data using tools like <strong>Velero</strong> or <strong>Kasten</strong>.</p><h2 id=monitoring-and-logging>Monitoring and Logging</h2><h3 id=monitoring-tools>Monitoring Tools</h3><ul><li><strong>Prometheus</strong>: Metrics collection and alerting.</li><li><strong>Grafana</strong>: Visualization of metrics.</li><li><strong>Kube-state-metrics</strong>: Kubernetes specific metrics.</li></ul><h3 id=logging-solutions>Logging Solutions</h3><ul><li><strong>ELK Stack (Elasticsearch, Logstash, Kibana)</strong></li><li><strong>Fluentd</strong></li><li><strong>Graylog</strong></li><li><strong>Loki</strong></li></ul><h3 id=alerting>Alerting</h3><p>Set up alerts for critical metrics and events using <strong>Alertmanager</strong> or integrated tools with Prometheus.</p><h2 id=deployment-strategies>Deployment Strategies</h2><h3 id=rolling-updates>Rolling Updates</h3><p>Gradually replace Pods with new ones to ensure zero downtime.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>apps/v1</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>kind</span>: <span style=color:#ae81ff>Deployment</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>metadata</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>rolling-update-deployment</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>spec</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>replicas</span>: <span style=color:#ae81ff>3</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>strategy</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>type</span>: <span style=color:#ae81ff>RollingUpdate</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>rollingUpdate</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>maxUnavailable</span>: <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>maxSurge</span>: <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>selector</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>matchLabels</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>app</span>: <span style=color:#ae81ff>myapp</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>template</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>metadata</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>labels</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>app</span>: <span style=color:#ae81ff>myapp</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>spec</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>containers</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>myapp-container</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>image</span>: <span style=color:#ae81ff>myapp:v2</span>
+</span></span></code></pre></div><h3 id=bluegreen-deployments>Blue/Green Deployments</h3><p>Maintain two environments (blue and green) and switch traffic between them during updates.</p><h3 id=canary-releases>Canary Releases</h3><p>Deploy new versions to a subset of users to monitor performance before a full rollout.</p><h2 id=cicd-integration>CI/CD Integration</h2><h3 id=automated-builds-and-deployments>Automated Builds and Deployments</h3><p>Integrate Kubernetes with CI/CD pipelines for automated testing and deployment.</p><ul><li><strong>Tools</strong>: <strong>Jenkins</strong>, <strong>GitLab CI/CD</strong>, <strong>GitHub Actions</strong>, <strong>Argo CD</strong></li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#75715e># Example GitHub Actions Workflow</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>name</span>: <span style=color:#ae81ff>CI/CD Pipeline</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>on</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>push</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>branches</span>: [ <span style=color:#ae81ff>main ]</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>jobs</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>build</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>runs-on</span>: <span style=color:#ae81ff>ubuntu-latest</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>steps</span>:
+</span></span><span style=display:flex><span>    - <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>actions/checkout@v2</span>
+</span></span><span style=display:flex><span>    - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Build Docker Image</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>run</span>: <span style=color:#ae81ff>docker build -t myapp:${{ github.sha }} .</span>
+</span></span><span style=display:flex><span>    - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Push to Registry</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>run</span>: <span style=color:#ae81ff>docker push myapp:${{ github.sha }}</span>
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#f92672>deploy</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>runs-on</span>: <span style=color:#ae81ff>ubuntu-latest</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>needs</span>: <span style=color:#ae81ff>build</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>steps</span>:
+</span></span><span style=display:flex><span>    - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Deploy to Kubernetes</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>appleboy/k8s-action@v1.0.0</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>with</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>kubeconfig</span>: <span style=color:#ae81ff>${{ secrets.KUBECONFIG }}</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>args</span>: <span style=color:#ae81ff>kubectl set image deployment/myapp-deployment myapp=myapp:${{ github.sha }}</span>
+</span></span></code></pre></div><h3 id=gitops>GitOps</h3><p>Adopt Git-centric workflows using tools like <strong>Argo CD</strong> or <strong>Flux</strong> to manage deployments declaratively.</p><h2 id=troubleshooting-tips>Troubleshooting Tips</h2><h3 id=common-issues>Common Issues</h3><ul><li><strong>Pod Failing to Start</strong>: Check events and logs.</li><li><strong>Service Unreachable</strong>: Verify Service and Ingress configurations.</li><li><strong>Resource Limits Exceeded</strong>: Adjust requests and limits.</li></ul><h3 id=debugging-tools>Debugging Tools</h3><ul><li><strong>kubectl</strong>: Interact with Kubernetes clusters.<ul><li><code>kubectl describe pod &lt;pod-name></code></li><li><code>kubectl logs &lt;pod-name></code></li><li><code>kubectl exec -it &lt;pod-name> -- /bin/bash</code></li></ul></li><li><strong>k9s</strong>: Terminal UI to manage Kubernetes clusters.</li><li><strong>Lens</strong>: Kubernetes IDE for visual management.</li></ul><h2 id=examples>Examples</h2><h3 id=sample-deployment-yaml>Sample Deployment YAML</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>apps/v1</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>kind</span>: <span style=color:#ae81ff>Deployment</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>metadata</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>myapp-deployment</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>labels</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>app</span>: <span style=color:#ae81ff>myapp</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>spec</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>replicas</span>: <span style=color:#ae81ff>3</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>selector</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>matchLabels</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>app</span>: <span style=color:#ae81ff>myapp</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>template</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>metadata</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>labels</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>app</span>: <span style=color:#ae81ff>myapp</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>spec</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>containers</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>myapp-container</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>image</span>: <span style=color:#ae81ff>myapp:1.0.0</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>ports</span>:
+</span></span><span style=display:flex><span>        - <span style=color:#f92672>containerPort</span>: <span style=color:#ae81ff>80</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>env</span>:
+</span></span><span style=display:flex><span>        - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>ENVIRONMENT</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>value</span>: <span style=color:#e6db74>&#34;production&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>resources</span>:
+</span></span><span style=display:flex><span>          <span style=color:#f92672>requests</span>:
+</span></span><span style=display:flex><span>            <span style=color:#f92672>memory</span>: <span style=color:#e6db74>&#34;64Mi&#34;</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>cpu</span>: <span style=color:#e6db74>&#34;250m&#34;</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>limits</span>:
+</span></span><span style=display:flex><span>            <span style=color:#f92672>memory</span>: <span style=color:#e6db74>&#34;128Mi&#34;</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>cpu</span>: <span style=color:#e6db74>&#34;500m&#34;</span>
+</span></span></code></pre></div><h3 id=sample-service-yaml>Sample Service YAML</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>v1</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>kind</span>: <span style=color:#ae81ff>Service</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>metadata</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>myapp-service</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>spec</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>selector</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>app</span>: <span style=color:#ae81ff>myapp</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>ports</span>:
+</span></span><span style=display:flex><span>    - <span style=color:#f92672>protocol</span>: <span style=color:#ae81ff>TCP</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>port</span>: <span style=color:#ae81ff>80</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>targetPort</span>: <span style=color:#ae81ff>80</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>type</span>: <span style=color:#ae81ff>LoadBalancer</span>
+</span></span></code></pre></div><p><strong>Happy Orchestrating!</strong> 🚀</p></section><footer class="mt-12 flex flex-wrap"><a class="mb-1.5 ltr:mr-1.5 rtl:ml-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] dark:bg-white/[8%] dark:hover:bg-white/[12%]" href=https://bleedkagax.github.io/tags/systemdesign>SystemDesign</a></footer><nav class="mt-24 flex overflow-hidden rounded-xl bg-black/[3%] text-lg !leading-[1.2] *:flex *:w-1/2 *:items-center *:p-5 *:font-medium *:no-underline dark:bg-white/[8%] [&>*:hover]:bg-black/[2%] dark:[&>*:hover]:bg-white/[3%]"><a class="ltr:pr-3 rtl:pl-3" href=https://bleedkagax.github.io/post/4_docker/><span class="ltr:mr-1.5 rtl:ml-1.5">←</span><span>Docker</span></a>
+<a class="ltr:ml-auto rtl:mr-auto justify-end pl-3" href=https://bleedkagax.github.io/post/1_lua/><span>Lua</span><span class="ltr:ml-1.5 rtl:mr-1.5">→</span></a></nav><script type=module>
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script><script>Array.from(document.getElementsByClassName("language-mermaid")).forEach(e=>{e.parentElement.outerHTML=`<div class="mermaid [&_svg]:block [&_svg]:m-auto">${e.innerHTML}</div>`})</script></article></main><footer class="mx-auto flex h-[4.5rem] max-w-[--w] items-center px-8 text-xs uppercase tracking-wider opacity-60"><div class=mr-auto>&copy; 2025
+<a class=link href=https://bleedkagax.github.io/>Kaga Blog</a></div><a class="link mx-6" href=https://gohugo.io/ rel=noopener target=_blank>powered by hugo️️</a>️
+<a class=link href=https://github.com/nanxiaobei/hugo-paper rel=noopener target=_blank>hugo-paper</a></footer></body></html>
