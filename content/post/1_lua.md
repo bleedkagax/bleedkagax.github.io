@@ -352,6 +352,9 @@ Metatables allow you to define custom behavior for tables through metamethods.
 mt = {
     __add = function(a, b)
         return {value = a.value + b.value}
+    end,
+    __tostring = function(t)
+        return "Value: " .. t.value
     end
 }
 
@@ -364,7 +367,12 @@ setmetatable(b, mt)
 
 -- Using the __add metamethod
 c = a + b
-print(c.value) -- 30
+print(tostring(c))
+
+-- 使用 __tostring 元方法
+setmetatable(c, mt)
+print(tostring(c))
+
 ```
 
 ### Error Handling
@@ -388,6 +396,15 @@ function errorHandler(err)
 end
 
 status, err = xpcall(riskyFunction, errorHandler)
+if not status then
+    print("Error caught: ", err)
+end
+```
+
+Output:
+```
+Error caught: [string "function riskyFunction()..."]:2: Something went wrong!
+Custom handler: [string "function riskyFunction()..."]:2: Something went wrong!
 ```
 
 ## Advanced Features
@@ -412,6 +429,27 @@ coroutine.resume(co) -- Coroutine iteration: 3
 
 print(coroutine.status(co)) -- dead
 ```
+
+
+
+Here's the key points about coroutines formatted in Markdown:
+
+#### Key Points About Coroutines
+
+1. **Concept**: Coroutines in Lua are a way to have multiple threads of execution within a single OS thread.
+
+2. **Creation**: `coroutine.create()` creates a coroutine but doesn't start it.
+
+3. **Execution**: `coroutine.resume()` starts or continues a coroutine's execution.
+
+4. **Suspension**: `coroutine.yield()` suspends the coroutine's execution, allowing it to be resumed later.
+
+5. **States**: A coroutine can be in one of three states:
+   - `"suspended"`: waiting to be resumed
+   - `"running"`: currently executing
+   - `"dead"`: finished executing
+
+6. **OpenResty Usage**: In OpenResty, coroutines can be particularly useful for managing asynchronous operations without blocking the Nginx event loop.
 
 ### Module System
 
@@ -1304,6 +1342,22 @@ collectgarbage("setpause", 110)
 collectgarbage("setstepmul", 200)
 ```
 
+`collectgarbage("setpause", 110)`:
+
+- Controls how long the garbage collector waits before starting a new collection cycle
+- The value 110 means the collector waits until memory usage grows by 110% (more than double) before starting a new cycle
+- Default is 200 (wait until triple the memory usage)
+- Lower values mean more frequent collections but more CPU usage
+- Higher values mean less frequent collections but more memory usage
+
+`collectgarbage("setstepmul", 200)`:
+
+- Controls how fast the garbage collector runs during a collection cycle
+- The value 200 means the collector will run twice as fast as the memory allocation speed
+- Default is 200
+- Lower values make collection slower but reduce CPU impact
+- Higher values make collection faster but use more CPU
+
 ### Profiling and Benchmarking
 
 Use profiling tools to identify performance bottlenecks.
@@ -1571,10 +1625,6 @@ Hello everyone!
 - **GitHub Lua Repositories:** Explore and contribute to Lua projects on [GitHub](https://github.com/search?q=lua).
 
 ## Conclusion
-
-Lua is a versatile and efficient scripting language that excels in embedding within applications, game development, web applications, and more. Its simple syntax, powerful features, and ease of integration make it a valuable tool for developers across various domains.
-
-This comprehensive tutorial has covered everything from installation and basic syntax to advanced features and practical use cases. By mastering Lua, you can enhance your applications' flexibility, performance, and maintainability.
 
 ### Key Takeaways
 
