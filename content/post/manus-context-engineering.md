@@ -1,5 +1,5 @@
 ---
-title: 2025-07-19 - Manus Context Engineering
+title: Manus Context Engineering
 date: 2025-07-19
 tags:
   - AI
@@ -8,7 +8,7 @@ tags:
 share: "true"
 ---
 
-## 2025-07-19 - Manus Context Engineering
+## Manus Context Engineering
 
 来源：`https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus`
 
