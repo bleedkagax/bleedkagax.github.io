@@ -8,126 +8,126 @@ tags:
 share: "true"
 ---
 
-Essentially, **refactoring is improving the design of code after it's been written**.
+本质上，**重构就是在代码写完之后改进其设计**。
 
-If you want to add a feature to a program, but find that the code isn't easy to change due to a lack of good structure, refactor that program first so that it's easier to add the feature, and then add the feature.
+如果你想给程序添加一个功能，但发现由于结构不佳导致代码不易修改，那么应该先重构，让它更容易加功能，然后再加功能。
 
-It is the change in **requirements** that makes refactoring necessary.
+正是**需求**的变化使得重构变得必要。
 
-The refactoring technique is to **modify the program at a tiny pace**. If you make a mistake, it's easy to spot it.
+重构的技巧是**以极小的步幅修改程序**。一旦出错，也更容易被发现。
 
-The test of good code is how easily one can modify it.
+好代码的检验标准：它**有多容易被修改**。
 
-To summarize:
+总结：
 
-The key takeaways for efficient and organized refactoring are: **Smaller steps lead to faster progress**, keep your code in a working state forever, and small changes add up to a much better system design. Refactoring is not a “silver bullet”, but it can be considered a “silver tongs”, which can help you always have good control over your code. Refactoring is a tool.
+高效且有条理的重构关键点是：**小步快跑**、让代码始终处于可工作的状态、微小改动最终会累积成更好的系统设计。重构不是“银弹”，更像“银钳子”——它能帮助你始终牢牢控制住代码。重构是一种工具。
 
-# **1. Bad taste in code**
+# **1. 代码中的坏味道（Bad Smells）**
 
-## 1\. **Mysterious Name**
+## 1\. **神秘命名（Mysterious Name）**
 
-  There are only two hard things in Computer Science: cache invalidation
-  and naming things\-- Phil Karlt
+  计算机科学只有两件难事：缓存失效（cache invalidation）
+  以及命名（naming things）—— Phil Karlton
 
-Naming is one of the two hardest things in programming. Because of this, renaming is probably the most commonly used refactoring technique, including changing function declarations (for renaming functions), variable renaming, and field renaming.
+命名是编程中最难的两件事之一。因此，重命名大概也是最常用的重构手法：包括修改函数声明（用于重命名函数）、重命名变量、重命名字段。
 
-## 2\. **Global Data**
+## 2\. **全局数据（Global Data）**
 
-**Wrapped Variables**. It may not hurt to have a small amount of global data, but the larger the number, the exponentially more difficult it is to deal with.
+**封装变量（Wrapped Variables）**。少量全局数据未必有害，但数量越多，处理起来的难度往往呈指数级上升。
 
-## 3\. **Mutable Data**
+## 3\. **可变数据（Mutable Data）**
 
-Encapsulated variables can be **used to ensure that all data update operations are performed through very few functions**, making them easier to monitor and evolve.
+封装变量可以**确保所有数据更新操作都通过很少的几个函数完成**，从而更易监控与演进。
 
-**If a variable is used to store different things at different times, split variables can be used to split it into variables for their own different purposes, thus avoiding dangerous update operations**.
+**如果一个变量在不同时间存放不同含义的东西，可以用“拆分变量（Split Variable）”把它拆成各司其职的多个变量，从而避免危险的更新操作。**
 
-Use move statements and refine functions to try to move logic out of the code that handles update operations, separating code that has no side effects from code that performs data update operations.
+使用“搬移语句（Move Statements）”与“提炼函数（Extract Function）”，尽量把逻辑从处理更新操作的代码里挪出去，把**无副作用的代码**与**执行数据更新的代码**分离开。
 
-When designing APIs, you can use ** to separate query functions from modification functions**.
+在设计 API 时，可以使用 **命令-查询分离（Command-Query Separation, CQS）** 来分离查询函数与修改函数。
 
-Use **Remove set-value functions** as early as possible to narrow the variable scope.
+尽早使用 **移除设值函数（Remove Setting Method / Remove set-value functions）** 来缩小变量的作用域。
 
-## 4\. **Long Functions**
+## 4\. **过长函数（Long Functions）**
 
-**Actively Decompose Functions.**
+**主动分解函数。**
 
-Principle: **Whenever we feel that we need to explain something in a comment, we write what we need to explain in a separate function and name it after its purpose (not how it was implemented)**.
+原则：**每当我们觉得需要用注释解释某段代码时，就把需要解释的内容提炼成一个独立函数，并按“目的”命名（而不是按实现方式命名）。**
 
-What kind of function is too long? More than 50 lines? More than 70 lines? It's not the length of the function that matters, it's the semantic distance between the “what” and “how” of the function.
+什么样的函数算太长？超过 50 行？超过 70 行？关键不在于行数，而在于函数的“做什么（what）”与“怎么做（how）”之间的语义距离有多远。
 
-How do you determine which piece of code to refine? A good tip is to **look for comments. They usually indicate the semantic distance between what the code does and how it does it.**
+如何判断应该提炼哪段代码？一个好技巧是**去找注释**：注释往往提示了“做什么”与“怎么做”的语义距离。
 
-**Conditional expressions and loops often signal refinement as well**. Conditional expressions can be handled using decomposition conditional expressions.
+**条件表达式和循环也常常是需要提炼的信号。** 条件表达式可以通过分解条件（Extract/Decompose Conditional）来处理。
 
-**For huge switch statements, each branch should be turned into a separate function call by refining the function. If there are multiple switch statements that branch selection based on the same condition, you should use replace conditional expressions with polymorphism.**
+**对于巨大的 switch，每个分支都应该通过提炼函数变成一次独立的函数调用。** 如果存在多个 switch 都基于同一个条件进行分支选择，应考虑用**多态替换条件表达式（Replace Conditional with Polymorphism）**。
 
-**Loops and code within loops should be refined into a separate function**. If you find the distilled loop hard to name, it may be because it does several different things in it. If this is the case, be brave and use a split loop to break it up into its own separate tasks.
+**循环以及循环内部的代码也应该被提炼成独立函数。** 如果你发现提炼后的循环难以命名，可能是因为它同时做了多件事；这时就该果断使用**拆分循环（Split Loop）**，把不同任务拆开。
 
-## 5\. **Long Parameter List**
+## 5\. **过长参数列表（Long Parameter List）**
 
-**If it is possible to launch a query on one parameter to get the value of another parameter, then this second parameter can be removed by replacing the parameter with a query.**
+**如果可以用某个参数发起查询得到另一个参数的值，那么后者就可以通过“以查询取代参数（Replace Parameter with Query）”移除。**
 
-If you find yourself pulling a lot of data items out of an existing data structure, consider **Using the Keep Objects Intact technique to pass directly into the original data structure**. **If there are several parameters that always appear at the same time, you can combine them into a single object** by introducing a parameter object.
+如果你发现自己总是从现有数据结构中抽取一堆字段出来传参，考虑使用 **保持对象完整（Preserve Whole Object / Keep Objects Intact）** 直接传入原始对象。**如果有几个参数总是结伴出现，可以通过“引入参数对象（Introduce Parameter Object）”把它们合并成一个对象。**
 
-If a parameter is used as a flag to distinguish the behavior of a function, remove the flag parameter.
+如果某个参数只是用作区分函数行为的旗标（flag），就移除这个旗标参数。
 
-**Using classes can effectively shorten the argument list**. Introducing a class makes particular sense if multiple functions have the same few parameters. You can use functions combined into classes to make these common parameters into fields of this class.
+**使用类可以有效缩短参数列表。** 当多个函数共享同一组参数时，引入一个类尤其合适：把这些共同参数变成该类的字段，然后把相关函数组合进类中。
 
-## 6\. **Shotgun Surgery**
+## 6\. **霰弹式修改（Shotgun Surgery）**
 
-**If you have to make many small modifications within many different classes every time you encounter some kind of change**, the bad taste you're facing is Shotgun Surgery.
+**如果每次遇到某类变化，你都不得不在许多不同的类里做很多细碎改动**，那你面对的坏味道就是霰弹式修改。
 
-**Moving functions and moving fields puts all the code that needs to be modified into the same module**. If **there are a lot of functions that operate on similar data, you can use a combination of functions into a class**. If some functions function to transform or enrich data structures, you can use functions to combine into transformations. If the output of some functions can be combined and made available to a piece of logic that specializes in using the results of those computations, this is often useful **Split Stage (e.g., parsing an order before calculating the price of an order**)**.
+**搬移函数与搬移字段**可以把需要一起修改的代码放到同一个模块中。若**有很多函数操作相似的数据**，可以用“组合函数成类（Combine Functions into Class）”。若某些函数用于转换或丰富数据结构，可以把它们组合成转换流程。若多个函数的输出可以组合并提供给一段专门使用这些计算结果的逻辑，常常适合使用**拆分阶段（Split Phase，例如：先解析订单，再计算订单价格）**。
 
-A common strategy is to use refactoring related to inlining ------ such as **inline functions** (or inline classes) ------ to yank logic that shouldn't be scattered back into one place**. After you've finished inlining, you may smell an overly long function or overly large class, and then use refactoring techniques related to refinement to break it up into more sensible chunks.
+常见策略是先用与“内联（inline）”相关的重构（例如 **内联函数（Inline Function）** 或内联类）把不该四散的逻辑先“拽回一处”。内联完成后，你可能会闻到“函数过长”或“类过大”的味道，再用提炼相关的重构把它拆成更合理的块。
 
-## 7\. **Comments**.
+## 7\. **注释（Comments）**
 
-**If you need comments to explain what a piece of code does, try refining the function**; **If the function has been refined but still needs comments to explain its behavior, try renaming it with a change to the function declaration**; **If you need comments to explain the specification of some system requirement, try introducing an assertion.
+**如果你需要注释来解释某段代码在做什么，先尝试提炼函数**；**如果函数已经提炼了仍需要注释解释其行为，尝试通过“修改函数声明（Change Function Declaration）”重命名**；**如果你需要注释来解释某个系统需求的规格，考虑引入断言（Introduce Assertion）**。
 
-**When you feel the need to write comments, try refactoring first and try making all comments redundant.**
+**当你觉得需要写注释时，先尝试重构，让注释变得多余。**
 
-## 8\. **Data Clumps**.
+## 8\. **数据泥团（Data Clumps）**
 
-Data that always appears tied together really should have objects of their own.
+总是一起出现的一组数据，真的应该拥有自己的对象。
 
-## 9\. Repeated Switches 
+## 9\. **重复的 Switch（Repeated Switches）**
 
-Polymorphism.
+多态（Polymorphism）。
 
-## 10\. **Lazy Element
+## 10\. **懒惰元素（Lazy Element）**
 
-As the refactoring progresses it gets smaller and smaller and the class ends up with only one function. Remove this class in time to use inline functions or inline classes.
+随着重构推进，一个类可能变得越来越小，最后只剩一个函数。及时移除这个类，改用内联函数或内联类。
 
-## 11\. **Refused Bequest**.
+## 11\. **被拒绝的遗赠（Refused Bequest）**
 
-Subclasses should inherit functions and data from the superclass.
+子类应该继承父类的函数和数据。
 
-If you do not want to support the interface of the superclass, you should not be false to the inheritance system, and you should use delegates (using combinations instead of inheritance) instead of subclasses or delegates instead of superclasses to draw a line in the sand.
+如果你不想支持父类的接口，就别假装使用继承体系：用**委托（delegation，组合优于继承）**来替代继承（用组合/委托代替子类化），明确划清边界。
 
-# **2. First set of reconstructions**
+# **2. 第一组重构手法（First Set of Refactorings）**
 
-## 1\. **Extract Function**
+## 1\. **提炼函数（Extract Function）**
 
 ![](/img/0_refactor.png)
 
 ![](/img/0_refactor-1.png)
 
-**Separate Intent from Implementation**: If you need to spend time browsing through a piece of code to figure out what it's actually doing, then you should distill it down to a function and name it according to what it does. Because most of the time you don't need to care about how the function accomplishes its purpose (that's what the function does inside)
+**将意图与实现分离（Separate Intent from Implementation）**：如果你需要花时间浏览一段代码才能搞清楚它到底在做什么，那就把它提炼成一个函数，并根据“它做什么”来命名。因为大多数时候，你不需要关心它是如何实现目的的（那是函数内部的事）。
 
-Good names: in a big function, a piece of code puts a comment that distills it into a function, and the comment often suggests a good name.
+好名字的一个线索：在大函数里，常见做法是先写注释说明某段代码要做的事，然后把那段代码提炼成函数——而注释本身往往就是一个好名字。
 
-**Practice***
+**Practice**：
 
-**Create a new function: name it after “what it does”, not “how it does it”**.
+**创建一个新函数：按“做什么”命名，而不是按“怎么做”命名。**
 
-Without local variables, refine directly into a function;
+没有局部变量：直接提炼成函数；
 
-with local variables but read-only, passed as arguments to the target function
+有局部变量但只读：作为参数传给目标函数；
 
-Local variables are assigned values: declared directly in the refining function if they are used only within the refining function; used outside the refining function as the return value of the refining function; multiple variables are modified by considering returning an object or using other refactoring techniques (querying instead of temporary variables, splitting variables)
+局部变量会被赋值：若仅在提炼出的函数中使用，就在该函数中声明；若提炼后还需在外部使用，就将其作为返回值；若需要修改多个变量，考虑返回一个对象，或使用其他重构手法（例如：以查询取代临时变量、拆分变量等）。
 
-## 2\. **Inline Function**
+## 2\. **内联函数（Inline Function）**
 
 ![](/img/0_refactor-2.png)
 
@@ -135,101 +135,101 @@ Local variables are assigned values: declared directly in the refining function 
 
 ![](/img/0_refactor-4.png)
 
-**Indirectness may help, but non-essential indirectness is always uncomfortable.**
+**间接层可能有帮助，但不必要的间接层总让人不舒服。**
 
-Some functions have their contents and names clear and easy to read
+有些函数本身内容和名字都清晰易读，就没必要绕一层。
 
-A group of functions is not well organized, inline to one big function first, then refine.
+若一组函数组织得很差，先把它们内联回一个大函数里，再重新提炼整理。
 
-## 3\. **Extract Variable**
+## 3\. **提炼变量（Extract Variable）**
 
 ![](/img/0_refactor-5.png)
 
 ![](/img/0_refactor-6.png)
 
-**Variables provide the right context**: they help us break up expressions into more manageable forms, and also make it easier to understand what a portion of the code is doing.
+**变量提供了合适的上下文**：它能把复杂表达式拆成更易管理的形式，也更容易理解某一部分代码在做什么。
 
-According to The Tao of Tidy Code, “**Use explanatory variables to break up the computation into a series of well-named intermediate values**”.
+《The Tao of Tidy Code》提到：“**使用解释性变量，把计算拆成一系列命名良好的中间值**。”
 
-## 4\. **Inline Variable**
+## 4\. **内联变量（Inline Variable）**
 
 ![](/img/0_refactor-7.png)
 
 ![](/img/0_refactor-8.png)
 
-Sometimes, **variable names are no more expressive** than the expression itself. There are also times when variables may get in the way of refactoring nearby code.
+有时，**变量名并不比表达式本身更有表现力**；也有时变量会妨碍附近代码的重构。
 
-## 5\. **Rename Variable**
+## 5\. **重命名变量（Rename Variable）**
 
 ![](/img/0_refactor-9.png)
 
-Explain what a piece of program is doing, **and be more careful naming fields whose scope extends beyond a single function call.**
+变量名应该解释程序在做什么，**对作用域超出单次函数调用的字段命名要更谨慎**。
 
-## 6\. **Change Function Declaration**
+## 6\. **修改函数声明（Change Function Declaration）**
 
 ![](/img/0_refactor-10.png)
 
-A good name gives an immediate indication of what the **function is used for**;
+好名字能立刻提示这个**函数用来做什么**；
 
-The argument list of a **function** describes how the function coexists with the outside world, and modifying the argument list not only increases the scope of the function's application, but also removes unnecessary coupling by changing the conditions required to connect a module.
+函数的参数列表描述了它与外部世界如何共处。调整参数列表不仅能扩大函数适用范围，也能通过改变模块连接所需条件来移除不必要的耦合。
 
-**"A good way to improve the name of a function: write a comment describing what the function is used for, then turn that comment into the name of the function.”**
+**“改进函数名的一个好办法：先写一条注释描述这个函数用来做什么，然后把这条注释变成函数名。”**
 
-## 7\. **Introduce Parameter Object**
+## 7\. **引入参数对象（Introduce Parameter Object）**
 
 ![](/img/0_refactor-11.png)
 
-Organize data into structures that make the **relationships** between data items clearer;
+把数据组织成结构，让数据项之间的**关系**更清晰；
 
-**shorter parameter list**;
+**更短的参数列表**；
 
-**Code consistency**: all functions that use this data structure can access elements of it by the same name.
+**一致性**：所有使用该数据结构的函数，都能用同样的名字访问其中元素。
 
-Changing the conceptual picture of the code elevates these data structures to new abstractions
+改变代码的概念图景，会把这些数据结构提升为新的抽象。
 
-## 8\. **Combine Functions into Class**
+## 8\. **组合函数成类（Combine Functions into Class）**
 
 ![](/img/0_refactor-12.png)
 
-**If you find a group of functions that manipulate the same piece of data (usually by passing that piece of data as a parameter to the function), it's time to form a class**. Classes explicitly provide a common environment for these functions, and calling them from within an object simplifies function calls by passing many fewer arguments.
+**如果你发现一组函数在操纵同一块数据（通常是把那块数据作为参数传入函数），就该把它们组织成一个类了。** 类显式提供一个共同环境；从对象内部调用这些函数时，可以通过更少的参数传递来简化调用。
 
-## 9\. **Split Phase**
+## 9\. **拆分阶段（Split Phase）**
 
 ![](/img/0_refactor-13.png)
 
-A piece of code that handles two different things at **simultaneously** can be considered to be **split into its own separate modules**, because then each topic can be handled separately when it comes time to make changes.
+一段代码如果**同时**处理两件不同的事情，就应该考虑**拆分成独立模块**：这样在需要改动时，每个主题都能分别处理。
 
-# **3. Encapsulate**
+# **3. 封装（Encapsulate）**
 
-## 1\. **Encapsulate Record**
+## 1\. **封装记录（Encapsulate Record）**
 
 ![](/img/0_refactor-14.png)
 
-Objects can hide details of the structure, **help with renaming of fields**, and are easy to expand to cope with changes.
+对象可以隐藏结构细节，**帮助字段重命名**，并且容易扩展以应对变化。
 
-## 2\. **Encapsulate Variable**
+## 2\. **封装变量（Encapsulate Variable）**
 
 ![](/img/0_refactor-15.png)
 
-For all mutable data, as long as its scope extends beyond a single function, I encapsulate it and only allow access through the function. The larger the scope of the data, the more important encapsulation becomes.
+对所有可变数据，只要其作用域超出单个函数，我就会封装它，并且只允许通过函数访问。数据作用域越大，封装就越重要。
 
-## 3\. **Encapsulate Collection**
+## 3\. **封装集合（Encapsulate Collection）**
 
 ![](/img/0_refactor-16.png)
 
-One mistake people often make when encapsulating collections is that ** only encapsulates access to the collection variables, but still lets the fetch function return the collection itself. This allows the collection's member variables to be modified directly, while the class encapsulating it is completely unaware and unable to intervene**.
+封装集合时，人们常犯的错误是：**只封装了对集合变量的访问，却仍让获取函数返回集合本身。这样集合成员就能被直接修改，而封装它的类却完全不知情、也无法介入**。
 
-Practice:
+Practice：
 
-Provide methods to modify the collection on the class ------**Usually “add” and “remove” methods to unify the management**.
+在类上提供修改集合的方法——**通常用 “add / remove” 方法来统一管理**。
 
-## 4\. **Substitute Algorithm**
+## 4\. **替换算法（Substitute Algorithm）**
 
 ![](/img/0_refactor-17.png)
 
-# **3. Move Characteristics**
+# **3. 搬移特性（Move Features）**
 
-Another type of refactoring that is also important is **moving elements between contexts**.
+另一类同样重要的重构是**在不同上下文之间搬移元素**。
 
 ## 1\. **搬移函数（Move Function）**
 
