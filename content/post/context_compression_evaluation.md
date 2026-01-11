@@ -10,7 +10,7 @@ share: "true"
 ---
 
 # 评估AI Agent的上下文压缩策略
-![](/img/Context%20compression-1.png)
+![](/img/context_compression_evaluation.png)
 ## 执行摘要
 
 长会话超出上下文窗口会让AI Agent丢失关键信息。Factory.ai为此构建了基于探针的评估框架，用来衡量不同上下文压缩策略的“功能质量”。对比Factory、OpenAI与Anthropic三种方法，Factory的“锚定迭代式摘要”在保留技术细节上最佳：通过持续维护并增量合并结构化摘要，在准确性与上下文感知上领先，说明**结构**比单纯的**压缩率**更决定任务成败。
