@@ -40,7 +40,7 @@ Convert all mathematical notations (including LaTeX formulas and numeric express
 
 ### Script 1
 
-![](/img/202507-28.png)
+![](/img/tts-eval-emergenttts-eval.png)
 
 ```
 所以\angle BOC = 360^{\circ}-90^{\circ}-90^{\circ}-\theta=180^{\circ}-\theta。
@@ -48,12 +48,12 @@ Convert all mathematical notations (including LaTeX formulas and numeric express
 
 不使用强提示 vs 使用强提示
 
-![](img/202507.wav)
-![](img/202507-1.wav)
+![](img/tts-eval-emergenttts-eval.wav)
+![](img/tts-eval-emergenttts-eval-1.wav)
 
 ### Script 2
 
-![](/img/202507-29.png)
+![](/img/tts-eval-emergenttts-eval-1.png)
 
 ```
 解题策略：
@@ -69,8 +69,8 @@ Convert all mathematical notations (including LaTeX formulas and numeric express
 
 不使用强提示 vs 使用强提示
 
-![](img/202507-2.wav)
-![](img/202507-3.wav)
+![](img/tts-eval-emergenttts-eval-2.wav)
+![](img/tts-eval-emergenttts-eval-3.wav)
 
 ### 🏗️ EmergentTTS-Eval 完整架构
 
