@@ -22,7 +22,7 @@ share: "true"
    - a. 主流的商业 LLM API（如 OpenAI、Claude 等）或现代的开源高性能推理框架（如 vLLM、TensorRT-LLM），通常不需要显式设置缓存断点，它们会自动处理。
    - b. 在较低层次上使用模型（例如，手动管理 Hugging Face Transformers 的 `past_key_values`），或者在构建自定义推理服务时，需要自行实现 KV Cache 的管理策略。在这种情况下，需要决定在哪里“切分”上下文，将前面的部分缓存起来，以便后续的请求可以高效地重用。
 
-![](/img/202507.png)
+![](/img/manus-context-engineering.png)
 
 ### Mask, Don't Remove
 
@@ -33,7 +33,7 @@ share: "true"
 
 Manus 使用 context-aware state machine 管理工具。
 
-![](/img/202507-21.png)
+![](/img/manus-context-engineering-1.png)
 
 实践中，大部分 LLM 提供商或者推理框架支持 response prefill，约束 action space 而不用修改工具定义。
 
