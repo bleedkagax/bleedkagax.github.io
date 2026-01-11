@@ -23,11 +23,11 @@ share: "true"
 
 结果：即使是先进的 MLLM 在处理真实世界噪声时也面临显著挑战，**其性能远低于在干净图像上的表现**，Qwen-VL-Max 下降了 9.9%，Doubao-1.5-vision-pro 下降了 7.6%
 
-![](/img/202508-9.png)
+![](/img/mathreal-multimodal-math-reasoning-benchmark.png)
 
 ### MindMap
 
-![](/img/202508.png)
+![](/img/mathreal-multimodal-math-reasoning-benchmark-1.png)
 
 ### FAQ
 

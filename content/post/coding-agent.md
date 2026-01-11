@@ -13,7 +13,7 @@ share: "true"
 
 ## 🧩 Structured Communication（结构化交流）
 
-![](/img/202510.png)
+![](/img/coding-agent.png)
 
 核心流程：
 
@@ -39,7 +39,7 @@ share: "true"
 
 spec-driven development 的发展
 
-![](/img/202510-13.png)
+![](/img/coding-agent-1.png)
 
 | 工具 / 模式 | 核心定位 | 特点 |
 | --- | --- | --- |
@@ -62,11 +62,11 @@ Spec doc -> LLMs -> 代码
 
 terminal-bench leaderboard
 
-![](/img/202510-14.png)
+![](/img/coding-agent-2.png)
 
 swe-bench leaderboard
 
-![](/img/202510-15.png)
+![](/img/coding-agent-3.png)
 
 ## mini-swe-agent：极简主义 AI Agent
 
@@ -93,6 +93,6 @@ Droid 支持混合模型
 build a specification: a SOTA model  
 execute: a more cost-efficient model
 
-![](/img/202510-16.png)
+![](/img/coding-agent-4.png)
 
 
