@@ -17,11 +17,11 @@ share: "true"
 
 Tool Search Tool 对比图（Context Usage: Traditional vs. Tool Search Tool）
 
-![](/img/202511~12-9.png)
+![](/img/advanced_tool_use.png)
 
 Programmatic Tool Calling 流程图（Programmatic Tool Calling Flow）
 
-![](/img/202511~12-10.png)
+![](/img/advanced_tool_use-2.png)
 
 ### 核心要点
 
