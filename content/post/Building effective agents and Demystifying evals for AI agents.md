@@ -9,29 +9,29 @@ tags:
 share: "true"
 ---
 
-## Intro
+# Intro
 “Building effective agents” 是 Anthropic 24 年 12 月发布的 Blog, "Demystifying evals for AI agents" 则是 26 年 1 月发布的 Blog，两者是有一定联系的，一个是如何构建高效的 Agent，一个是如何评估 Agent.
-## Part1: Building effective agents
+# Part1: Building effective agents
 Building blocks, workflows, and agents
-### Building block: The augmented LLM
+## Building block: The augmented LLM
 LLM + 检索（retrieval）+ 工具（tools）+ 记忆（memory）
 ⇒ 为 LLM 提供一个简单、清晰、文档完善的统一接口
 ⇒ [Model Context Protocol](https://www.anthropic.com/news/model-context-protocol),
 ![](/img/Building%20effective%20agents%20and%20Demystifying%20evals%20for%20AI%20agents-1.png)
-### Workflow: Prompt chaining
+## Workflow: Prompt chaining
 - **将任务拆解为一系列步骤** 
 - **示例**：先做前置检查（pre-check），再进入正式处理（process）
 ![](/img/Building%20effective%20agents%20and%20Demystifying%20evals%20for%20AI%20agents-2.png)
-### Workflow: Routing
+## Workflow: Routing
 - **对输入进行分类，并将其分发到对应的专用后续任务**  
 - **示例**：文本输入 → 文本模型；图片输入 → 视觉模型
 ![](/img/Building%20effective%20agents%20and%20Demystifying%20evals%20for%20AI%20agents-3.png)
-### Workflow: Parallelization
+## Workflow: Parallelization
 - **Sectioning（拆分并行）**：把一个任务拆成彼此独立的子任务，同时并行执行  
 - **Voting（投票）**：对同一个任务多次运行，得到不同结果后再综合判断  
 - **示例**：使用多个裁判（multiple judges）共同给出最终结论
 ![](/img/Building%20effective%20agents%20and%20Demystifying%20evals%20for%20AI%20agents-4.png)
-### Workflow: Orchestrator-workers
+## Workflow: Orchestrator-workers
 - **由一个核心 LLM 动态拆解任务**  
   → 把子任务分配给多个 worker LLM  
   → 最后再统一汇总、整合结果  
@@ -42,19 +42,19 @@ LLM + 检索（retrieval）+ 工具（tools）+ 记忆（memory）
 
 - **示例**：Coding Agent
 ![](/img/Building%20effective%20agents%20and%20Demystifying%20evals%20for%20AI%20agents-6.png)
-### Workflow: Evaluator-optimizer
+## Workflow: Evaluator-optimizer
 - **循环机制**：一个 LLM 负责生成结果，另一个 LLM 负责评估并给出反馈  
 - **流程**：生成 ↔ 评估 ↔ 修正，反复迭代  
 - **示例**：复杂搜索任务（complex search tasks）
 ![](/img/Building%20effective%20agents%20and%20Demystifying%20evals%20for%20AI%20agents-5.png)
 
-### Agents
+## Agents
 自主型 Agent
 ![](/img/Building%20effective%20agents%20and%20Demystifying%20evals%20for%20AI%20agents-7.png)
 - **示例**：一个自动写代码的 Agent，用来解决 SWE-bench 上的工程级问题
 ![](/img/Building%20effective%20agents%20and%20Demystifying%20evals%20for%20AI%20agents-8.png)
-## Part2: Demystifying evals for AI agents
-### The structure of an evaluation
+# Part2: Demystifying evals for AI agents
+## The structure of an evaluation
 - **Single-turn evaluations（单轮评测）**：  
   一个提示 → 一个回复 → 一次评估  
 
@@ -76,10 +76,10 @@ LLM + 检索（retrieval）+ 工具（tools）+ 记忆（memory）
 - **Agent Harness（Agent 外壳）**：让模型能当 Agent 用的那层系统，负责调度模型和工具  
 - **Evaluation Suite（评测集）**：一组相关任务，用来测试某一类能力
 ![](/img/Building%20effective%20agents%20and%20Demystifying%20evals%20for%20AI%20agents-10.png)
-### Why build evaluations?
+## Why build evaluations?
 没有 evals，agent 只能靠感觉进化；有 evals，agent 才能被工程化地持续改进和规模化。
-### How to evaluate AI agents
-#### Types of graders for agents
+## How to evaluate AI agents
+### Types of graders for agents
 Code-based graders
 
 | **Methods** | **Strengths** | **Weaknesses** |
@@ -91,6 +91,7 @@ Code-based graders
 | **Tool calls verification**：工具调用验证（使用的工具、参数） | 易于调试 |  |
 | **Transcript analysis**：对话记录分析（交互轮数、Token 使用量） | 可验证特定条件 |  |
 
+
 Model-based graders
 
 | **Methods** | **Strengths** | **Weaknesses** |
@@ -100,6 +101,7 @@ Model-based graders
 | **Pairwise comparison**：成对比较 | 能捕捉细微差别 | 需要与人工评分进行校准以保证准确性 |
 | **Reference-based evaluation**：基于参考答案的评估 | 能处理开放式任务 |  |
 | **Multi-judge consensus**：多评审一致性 | 能处理自由格式输出 |  |
+
 Human graders
 
 | **Methods** | **Strengths** | **Weaknesses** |
@@ -110,12 +112,12 @@ Human graders
 | **A/B testing**：A/B 测试 |  |  |
 | **Inter-annotator agreement**：标注者一致性（看多个标注者对同一结果的判断是否一致） |  |  |
 
-#### Capability vs. regression evals
+### Capability vs. regression evals
 - **能力评测（Capability evals）**  
 关注“能做到什么”，通过率通常较低，用于推动能力提升。
 - **回归评测（Regression evals）**  
 关注“是否还能做到”，通过率接近 100%（曾经做对的题是否还能做对），用于防止能力倒退。
-#### Evaluating coding agents
+### Evaluating coding agents
 
 **基本思路**  
 Coding Agent 像人类开发者一样写代码、跑命令、调试和导航代码库。有效评测依赖于：  
@@ -173,7 +175,7 @@ task:
         - time_to_last_token
 ```
 
-#### Evaluating conversational agents
+### Evaluating conversational agents
 
 **基本思路**  
 对话型 Agent 像真人一样与用户持续交互，维护状态、调用工具，并在对话中采取行动。与其他 agent 不同的是，**交互质量本身就是评测目标的一部分**。有效评测依赖于：
@@ -238,7 +240,7 @@ tracked_metrics:
       - time_to_last_token
 ```
 
-#### Evaluating research agents
+### Evaluating research agents
 
 **基本思路**  
 Research Agent 做信息检索、整合与分析，输出答案或报告。研究质量无法简单用对 / 错衡量，需结合具体任务评估。
@@ -254,7 +256,7 @@ Research Agent 做信息检索、整合与分析，输出答案或报告。研�
 **关键点**  
 研究评测具有主观性，模型评分需与专家判断持续校准。
 
-#### Computer use agents
+### Computer use agents
 
 **基本思路**  
 Computer use Agent 通过截图、鼠标、键盘等 GUI 方式操作软件，而不是通过 API 或代码。评测需要在真实或沙箱环境中运行 agent，并验证其是否达成预期结果。
@@ -275,7 +277,7 @@ Computer use Agent 通过截图、鼠标、键盘等 GUI 方式操作软件，�
 
 评测重点之一是：**是否在不同场景下选择了合适的交互方式**，以提升整体效率与准确性。
 
-#### How to think about non-determinism in evaluations for agents
+### How to think about non-determinism in evaluations for agents
 
 无论哪类 agent，多次运行的行为都会不同，同一任务可能一次成功、下一次失败。因此评测关注的不只是“是否成功”，而是**成功的概率**。
 
@@ -302,7 +304,7 @@ Computer use Agent 通过截图、鼠标、键盘等 GUI 方式操作软件，�
 - **每次都要稳定** → 使用 **pass^k**
 ![](/img/Building%20effective%20agents%20and%20Demystifying%20evals%20for%20AI%20agents-11.png)
 
-### Going from zero to one: a roadmap to great evals for agents
+## Going from zero to one: a roadmap to great evals for agents
 
 核心原则：**尽早定义成功、清晰度量、持续迭代**。Evals 是 agent 工程化的基础设施。
 
@@ -352,7 +354,7 @@ Step 8：**长期维护 eval 套件**
 > **好的 eval 能在功能失败前暴露问题，在模型升级时放大收益。**
 ![](/img/Building%20effective%20agents%20and%20Demystifying%20evals%20for%20AI%20agents-12.png)
 
-### How evals fit with other methods for a holistic understanding of agents
+## How evals fit with other methods for a holistic understanding of agents
 评测与其他方法如何配合
 
 自动化 eval 只是理解 agent 表现的一部分，完整视角需要多种方法结合。
@@ -388,11 +390,11 @@ Step 8：**长期维护 eval 套件**
 **一句话总结**： 
 > **没有单一方法能覆盖所有问题，只有多层评测组合才能可靠理解 agent 表现。**
 
-### Conclusion
+## Conclusion
 **把 eval 当作核心基础设施，而不是事后补丁。**
 AI agent 评测仍是一个快速演进的领域。随着 agent 任务变长、多 agent 协作增多、工作更具主观性，评测方法也需要不断调整。  
 
-### Appendix: Eval 
+## Appendix: Eval frameworks
 
 有多种开源与商业框架可帮助团队快速落地 agent 评测，而无需从零搭建基础设施。选择取决于 agent 类型、现有技术栈，以及是偏离线评测、线上监控，还是两者兼顾。
 
